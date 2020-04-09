@@ -1,0 +1,13 @@
+# Build
+build
+
+# Generated
+.gradle
+.vscode
+android
+ios
+node_modules
+
+# Files
+src/serviceWorker.ts
+src/global.d.ts

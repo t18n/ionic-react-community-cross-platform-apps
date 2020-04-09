@@ -1,0 +1,7 @@
+{
+  "name": "Brightizen",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

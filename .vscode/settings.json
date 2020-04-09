@@ -1,0 +1,17 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "eslint.options": {
+    "rules": {
+      "prettier/prettier": "warn" // Locally report Prettier formatting as warnings.
+    }
+  },
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  },
+  "emmet.syntaxProfiles": {
+    "postcss": "css"
+  },
+  "css.lint.unknownAtRules": "ignore"
+}
