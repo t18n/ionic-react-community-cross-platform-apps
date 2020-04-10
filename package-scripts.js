@@ -2,6 +2,16 @@ const npsUtils = require('nps-utils');
 
 module.exports = {
   scripts: {
+    env: {
+      dev: {
+        script: 'env-cmd -e development',
+        description: 'Load development script environment into current session',
+      },
+      prod: {
+        script: 'env-cmd -e production',
+        description: 'Load production script environment into current session',
+      },
+    },
     bootstrap: {
       script: 'yarn install && ionic config set -g npmClient yarn',
       description:
@@ -9,7 +19,7 @@ module.exports = {
     },
     dev: {
       web: {
-        script: npsUtils.concurrent.nps('watch.web', 'watch.css'),
+        script: npsUtils.concurrent.nps('env.dev nps watch.web', 'watch.css'),
         description: 'Running web development server, watch and transform PostCSS to CSS',
       },
       ios: {

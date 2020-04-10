@@ -6,8 +6,7 @@ import { gqlClient } from './gqlClient';
 
 // Export wrapper for Apollo client
 export const ApolloProvider: FC = ({ children }) => {
-  // const client = gqlClient(process.env.REACT_APP_BR_API_HOST);
-  const client = gqlClient('http://localhost:3000');
+  const client = gqlClient(process.env.REACT_APP_BR_API_HOST);
 
   return <Provider client={client}>{children}</Provider>;
 };

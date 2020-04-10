@@ -1,10 +1,10 @@
 # Ionic React Boilerplate
 
 ## Prerequisite
-- Node installed
-- Yarn installed
+- Required softwares: `node >= 12.x`, `yarn >= 1.20`
 - XCode set up with iOS emulator
 - Android simulator
+- Create `.env/env.<environment-name>.js` file in the same format as `env.sample.js` accordingly
 
 ## Getting started
 - Clone the project and cd to project folder
