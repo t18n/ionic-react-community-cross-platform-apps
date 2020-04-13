@@ -1,5 +1,6 @@
 import './styles/index.min.css';
 
+import { useMutation } from '@apollo/client';
 import {
   IonButton,
   IonButtons,
@@ -17,29 +18,58 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
+import gql from 'graphql-tag';
 import React, { useState } from 'react';
 
 import mcl from './styles/index.pcss.json';
 
+const LOGIN = gql`
+  mutation LoginMutation($data: LoginInput!) {
+    login(data: $data) {
+      firstName
+      email
+    }
+  }
+`;
+
+interface TypeUser {
+  firstName?: string;
+  email?: string;
+}
+
 export const Login = ({ history }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [user, setUser] = useState<TypeUser>(null);
+  const [inputEmail, setInputEmail] = useState('');
+  const [inputPassword, setInputPassword] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [usernameError, setUsernameError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const [formSubmitError, setFormSubmitError] = useState(null);
 
-  const login = async (e: React.FormEvent) => {
+  const [login, { loading }] = useMutation(LOGIN);
+
+  const onLoginUser = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    if (!username) {
-      setUsernameError(true);
-    }
-    if (!password) {
-      setPasswordError(true);
+
+    if (!inputPassword || !inputEmail) {
+      setFormSubmitError('Please fill all required data');
     }
 
-    if (username && password) {
-      history.push('/explore', { direction: 'none' });
+    setFormSubmitted(true);
+
+    // Login user
+    try {
+      const result = await login({
+        variables: {
+          data: { email: inputEmail, password: inputPassword },
+        },
+      });
+
+      setUser(result.data.login);
+      setFormSubmitError(null);
+
+      // history.push('/explore', { direction: 'none' });
+    } catch (e) {
+      setFormSubmitError(`Login unsuccessfully! ${e}`);
+      return;
     }
   };
 
@@ -55,28 +85,22 @@ export const Login = ({ history }) => {
       </IonHeader>
       <IonContent>
         <div className={mcl.container}>
-          <form noValidate onSubmit={login} className={mcl.loginForm}>
+          <form noValidate onSubmit={onLoginUser} className={mcl.loginForm}>
             <IonList>
               <IonItem>
                 <IonLabel position="stacked" color="primary">
-                  Username
+                  Email
                 </IonLabel>
                 <IonInput
-                  name="username"
+                  name="email"
                   type="text"
-                  value={username}
+                  value={inputEmail}
                   spellCheck={false}
                   autocapitalize="off"
-                  onIonChange={(e) => setUsername(e.detail.value!)}
+                  onIonChange={(e) => setInputEmail(e.detail.value)}
                   required
                 ></IonInput>
               </IonItem>
-
-              {formSubmitted && usernameError && (
-                <IonText color="danger">
-                  <p>Username is required</p>
-                </IonText>
-              )}
 
               <IonItem>
                 <IonLabel position="stacked" color="primary">
@@ -85,17 +109,29 @@ export const Login = ({ history }) => {
                 <IonInput
                   name="password"
                   type="password"
-                  value={password}
-                  onIonChange={(e) => setPassword(e.detail.value!)}
+                  value={inputPassword}
+                  onIonChange={(e) => setInputPassword(e.detail.value)}
                 ></IonInput>
               </IonItem>
-
-              {formSubmitted && passwordError && (
-                <IonText color="danger">
-                  <p className="ion-padding-start">Password is required</p>
-                </IonText>
-              )}
             </IonList>
+
+            {formSubmitted && formSubmitError && (
+              <IonText color="danger">
+                <p>{formSubmitError}</p>
+              </IonText>
+            )}
+
+            {loading && (
+              <IonText color="info">
+                <p>Logging in...</p>
+              </IonText>
+            )}
+
+            {user && (
+              <IonText color="success">
+                <p>User: {user.firstName}</p>
+              </IonText>
+            )}
 
             <IonRow>
               <IonCol>
