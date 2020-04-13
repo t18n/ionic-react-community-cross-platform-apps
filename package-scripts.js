@@ -19,16 +19,19 @@ module.exports = {
     },
     dev: {
       web: {
-        script: npsUtils.concurrent.nps('env.dev nps watch.web', 'watch.css'),
-        description: 'Running web development server, watch and transform PostCSS to CSS',
+        script: npsUtils.concurrent.nps('env.dev nps watch.web', 'watch.css', 'watch.typegen'),
+        description:
+          'Running web development server, watch PostCSS transform, watch graphql typegen',
       },
       ios: {
-        script: npsUtils.concurrent.nps('watch.ios', 'watch.css'),
-        description: 'Running ios development server, watch and transform PostCSS to CSS',
+        script: npsUtils.concurrent.nps('watch.ios', 'watch.css', 'watch.typegen'),
+        description:
+          'Running ios development server, watch PostCSS transform, watch graphql typegen',
       },
       android: {
-        script: npsUtils.concurrent.nps('watch.android', 'watch.css'),
-        description: 'Running android development server, watch and transform PostCSS to CSS',
+        script: npsUtils.concurrent.nps('watch.android', 'watch.css', 'watch.typegen'),
+        description:
+          'Running android development server, watch PostCSS transform, watch graphql typegen',
       },
     },
     open: {
@@ -54,6 +57,10 @@ module.exports = {
         script: 'ionic cap run android -l --external',
         description: 'Run android development server to enable hot reload',
       },
+      typegen: {
+        script: 'nps "apollo.schema.generate --watch"',
+        description: 'Generate Apollo schema on client queries change',
+      },
       css: {
         script: 'nps "build.css -w"',
         description: 'Watch and transform PostCSS to CSS on .pcss file change',
@@ -73,6 +80,21 @@ module.exports = {
         script: "postcss 'src/**/!(_).pcss' --base src --dir src --ext min.css",
         description:
           "Transform PostCSS to CSS, excluding '_*.pcss' files and keep folder structure",
+      },
+    },
+    apollo: {
+      schema: {
+        download: {
+          script:
+            'apollo schema:download --endpoint=http://localhost:4001/graphql src/graphql/schema.gen.json',
+          description:
+            'Download GraphQL schema on the server and save it locally to generate type',
+        },
+        generate: {
+          script:
+            'apollo codegen:generate --localSchemaFile=src/graphql/schema.gen.json --target=typescript --includes=src/**/*.ts,src/**/*.tsx --tagName=gql --addTypename --globalTypesFile=src/types/graphql-types.gen.ts types',
+          description: 'Generate types for GraphQL operations or fragments from GraphQL schema',
+        },
       },
     },
     test: {

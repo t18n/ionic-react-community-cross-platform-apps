@@ -22,6 +22,7 @@ import gql from 'graphql-tag';
 import React, { useState } from 'react';
 
 import mcl from './styles/index.pcss.json';
+import { LoginMutation, LoginMutation_login, LoginMutationVariables } from './types/LoginMutation';
 
 const LOGIN = gql`
   mutation LoginMutation($data: LoginInput!) {
@@ -32,19 +33,14 @@ const LOGIN = gql`
   }
 `;
 
-interface TypeUser {
-  firstName?: string;
-  email?: string;
-}
-
 export const Login = ({ history }) => {
-  const [user, setUser] = useState<TypeUser>(null);
+  const [user, setUser] = useState<LoginMutation_login>(null);
   const [inputEmail, setInputEmail] = useState('');
   const [inputPassword, setInputPassword] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formSubmitError, setFormSubmitError] = useState(null);
 
-  const [login, { loading }] = useMutation(LOGIN);
+  const [login, { loading }] = useMutation<LoginMutation, LoginMutationVariables>(LOGIN);
 
   const onLoginUser = async (e: React.FormEvent) => {
     e.preventDefault();

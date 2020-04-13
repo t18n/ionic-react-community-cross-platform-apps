@@ -1,4 +1,10 @@
-import { ApolloClient, ApolloLink, HttpLink, InMemoryCache } from '@apollo/client';
+import {
+  ApolloClient,
+  ApolloLink,
+  HttpLink,
+  InMemoryCache,
+  NormalizedCacheObject,
+} from '@apollo/client';
 import { onError } from '@apollo/link-error';
 
 /**
@@ -29,7 +35,7 @@ export const gqlClient = (uri: string) => {
     if (networkError) console.error(`[Network error]: ${networkError}`);
   });
 
-  return new ApolloClient({
+  const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
     // Link is the same as middleware, allowing to define how each
     // GraphQL request is handled by your GraphQL client
     link: ApolloLink.from([errorLink, httpLink]),
@@ -39,4 +45,6 @@ export const gqlClient = (uri: string) => {
     // This allow us to eliminate global store like Redux
     cache: new InMemoryCache(),
   });
+
+  return client;
 };
