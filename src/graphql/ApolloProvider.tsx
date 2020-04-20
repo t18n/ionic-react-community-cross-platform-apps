@@ -2,7 +2,7 @@ import { ApolloProvider as Provider } from '@apollo/client';
 import React from 'react';
 import { FC } from 'react';
 
-import { gqlClient } from './gqlClient';
+import { gqlClient } from './client';
 
 // Export wrapper for Apollo client
 export const ApolloProvider: FC = ({ children }) => {

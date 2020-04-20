@@ -1,6 +1,5 @@
 import './styles/index.min.css';
 
-import { useMutation } from '@apollo/client';
 import {
   IonButton,
   IonButtons,
@@ -11,60 +10,66 @@ import {
   IonItem,
   IonLabel,
   IonList,
+  IonLoading,
   IonMenuButton,
   IonPage,
   IonRow,
   IonText,
   IonTitle,
+  IonToast,
   IonToolbar,
 } from '@ionic/react';
-import gql from 'graphql-tag';
 import React, { useState } from 'react';
 
+import { useLoginUser } from '../../graphql/operation/user/mutation';
+import { ME } from '../../graphql/operation/user/shape';
+import { useToast } from '../../hooks/useToast';
 import mcl from './styles/index.pcss.json';
-import { LoginMutation, LoginMutation_login, LoginMutationVariables } from './types/LoginMutation';
-
-const LOGIN = gql`
-  mutation LoginMutation($data: LoginInput!) {
-    login(data: $data) {
-      firstName
-      email
-    }
-  }
-`;
 
 export const Login = ({ history }) => {
-  const [user, setUser] = useState<LoginMutation_login>(null);
+  const [login, { loading: LOGIN_loading }] = useLoginUser();
+  const [toast, setToast] = useToast(null);
+
   const [inputEmail, setInputEmail] = useState('');
   const [inputPassword, setInputPassword] = useState('');
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formSubmitError, setFormSubmitError] = useState(null);
-
-  const [login, { loading }] = useMutation<LoginMutation, LoginMutationVariables>(LOGIN);
 
   const onLoginUser = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!inputPassword || !inputEmail) {
-      setFormSubmitError('Please fill all required data');
+      setToast({
+        status: true,
+        position: 'bottom',
+        message: `Please fill all required data`,
+        duration: 3000,
+        color: 'danger',
+      });
     }
-
-    setFormSubmitted(true);
 
     // Login user
     try {
-      const result = await login({
+      await login({
         variables: {
           data: { email: inputEmail, password: inputPassword },
         },
+        update(cache, { data: { login } }) {
+          // const { me } = cache.readQuery({ query: ME });
+          cache.writeQuery({
+            query: ME,
+            data: { me: login },
+          });
+        },
       });
 
-      setUser(result.data.login);
-      setFormSubmitError(null);
-
-      // history.push('/explore', { direction: 'none' });
+      history.push('/explore', { direction: 'none' });
     } catch (e) {
-      setFormSubmitError(`Login unsuccessfully! ${e}`);
+      setToast({
+        status: true,
+        position: 'bottom',
+        message: `Login unsuccessfully! ${e}`,
+        duration: 3000,
+        color: 'danger',
+      });
       return;
     }
   };
@@ -111,23 +116,16 @@ export const Login = ({ history }) => {
               </IonItem>
             </IonList>
 
-            {formSubmitted && formSubmitError && (
-              <IonText color="danger">
-                <p>{formSubmitError}</p>
-              </IonText>
-            )}
+            <IonToast
+              isOpen={toast?.status}
+              position={toast?.position}
+              message={toast?.message}
+              duration={toast?.duration}
+              color={toast?.color}
+              onDidDismiss={() => setToast({ ...toast, status: false })}
+            />
 
-            {loading && (
-              <IonText color="info">
-                <p>Logging in...</p>
-              </IonText>
-            )}
-
-            {user && (
-              <IonText color="success">
-                <p>User: {user.firstName}</p>
-              </IonText>
-            )}
+            {LOGIN_loading && <IonLoading isOpen={LOGIN_loading} message={'Logging in...'} />}
 
             <IonRow>
               <IonCol>
