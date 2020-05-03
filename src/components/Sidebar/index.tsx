@@ -22,7 +22,7 @@ import { libraryOutline, logIn, logOut, personCircleOutline, search } from 'ioni
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import logo from '../../assets/brand/logo-black.svg';
+import logo from '../../assets/brand/logo.svg';
 import { Footer } from '../../components/Footer';
 import { useLogoutUser } from '../../graphql/operation/user/mutation';
 import { useLoggedInUser } from '../../graphql/operation/user/query';
@@ -76,7 +76,7 @@ export const Sidebar = () => {
             <IonToolbar>
               <IonRouterLink routerLink="/">
                 <IonTitle>
-                  <img src={logo} alt="Brightizen" height="28" />
+                  <img src={logo} alt="Brightizen" height="40" />
                 </IonTitle>
               </IonRouterLink>
             </IonToolbar>
