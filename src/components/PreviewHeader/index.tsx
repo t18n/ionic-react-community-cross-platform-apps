@@ -1,42 +1,41 @@
 import './styles/index.min.css';
 
 import { IonButton, IonIcon } from '@ionic/react';
-import { ellipsisVertical, play, shuffle } from 'ionicons/icons';
-import React from 'react';
+import { albumsOutline } from 'ionicons/icons';
+import React, { FC } from 'react';
 
+import { MediumsQuery_mediums } from '../../graphql/operation/medium/types/MediumsQuery';
 import { LazyImg } from '../LazyImg';
 import mcl from './styles/index.pcss.json';
 
-export const PreviewHeader = () => (
-  <div
-    className={mcl.previewHeader}
-    style={{ backgroundImage: 'http://placeimg.com/640/360/any' }}
-  >
-    <div className={mcl.infoHeader} style={{ background: 'http://placeimg.com/640/360/any' }}>
-      <div className={mcl.tagInfo}>
-        <LazyImg
-          className={mcl.headerTag}
-          lazySrc="http://placeimg.com/640/360/any"
-          alt="Placeholder"
-        />
-        <div className={mcl.tagDetail}>
-          <h3>Name</h3>
-          <p>Data slot 1</p>
-          <p>Data slot 2</p>
-          <p>Data slot 3</p>
-          <IonButton onClick={() => console.log('start clicked')}>
-            <IonIcon slot="start" icon={play} />
-            Play
-          </IonButton>
-          <IonButton onClick={() => console.log('shuffle clicked')}>
-            <IonIcon icon={shuffle} slot="start" />
-            Shuffle
-          </IonButton>
-          <IonButton>
-            <IonIcon icon={ellipsisVertical} slot="icon-only" />
-          </IonButton>
+interface PreviewHeaderProps {
+  medium: MediumsQuery_mediums;
+}
+
+export const PreviewHeader: FC<PreviewHeaderProps> = ({ medium }) => {
+  const { title, cover, users, comments, reactions } = medium;
+
+  return (
+    <div className={mcl.previewHeader}>
+      <div className={mcl.infoHeader}>
+        <div className={mcl.mediumInfo}>
+          <LazyImg className={mcl.headerMedium} lazySrc={cover} alt={title} />
+          <div className={mcl.mediumDetail}>
+            <div>
+              <h3>Name</h3>
+              <p>Data slot 1</p>
+              <p>Data slot 2</p>
+              <p>Data slot 3</p>
+            </div>
+            <div>
+              <IonButton color="secondary" onClick={() => console.log('save to slipbox clicked')}>
+                <IonIcon slot="start" icon={albumsOutline} />
+                Save to Slipbox
+              </IonButton>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};

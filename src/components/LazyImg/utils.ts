@@ -14,8 +14,8 @@ const applyImage = (target: HTMLImageElement, src: string) => {
   });
 };
 
-export const preload = (targetEl: Element, src: string) => {
+export const preload = (targetEl: Element, src: string, loadedClass: string) => {
   return fetchImage(src)
     .then(() => applyImage(targetEl as HTMLImageElement, src))
-    .then(() => targetEl.classList.add('loaded'));
+    .then(() => targetEl.classList.add(loadedClass));
 };

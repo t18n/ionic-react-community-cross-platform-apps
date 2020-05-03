@@ -24,13 +24,13 @@
   filter: blur(4px);
 }
 
-.preview-header .medium-info {
+.preview-header .tag-info {
   display: flex;
   align-items: center;
   padding-left: var(--ion-safe-area-left);
 }
 
-.preview-header .header-medium {
+.preview-header .header-tag {
   border-radius: 4px;
   display: block;
   height: 200px !important;
@@ -39,21 +39,21 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.preview-header .medium-detail {
+.preview-header .tag-detail {
   padding: 0 16px;
   line-height: 0.6;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  color: var(--ion-color-dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
-.preview-header .medium-detail h3 {
+.preview-header .tag-detail h3 {
   font-weight: 800;
 }
 
 @media (max-width: 550px) {
-  .preview-header .header-medium {
+  .preview-header .header-tag {
     display: none;
   }
 }

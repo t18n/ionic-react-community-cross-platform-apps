@@ -22,7 +22,7 @@ export const LazyImg: FC<LazyImgProps> = ({ lazySrc, className, alt }) => {
 
   useEffect(() => {
     if (inView) {
-      preload(img.current, lazyImgSrc).then(() => entry.disconnect());
+      preload(img.current, lazyImgSrc, mcl.loaded).then(() => entry.disconnect());
     }
   }, [lazyImgSrc, inView, entry]);
 

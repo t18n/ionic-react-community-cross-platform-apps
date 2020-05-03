@@ -1,3 +1,5 @@
+import './styles/index.min.css';
+
 import {
   IonContent,
   IonHeader,
@@ -8,6 +10,7 @@ import {
   IonMenu,
   IonMenuToggle,
   IonPage,
+  IonRouterLink,
   IonRouterOutlet,
   IonSplitPane,
   IonTitle,
@@ -28,8 +31,10 @@ import { useToast } from '../../hooks/useToast';
 import { Explore } from '../../pages/Explore';
 import { Home } from '../../pages/Home';
 import { Login } from '../../pages/Login';
+import { Medium } from '../../pages/Medium';
 import { SearchPage } from '../../pages/Search';
 import { Tag } from '../../pages/Tag';
+import mcl from './styles/index.pcss.json';
 
 export const Sidebar = () => {
   const { data: ME_data } = useLoggedInUser();
@@ -66,12 +71,14 @@ export const Sidebar = () => {
   return (
     <IonReactRouter>
       <IonSplitPane contentId="main" when="(min-width: 850px)">
-        <IonMenu contentId="main">
+        <IonMenu className={mcl.mainMenu} contentId="main">
           <IonHeader>
             <IonToolbar>
-              <IonTitle>
-                <img src={logo} alt="Brightizen" height="35" />
-              </IonTitle>
+              <IonRouterLink routerLink="/">
+                <IonTitle>
+                  <img src={logo} alt="Brightizen" height="28" />
+                </IonTitle>
+              </IonRouterLink>
             </IonToolbar>
           </IonHeader>
           <IonContent>
@@ -120,7 +127,8 @@ export const Sidebar = () => {
             <Route exact path="/explore" component={Explore} />
             <Route exact path="/search" component={SearchPage} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/tags/:tagId" component={Tag} />
+            <Route exact path="/tags/:slug" component={Tag} />
+            <Route exact path="/mediums/:slug" component={Medium} />
           </IonRouterOutlet>
         </IonPage>
       </IonSplitPane>

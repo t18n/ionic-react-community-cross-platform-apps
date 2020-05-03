@@ -6,7 +6,7 @@ export const Home = ({ history }) => {
     <IonPage>
       <IonHeader translucent={true}>
         <IonToolbar>
-          <IonTitle>Brightizen</IonTitle>
+          <IonTitle>Home page</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding ion-text-center" fullscreen={true}>

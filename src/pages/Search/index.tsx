@@ -24,9 +24,10 @@ const FoundItem = ({ title, items }) => (
     <IonItemDivider sticky>
       <IonLabel>{title}</IonLabel>
     </IonItemDivider>
-    {items.map(({ id, slug, title, author, comments, reactions }) => (
+    {items.map(({ id, slug, title, author, cover, comments, reactions }) => (
       <Link to={'/books/' + slug} key={id}>
         <MediumItem
+          cover={cover}
           title={title}
           author={author}
           comments={comments}

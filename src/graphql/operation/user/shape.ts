@@ -6,6 +6,7 @@ const USER_DATA = gql`
     id
     email
     name
+    slug
     firstName
     lastName
     createdAt

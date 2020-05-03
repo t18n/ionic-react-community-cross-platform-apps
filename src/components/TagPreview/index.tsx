@@ -6,18 +6,18 @@ import React from 'react';
 import { LazyImg } from '../LazyImg';
 import mcl from './styles/index.pcss.json';
 
-export const TagPreview = ({ title }) => {
+export const TagPreview = ({ title, imgSrc, imgAlt, rating }) => {
   return (
     <div className={mcl.tagPreviewCard}>
       <IonCard>
-        <LazyImg lazySrc="http://placeimg.com/640/360/any" alt="album art" />
+        <LazyImg lazySrc={imgSrc} alt={imgAlt} />
       </IonCard>
       <IonLabel>
         <h3>
           <span>{title}</span>
-          Dataslot 2<span className={mcl.rating}> Dataslot 3 </span>
         </h3>
         <IonNote>
+          <span className={mcl.rating}>{rating}</span>
           <p>Data slot 4</p>
         </IonNote>
       </IonLabel>

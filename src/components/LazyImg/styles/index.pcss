@@ -8,11 +8,13 @@
 
 .lazy-img img {
   opacity: 0;
+  height: 100%;
+  width: 100%;
   display: block;
   transition: opacity 250ms ease-in;
   object-fit: cover;
-}
 
-.lazy-img img.loaded {
-  opacity: 1;
+  &.loaded {
+    opacity: 1;
+  }
 }

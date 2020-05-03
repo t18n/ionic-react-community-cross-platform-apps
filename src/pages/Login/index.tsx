@@ -14,7 +14,6 @@ import {
   IonMenuButton,
   IonPage,
   IonRow,
-  IonText,
   IonTitle,
   IonToast,
   IonToolbar,

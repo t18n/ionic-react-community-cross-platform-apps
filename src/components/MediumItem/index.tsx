@@ -8,9 +8,10 @@ import mcl from './styles/index.pcss.json';
 
 interface MediumItemProps {
   title: string;
-  author: string;
-  comments: number;
-  reactions: number;
+  cover?: string;
+  author?: string;
+  comments?: number;
+  reactions?: number;
   onClick?: () => void;
 }
 
@@ -20,11 +21,12 @@ export const MediumItem: FC<MediumItemProps> = ({
   comments,
   reactions,
   onClick,
-}: any) => {
+  cover,
+}) => {
   return (
     <IonItem className={mcl.mediumItem} onClick={onClick}>
       <IonThumbnail>
-        <LazyImg lazySrc="http://placeimg.com/640/360/any" alt="placeimg" />
+        <LazyImg lazySrc={cover} alt={title} />
       </IonThumbnail>
       <IonLabel>
         <h3>{title}</h3>

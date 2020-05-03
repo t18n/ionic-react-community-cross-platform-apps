@@ -14,10 +14,11 @@ import {
   IonToolbar,
   useIonViewDidEnter,
 } from '@ionic/react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { TagPreview } from '../../components/TagPreview';
+import { useMediumsQuery } from '../../graphql/operation/medium/query';
 
 export const Explore = () => {
   const [state, setState] = useState({
@@ -27,6 +28,10 @@ export const Explore = () => {
     topSearch: [],
   });
   const [isError] = useState<boolean>(false);
+
+  const { data: MEDIUM_data } = useMediumsQuery();
+
+  useEffect(() => console.log(MEDIUM_data), [MEDIUM_data]);
 
   useIonViewDidEnter(() => {
     setState({
@@ -59,16 +64,17 @@ export const Explore = () => {
             <IonList>
               <IonGrid fixed={true} className="ion-no-padding">
                 <IonListHeader>
-                  <h1>Top Tags</h1>
+                  <h1>Top Mediums</h1>
                 </IonListHeader>
                 <IonRow className="ion-justify-content-start">
-                  {state.topTags.map(({ id, slug, name }) => (
-                    <IonCol sizeLg="4" sizeXl="3" key={id} className="ion-no-padding">
-                      <Link to={`tags/${slug}`}>
-                        <TagPreview title={name} />
-                      </Link>
-                    </IonCol>
-                  ))}
+                  {MEDIUM_data &&
+                    MEDIUM_data.mediums.slice(0, 4).map(({ id, slug, title, cover }) => (
+                      <IonCol sizeLg="4" sizeXl="3" key={id} className="ion-no-padding">
+                        <Link to={`mediums/${slug}`}>
+                          <TagPreview title={title} imgSrc={cover} imgAlt={title} rating="4.5" />
+                        </Link>
+                      </IonCol>
+                    ))}
                 </IonRow>
               </IonGrid>
             </IonList>
