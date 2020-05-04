@@ -4,7 +4,6 @@ import {
   IonContent,
   IonHeader,
   IonList,
-  IonPage,
   IonSpinner,
   IonTitle,
   IonToolbar,
@@ -12,6 +11,7 @@ import {
 } from '@ionic/react';
 import React, { useState } from 'react';
 
+import { Layout } from '../../components/Layout';
 import { MediumItem } from '../../components/MediumItem';
 import { PreviewHeaderTag } from '../../components/PreviewHeaderTag';
 
@@ -23,7 +23,7 @@ export const Tag = () => {
   });
 
   return (
-    <IonPage>
+    <Layout id="tag-page">
       <IonHeader translucent={true}>
         <IonToolbar>
           <IonButtons slot="start">
@@ -54,6 +54,6 @@ export const Tag = () => {
           )}
         </IonList>
       </IonContent>
-    </IonPage>
+    </Layout>
   );
 };

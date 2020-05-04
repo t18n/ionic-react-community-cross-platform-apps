@@ -4,7 +4,6 @@ import {
   IonContent,
   IonHeader,
   IonList,
-  IonPage,
   IonSpinner,
   IonTitle,
   IonToolbar,
@@ -12,6 +11,7 @@ import {
 } from '@ionic/react';
 import React from 'react';
 
+import { Layout } from '../../components/Layout';
 import { MediumItem } from '../../components/MediumItem';
 import { PreviewHeader } from '../../components/PreviewHeader';
 import { useMediumsQuery } from '../../graphql/operation/medium/query';
@@ -29,7 +29,7 @@ export const Medium = ({
   });
 
   return (
-    <IonPage>
+    <Layout id="medium-page">
       <IonHeader translucent={true}>
         <IonToolbar>
           <IonButtons slot="start">
@@ -67,6 +67,6 @@ export const Medium = ({
           )}
         </IonList>
       </IonContent>
-    </IonPage>
+    </Layout>
   );
 };

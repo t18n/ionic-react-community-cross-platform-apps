@@ -7,7 +7,6 @@ import {
   IonList,
   IonListHeader,
   IonMenuButton,
-  IonPage,
   IonRow,
   IonSpinner,
   IonTitle,
@@ -17,6 +16,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Layout } from '../../components/Layout';
 import { TagPreview } from '../../components/TagPreview';
 import { useMediumsQuery } from '../../graphql/operation/medium/query';
 
@@ -43,7 +43,7 @@ export const Explore = () => {
   });
 
   return (
-    <IonPage>
+    <Layout id="explore-page">
       <IonHeader translucent={true}>
         <IonToolbar>
           <IonButtons slot="start">
@@ -85,6 +85,6 @@ export const Explore = () => {
           </div>
         )}
       </IonContent>
-    </IonPage>
+    </Layout>
   );
 };

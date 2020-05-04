@@ -12,7 +12,6 @@ import {
   IonList,
   IonLoading,
   IonMenuButton,
-  IonPage,
   IonRow,
   IonTitle,
   IonToast,
@@ -20,6 +19,7 @@ import {
 } from '@ionic/react';
 import React, { useState } from 'react';
 
+import { Layout } from '../../components/Layout/index';
 import { useLoginUser } from '../../graphql/operation/user/mutation';
 import { ME } from '../../graphql/operation/user/shape';
 import { useToast } from '../../hooks/useToast';
@@ -74,7 +74,7 @@ export const Login = ({ history }) => {
   };
 
   return (
-    <IonPage id="login-page">
+    <Layout id="login-page">
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
@@ -141,6 +141,6 @@ export const Login = ({ history }) => {
           </form>
         </div>
       </IonContent>
-    </IonPage>
+    </Layout>
   );
 };

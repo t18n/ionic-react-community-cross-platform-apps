@@ -16,27 +16,30 @@ import {
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 
+import { Layout } from '../../components/Layout';
 import { MediumItem } from '../../components/MediumItem';
 import useDebounce from '../../hooks/useDebounce';
 
 const FoundItem = ({ title, items }) => (
-  <IonItemGroup>
-    <IonItemDivider sticky>
-      <IonLabel>{title}</IonLabel>
-    </IonItemDivider>
-    {items.map(({ id, slug, title, author, cover, comments, reactions }) => (
-      <Link to={'/books/' + slug} key={id}>
-        <MediumItem
-          cover={cover}
-          title={title}
-          author={author}
-          comments={comments}
-          reactions={reactions}
-          onClick={() => console.log('book clicked')}
-        />
-      </Link>
-    ))}
-  </IonItemGroup>
+  <Layout id="search-page">
+    <IonItemGroup>
+      <IonItemDivider sticky>
+        <IonLabel>{title}</IonLabel>
+      </IonItemDivider>
+      {items.map(({ id, slug, title, author, cover, comments, reactions }) => (
+        <Link to={'/books/' + slug} key={id}>
+          <MediumItem
+            cover={cover}
+            title={title}
+            author={author}
+            comments={comments}
+            reactions={reactions}
+            onClick={() => console.log('book clicked')}
+          />
+        </Link>
+      ))}
+    </IonItemGroup>
+  </Layout>
 );
 
 export const SearchPage = () => {

@@ -1,9 +1,11 @@
-import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
+
+import { Layout } from '../../components/Layout/index';
 
 export const Home = ({ history }) => {
   return (
-    <IonPage>
+    <Layout id="home-page">
       <IonHeader translucent={true}>
         <IonToolbar>
           <IonTitle>Home page</IonTitle>
@@ -20,6 +22,6 @@ export const Home = ({ history }) => {
           Explore
         </IonButton>
       </IonContent>
-    </IonPage>
+    </Layout>
   );
 };
