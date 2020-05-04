@@ -9,8 +9,10 @@ import {
   IonToolbar,
   useIonViewDidEnter,
 } from '@ionic/react';
+import { t } from '@lingui/macro';
 import React from 'react';
 
+import { Header } from '../../components/Header';
 import { Layout } from '../../components/Layout';
 import { MediumItem } from '../../components/MediumItem';
 import { PreviewHeader } from '../../components/PreviewHeader';
@@ -30,14 +32,7 @@ export const Medium = ({
 
   return (
     <Layout id="medium-page">
-      <IonHeader translucent={true}>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/explore" />
-          </IonButtons>
-          <IonTitle>{slug}</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header title={t`Medium`} />
       <IonContent fullscreen={true}>
         {loading ? (
           <div className="ion-text-center ion-padding">

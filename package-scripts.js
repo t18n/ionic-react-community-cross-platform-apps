@@ -97,6 +97,20 @@ module.exports = {
         },
       },
     },
+    i18n: {
+      extract: {
+        script: 'lingui extract',
+        description: 'Extract translation keys',
+      },
+      clean: {
+        script: 'lingui extract --clean',
+        description: 'Extract translation keys and clean unused keys',
+      },
+      compile: {
+        script: 'lingui compile',
+        description: 'Compile translations',
+      },
+    },
     test: {
       script: 'react-scripts test --env=jsdom',
       description: 'Run Jest text',

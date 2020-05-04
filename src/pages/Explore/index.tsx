@@ -1,21 +1,21 @@
 import {
-  IonButtons,
   IonCol,
   IonContent,
   IonGrid,
   IonHeader,
   IonList,
   IonListHeader,
-  IonMenuButton,
   IonRow,
   IonSpinner,
   IonTitle,
   IonToolbar,
   useIonViewDidEnter,
 } from '@ionic/react';
+import { t } from '@lingui/macro';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Header } from '../../components/Header';
 import { Layout } from '../../components/Layout';
 import { TagPreview } from '../../components/TagPreview';
 import { useMediumsQuery } from '../../graphql/operation/medium/query';
@@ -44,14 +44,8 @@ export const Explore = () => {
 
   return (
     <Layout id="explore-page">
-      <IonHeader translucent={true}>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
-          <IonTitle>Explore</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header title={t`Explore`} />
+
       <IonContent fullscreen={true}>
         <IonHeader collapse="condense" className="ion-no-border">
           <IonToolbar className=" transparent">

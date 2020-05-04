@@ -1,5 +1,5 @@
-import React, { IonPage } from '@ionic/react';
-import { FC } from 'react';
+import { IonPage } from '@ionic/react';
+import React, { FC } from 'react';
 
 interface LayoutProps {
   id: string;

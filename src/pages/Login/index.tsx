@@ -17,8 +17,10 @@ import {
   IonToast,
   IonToolbar,
 } from '@ionic/react';
+import { t } from '@lingui/macro';
 import React, { useState } from 'react';
 
+import { Header } from '../../components/Header';
 import { Layout } from '../../components/Layout/index';
 import { useLoginUser } from '../../graphql/operation/user/mutation';
 import { ME } from '../../graphql/operation/user/shape';
@@ -75,14 +77,7 @@ export const Login = ({ history }) => {
 
   return (
     <Layout id="login-page">
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonMenuButton></IonMenuButton>
-          </IonButtons>
-          <IonTitle>Login</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header title={t`Login`} />
       <IonContent>
         <div className={mcl.container}>
           <form noValidate onSubmit={onLoginUser} className={mcl.loginForm}>

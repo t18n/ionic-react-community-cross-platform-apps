@@ -13,15 +13,18 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
+import { t } from '@lingui/macro';
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 
+import { Header } from '../../components/Header';
 import { Layout } from '../../components/Layout';
 import { MediumItem } from '../../components/MediumItem';
 import useDebounce from '../../hooks/useDebounce';
 
 const FoundItem = ({ title, items }) => (
   <Layout id="search-page">
+    <Header title={t`Search`} />
     <IonItemGroup>
       <IonItemDivider sticky>
         <IonLabel>{title}</IonLabel>
