@@ -1,8 +1,3 @@
-const fs = require('fs');
-const path = require('path');
-
-const isProd = process.env.NODE_ENV === 'production';
-
 module.exports = {
   plugins: [
     require('postcss-import'),
@@ -10,8 +5,21 @@ module.exports = {
       stage: 2,
     }),
     require('postcss-nested'),
+    require('postcss-custom-media')({
+      preserve: false, // Remove custom media after parsing source to value
+    }),
     require('postcss-inline-svg'),
     require('autoprefixer'),
+    require('postcss-pxtorem')({
+      rootValue: 16,
+      unitPrecision: 5,
+      propList: ['*', '!border-radius'],
+      selectorBlackList: [],
+      replace: true, // Replaces rules containing rems instead of adding fallbacks.
+      mediaQuery: false, // Prevent px to be converted in media queries
+      minPixelValue: 0, // Set the minimum pixel value to replace.
+      exclude: /node_modules/i,
+    }),
     require('cssnano')({
       preset: 'default',
     }),
@@ -19,12 +27,6 @@ module.exports = {
       camelCase: true,
       generateScopedName: '[local]___[hash:base64:5]',
       hashPrefix: 'br',
-      // getJSON: (cssFileName, json, outputFileName) => {
-      //   console.log('outputFileName', outputFileName);
-      //   const cssName = path.basename(cssFileName, '.css');
-      //   const jsonFileName = path.resolve('./build/' + cssName + '.json');
-      //   fs.writeFileSync(jsonFileName, JSON.stringify(json));
-      // },
     }),
   ],
 };
