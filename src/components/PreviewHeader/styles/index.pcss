@@ -1,59 +1,54 @@
 .preview-header {
   display: block;
-  background-repeat: no-repeat no-repeat;
-  background-size: cover;
-  background-position: center center;
-  height: 300px;
 }
 
-.preview-header .info-header {
-  display: flex;
-  color: #fff;
-  overflow: hidden;
-  height: 300px;
-  align-items: center;
-  justify-content: flex-start;
-  backdrop-filter: blur(12px);
+.medium-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-m);
+  grid-template-areas: 'brief' 'cover' 'description';
+  padding: calc(var(--baseline) * 6) calc(var(--baseline) * 12);
+
+  @media (--viewport-tablet) {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'cover brief' 'cover description';
+    padding: calc(var(--baseline) * 10) calc(var(--baseline) * 20);
+  }
 }
 
-.preview-header .header-wallpaper {
+.medium-info .cover {
+  grid-area: cover;
   height: 100%;
-  width: 100%;
   object-fit: cover;
-  opacity: 0.3;
-  filter: blur(4px);
+
+  img {
+    max-width: calc(var(--baseline) * 50);
+  }
+
+  @media (--viewport-tablet) {
+    flex-basis: calc(var(--baseline) * 140);
+    margin-right: var(--space-m);
+    margin-bottom: 0;
+  }
 }
 
-.preview-header .medium-info {
-  display: flex;
-  align-items: center;
-  padding-left: var(--ion-safe-area-left);
-}
-
-.preview-header .header-medium {
-  border-radius: 4px;
-  display: block;
-  height: 200px !important;
-  width: 200px !important;
-  margin: 0 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.preview-header .medium-detail {
-  padding: 0 16px;
-  line-height: 0.6;
+.medium-info .content {
+  grid-area: brief;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   color: var(--ion-color-dark);
 }
 
-.preview-header .medium-detail h3 {
-  font-weight: 800;
+.metadata {
+  margin-top: var(--space-s);
 }
 
-@media (max-width: 550px) {
-  .preview-header .header-medium {
-    display: none;
-  }
+.metadata.details {
+  color: var(--ion-color-medium);
+}
+
+.medium-info .description {
+  grid-area: description;
 }

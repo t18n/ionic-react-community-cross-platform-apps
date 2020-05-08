@@ -4,5 +4,9 @@
   "Login": "Đăng nhập",
   "Medium": "Tài liệu",
   "Search": "Tìm kiếm",
-  "Tag:": "Thẻ:"
+  "Tag:": "Thẻ:",
+  "medium.header.author": "",
+  "medium.header.button.buy": "",
+  "medium.header.button.save": "",
+  "medium.header.published": ""
 }

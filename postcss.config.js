@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   plugins: [
     require('postcss-import'),
@@ -6,6 +8,15 @@ module.exports = {
     }),
     require('postcss-nested'),
     require('postcss-custom-media')({
+      importFrom: [
+        {
+          customMedia: {
+            '--viewport-tablet': '(width >= 48em)' /* 768px */,
+            '--viewport-desktop': '(width >= 80em)' /* 1280px */,
+            '--viewport-desktopLarge': '(width >= 100em)' /* 1600px */,
+          },
+        },
+      ],
       preserve: false, // Remove custom media after parsing source to value
     }),
     require('postcss-inline-svg'),
@@ -27,6 +38,7 @@ module.exports = {
       camelCase: true,
       generateScopedName: '[local]___[hash:base64:5]',
       hashPrefix: 'br',
+      globalModulePaths: [path.resolve(__dirname, './src/styles')],
     }),
   ],
 };

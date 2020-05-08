@@ -4,5 +4,9 @@
   "Login": "Login",
   "Medium": "Medium",
   "Search": "Search",
-  "Tag:": "Tag:"
+  "Tag:": "Tag:",
+  "medium.header.author": "by:",
+  "medium.header.button.buy": "Buy",
+  "medium.header.button.save": "Save",
+  "medium.header.published": "Published:"
 }

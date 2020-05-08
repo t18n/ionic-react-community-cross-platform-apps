@@ -72,6 +72,7 @@ export const Sidebar = () => {
     <IonReactRouter>
       <IonSplitPane contentId="main" when="(min-width: 850px)">
         <IonMenu className={mcl.mainMenu} contentId="main">
+          {/* Header */}
           <IonHeader>
             <IonToolbar>
               <IonRouterLink routerLink="/">
@@ -81,7 +82,9 @@ export const Sidebar = () => {
               </IonRouterLink>
             </IonToolbar>
           </IonHeader>
-          <IonContent>
+
+          {/* Content */}
+          <IonContent className="no-scroll">
             <IonList lines="none">
               {ME_data && ME_data.me && (
                 <IonMenuToggle autoHide={false}>
@@ -132,6 +135,8 @@ export const Sidebar = () => {
           </IonRouterOutlet>
         </IonPage>
       </IonSplitPane>
+
+      {/* Footer */}
       <Footer />
 
       <IonToast

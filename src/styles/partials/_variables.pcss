@@ -1,5 +1,40 @@
 :root {
-  --gap-small: 20px;
-  --gap-medium: 40px;
-  --gap-large: 60px;
+  /*
+  * Baseline
+  */
+  --baseline: 3px;
+
+  /*
+  * Spacing
+  */
+  --space-s: calc(var(--baseline) * 4);
+  --space-m: calc(var(--baseline) * 8);
+  --space-l: calc(var(--baseline) * 16);
+
+  @media (--viewport-tablet) {
+    --space-s: calc(var(--baseline) * 6);
+    --space-m: calc(var(--baseline) * 11);
+    --space-l: calc(var(--baseline) * 18);
+  }
+
+  @media (--viewport-desktop) {
+    --space-s: calc(var(--baseline) * 8);
+    --space-m: calc(var(--baseline) * 13);
+    --space-l: calc(var(--baseline) * 20);
+  }
+
+  /*
+  * Fonts
+  */
+  --font-heading: 'Roboto';
+  --font-mono: '"Roboto Mono" ,monospace';
+  /* stylelint-disable */
+  --font-body: 'Roboto', -apple-system, blinkmacsystemfont, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  /* stylelint-enable */
+
+  /*
+  * Properties
+  */
+  --radius: var(--baseline);
 }

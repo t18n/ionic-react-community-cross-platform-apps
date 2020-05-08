@@ -29,9 +29,13 @@ export const Explore = () => {
   });
   const [isError] = useState<boolean>(false);
 
-  const { data: MEDIUM_data } = useMediumsQuery();
+  const { data: MEDIUM_data } = useMediumsQuery({
+    variables: {
+      first: 5,
+    },
+  });
 
-  useEffect(() => console.log(MEDIUM_data), [MEDIUM_data]);
+  useEffect(() => console.log('MEDIUM_data', MEDIUM_data), [MEDIUM_data]);
 
   useIonViewDidEnter(() => {
     setState({
@@ -62,7 +66,7 @@ export const Explore = () => {
                 </IonListHeader>
                 <IonRow className="ion-justify-content-start">
                   {MEDIUM_data &&
-                    MEDIUM_data.mediums.slice(0, 4).map(({ id, slug, title, cover }) => (
+                    MEDIUM_data.mediums.items.slice(0, 4).map(({ id, slug, title, cover }) => (
                       <IonCol sizeLg="4" sizeXl="3" key={id} className="ion-no-padding">
                         <Link to={`mediums/${slug}`}>
                           <TagPreview title={title} imgSrc={cover} imgAlt={title} rating="4.5" />

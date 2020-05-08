@@ -1,14 +1,4 @@
-import {
-  IonBackButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonList,
-  IonSpinner,
-  IonTitle,
-  IonToolbar,
-  useIonViewDidEnter,
-} from '@ionic/react';
+import { IonContent, IonList, IonSpinner, useIonViewDidEnter } from '@ionic/react';
 import { t } from '@lingui/macro';
 import React from 'react';
 
@@ -16,15 +6,18 @@ import { Header } from '../../components/Header';
 import { Layout } from '../../components/Layout';
 import { MediumItem } from '../../components/MediumItem';
 import { PreviewHeader } from '../../components/PreviewHeader';
-import { useMediumsQuery } from '../../graphql/operation/medium/query';
+import { useMediumQuery } from '../../graphql/operation/medium/query';
 
 export const Medium = ({
   match: {
     params: { slug },
   },
 }) => {
-  const { data, loading } = useMediumsQuery();
-  const medium = data && data.mediums.find((medium) => medium.slug === slug);
+  const { data, loading } = useMediumQuery({
+    variables: {
+      slug: slug,
+    },
+  });
 
   useIonViewDidEnter(() => {
     console.log(slug);
@@ -39,16 +32,16 @@ export const Medium = ({
             <IonSpinner color="primary" />
           </div>
         ) : (
-          <PreviewHeader medium={medium} />
+          data && <PreviewHeader medium={data.medium} />
         )}
-        <IonList>
+        {/* <IonList>
           {loading ? (
             <div className="ion-text-center ion-padding">
               <IonSpinner color="primary" />
             </div>
           ) : (
             data &&
-            data.mediums.map(({ id, slug, title, cover, users, comments, reactions }) => (
+            data.mediums.items.map(({ id, slug, title, cover, users, comments, reactions }) => (
               <MediumItem
                 key={id}
                 cover={cover}
@@ -60,7 +53,7 @@ export const Medium = ({
               />
             ))
           )}
-        </IonList>
+        </IonList> */}
       </IonContent>
     </Layout>
   );

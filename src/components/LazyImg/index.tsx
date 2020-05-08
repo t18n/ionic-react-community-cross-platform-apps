@@ -6,7 +6,7 @@ import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import mcl from './styles/index.pcss.json';
 import { preload } from './utils';
 
-const placeholderImg = `iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMzIyuBwAEHgGuXmd8SQAAAABJRU5ErkJggg==`;
+const placeholderImg = `iVBORw0KGgoAAAANSUhEUgAAAAoAAAAQCAYAAAAvf+5AAAAAF0lEQVR42mNk+N9Xz0AEYBxVOKqQ9goBVgwg0UFTLhIAAAAASUVORK5CYII=`;
 
 interface LazyImgProps {
   lazySrc: string;
