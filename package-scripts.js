@@ -144,7 +144,7 @@ module.exports = {
       check: {
         default: {
           script:
-            "license-checker --exclude 'MIT, MIT OR X11, BSD, ISC, Apache-2.0, WTFPL, CC0-1.0'",
+            "license-checker --exclude 'MIT, MIT OR X11, BSD, ISC, Apache-2.0, WTFPL, CC0-1.0, MPL'",
           description: 'Check dependencies license sand show all non-permissive license',
         },
         sum: {

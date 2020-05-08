@@ -15,11 +15,8 @@ export const Header: FC<HeaderProps> = ({ title }) => {
   return (
     <IonHeader translucent={true} className={mcl.header}>
       <IonToolbar className={mcl.toolbar}>
-        <IonTitle slot="start" className={mcl.title}>
-          {title}
-        </IonTitle>
+        <IonTitle slot="start">{title}</IonTitle>
         <IonSelect
-          className={mcl.language}
           value={LocaleId.EN}
           placeholder="Language"
           onIonChange={(e) => activateLanguage(e.detail.value)}

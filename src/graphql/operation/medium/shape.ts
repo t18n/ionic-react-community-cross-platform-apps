@@ -5,11 +5,13 @@ const MEDIUM_DATA = gql`
   fragment MediumData on Medium {
     id
     title
+    shortDescription
     type
     slug
     cover
     source
     isbn
+    publishedDate
     users {
       name
       slug
