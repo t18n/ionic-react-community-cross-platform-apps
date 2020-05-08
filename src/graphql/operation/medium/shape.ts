@@ -38,9 +38,23 @@ const MEDIUM_DATA = gql`
 `;
 
 // Get list of medium
-export const MEDIUMS = gql`
-  query MediumsQuery {
-    mediums {
+export const MEDIUMS_QUERY = gql`
+  query MediumsQuery($first: Int!) {
+    mediums(first: $first) {
+      items {
+        ...MediumData
+      }
+      hasMore
+      total
+    }
+  }
+  ${MEDIUM_DATA}
+`;
+
+// Get list of medium
+export const MEDIUM_QUERY = gql`
+  query MediumQuery($slug: String!) {
+    medium(slug: $slug) {
       ...MediumData
     }
   }
