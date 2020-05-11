@@ -24,12 +24,12 @@ module.exports = {
           'Running web development server, watch PostCSS transform, watch graphql typegen',
       },
       ios: {
-        script: npsUtils.concurrent.nps('watch.ios', 'watch.css', 'watch.typegen'),
+        script: npsUtils.concurrent.nps('env.dev nps watch.ios', 'watch.css', 'watch.typegen'),
         description:
           'Running ios development server, watch PostCSS transform, watch graphql typegen',
       },
       android: {
-        script: npsUtils.concurrent.nps('watch.android', 'watch.css', 'watch.typegen'),
+        script: npsUtils.concurrent.nps('env.dev nps watch.android', 'watch.css', 'watch.typegen'),
         description:
           'Running android development server, watch PostCSS transform, watch graphql typegen',
       },

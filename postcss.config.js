@@ -35,7 +35,7 @@ module.exports = {
       preset: 'default',
     }),
     require('postcss-modules')({
-      camelCase: true,
+      localsConvention: 'camelCaseOnly', // Class names will be camelized, the original are removed
       generateScopedName: '[local]___[hash:base64:5]',
       hashPrefix: 'br',
       globalModulePaths: [path.resolve(__dirname, './src/styles')],
