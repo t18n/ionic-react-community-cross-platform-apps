@@ -1,3 +1,30 @@
+.page-content {
+  position: relative;
+  height: 100%;
+}
+
 .main-menu {
   width: 260px;
+}
+
+.menu-item {
+  --padding-start: var(--space-s);
+}
+
+/* Menu toggle button */
+.menu-toggle {
+  position: absolute;
+  left: 0;
+  top: calc(var(--baseline) * 23);
+
+  @media (--viewport-desktop) {
+    display: none;
+  }
+}
+
+.menu-toggle-button {
+  --border-radius: 0 calc(var(--baseline) * 2) calc(var(--baseline) * 2) 0;
+
+  width: calc(var(--baseline) * 15);
+  height: calc(var(--baseline) * 15);
 }

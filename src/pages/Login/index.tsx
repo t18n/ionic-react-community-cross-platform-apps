@@ -77,7 +77,6 @@ export const Login = ({ history }) => {
 
   return (
     <Layout id="login-page">
-      <Header title={t`Login`} />
       <IonContent>
         <div className={mcl.container}>
           <form noValidate onSubmit={onLoginUser} className={mcl.loginForm}>

@@ -7,6 +7,7 @@ const USER_DATA = gql`
     email
     name
     slug
+    cover
     firstName
     lastName
     createdAt

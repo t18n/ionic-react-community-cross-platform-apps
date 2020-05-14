@@ -48,8 +48,6 @@ export const Explore = () => {
 
   return (
     <Layout id="explore-page">
-      <Header title={t`Explore`} />
-
       <IonContent fullscreen={true}>
         <IonHeader collapse="condense" className="ion-no-border">
           <IonToolbar className=" transparent">

@@ -25,7 +25,6 @@ export const Medium = ({
 
   return (
     <Layout id="medium-page">
-      <Header title={t`Medium`} />
       <IonContent fullscreen={true}>
         {loading ? (
           <div className="ion-text-center ion-padding">

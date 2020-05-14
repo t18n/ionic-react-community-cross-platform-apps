@@ -24,12 +24,18 @@
 
   img {
     max-width: calc(var(--baseline) * 50);
+    max-height: calc(var(--baseline) * 50 * 1.6);
   }
 
   @media (--viewport-tablet) {
     flex-basis: calc(var(--baseline) * 140);
     margin-right: var(--space-m);
     margin-bottom: 0;
+
+    img {
+      max-width: calc(var(--baseline) * 70);
+      max-height: calc(var(--baseline) * 70 * 1.6);
+    }
   }
 }
 

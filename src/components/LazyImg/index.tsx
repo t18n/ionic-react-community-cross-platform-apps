@@ -1,12 +1,11 @@
 import './styles/index.min.css';
 
+import { IonSkeletonText } from '@ionic/react';
 import React, { FC, useEffect, useRef } from 'react';
 
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import mcl from './styles/index.pcss.json';
 import { preload } from './utils';
-
-const placeholderImg = `iVBORw0KGgoAAAANSUhEUgAAAAoAAAAQCAYAAAAvf+5AAAAAF0lEQVR42mNk+N9Xz0AEYBxVOKqQ9goBVgwg0UFTLhIAAAAASUVORK5CYII=`;
 
 interface LazyImgProps {
   lazySrc: string;
@@ -16,19 +15,22 @@ interface LazyImgProps {
 
 export const LazyImg: FC<LazyImgProps> = ({ lazySrc, className, alt }) => {
   const img = useRef<HTMLImageElement>(null);
-  const lazyImgSrc = lazySrc || placeholderImg;
 
   const [inView, entry] = useIntersectionObserver(img);
 
   useEffect(() => {
     if (inView) {
-      preload(img.current, lazyImgSrc, mcl.loaded).then(() => entry.disconnect());
+      preload(img.current, lazySrc, mcl.loaded).then(() => entry.disconnect());
     }
-  }, [lazyImgSrc, inView, entry]);
+  }, [lazySrc, inView, entry]);
 
   return (
     <div className={(className ? className : '') + ` ${mcl.lazyImg}`}>
-      <img ref={img} alt={alt} />
+      {lazySrc ? (
+        <img ref={img} alt={alt} />
+      ) : (
+        <IonSkeletonText animated style={{ width: '100%' }} />
+      )}
     </div>
   );
 };

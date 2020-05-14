@@ -9,10 +9,8 @@ import {
   IonToolbar,
   useIonViewDidEnter,
 } from '@ionic/react';
-import { t } from '@lingui/macro';
 import React, { useState } from 'react';
 
-import { Header } from '../../components/Header';
 import { Layout } from '../../components/Layout';
 import { MediumItem } from '../../components/MediumItem';
 import { PreviewHeaderTag } from '../../components/PreviewHeaderTag';
@@ -26,7 +24,6 @@ export const Tag = () => {
 
   return (
     <Layout id="tag-page">
-      <Header title={`${t`Tag:`}${data.tag ? data.tag.name : ''}`} />
       <IonHeader translucent={true}>
         <IonToolbar>
           <IonButtons slot="start">
