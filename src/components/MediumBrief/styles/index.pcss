@@ -1,4 +1,4 @@
-.preview-header {
+.medium-brief {
   display: block;
 }
 
@@ -25,6 +25,8 @@
   img {
     max-width: calc(var(--baseline) * 50);
     max-height: calc(var(--baseline) * 50 * 1.6);
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   @media (--viewport-tablet) {
@@ -41,6 +43,7 @@
 
 .medium-info .content {
   grid-area: brief;
+  align-self: start;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -49,12 +52,18 @@
 
 .metadata {
   margin-top: var(--space-s);
-}
 
-.metadata.details {
-  color: var(--ion-color-medium);
+  &.details {
+    color: var(--ion-color-medium);
+    margin-bottom: var(--space-s);
+  }
+
+  @media (--viewport-tablet) {
+    margin-top: 0;
+  }
 }
 
 .medium-info .description {
   grid-area: description;
+  align-self: end;
 }

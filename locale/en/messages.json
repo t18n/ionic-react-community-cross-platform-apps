@@ -1,12 +1,9 @@
 {
-  "Explore": "Explore",
-  "Home": "Home",
-  "Login": "Login",
-  "Medium": "Medium",
-  "Search": "Search",
-  "Tag:": "Tag:",
-  "medium.header.author": "by:",
+  "medium.header.author": "Author",
   "medium.header.button.buy": "Buy",
   "medium.header.button.save": "Save",
-  "medium.header.published": "Published:"
+  "medium.header.isbn": "ISBN",
+  "medium.header.published": "Published",
+  "medium.tabs.comments": "Comments",
+  "medium.tabs.ideas": "Ideas"
 }

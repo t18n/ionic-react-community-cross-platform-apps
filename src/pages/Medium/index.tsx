@@ -1,11 +1,11 @@
-import { IonContent, IonList, IonSpinner, useIonViewDidEnter } from '@ionic/react';
+import { IonContent, IonItemDivider, IonSpinner, useIonViewDidEnter } from '@ionic/react';
 import { t } from '@lingui/macro';
 import React from 'react';
 
-import { Header } from '../../components/Header';
 import { Layout } from '../../components/Layout';
+import { MediumBrief } from '../../components/MediumBrief';
 import { MediumItem } from '../../components/MediumItem';
-import { PreviewHeader } from '../../components/PreviewHeader';
+import { MediumTabs } from '../../components/MediumTabs';
 import { useMediumQuery } from '../../graphql/operation/medium/query';
 
 export const Medium = ({
@@ -31,7 +31,12 @@ export const Medium = ({
             <IonSpinner color="primary" />
           </div>
         ) : (
-          data && <PreviewHeader medium={data.medium} />
+          data && (
+            <>
+              <MediumBrief medium={data.medium} />
+              <MediumTabs />
+            </>
+          )
         )}
         {/* <IonList>
           {loading ? (

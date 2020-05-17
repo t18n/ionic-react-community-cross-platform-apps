@@ -1,12 +1,9 @@
 {
-  "Explore": "Khám phá",
-  "Home": "Trang chủ",
-  "Login": "Đăng nhập",
-  "Medium": "Tài liệu",
-  "Search": "Tìm kiếm",
-  "Tag:": "Thẻ:",
-  "medium.header.author": "",
-  "medium.header.button.buy": "",
-  "medium.header.button.save": "",
-  "medium.header.published": ""
+  "medium.header.author": "Tác giả",
+  "medium.header.button.buy": "Mua",
+  "medium.header.button.save": "Lưu",
+  "medium.header.isbn": "ISBN",
+  "medium.header.published": "Xuất bản",
+  "medium.tabs.comments": "Bình luận",
+  "medium.tabs.ideas": "Ý tưởng"
 }

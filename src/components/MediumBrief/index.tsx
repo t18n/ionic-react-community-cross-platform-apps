@@ -9,11 +9,11 @@ import { MediumsQuery_mediums_items } from '../../graphql/operation/medium/types
 import { LazyImg } from '../LazyImg';
 import mcl from './styles/index.pcss.json';
 
-interface PreviewHeaderProps {
+interface MediumBriefProps {
   medium: MediumsQuery_mediums_items;
 }
 
-export const PreviewHeader: FC<PreviewHeaderProps> = ({ medium }) => {
+export const MediumBrief: FC<MediumBriefProps> = ({ medium }) => {
   const {
     title,
     cover,
@@ -26,7 +26,7 @@ export const PreviewHeader: FC<PreviewHeaderProps> = ({ medium }) => {
   } = medium;
 
   return (
-    <div className={mcl.previewHeader}>
+    <div className={mcl.mediumBrief}>
       <div className={mcl.mediumInfo}>
         <LazyImg className={mcl.cover} lazySrc={cover} alt={title} />
 
@@ -34,19 +34,18 @@ export const PreviewHeader: FC<PreviewHeaderProps> = ({ medium }) => {
           <h1 className={mcl.metadata}>{title}</h1>
 
           <span className={`${mcl.metadata} ${mcl.details}`}>
-            <Trans id="medium.header.published">Published:</Trans>{' '}
-            {new Date(publishedDate).getFullYear()}
+            <Trans id="medium.header.published" /> {new Date(publishedDate).getFullYear()}
           </span>
 
           {isbn && (
             <span className={`${mcl.metadata} ${mcl.details}`}>
-              <Trans id="medium.header.isbn">ISBN:</Trans> {isbn}
+              <Trans id="medium.header.isbn" /> {isbn}
             </span>
           )}
 
           {users && (
             <div className={mcl.metadata}>
-              <Trans id="medium.header.author">by:</Trans>{' '}
+              <Trans id="medium.header.author" />{' '}
               {users.map((user, i) => (
                 <>
                   {i > 0 && `, `}
@@ -64,11 +63,11 @@ export const PreviewHeader: FC<PreviewHeaderProps> = ({ medium }) => {
           <div>
             <IonButton color="secondary" onClick={() => console.log('save to slipbox clicked')}>
               <IonIcon slot="start" icon={albumsOutline} />
-              <Trans id="medium.header.button.save">Save</Trans>
+              <Trans id="medium.header.button.save" />
             </IonButton>
             <IonButton color="secondary" onClick={() => console.log('buy clicked')}>
               <IonIcon slot="start" icon={cartOutline} />
-              <Trans id="medium.header.button.buy">Buy</Trans>
+              <Trans id="medium.header.button.buy" />
             </IonButton>
           </div>
         </div>
