@@ -1,4 +1,6 @@
 {
+  "medium.brief.comments": "comment",
+  "medium.brief.reactions": "reaction",
   "medium.header.author": "Author",
   "medium.header.button.buy": "Buy",
   "medium.header.button.save": "Save",
@@ -6,6 +8,7 @@
   "medium.header.published": "Published",
   "medium.tabs.comments": "Comments",
   "medium.tabs.ideas": "Ideas",
+  "medium.tabs.ratings": "Ratings",
   "page.title.explore": "Explore",
   "page.title.home": "Home",
   "page.title.login": "Login",

@@ -1,7 +1,7 @@
 import './styles/index.min.css';
 
-import { IonButton, IonIcon, IonRouterLink } from '@ionic/react';
-import { Trans } from '@lingui/macro';
+import { IonBadge, IonButton, IonIcon, IonRouterLink } from '@ionic/react';
+import { Plural, Trans } from '@lingui/macro';
 import { albumsOutline, cartOutline } from 'ionicons/icons';
 import React, { FC } from 'react';
 
@@ -23,7 +23,11 @@ export const MediumBrief: FC<MediumBriefProps> = ({ medium }) => {
     users,
     comments,
     reactions,
+    category,
+    tags,
   } = medium;
+
+  console.log(tags);
 
   return (
     <div className={mcl.mediumBrief}>
@@ -32,6 +36,14 @@ export const MediumBrief: FC<MediumBriefProps> = ({ medium }) => {
 
         <div className={mcl.content}>
           <h1 className={mcl.metadata}>{title}</h1>
+
+          {category && (
+            <IonBadge>
+              <IonRouterLink routerLink={`/users/${category.slug}`} key={category.slug}>
+                {category.name}
+              </IonRouterLink>
+            </IonBadge>
+          )}
 
           <span className={`${mcl.metadata} ${mcl.details}`}>
             <Trans id="medium.header.published" /> {new Date(publishedDate).getFullYear()}
@@ -59,6 +71,32 @@ export const MediumBrief: FC<MediumBriefProps> = ({ medium }) => {
         </div>
 
         <div className={mcl.description}>
+          {tags && (
+            <div className={mcl.metadata}>
+              {tags.map((tag) => (
+                <IonRouterLink
+                  className={mcl.mediumTag}
+                  routerLink={`/users/${tag.slug}`}
+                  key={tag.slug}
+                  rel="tag"
+                >
+                  <IonBadge>{tag.name}</IonBadge>
+                </IonRouterLink>
+              ))}
+            </div>
+          )}
+
+          <div className={`${mcl.metadata} ${mcl.engagements}`}>
+            <div>
+              {`${comments.length} `}
+              <Plural id="medium.brief.comments" value={comments.length} />
+            </div>
+            <div>
+              {`${reactions.length} `}
+              <Plural id="medium.brief.reactions" value={reactions.length} />
+            </div>
+          </div>
+
           <p>{shortDescription}</p>
           <div>
             <IonButton color="secondary" onClick={() => console.log('save to slipbox clicked')}>
