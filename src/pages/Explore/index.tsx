@@ -11,7 +11,7 @@ import {
   IonToolbar,
   useIonViewDidEnter,
 } from '@ionic/react';
-import { t } from '@lingui/macro';
+import { t, Trans } from '@lingui/macro';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -47,7 +47,7 @@ export const Explore = () => {
   });
 
   return (
-    <Layout id="explore-page">
+    <Layout id="explore-page" title={<Trans id="page.title.explore" />}>
       <IonContent fullscreen={true}>
         <IonHeader collapse="condense" className="ion-no-border">
           <IonToolbar className=" transparent">

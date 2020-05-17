@@ -9,6 +9,7 @@ import {
   IonToolbar,
   useIonViewDidEnter,
 } from '@ionic/react';
+import { Trans } from '@lingui/macro';
 import React, { useState } from 'react';
 
 import { Layout } from '../../components/Layout';
@@ -23,7 +24,7 @@ export const Tag = () => {
   });
 
   return (
-    <Layout id="tag-page">
+    <Layout id="tag-page" title={<Trans id="page.title.tag" />}>
       <IonHeader translucent={true}>
         <IonToolbar>
           <IonButtons slot="start">

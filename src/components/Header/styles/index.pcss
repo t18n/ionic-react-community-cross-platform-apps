@@ -9,39 +9,30 @@
   padding: 0 var(--space-s);
 }
 
-/* Logo */
-.logo {
-  float: left;
-  margin-top: calc(var(--baseline) * 2);
-  padding-left: 0;
-
-  [class*='lazy-img'] img {
-    height: calc(var(--baseline) * 14);
-    width: auto;
-    object-fit: contain;
-  }
-}
-
 /* Options */
 .header-options {
   margin-left: auto;
   float: right;
   display: flex;
   align-items: center;
-  margin-top: calc(var(--baseline) * 3);
   cursor: pointer;
+}
 
-  span {
+.user-firstname {
+  display: none;
+
+  @media (--viewport-tablet) {
     margin-right: calc(var(--baseline) * 2);
+    display: block;
   }
+}
 
-  .avatar {
-    width: calc(var(--baseline) * 10);
-    height: calc(var(--baseline) * 10);
+.avatar {
+  width: calc(var(--baseline) * 10);
+  height: calc(var(--baseline) * 10);
 
-    img {
-      border-radius: 50%;
-    }
+  img {
+    border-radius: 50%;
   }
 }
 

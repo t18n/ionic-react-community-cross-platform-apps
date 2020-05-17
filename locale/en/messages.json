@@ -5,5 +5,11 @@
   "medium.header.isbn": "ISBN",
   "medium.header.published": "Published",
   "medium.tabs.comments": "Comments",
-  "medium.tabs.ideas": "Ideas"
+  "medium.tabs.ideas": "Ideas",
+  "page.title.explore": "Explore",
+  "page.title.home": "Home",
+  "page.title.login": "Login",
+  "page.title.medium": "Medium",
+  "page.title.search": "Search",
+  "page.title.tag": "Tag"
 }

@@ -2,25 +2,19 @@ import './styles/index.min.css';
 
 import {
   IonButton,
-  IonButtons,
   IonCol,
   IonContent,
-  IonHeader,
   IonInput,
   IonItem,
   IonLabel,
   IonList,
   IonLoading,
-  IonMenuButton,
   IonRow,
-  IonTitle,
   IonToast,
-  IonToolbar,
 } from '@ionic/react';
-import { t } from '@lingui/macro';
+import { Trans } from '@lingui/macro';
 import React, { useState } from 'react';
 
-import { Header } from '../../components/Header';
 import { Layout } from '../../components/Layout/index';
 import { useLoginUser } from '../../graphql/operation/user/mutation';
 import { ME } from '../../graphql/operation/user/shape';
@@ -76,7 +70,7 @@ export const Login = ({ history }) => {
   };
 
   return (
-    <Layout id="login-page">
+    <Layout id="login-page" title={<Trans id="page.title.login" />}>
       <IonContent>
         <div className={mcl.container}>
           <form noValidate onSubmit={onLoginUser} className={mcl.loginForm}>

@@ -3,9 +3,11 @@ import './styles/index.min.css';
 import {
   IonAvatar,
   IonButton,
+  IonButtons,
   IonHeader,
   IonIcon,
   IonLoading,
+  IonMenuButton,
   IonMenuToggle,
   IonPopover,
   IonRouterLink,
@@ -16,9 +18,8 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { logOut } from 'ionicons/icons';
-import React, { FC, useState } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 
-import logo from '../../assets/brand/logo.svg';
 import { useLogoutUser } from '../../graphql/operation/user/mutation';
 import { useLoggedInUser } from '../../graphql/operation/user/query';
 import { ME } from '../../graphql/operation/user/shape';
@@ -28,7 +29,11 @@ import { activateLanguage } from '../I18n/utils';
 import { LazyImg } from '../LazyImg';
 import mcl from './styles/index.pcss.json';
 
-export const Header: FC = () => {
+export interface HeaderProps {
+  title: ReactNode;
+}
+
+export const Header: FC<HeaderProps> = ({ title }) => {
   const [showPopover, setShowPopover] = useState(false);
   const [toast, setToast] = useToast(null);
 
@@ -67,16 +72,16 @@ export const Header: FC = () => {
   return (
     <IonHeader translucent={true} className={mcl.header}>
       <IonToolbar className={mcl.toolbar}>
-        <IonRouterLink routerLink="/">
-          <IonTitle className={mcl.logo}>
-            <LazyImg lazySrc={logo} alt="Brightizen" />
-          </IonTitle>
-        </IonRouterLink>
+        <IonButtons slot="start">
+          <IonMenuButton />
+        </IonButtons>
+        <IonTitle slot="start">{title}</IonTitle>
 
+        {/* Header Options */}
         <div className={mcl.headerOptions} onClick={() => setShowPopover(!showPopover)}>
           {ME_data && ME_data.me ? (
             <>
-              <span>{ME_data.me?.name}</span>
+              <span className={mcl.userFirstname}>{ME_data.me?.name}</span>
               <IonAvatar className={mcl.avatar}>
                 <LazyImg lazySrc={ME_data.me.cover} alt={`${ME_data.me?.name} avatar`} />
               </IonAvatar>

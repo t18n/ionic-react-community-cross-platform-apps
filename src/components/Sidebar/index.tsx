@@ -5,21 +5,26 @@ import {
   IonContent,
   IonFab,
   IonFabButton,
+  IonHeader,
   IonIcon,
   IonItem,
   IonList,
   IonMenu,
   IonMenuToggle,
   IonPage,
+  IonRouterLink,
   IonRouterOutlet,
   IonSplitPane,
+  IonTitle,
   IonToast,
+  IonToolbar,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { gridOutline, libraryOutline, search } from 'ionicons/icons';
 import React from 'react';
 import { Route } from 'react-router-dom';
 
+import logo from '../../assets/brand/logo.svg';
 import { useToast } from '../../hooks/useToast';
 import { Explore } from '../../pages/Explore';
 import { Home } from '../../pages/Home';
@@ -28,7 +33,7 @@ import { Medium } from '../../pages/Medium';
 import { SearchPage } from '../../pages/Search';
 import { Tag } from '../../pages/Tag';
 import { Footer } from '../Footer';
-import { Header } from '../Header';
+import { LazyImg } from '../LazyImg';
 import mcl from './styles/index.pcss.json';
 
 export const Sidebar = () => {
@@ -36,9 +41,18 @@ export const Sidebar = () => {
 
   return (
     <IonReactRouter>
-      <Header />
       <IonSplitPane className={mcl.pageContent} contentId="main" when="(min-width: 80em)">
         <IonMenu className={mcl.mainMenu} menuId="main-menu" contentId="main-menu-content">
+          <IonHeader>
+            <IonToolbar>
+              <IonRouterLink routerLink="/">
+                <IonTitle className={mcl.logo}>
+                  <LazyImg lazySrc={logo} alt="Brightizen" />
+                </IonTitle>
+              </IonRouterLink>
+            </IonToolbar>
+          </IonHeader>
+
           <IonContent className="no-scroll" id="main-menu-content">
             <IonList lines="none">
               <IonMenuToggle autoHide={false}>
@@ -58,15 +72,6 @@ export const Sidebar = () => {
         </IonMenu>
 
         <IonPage id="main">
-          <IonFab horizontal="start" className={mcl.menuToggle}>
-            <IonFabButton
-              className={mcl.menuToggleButton}
-              onClick={async () => await menuController.toggle()}
-              color="light"
-            >
-              <IonIcon icon={gridOutline} />
-            </IonFabButton>
-          </IonFab>
           <IonRouterOutlet>
             <Route exact path="/" component={Home} />
             <Route exact path="/explore" component={Explore} />

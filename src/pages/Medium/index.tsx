@@ -1,10 +1,9 @@
-import { IonContent, IonItemDivider, IonSpinner, useIonViewDidEnter } from '@ionic/react';
-import { t } from '@lingui/macro';
+import { IonContent, IonSpinner, useIonViewDidEnter } from '@ionic/react';
+import { Trans } from '@lingui/macro';
 import React from 'react';
 
 import { Layout } from '../../components/Layout';
 import { MediumBrief } from '../../components/MediumBrief';
-import { MediumItem } from '../../components/MediumItem';
 import { MediumTabs } from '../../components/MediumTabs';
 import { useMediumQuery } from '../../graphql/operation/medium/query';
 
@@ -24,7 +23,7 @@ export const Medium = ({
   });
 
   return (
-    <Layout id="medium-page">
+    <Layout id="medium-page" title={<Trans id="page.title.medium" />}>
       <IonContent fullscreen={true}>
         {loading ? (
           <div className="ion-text-center ion-padding">

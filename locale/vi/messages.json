@@ -5,5 +5,11 @@
   "medium.header.isbn": "ISBN",
   "medium.header.published": "Xuất bản",
   "medium.tabs.comments": "Bình luận",
-  "medium.tabs.ideas": "Ý tưởng"
+  "medium.tabs.ideas": "Ý tưởng",
+  "page.title.explore": "Khám phá",
+  "page.title.home": "Trang chủ",
+  "page.title.login": "Đăng nhập",
+  "page.title.medium": "Tài nguyên",
+  "page.title.search": "Tìm kiếm",
+  "page.title.tag": "Thẻ"
 }
