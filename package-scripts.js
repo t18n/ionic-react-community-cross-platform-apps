@@ -24,14 +24,38 @@ module.exports = {
           'Running web development server, watch PostCSS transform, watch graphql typegen',
       },
       ios: {
-        script: npsUtils.concurrent.nps('env.dev nps watch.ios', 'watch.css', 'watch.typegen'),
-        description:
-          'Running ios development server, watch PostCSS transform, watch graphql typegen',
+        default: {
+          script: npsUtils.concurrent.nps('env.dev nps watch.ios', 'watch.css', 'watch.typegen'),
+          description:
+            'Run ios development server, watch PostCSS transform, watch graphql typegen',
+        },
+        phone: {
+          script: npsUtils.concurrent.nps(
+            'env.dev npx ionic capacitor run ios -l --external',
+            'watch.css',
+            'watch.typegen'
+          ),
+          description: 'Run app in actual iOS device',
+        },
       },
       android: {
-        script: npsUtils.concurrent.nps('env.dev nps watch.android', 'watch.css', 'watch.typegen'),
-        description:
-          'Running android development server, watch PostCSS transform, watch graphql typegen',
+        default: {
+          script: npsUtils.concurrent.nps(
+            'env.dev nps watch.android',
+            'watch.css',
+            'watch.typegen'
+          ),
+          description:
+            'Run android development server, watch PostCSS transform, watch graphql typegen',
+        },
+        phone: {
+          script: npsUtils.concurrent.nps(
+            'env.dev npx ionic capacitor run android -l --external',
+            'watch.css',
+            'watch.typegen'
+          ),
+          description: 'Run app in actual android device',
+        },
       },
     },
     open: {
@@ -42,6 +66,12 @@ module.exports = {
       android: {
         script: 'cap open android',
         description: 'Open Android Studio for Android app',
+      },
+    },
+    app: {
+      config: {
+        script: 'npx cap copy',
+        description: 'Copy Capacitor config to mobile apps',
       },
     },
     watch: {

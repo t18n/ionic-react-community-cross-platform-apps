@@ -21,3 +21,7 @@
 - To show instructions for all scripts available, run `yarn scripts` or `yarn script <script-name>`
 - Add scripts with description to `package.scripts.js` file to keep scripts organize, instead of bloating `package.json`.
 - When styling, **only change pcss** file instead of `css.min` files, as they will be overriden.
+
+## Bugs
+
+- [ ] Run `npx ionic capacitor run ios` to serve app on iOS physical device results in white page
