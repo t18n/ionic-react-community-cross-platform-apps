@@ -1,26 +1,28 @@
 :root {
   /*
-  * Baseline
+  * Grid
+  * https://medium.com/swlh/the-comprehensive-8pt-grid-guide-aa16ff402179
+  * https://material.io/design/layout/understanding-layout.html#
   */
-  --baseline: 3px;
+  --grid: 4px;
 
   /*
   * Spacing
   */
-  --space-s: calc(var(--baseline) * 4);
-  --space-m: calc(var(--baseline) * 7);
-  --space-l: calc(var(--baseline) * 16);
+  --space-s: calc(var(--grid) * 4);
+  --space-m: calc(var(--grid) * 7);
+  --space-l: calc(var(--grid) * 16);
 
   @media (--viewport-tablet) {
-    --space-s: calc(var(--baseline) * 6);
-    --space-m: calc(var(--baseline) * 10);
-    --space-l: calc(var(--baseline) * 18);
+    --space-s: calc(var(--grid) * 6);
+    --space-m: calc(var(--grid) * 10);
+    --space-l: calc(var(--grid) * 18);
   }
 
   @media (--viewport-desktop) {
-    --space-s: calc(var(--baseline) * 6);
-    --space-m: calc(var(--baseline) * 12);
-    --space-l: calc(var(--baseline) * 20);
+    --space-s: calc(var(--grid) * 6);
+    --space-m: calc(var(--grid) * 12);
+    --space-l: calc(var(--grid) * 20);
   }
 
   /*
@@ -36,5 +38,5 @@
   /*
   * Properties
   */
-  --radius: var(--baseline);
+  --radius: var(--grid);
 }

@@ -8,13 +8,13 @@
   grid-template-columns: 1fr;
   gap: var(--space-m);
   grid-template-areas: 'brief' 'cover' 'description';
-  padding: calc(var(--baseline) * 6) calc(var(--baseline) * 12);
+  padding: calc(var(--grid) * 6) calc(var(--grid) * 12);
 
   @media (--viewport-tablet) {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 'cover brief' 'cover description';
-    padding: calc(var(--baseline) * 10) calc(var(--baseline) * 20);
+    padding: calc(var(--grid) * 10) calc(var(--grid) * 20);
   }
 }
 
@@ -25,20 +25,20 @@
   object-fit: cover;
 
   img {
-    max-width: calc(var(--baseline) * 50);
-    max-height: calc(var(--baseline) * 50 * 1.6);
+    max-width: calc(var(--grid) * 50);
+    max-height: calc(var(--grid) * 50 * 1.6);
     margin-top: auto;
     margin-bottom: auto;
   }
 
   @media (--viewport-tablet) {
-    flex-basis: calc(var(--baseline) * 140);
+    flex-basis: calc(var(--grid) * 140);
     margin-right: var(--space-m);
     margin-bottom: 0;
 
     img {
-      max-width: calc(var(--baseline) * 70);
-      max-height: calc(var(--baseline) * 70 * 1.6);
+      max-width: calc(var(--grid) * 70);
+      max-height: calc(var(--grid) * 70 * 1.6);
     }
   }
 }
@@ -73,13 +73,13 @@
 }
 
 .medium-tag {
-  margin-right: var(--baseline);
+  margin-right: var(--grid);
 }
 
 .engagements {
   display: flex;
 
   div {
-    margin-right: var(--baseline * 5);
+    margin-right: var(--grid * 5);
   }
 }

@@ -11,9 +11,10 @@ module.exports = {
       importFrom: [
         {
           customMedia: {
-            '--viewport-tablet': '(width >= 48em)' /* 768px */,
-            '--viewport-desktop': '(width >= 80em)' /* 1280px */,
-            '--viewport-desktopLarge': '(width >= 100em)' /* 1600px */,
+            '--viewport-mobile': '(width >= 22.5em)' /* 360px * 640px */,
+            '--viewport-tablet': '(width >= 48em)' /* 768px * 1024px */,
+            '--viewport-desktop': '(width >= 85.375em)' /* 1366px * 768px */,
+            '--viewport-desktopLarge': '(width >= 120em)' /* 1920px * 1080px */,
           },
         },
       ],
