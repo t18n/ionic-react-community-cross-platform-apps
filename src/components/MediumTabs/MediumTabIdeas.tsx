@@ -1,28 +1,23 @@
 import { IonItem, IonItemGroup, IonList, IonListHeader } from '@ionic/react';
-import React, { FC } from 'react';
+import React from 'react';
 
+import { IdeasQuery } from '../../graphql/operation/idea/types/IdeasQuery';
 import { MediumTab, MediumTabProps } from './MediumTab';
 
-type MediumTabIdeasProps = MediumTabProps;
+export interface MediumTabIdeasProps extends MediumTabProps, IdeasQuery {}
 
-export const MediumTabIdeas: FC<MediumTabIdeasProps> = ({ hide }) => {
-  console.log();
+export const MediumTabIdeas = ({ hide, ideas }: MediumTabIdeasProps) => {
   return (
     <MediumTab hide={hide}>
       <IonList>
         <IonListHeader>Ideas</IonListHeader>
 
-        <IonItemGroup className="idea-box">
-          <IonItem>Idea title 1</IonItem>
-        </IonItemGroup>
-
-        <IonItemGroup className="idea-box">
-          <IonItem>Idea title 2</IonItem>
-        </IonItemGroup>
-
-        <IonItemGroup className="idea-box">
-          <IonItem>Idea title 3</IonItem>
-        </IonItemGroup>
+        {ideas &&
+          ideas.items.map((idea) => (
+            <IonItemGroup className="idea-box" key={idea.content}>
+              <IonItem>{idea.content}</IonItem>
+            </IonItemGroup>
+          ))}
       </IonList>
     </MediumTab>
   );

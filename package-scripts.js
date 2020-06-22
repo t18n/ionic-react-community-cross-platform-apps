@@ -116,13 +116,13 @@ module.exports = {
       schema: {
         download: {
           script:
-            'apollo schema:download --endpoint=http://localhost:4001/graphql src/graphql/schema.gen.json',
+            'npx apollo schema:download --endpoint=http://localhost:4001/graphql src/graphql/schema.gen.json',
           description:
             'Download GraphQL schema on the server and save it locally to generate type',
         },
         generate: {
           script:
-            'apollo codegen:generate --localSchemaFile=src/graphql/schema.gen.json --target=typescript --includes=src/**/*.ts,src/**/*.tsx --tagName=gql --addTypename --globalTypesFile=src/types/graphql-types.gen.ts types',
+            'npx apollo codegen:generate --localSchemaFile=src/graphql/schema.gen.json --target=typescript --includes=src/**/*.ts,src/**/*.tsx --tagName=gql --addTypename --globalTypesFile=src/types/graphql-types.gen.ts types',
           description: 'Generate types for GraphQL operations or fragments from GraphQL schema',
         },
       },

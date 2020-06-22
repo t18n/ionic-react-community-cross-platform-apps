@@ -5,12 +5,12 @@ import { Plural, Trans } from '@lingui/macro';
 import { albumsOutline, cartOutline } from 'ionicons/icons';
 import React, { FC } from 'react';
 
-import { MediumsQuery_mediums_items } from '../../graphql/operation/medium/types/MediumsQuery';
+import { MediaQuery_media_items } from '../../graphql/operation/medium/types/MediaQuery';
 import { LazyImg } from '../LazyImg';
 import mcl from './styles/index.pcss.json';
 
 interface MediumBriefProps {
-  medium: MediumsQuery_mediums_items;
+  medium: MediaQuery_media_items;
 }
 
 export const MediumBrief: FC<MediumBriefProps> = ({ medium }) => {
@@ -18,16 +18,13 @@ export const MediumBrief: FC<MediumBriefProps> = ({ medium }) => {
     title,
     cover,
     shortDescription,
-    publishedDate,
+    publishedYear,
     isbn,
     users,
-    comments,
-    reactions,
-    category,
+    commentCount,
+    reactionCount,
     tags,
   } = medium;
-
-  console.log(tags);
 
   return (
     <div className={mcl.mediumBrief}>
@@ -37,16 +34,9 @@ export const MediumBrief: FC<MediumBriefProps> = ({ medium }) => {
         <div className={mcl.content}>
           <h1 className={mcl.metadata}>{title}</h1>
 
-          {category && (
-            <IonBadge>
-              <IonRouterLink routerLink={`/users/${category.slug}`} key={category.slug}>
-                {category.name}
-              </IonRouterLink>
-            </IonBadge>
-          )}
-
           <span className={`${mcl.metadata} ${mcl.details}`}>
-            <Trans id="medium.header.published" /> {new Date(publishedDate).getFullYear()}
+            <Trans id="medium.header.published" />
+            {publishedYear}
           </span>
 
           {isbn && (
@@ -88,12 +78,12 @@ export const MediumBrief: FC<MediumBriefProps> = ({ medium }) => {
 
           <div className={`${mcl.metadata} ${mcl.engagements}`}>
             <div>
-              {`${comments.length} `}
-              <Plural id="medium.brief.comments" value={comments.length} />
+              {`${commentCount} `}
+              <Plural id="medium.brief.comments" value={commentCount} />
             </div>
             <div>
-              {`${reactions.length} `}
-              <Plural id="medium.brief.reactions" value={reactions.length} />
+              {`${reactionCount} `}
+              <Plural id="medium.brief.reactions" value={reactionCount} />
             </div>
           </div>
 

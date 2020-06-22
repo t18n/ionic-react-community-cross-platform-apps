@@ -2,6 +2,7 @@ import { IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react';
 import { Trans } from '@lingui/macro';
 import React, { useState } from 'react';
 
+import { useIdeasQuery } from '../../graphql/operation/idea/query';
 import { MediumTabComments } from './MediumTabComments';
 import { MediumTabIdeas } from './MediumTabIdeas';
 import { MediumTabRatings } from './MediumTabRatings';
@@ -12,8 +13,22 @@ enum MediumTabNames {
   RATINGS = 'ratings',
 }
 
-export const MediumTabs: React.FC = () => {
+interface MediumTabsProps {
+  mediumSlug: string;
+}
+
+export const MediumTabs = ({ mediumSlug }: MediumTabsProps) => {
   const [segment, setSegment] = useState<MediumTabNames>(MediumTabNames.IDEAS);
+  const {
+    data: { ideas },
+  } = useIdeasQuery({
+    variables: {
+      data: {
+        first: 40,
+        mediumSlug,
+      },
+    },
+  });
 
   return (
     <div>
@@ -35,7 +50,7 @@ export const MediumTabs: React.FC = () => {
           </IonSegmentButton>
         </IonSegment>
       </IonToolbar>
-      <MediumTabIdeas hide={segment !== MediumTabNames.IDEAS} />
+      <MediumTabIdeas hide={segment !== MediumTabNames.IDEAS} ideas={ideas} />
       <MediumTabComments hide={segment !== MediumTabNames.COMMENTS} />
       <MediumTabRatings hide={segment !== MediumTabNames.RATINGS} />
     </div>

@@ -18,9 +18,18 @@
 
 ## Development Notes
 
-- To show instructions for all scripts available, run `yarn scripts` or `yarn script <script-name>`
+#### Scripts
+
+- To show instructions for all scripts available, run `yarn scripts` or `yarn script <script-name>`.
 - Add scripts with description to `package.scripts.js` file to keep scripts organize, instead of bloating `package.json`.
+
+#### Styling
+
 - When styling, **only change pcss** file instead of `css.min` files, as they will be overriden.
+
+#### Apollo
+
+- We rely on Apollo to generate types from the **brightizen-backend**, it is important to regenerate the types when there are changes from the backend. To do that, run: `yarn nps apollo.schema.download && yarn nps apollo.schema.generate`
 
 ## Bugs
 

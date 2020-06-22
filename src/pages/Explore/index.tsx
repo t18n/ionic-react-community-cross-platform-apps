@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { Layout } from '../../components/Layout';
 import { TagPreview } from '../../components/TagPreview';
-import { useMediumsQuery } from '../../graphql/operation/medium/query';
+import { useMediaQuery } from '../../graphql/operation/medium/query';
 
 export const Explore = () => {
   const [state, setState] = useState({
@@ -29,7 +29,7 @@ export const Explore = () => {
   });
   const [isError] = useState<boolean>(false);
 
-  const { data: MEDIUM_data } = useMediumsQuery({
+  const { data: MEDIUM_data } = useMediaQuery({
     variables: {
       first: 5,
     },
@@ -60,13 +60,13 @@ export const Explore = () => {
             <IonList>
               <IonGrid fixed={true} className="ion-no-padding">
                 <IonListHeader>
-                  <h1>Top Mediums</h1>
+                  <h1>Top Media</h1>
                 </IonListHeader>
                 <IonRow className="ion-justify-content-start">
                   {MEDIUM_data &&
-                    MEDIUM_data.mediums.items.slice(0, 4).map(({ id, slug, title, cover }) => (
+                    MEDIUM_data.media.items.slice(0, 4).map(({ id, slug, title, cover }) => (
                       <IonCol sizeLg="4" sizeXl="3" key={id} className="ion-no-padding">
-                        <Link to={`mediums/${slug}`}>
+                        <Link to={`media/${slug}`}>
                           <TagPreview title={title} imgSrc={cover} imgAlt={title} rating="4.5" />
                         </Link>
                       </IonCol>

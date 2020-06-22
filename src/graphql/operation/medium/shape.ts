@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 // Fragment to share user query
 const MEDIUM_DATA = gql`
-  fragment MediumData on Medium {
+  fragment MediumFragment on Medium {
     id
     title
     shortDescription
@@ -11,7 +11,11 @@ const MEDIUM_DATA = gql`
     cover
     source
     isbn
-    publishedDate
+    publishedYear
+    ideaCount
+    commentCount
+    reactionCount
+    reportCount
     users {
       name
       slug
@@ -20,29 +24,15 @@ const MEDIUM_DATA = gql`
       name
       slug
     }
-    category {
-      name
-      slug
-    }
-    comments {
-      id
-      type
-      content
-      rating
-    }
-    reactions {
-      id
-      type
-    }
   }
 `;
 
 // Get list of medium
-export const MEDIUMS_QUERY = gql`
-  query MediumsQuery($first: Int!) {
-    mediums(first: $first) {
+export const MEDIA_QUERY = gql`
+  query MediaQuery($first: Int!) {
+    media(first: $first) {
       items {
-        ...MediumData
+        ...MediumFragment
       }
       hasMore
       total
@@ -55,7 +45,7 @@ export const MEDIUMS_QUERY = gql`
 export const MEDIUM_QUERY = gql`
   query MediumQuery($slug: String!) {
     medium(slug: $slug) {
-      ...MediumData
+      ...MediumFragment
     }
   }
   ${MEDIUM_DATA}

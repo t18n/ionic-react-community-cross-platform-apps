@@ -1,11 +1,11 @@
 import { IonItem, IonItemGroup, IonList, IonListHeader } from '@ionic/react';
-import React, { FC } from 'react';
+import React from 'react';
 
 import { MediumTab, MediumTabProps } from './MediumTab';
 
 type MediumTabRatingsProps = MediumTabProps;
 
-export const MediumTabRatings: FC<MediumTabRatingsProps> = ({ hide }) => {
+export const MediumTabRatings = ({ hide }: MediumTabRatingsProps) => {
   console.log();
   return (
     <MediumTab hide={hide}>

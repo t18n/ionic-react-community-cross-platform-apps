@@ -12,7 +12,10 @@ export const Medium = ({
     params: { slug },
   },
 }) => {
-  const { data, loading } = useMediumQuery({
+  const {
+    data: { medium },
+    loading,
+  } = useMediumQuery({
     variables: {
       slug: slug,
     },
@@ -30,10 +33,10 @@ export const Medium = ({
             <IonSpinner color="primary" />
           </div>
         ) : (
-          data && (
+          medium && (
             <>
-              <MediumBrief medium={data.medium} />
-              <MediumTabs />
+              <MediumBrief medium={medium} />
+              <MediumTabs mediumSlug={medium.slug} />
             </>
           )
         )}
@@ -44,7 +47,7 @@ export const Medium = ({
             </div>
           ) : (
             data &&
-            data.mediums.items.map(({ id, slug, title, cover, users, comments, reactions }) => (
+            data.media.items.map(({ id, slug, title, cover, users, comments, reactions }) => (
               <MediumItem
                 key={id}
                 cover={cover}

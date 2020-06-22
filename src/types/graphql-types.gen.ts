@@ -7,15 +7,20 @@
 // START Enums and Input Objects
 //==============================================================
 
-export enum CommentType {
-  COMMENT = "COMMENT",
-  RATING = "RATING",
+export enum IdeaType {
+  HIGHLIGHT = "HIGHLIGHT",
+  IDEA = "IDEA",
+  QUOTE = "QUOTE",
 }
 
 export enum MediumType {
   ARTICLE = "ARTICLE",
+  ARTWORK = "ARTWORK",
   BOOK = "BOOK",
-  POSTCAST = "POSTCAST",
+  MOVIE = "MOVIE",
+  MUSIC = "MUSIC",
+  OTHER = "OTHER",
+  PODCAST = "PODCAST",
   VIDEO = "VIDEO",
 }
 
@@ -26,6 +31,11 @@ export enum ReactionType {
   HURRA = "HURRA",
   LIKE = "LIKE",
   LOVE = "LOVE",
+}
+
+export interface IdeasInput {
+  first: number;
+  mediumSlug: string;
 }
 
 export interface LoginInput {

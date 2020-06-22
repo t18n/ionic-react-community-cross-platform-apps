@@ -50,22 +50,22 @@ export const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState(location.search.slice(1).replace('q=', ''));
 
   //
-  const searchMediums = async (query?: string): Promise<any> => {
+  const searchMedia = async (query?: string): Promise<any> => {
     const searchTypes = ['books', 'videos', 'articles', 'postcasts'];
     console.log('Searching for ', searchTypes);
-    // Get mediums from API
-    const mediums = {
+    // Get media from API
+    const media = {
       books: [],
       videos: [],
       articles: [],
       postcasts: [],
       isLoading: false,
     };
-    return mediums;
+    return media;
   };
 
   const [isError, setIsError] = useState<boolean>(false);
-  const [mediums, setMediums] = useState({
+  const [media, setMedia] = useState({
     books: [],
     videos: [],
     articles: [],
@@ -78,7 +78,7 @@ export const SearchPage = () => {
     const val = e.target.value;
     if (!val) {
       history.replace({ search: '' });
-      setMediums({
+      setMedia({
         books: [],
         videos: [],
         articles: [],
@@ -95,13 +95,13 @@ export const SearchPage = () => {
   useEffect(() => {
     if (debouncedSearchTerm) {
       history.replace({ search: `?q=${debouncedSearchTerm}` });
-      setMediums((mediums) => {
-        return { ...mediums, isLoading: true };
+      setMedia((media) => {
+        return { ...media, isLoading: true };
       });
 
-      searchMediums(debouncedSearchTerm)
+      searchMedia(debouncedSearchTerm)
         .then((results: any) => {
-          setMediums({
+          setMedia({
             books: results['books'] ? results['books'] : [],
             videos: results['videos'] ? results['videos'] : [],
             articles: results['articles'] ? results['articles'] : [],
@@ -111,8 +111,8 @@ export const SearchPage = () => {
           });
         })
         .catch((err) => {
-          setMediums((mediums) => {
-            return { ...mediums, isLoading: false };
+          setMedia((media) => {
+            return { ...media, isLoading: false };
           });
           setIsError(true);
           console.warn('Error', err);
@@ -136,18 +136,16 @@ export const SearchPage = () => {
       <IonContent fullscreen={true}>
         {isError ? 'Has error' : null}
         <IonList>
-          {mediums.isLoading ? (
+          {media.isLoading ? (
             <div className="ion-text-center ion-padding">
               <IonSpinner color="primary" />
             </div>
           ) : null}
-          {mediums.books.length > 0 ? <FoundItem title="Book" items={mediums.books} /> : null}
-          {mediums.articles.length > 0 ? (
-            <FoundItem title="Articles" items={mediums.articles} />
-          ) : null}
-          {mediums.videos.length > 0 ? <FoundItem title="Videos" items={mediums.videos} /> : null}
-          {mediums.postcasts.length > 0 ? (
-            <FoundItem title="Postcasts" items={mediums.postcasts} />
+          {media.books.length > 0 ? <FoundItem title="Book" items={media.books} /> : null}
+          {media.articles.length > 0 ? <FoundItem title="Articles" items={media.articles} /> : null}
+          {media.videos.length > 0 ? <FoundItem title="Videos" items={media.videos} /> : null}
+          {media.postcasts.length > 0 ? (
+            <FoundItem title="Postcasts" items={media.postcasts} />
           ) : null}
         </IonList>
       </IonContent>
