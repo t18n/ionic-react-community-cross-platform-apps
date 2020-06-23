@@ -19,9 +19,7 @@ interface MediumTabsProps {
 
 export const MediumTabs = ({ mediumSlug }: MediumTabsProps) => {
   const [segment, setSegment] = useState<MediumTabNames>(MediumTabNames.IDEAS);
-  const {
-    data: { ideas },
-  } = useIdeasQuery({
+  const { data, loading } = useIdeasQuery({
     variables: {
       data: {
         first: 40,
@@ -50,7 +48,11 @@ export const MediumTabs = ({ mediumSlug }: MediumTabsProps) => {
           </IonSegmentButton>
         </IonSegment>
       </IonToolbar>
-      <MediumTabIdeas hide={segment !== MediumTabNames.IDEAS} ideas={ideas} />
+      <MediumTabIdeas
+        hide={segment !== MediumTabNames.IDEAS}
+        ideas={data ? data.ideas.items : []}
+        isLoading={loading}
+      />
       <MediumTabComments hide={segment !== MediumTabNames.COMMENTS} />
       <MediumTabRatings hide={segment !== MediumTabNames.RATINGS} />
     </div>
