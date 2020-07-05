@@ -30,10 +30,11 @@ export const Medium = ({
             <IonSpinner color="primary" />
           </div>
         ) : (
-          data && (
+          data &&
+          data.medium && (
             <>
               <MediumBrief medium={data.medium} />
-              <MediumTabs />
+              <MediumTabs mediumSlug={data.medium.slug} />
             </>
           )
         )}
@@ -44,7 +45,7 @@ export const Medium = ({
             </div>
           ) : (
             data &&
-            data.mediums.items.map(({ id, slug, title, cover, users, comments, reactions }) => (
+            data.media.items.map(({ id, slug, title, cover, users, comments, reactions }) => (
               <MediumItem
                 key={id}
                 cover={cover}

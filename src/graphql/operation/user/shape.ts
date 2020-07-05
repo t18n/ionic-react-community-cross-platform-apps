@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 // Fragment to share user query
 const USER_DATA = gql`
-  fragment UserData on User {
+  fragment UserFragment on User {
     id
     email
     name
@@ -19,7 +19,7 @@ const USER_DATA = gql`
 export const LOGIN = gql`
   mutation LoginMutation($data: LoginInput!) {
     login(data: $data) {
-      ...UserData
+      ...UserFragment
     }
   }
   ${USER_DATA}
@@ -36,7 +36,7 @@ export const LOGOUT = gql`
 export const ME = gql`
   query MeQuery {
     me {
-      ...UserData
+      ...UserFragment
     }
   }
   ${USER_DATA}

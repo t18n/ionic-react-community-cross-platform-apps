@@ -78,7 +78,7 @@ export const Sidebar = () => {
             <Route exact path="/search" component={SearchPage} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/tags/:slug" component={Tag} />
-            <Route exact path="/mediums/:slug" component={Medium} />
+            <Route exact path="/media/:slug" component={Medium} />
           </IonRouterOutlet>
         </IonPage>
       </IonSplitPane>
