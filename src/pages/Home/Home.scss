@@ -1,0 +1,30 @@
+.toolbar-post {
+  margin: 4px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+}
+
+.button-post {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.post-input {
+  flex: 1 1 auto;
+}
+
+.button-inner-left {
+  width: 100%;
+  text-align: left;
+}
+
+.content-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: var(--ion-color-light);
+}

@@ -12,6 +12,8 @@ const { SplashScreen } = Plugins;
 // https://ionicframework.com/docs/react/config
 setupConfig({
   rippleEffect: false,
+  mode: 'ios', // force the theme to iOS mode
+  backButtonText: '',
 });
 
 ReactDOM.render(<App />, document.getElementById('root'));

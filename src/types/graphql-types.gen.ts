@@ -14,8 +14,12 @@ export enum CommentType {
 
 export enum MediumType {
   ARTICLE = "ARTICLE",
+  ARTWORK = "ARTWORK",
   BOOK = "BOOK",
-  POSTCAST = "POSTCAST",
+  MOVIE = "MOVIE",
+  MUSIC = "MUSIC",
+  OTHER = "OTHER",
+  PODCAST = "PODCAST",
   VIDEO = "VIDEO",
 }
 

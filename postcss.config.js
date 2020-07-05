@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   plugins: [
     require('postcss-import'),
@@ -33,13 +31,26 @@ module.exports = {
       exclude: /node_modules/i,
     }),
     require('cssnano')({
-      preset: 'default',
+      preset: [
+        'default', // https://cssnano.co/guides/optimisations
+        {
+          discardComments: { removeAll: true },
+          svgo: {
+            plugins: [
+              {
+                removeDoctype: false,
+              },
+            ],
+          },
+        },
+      ],
     }),
-    require('postcss-modules')({
-      localsConvention: 'camelCaseOnly', // Class names will be camelized, the original are removed
-      generateScopedName: '[local]___[hash:base64:5]',
-      hashPrefix: 'br',
-      globalModulePaths: [path.resolve(__dirname, './src/styles')],
-    }),
+    // TODO: Activate Postcss modiles
+    // require('postcss-modules')({
+    //   localsConvention: 'camelCaseOnly', // Class names will be camelized, the original are removed
+    //   generateScopedName: '[local]___[hash:base64:5]',
+    //   hashPrefix: 'br',
+    //   globalModulePaths: [path.resolve(__dirname, './src/styles')],
+    // }),
   ],
 };

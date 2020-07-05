@@ -3,6 +3,7 @@
     "stylelint-config-standard"
   ],
   "rules": {
+    "declaration-colon-newline-after": null,
     "selector-pseudo-class-no-unknown": [
       true,
       {

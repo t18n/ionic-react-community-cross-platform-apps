@@ -1,0 +1,1 @@
+.notification-item{padding:.5rem .25rem;border-top:.0625rem solid var(--ion-color-light);border-bottom:.0625rem solid var(--ion-color-light);margin-bottom:-.0625rem}.notification-item.unread{background-color:var(--ion-color-light-tint);border-top:.0625rem solid var(--ion-color-light-shade);border-bottom:.0625rem solid var(--ion-color-light-shade)}

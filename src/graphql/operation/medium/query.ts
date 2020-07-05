@@ -1,7 +1,8 @@
 import { useQuery } from '@apollo/client';
 
-import { MEDIUM_QUERY, MEDIUMS_QUERY } from './shape';
-import { MediumsQuery_mediums, MediumsQuery_mediums_items } from './types/MediumsQuery';
+import { MEDIA_QUERY, MEDIUM_QUERY } from './shape';
+import { MediaQuery_media } from './types/MediaQuery';
+import { MediumQuery_medium } from './types/MediumQuery';
 
 type MediumsQueryOptions = {
   variables: {
@@ -19,12 +20,12 @@ type MediumQueryOptions = {
  * Fetch list of mediums
  */
 export const useMediumsQuery = (options: MediumsQueryOptions) => {
-  return useQuery<{ mediums: MediumsQuery_mediums }>(MEDIUMS_QUERY, options);
+  return useQuery<{ mediums: MediaQuery_media }>(MEDIA_QUERY, options);
 };
 
 /**
  * Fetch one medium
  */
 export const useMediumQuery = (options: MediumQueryOptions) => {
-  return useQuery<{ medium: MediumsQuery_mediums_items }>(MEDIUM_QUERY, options);
+  return useQuery<{ medium: MediumQuery_medium }>(MEDIUM_QUERY, options);
 };

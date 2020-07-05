@@ -1,0 +1,33 @@
+.profile-page {
+  .cover-background {
+    height: 100px;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--ion-color-medium);
+  }
+
+  .profile-summary {
+    position: relative;
+    padding-top: 44px;
+  }
+
+  .profile-image {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    top: -58px;
+    left: 0;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .profile-name {
+    font-size: 20px;
+    margin-bottom: 8px;
+
+    .online-status {
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+    }
+  }
+}

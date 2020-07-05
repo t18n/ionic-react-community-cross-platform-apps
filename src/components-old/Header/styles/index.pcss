@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--space-s);
+}
+
+/* Options */
+.header-options {
+  margin-left: auto;
+  float: right;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-firstName {
+  display: none;
+
+  @media (--viewport-tablet) {
+    margin-right: calc(var(--grid) * 2);
+    display: block;
+  }
+}
+
+.avatar {
+  width: calc(var(--grid) * 10);
+  height: calc(var(--grid) * 10);
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+/* Popover options */
+.option-popover {
+  [class*='popover-wrapper'] {
+    display: flex;
+    justify-content: 'center';
+  }
+
+  [class*='popover-content'] {
+    padding: var(--space-l);
+    width: 600px;
+  }
+}

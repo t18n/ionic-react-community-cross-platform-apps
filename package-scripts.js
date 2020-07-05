@@ -58,6 +58,16 @@ module.exports = {
         },
       },
     },
+    storybook: {
+      default: {
+        script: 'start-storybook -p 9009 -s ./src/styles',
+        description: 'Start storybook for web',
+      },
+      build: {
+        script: 'build-storybook -s ./src/styles',
+        description: 'Build Storybook to a website',
+      },
+    },
     open: {
       ios: {
         script: 'cap open ios',
