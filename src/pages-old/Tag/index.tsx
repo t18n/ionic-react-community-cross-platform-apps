@@ -10,11 +10,10 @@ import {
   useIonViewDidEnter,
 } from '@ionic/react';
 import { Trans } from '@lingui/macro';
+import { Layout } from 'components-old/Layout';
+import { MediumItem } from 'components-old/MediumItem';
+import { PreviewHeaderTag } from 'components-old/PreviewHeaderTag';
 import React, { useState } from 'react';
-
-import { Layout } from '../../components-old/Layout';
-import { MediumItem } from '../../components-old/MediumItem';
-import { PreviewHeaderTag } from '../../components-old/PreviewHeaderTag';
 
 export const Tag = () => {
   const [data, setData] = useState({ isLoading: true, tag: null });

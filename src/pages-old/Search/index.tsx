@@ -14,12 +14,11 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { Trans } from '@lingui/macro';
+import { Layout } from 'components-old/Layout';
+import { MediumItem } from 'components-old/MediumItem';
+import useDebounce from 'hooks/useDebounce';
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-
-import { Layout } from '../../components-old/Layout';
-import { MediumItem } from '../../components-old/MediumItem';
-import useDebounce from '../../hooks/useDebounce';
 
 const FoundItem = ({ title, items }) => (
   <Layout id="search-page" title={<Trans id="page.title.search" />}>

@@ -17,14 +17,14 @@ import {
   IonToast,
   IonToolbar,
 } from '@ionic/react';
+import { useLogoutUser } from 'graphql/operation/user/mutation';
+import { useLoggedInUser } from 'graphql/operation/user/query';
+import { ME } from 'graphql/operation/user/shape';
+import { useToast } from 'hooks/useToast';
 import { logOut } from 'ionicons/icons';
 import React, { FC, ReactNode, useState } from 'react';
+import locales, { LocaleId } from 'settings/locale';
 
-import { useLogoutUser } from '../../graphql/operation/user/mutation';
-import { useLoggedInUser } from '../../graphql/operation/user/query';
-import { ME } from '../../graphql/operation/user/shape';
-import { useToast } from '../../hooks/useToast';
-import locales, { LocaleId } from '../../settings/locale';
 import { activateLanguage } from '../I18n/utils';
 import { LazyImg } from '../LazyImg';
 import mcl from './styles/index.pcss.json';

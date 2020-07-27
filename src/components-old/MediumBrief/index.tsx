@@ -2,10 +2,10 @@ import './styles/index.min.css';
 
 import { IonBadge, IonButton, IonIcon, IonRouterLink } from '@ionic/react';
 import { Plural, Trans } from '@lingui/macro';
+import { MediumQuery_medium } from 'graphql/operation/medium/types/MediumQuery';
 import { albumsOutline, cartOutline } from 'ionicons/icons';
 import React, { FC } from 'react';
 
-import { MediumQuery_medium } from '../../graphql/operation/medium/types/MediumQuery';
 import { LazyImg } from '../LazyImg';
 import mcl from './styles/index.pcss.json';
 

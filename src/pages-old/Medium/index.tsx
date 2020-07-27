@@ -1,11 +1,10 @@
 import { IonContent, IonSpinner, useIonViewDidEnter } from '@ionic/react';
 import { Trans } from '@lingui/macro';
+import { Layout } from 'components-old/Layout';
+import { MediumBrief } from 'components-old/MediumBrief';
+import { MediumTabs } from 'components-old/MediumTabs';
+import { useMediumQuery } from 'graphql/operation/medium/query';
 import React from 'react';
-
-import { Layout } from '../../components-old/Layout';
-import { MediumBrief } from '../../components-old/MediumBrief';
-import { MediumTabs } from '../../components-old/MediumTabs';
-import { useMediumQuery } from '../../graphql/operation/medium/query';
 
 export const Medium = ({
   match: {

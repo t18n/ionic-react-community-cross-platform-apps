@@ -17,18 +17,18 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import logo from 'assets/brand/logo.svg';
+import { useToast } from 'hooks/useToast';
 import { libraryOutline, search } from 'ionicons/icons';
+import { Explore } from 'pages-old/Explore';
+import { Home } from 'pages-old/Home';
+import { Login } from 'pages-old/Login';
+import { Medium } from 'pages-old/Medium';
+import { SearchPage } from 'pages-old/Search';
+import { Tag } from 'pages-old/Tag';
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import logo from '../../assets/brand/logo.svg';
-import { useToast } from '../../hooks/useToast';
-import { Explore } from '../../pages-old/Explore';
-import { Home } from '../../pages-old/Home';
-import { Login } from '../../pages-old/Login';
-import { Medium } from '../../pages-old/Medium';
-import { SearchPage } from '../../pages-old/Search';
-import { Tag } from '../../pages-old/Tag';
 import { Footer } from '../Footer';
 import { LazyImg } from '../LazyImg';
 import mcl from './styles/index.pcss.json';

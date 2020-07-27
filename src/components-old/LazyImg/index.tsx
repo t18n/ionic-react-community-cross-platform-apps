@@ -1,9 +1,9 @@
 import './styles/index.min.css';
 
 import { IonSkeletonText } from '@ionic/react';
+import { useIntersectionObserver } from 'hooks/useIntersectionObserver';
 import React, { FC, useEffect, useRef } from 'react';
 
-import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import mcl from './styles/index.pcss.json';
 import { preload } from './utils';
 

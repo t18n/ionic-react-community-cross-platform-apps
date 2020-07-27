@@ -12,13 +12,12 @@ import {
   useIonViewDidEnter,
 } from '@ionic/react';
 import { t, Trans } from '@lingui/macro';
+import { Header } from 'components-old/Header';
+import { Layout } from 'components-old/Layout';
+import { TagPreview } from 'components-old/TagPreview';
+import { useMediumsQuery } from 'graphql/operation/medium/query';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
-import { Header } from '../../components-old/Header';
-import { Layout } from '../../components-old/Layout';
-import { TagPreview } from '../../components-old/TagPreview';
-import { useMediumsQuery } from '../../graphql/operation/medium/query';
 
 export const Explore = () => {
   const [state, setState] = useState({

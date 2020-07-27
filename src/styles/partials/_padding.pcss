@@ -1,0 +1,203 @@
+.no-padding {
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.padding {
+  --padding-start: var(--padding, 16px);
+  --padding-end: var(--padding, 16px);
+  --padding-top: var(--padding, 16px);
+  --padding-bottom: var(--padding, 16px);
+
+  padding-left: var(--padding, 16px);
+  padding-right: var(--padding, 16px);
+  padding-top: var(--padding, 16px);
+  padding-bottom: var(--padding, 16px);
+}
+
+@supports (margin-inline-start: 0) or (-webkit-margin-start: 0) {
+  .padding {
+    padding-left: unset;
+    padding-right: unset;
+    -webkit-padding-start: var(--padding, 16px);
+    padding-inline-start: var(--padding, 16px);
+    -webkit-padding-end: var(--padding, 16px);
+    padding-inline-end: var(--padding, 16px);
+  }
+}
+
+.padding-top {
+  --padding-top: var(--padding, 16px);
+
+  padding-top: var(--padding, 16px);
+}
+
+.padding-start {
+  --padding-start: var(--padding, 16px);
+
+  padding-left: var(--padding, 16px);
+}
+
+@supports (margin-inline-start: 0) or (-webkit-margin-start: 0) {
+  .padding-start {
+    padding-left: unset;
+    -webkit-padding-start: var(--padding, 16px);
+    padding-inline-start: var(--padding, 16px);
+  }
+}
+
+.padding-end {
+  --padding-end: var(--padding, 16px);
+
+  padding-right: var(--padding, 16px);
+}
+
+@supports (margin-inline-start: 0) or (-webkit-margin-start: 0) {
+  .padding-end {
+    padding-right: unset;
+    -webkit-padding-end: var(--padding, 16px);
+    padding-inline-end: var(--padding, 16px);
+  }
+}
+
+.padding-bottom {
+  --padding-bottom: var(--padding, 16px);
+
+  padding-bottom: var(--padding, 16px);
+}
+
+.padding-vertical {
+  --padding-top: var(--padding, 16px);
+  --padding-bottom: var(--padding, 16px);
+
+  padding-top: var(--padding, 16px);
+  padding-bottom: var(--padding, 16px);
+}
+
+.padding-horizontal {
+  --padding-start: var(--padding, 16px);
+  --padding-end: var(--padding, 16px);
+
+  padding-left: var(--padding, 16px);
+  padding-right: var(--padding, 16px);
+}
+
+@supports (margin-inline-start: 0) or (-webkit-margin-start: 0) {
+  .padding-horizontal {
+    padding-left: unset;
+    padding-right: unset;
+    -webkit-padding-start: var(--padding, 16px);
+    padding-inline-start: var(--padding, 16px);
+    -webkit-padding-end: var(--padding, 16px);
+    padding-inline-end: var(--padding, 16px);
+  }
+}
+
+.no-margin {
+  --margin-start: 0;
+  --margin-end: 0;
+  --margin-top: 0;
+  --margin-bottom: 0;
+
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.margin {
+  --margin-start: var(--margin, 16px);
+  --margin-end: var(--margin, 16px);
+  --margin-top: var(--margin, 16px);
+  --margin-bottom: var(--margin, 16px);
+
+  margin-left: var(--margin, 16px);
+  margin-right: var(--margin, 16px);
+  margin-top: var(--margin, 16px);
+  margin-bottom: var(--margin, 16px);
+}
+
+@supports (margin-inline-start: 0) or (-webkit-margin-start: 0) {
+  .margin {
+    margin-left: unset;
+    margin-right: unset;
+    -webkit-margin-start: var(--margin, 16px);
+    margin-inline-start: var(--margin, 16px);
+    -webkit-margin-end: var(--margin, 16px);
+    margin-inline-end: var(--margin, 16px);
+  }
+}
+
+.margin-top {
+  --margin-top: var(--margin, 16px);
+
+  margin-top: var(--margin, 16px);
+}
+
+.margin-start {
+  --margin-start: var(--margin, 16px);
+
+  margin-left: var(--margin, 16px);
+}
+
+@supports (margin-inline-start: 0) or (-webkit-margin-start: 0) {
+  .margin-start {
+    margin-left: unset;
+    -webkit-margin-start: var(--margin, 16px);
+    margin-inline-start: var(--margin, 16px);
+  }
+}
+
+.margin-end {
+  --margin-end: var(--margin, 16px);
+
+  margin-right: var(--margin, 16px);
+}
+
+@supports (margin-inline-start: 0) or (-webkit-margin-start: 0) {
+  .margin-end {
+    margin-right: unset;
+    -webkit-margin-end: var(--margin, 16px);
+    margin-inline-end: var(--margin, 16px);
+  }
+}
+
+.margin-bottom {
+  --margin-bottom: var(--margin, 16px);
+
+  margin-bottom: var(--margin, 16px);
+}
+
+.margin-vertical {
+  --margin-top: var(--margin, 16px);
+  --margin-bottom: var(--margin, 16px);
+
+  margin-top: var(--margin, 16px);
+  margin-bottom: var(--margin, 16px);
+}
+
+.margin-horizontal {
+  --margin-start: var(--margin, 16px);
+  --margin-end: var(--margin, 16px);
+
+  margin-left: var(--margin, 16px);
+  margin-right: var(--margin, 16px);
+}
+
+@supports (margin-inline-start: 0) or (-webkit-margin-start: 0) {
+  .margin-horizontal {
+    margin-left: unset;
+    margin-right: unset;
+    -webkit-margin-start: var(--margin, 16px);
+    margin-inline-start: var(--margin, 16px);
+    -webkit-margin-end: var(--margin, 16px);
+    margin-inline-end: var(--margin, 16px);
+  }
+}

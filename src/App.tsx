@@ -2,18 +2,18 @@ import './styles/main.min.css';
 
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import Modals from 'components/organisms/Modals';
+import SideMenu from 'components/organisms/SideMenu';
+import Provider from 'context/Provider';
+import Chat from 'pages/Chat';
+import Landing from 'pages/Landing';
+import Messaging from 'pages/Messaging';
+import Tabs from 'pages/Tabs';
 import React from 'react';
 import { Route } from 'react-router-dom';
 
 import I18nProvider from './components-old/I18n';
-import Modals from './components/Modals';
-import SideMenu from './components/SideMenu/SideMenu';
-import Provider from './context/Provider';
 import { ApolloProvider } from './graphql/ApolloProvider';
-import Chat from './pages/Chat/Chat';
-import Landing from './pages/Landing/Landing';
-import Messaging from './pages/Messaging';
-import Tabs from './pages/Tabs';
 
 export const App = () => {
   return (

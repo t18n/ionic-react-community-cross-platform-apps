@@ -13,12 +13,12 @@ import {
   IonToast,
 } from '@ionic/react';
 import { Trans } from '@lingui/macro';
+import { Layout } from 'components-old/Layout/index';
+import { useLoginUser } from 'graphql/operation/user/mutation';
+import { ME } from 'graphql/operation/user/shape';
+import { useToast } from 'hooks/useToast';
 import React, { useState } from 'react';
 
-import { Layout } from '../../components-old/Layout/index';
-import { useLoginUser } from '../../graphql/operation/user/mutation';
-import { ME } from '../../graphql/operation/user/shape';
-import { useToast } from '../../hooks/useToast';
 import mcl from './styles/index.pcss.json';
 
 export const Login = ({ history }) => {

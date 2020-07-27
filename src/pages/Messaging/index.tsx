@@ -1,4 +1,4 @@
-import './index.scss';
+import './index.min.css';
 
 import {
   IonBackButton,
@@ -14,11 +14,10 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
+import MessageItem from 'components/MessageItem';
+import { messages } from 'components/MessageItem';
 import { create, personAdd } from 'ionicons/icons';
 import React from 'react';
-
-import MessageItem from '../../components/MessageItem';
-import { messages } from '../../components/MessageItem';
 
 type Props = {
   history: any;

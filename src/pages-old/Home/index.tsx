@@ -1,8 +1,7 @@
 import { IonButton, IonContent } from '@ionic/react';
 import { Trans } from '@lingui/macro';
+import { Layout } from 'components-old/Layout/index';
 import React from 'react';
-
-import { Layout } from '../../components-old/Layout/index';
 
 export const Home = ({ history }) => {
   return (

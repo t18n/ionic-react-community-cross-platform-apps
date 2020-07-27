@@ -6,21 +6,21 @@ import {
   IonTabButton,
   IonTabs,
 } from '@ionic/react';
+import { Settings } from 'context/Settings';
 import { briefcase, create, home, notificationsOutline, people } from 'ionicons/icons';
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
-import { Settings } from '../../context/Settings';
-import Home from '../Home/Home';
-import Invitations from '../Invitations/Invitations';
+import Home from '../Home';
+import Invitations from '../Invitations';
 import Media from '../Media';
 import Medium from '../Medium';
-import Network from '../Network/Network';
-import Notifications from '../Notifications/Notifications';
-import PostDetail from '../PostDetail/PostDetail';
-import Profile from '../Profile/Profile';
-import Recommendations from '../Recommendations/Recommendations';
-import Search from '../Search/Search';
+import Network from '../Network';
+import Notifications from '../Notifications';
+import PostDetail from '../PostDetail';
+import Profile from '../Profile';
+import Recommendations from '../Recommendations';
+import Search from '../Search';
 
 const Tabs = () => {
   return (

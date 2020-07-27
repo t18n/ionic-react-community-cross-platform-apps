@@ -1,8 +1,8 @@
 import { i18n } from '@lingui/core';
 import { I18nProvider as LinguiI18nProvider, useLingui } from '@lingui/react';
 import React, { FC, Fragment, useEffect, useState } from 'react';
+import { LocaleId } from 'settings/locale';
 
-import { LocaleId } from '../../settings/locale';
 import { activateLanguage } from './utils';
 
 /**
