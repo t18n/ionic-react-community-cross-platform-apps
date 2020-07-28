@@ -1,7 +1,11 @@
-import { IonCol, IonIcon, IonItemDivider, IonRow, IonSearchbar } from '@ionic/react';
 import React, { useState } from 'react';
 
+import { Col, Row } from '../Grid';
+import { ItemDivider } from '../Item';
+import { SearchBar } from '../SearchBar';
 import * as Icons from '.';
+
+const Icon = Icons.Icon;
 
 export default {
   title: 'Icons',
@@ -19,54 +23,57 @@ export const Default = () => {
 
   return (
     <>
-      <IonSearchbar
+      <SearchBar
         value={searchText}
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         onIonChange={(e) => setSearchText(e.detail.value!)}
-      ></IonSearchbar>
+      ></SearchBar>
 
-      <IonRow>
-        <IonCol>
+      <Row>
+        <Col>
           <a href="https://tablericons.com/" target="_blank" rel="noopener noreferrer">
             <h4>Find icons</h4>
           </a>
-        </IonCol>
-      </IonRow>
+        </Col>
+      </Row>
 
-      <IonRow>
-        <IonItemDivider>
-          <IonCol>
+      <Row>
+        <ItemDivider>
+          <Col>
             <b>Id</b>
-          </IonCol>
-          <IonCol>
+          </Col>
+          <Col>
             <b>Small</b>
-          </IonCol>
-          <IonCol>
+          </Col>
+          <Col>
             <b>Default</b>
-          </IonCol>
-          <IonCol>
+          </Col>
+          <Col>
             <b>Large</b>
-          </IonCol>
-        </IonItemDivider>
-      </IonRow>
+          </Col>
+        </ItemDivider>
+      </Row>
 
-      {/* <IonRow> */}
-      {Object.keys(Icons).map((id) => (
-        <IonRow key={id} style={{ display: !isSearchMatch(id) && 'none' }}>
-          <IonItemDivider>
-            <IonCol>{id}</IonCol>
-            <IonCol>
-              <IonIcon icon={Icons[id]} />
-            </IonCol>
-            <IonCol>
-              <IonIcon icon={Icons[id]} size="small" />
-            </IonCol>
-            <IonCol>
-              <IonIcon icon={Icons[id]} size="large" />
-            </IonCol>
-          </IonItemDivider>
-        </IonRow>
-      ))}
+      {/* <Row> */}
+      {Object.keys(Icons).map(
+        (id) =>
+          id !== 'Icon' && (
+            <Row key={id} style={{ display: !isSearchMatch(id) && 'none' }}>
+              <ItemDivider>
+                <Col>{id}</Col>
+                <Col>
+                  <Icon icon={Icons[id]} />
+                </Col>
+                <Col>
+                  <Icon icon={Icons[id]} size="small" />
+                </Col>
+                <Col>
+                  <Icon icon={Icons[id]} size="large" />
+                </Col>
+              </ItemDivider>
+            </Row>
+          )
+      )}
     </>
   );
 };

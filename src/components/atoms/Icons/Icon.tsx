@@ -11,8 +11,9 @@ export type IconProps = {
   md?: string;
   mode?: 'ios' | 'md';
   name?: string;
-  size?: string;
+  size?: 'large' | 'small';
   src?: string;
+  slot: 'start' | 'end';
 };
 
 export const Icon = (props: IconProps) => {

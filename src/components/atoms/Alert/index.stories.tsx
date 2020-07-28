@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { Button } from '../Button';
-import { Content } from '../Content';
 import { Col, Row } from '../Grid';
 import { Alert } from '.';
 

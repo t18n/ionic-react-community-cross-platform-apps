@@ -1,3 +1,5 @@
+export { Icon } from './Icon';
+
 export { default as icAccessible } from 'tabler-icons/icons/accessible.svg';
 export { default as icActivity } from 'tabler-icons/icons/activity.svg';
 export { default as icAd } from 'tabler-icons/icons/ad.svg';

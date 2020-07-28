@@ -60,6 +60,10 @@ module.exports = {
     },
     storybook: {
       default: {
+        script: npsUtils.concurrent.nps('env.dev nps watch.css', 'storybook.start'),
+        description: 'Run Storybook development server, watch PostCSS transform',
+      },
+      start: {
         script: 'start-storybook -p 9009 -s ./src/styles',
         description: 'Start storybook for web',
       },
