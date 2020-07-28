@@ -14,8 +14,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
-import MessageItem from 'components/MessageItem';
-import { messages } from 'components/MessageItem';
+import MessageItem, { messages } from 'components/molecules/MessageItem';
 import { create, personAdd } from 'ionicons/icons';
 import React from 'react';
 

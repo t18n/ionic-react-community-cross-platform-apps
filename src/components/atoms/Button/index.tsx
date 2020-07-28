@@ -1,6 +1,6 @@
 import { JSX } from '@ionic/core';
-import { IonButton } from '@ionic/react';
-import React, { HTMLAttributes } from 'react';
+import { IonButton, IonButtons } from '@ionic/react';
+import React, { HTMLAttributes, ReactNode } from 'react';
 
 type ButtonProps = JSX.IonButton & HTMLAttributes<HTMLIonButtonElement>;
 
@@ -16,7 +16,7 @@ export const Button = (props: ButtonProps) => {
 };
 
 export const ButtonGroup = (props: ButtonGroupProps) => {
-  return <IonButton {...props}>{props.children}</IonButton>;
+  return <IonButtons {...props}>{props.children}</IonButtons>;
 };
 
 export const BackButton = (props: BackButtonProps) => {

@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { Checkbox } from '../Checkbox';
-import { Content } from '../Content';
 import { Input } from '../Input';
 import { Item, ItemOption, ItemOptionGroup } from '../Item';
 import { Label } from '../Item';
 import { ItemSliding } from '../Item/index';
+import { Content } from '../Layout/Content';
 import { Radio } from '../Radio/index';
 import { Toggle } from '../Toggle';
 import { List } from '.';

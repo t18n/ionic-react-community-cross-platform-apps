@@ -11,8 +11,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
-import InvitationItem from 'components/InvitationItem';
-import { invitations } from 'components/InvitationItem';
+import InvitationItem, { invitations } from 'components/molecules/InvitationItem';
 import React from 'react';
 
 const Invitations = () => {

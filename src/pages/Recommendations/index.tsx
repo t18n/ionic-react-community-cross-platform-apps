@@ -13,8 +13,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
-import ProfileCard from 'components/ProfileCard';
-import { profiles } from 'components/ProfileCard';
+import ProfileCard, { profiles } from 'components/organisms/ProfileCard';
 import React from 'react';
 
 const Recommendations = () => {

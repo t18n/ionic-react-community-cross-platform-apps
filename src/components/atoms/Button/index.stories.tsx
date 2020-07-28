@@ -1,14 +1,13 @@
 import React from 'react';
 
-import { BackButton, Button, ButtonGroup } from '../Button';
-import { Col, Row } from '../Grid';
+import { icCircleCheck, Icon, icSearch, icSquareCheck, icStar, icUser } from '../Icons';
+import { Col, Row } from '../Layout/Grid';
 import { Text } from '../Text';
-import { icCircleCheck, Icon, icSearch, icSquareCheck, icStar, icUser } from '../Text';
-import { Alert } from '.';
+import { BackButton, Button, ButtonGroup } from '.';
 
 export default {
-  title: 'Alert',
-  component: Alert,
+  title: 'Button',
+  component: Button,
 };
 
 export const ButtonsExample: React.FC = () => (
@@ -48,7 +47,7 @@ export const ButtonsExample: React.FC = () => (
     </Col>
 
     <Col>
-      <ButtonGroup collapse="true">
+      <ButtonGroup collapse>
         <Button>
           <Icon slot="icon-only" icon={icStar} />
         </Button>

@@ -2,9 +2,9 @@ import './index.min.css';
 
 import { IonButton, IonContent, IonHeader, IonIcon, IonPage, IonText } from '@ionic/react';
 import PostItem, { postItems } from 'components/molecules/PostItem';
-import Topbar from 'components/molecules/Topbar';
 import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import SkeletonPost from 'components/organisms/SkeletonPost';
+import Topbar from 'components/organisms/Topbar';
 import { camera, create, videocam } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 

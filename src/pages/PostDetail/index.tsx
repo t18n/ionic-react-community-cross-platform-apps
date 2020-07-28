@@ -13,9 +13,9 @@ import {
   IonPage,
   IonToolbar,
 } from '@ionic/react';
-import PostComments from 'components/PostComments';
-import PostItem, { postItems } from 'components/PostItem';
-import PostReactions from 'components/PostReactions';
+import PostItem, { postItems } from 'components/molecules/PostItem';
+import PostComments from 'components/organisms/PostComments';
+import PostReactions from 'components/organisms/PostReactions';
 import faker from 'faker';
 import { expand } from 'ionicons/icons';
 import React from 'react';

@@ -15,16 +15,16 @@ import {
   IonText,
   IonToolbar,
 } from '@ionic/react';
-import ProfileAbout from 'components/ProfileAbout';
-import ProfileAccomplishments from 'components/ProfileAccomplishments';
-import ProfileActivity from 'components/ProfileActivity';
-import ProfileContact from 'components/ProfileContact';
-import ProfileDashboard from 'components/ProfileDashboard/ProfileDashboard';
-import ProfileEducation from 'components/ProfileEducation';
-import ProfileExperience from 'components/ProfileExperience/ProfileExperience';
-import ProfileHighlights from 'components/ProfileHighlights';
-import ProfilePeople from 'components/ProfilePeople';
-import ProfileSkills from 'components/ProfileSkills';
+import ProfileAbout from 'components/organisms/ProfileAbout';
+import ProfileAccomplishments from 'components/organisms/ProfileAccomplishments';
+import ProfileActivity from 'components/organisms/ProfileActivity';
+import ProfileContact from 'components/organisms/ProfileContact';
+import ProfileDashboard from 'components/organisms/ProfileDashboard';
+import ProfileEducation from 'components/organisms/ProfileEducation';
+import ProfileExperience from 'components/organisms/ProfileExperience';
+import ProfileHighlights from 'components/organisms/ProfileHighlights';
+import ProfilePeople from 'components/organisms/ProfilePeople';
+import ProfileSkills from 'components/organisms/ProfileSkills';
 import faker from 'faker';
 import { add, create, settings } from 'ionicons/icons';
 import React from 'react';

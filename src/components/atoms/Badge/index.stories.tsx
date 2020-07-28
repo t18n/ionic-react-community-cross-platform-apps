@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Col, Row } from '../Grid';
-import { Item, ItemDivider } from '../Item';
-import { Label } from '../Item';
+import { Item, ItemDivider, Label } from '../Item';
+import { Col, Row } from '../Layout/Grid';
 import { Badge } from '.';
 
 export default {

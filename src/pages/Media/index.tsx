@@ -11,9 +11,8 @@ import {
   IonRow,
   IonText,
 } from '@ionic/react';
-import FollowCard from 'components/FollowCard';
-import { follows } from 'components/FollowCard';
-import Topbar from 'components/Topbar/Topbar';
+import FollowCard, { follows } from 'components/molecules/FollowCard';
+import Topbar from 'components/organisms/Topbar';
 import { create, notifications } from 'ionicons/icons';
 import React from 'react';
 

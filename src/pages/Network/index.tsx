@@ -11,15 +11,15 @@ import {
   IonPage,
   IonRow,
 } from '@ionic/react';
-import ConnectItem from 'components/ConnectItem';
-import { connections } from 'components/ConnectItem';
-import InvitationItem from 'components/InvitationItem';
-import { invitations } from 'components/InvitationItem';
-import NewsletterItem from 'components/NewsletterItem';
-import { newsletters } from 'components/NewsletterItem';
-import ProfileCard from 'components/ProfileCard';
-import { profiles } from 'components/ProfileCard';
-import Topbar from 'components/Topbar/Topbar';
+import ConnectItem from 'components/molecules/ConnectItem';
+import { connections } from 'components/molecules/ConnectItem';
+import InvitationItem from 'components/molecules/InvitationItem';
+import { invitations } from 'components/molecules/InvitationItem';
+import NewsletterItem from 'components/molecules/NewsletterItem';
+import { newsletters } from 'components/molecules/NewsletterItem';
+import ProfileCard from 'components/organisms/ProfileCard';
+import { profiles } from 'components/organisms/ProfileCard';
+import Topbar from 'components/organisms/Topbar';
 import { personAdd } from 'ionicons/icons';
 import React from 'react';
 import { Link } from 'react-router-dom';

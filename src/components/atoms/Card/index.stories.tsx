@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { Button } from '../Button';
-import { Col, Row } from '../Grid';
 import { icAdjustments, icAlien, icBasket, icMapPin, Icon, icWifi } from '../Icons';
 import { Item } from '../Item';
 import { Label } from '../Item';
+import { Col, Row } from '../Layout/Grid';
 import { Card, CardContent, CardHeader, CardSubtitle, CardTitle } from '.';
 
 export default {

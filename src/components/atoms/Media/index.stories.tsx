@@ -2,9 +2,9 @@ import faker from 'faker';
 import React from 'react';
 
 import { Chip } from '../Chip';
-import { Col, Row } from '../Grid';
 import { Item } from '../Item';
 import { Label } from '../Item';
+import { Col, Row } from '../Layout/Grid';
 import { List } from '../List';
 import { Avatar, Img, Thumbnail } from '.';
 

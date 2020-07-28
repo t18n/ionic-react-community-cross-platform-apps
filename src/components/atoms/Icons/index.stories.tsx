@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { Col, Row } from '../Grid';
 import { ItemDivider } from '../Item';
+import { Col, Row } from '../Layout/Grid';
 import { SearchBar } from '../SearchBar';
 import * as Icons from '.';
 

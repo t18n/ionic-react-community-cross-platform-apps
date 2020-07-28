@@ -1,12 +1,12 @@
-// eslint-disable-file eslint@typescript-eslint/no-non-null-assertion
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useState } from 'react';
 
-import { Content } from '../Content';
-import { Footer } from '../Footer';
-import { Header } from '../Header';
-import { Item } from '../Item';
-import { Label } from '../Item';
-import { Page } from '../Page';
+import { Item, Label } from '../Item';
+import { Content } from '../Layout/Content';
+import { Footer } from '../Layout/Footer';
+import { Header } from '../Layout/Header';
+import { Page } from '../Layout/Page';
 import { Title } from '../Title';
 import { Toolbar } from '../Toolbar';
 import { Picker } from '.';
@@ -36,7 +36,7 @@ export const All = () => {
           <DatetimePicker
             displayFormat="MMMM"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -46,7 +46,7 @@ export const All = () => {
             displayFormat="MM DD YY"
             placeholder="Select Date"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -57,7 +57,7 @@ export const All = () => {
             displayFormat="MM DD YY"
             disabled
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -84,7 +84,7 @@ export const All = () => {
             min="1981"
             max="2002"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -95,7 +95,7 @@ export const All = () => {
             min="1989-06-04"
             max="2004-08-23"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -106,7 +106,7 @@ export const All = () => {
             min="1994-03-14"
             max="2012-12-09"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -117,7 +117,7 @@ export const All = () => {
             min="1994-03-14"
             max="2012-12-09"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -130,7 +130,7 @@ export const All = () => {
             displayFormat="DDD. MMM DD, YY"
             monthShortNames="jan, feb, mar, apr, mai, jun, jul, aug, sep, okt, nov, des"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -141,7 +141,7 @@ export const All = () => {
             min="1997"
             max="2010"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -152,7 +152,7 @@ export const All = () => {
             min="2005"
             max="2016"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -161,7 +161,7 @@ export const All = () => {
           <DatetimePicker
             displayFormat="HH:mm"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -170,7 +170,7 @@ export const All = () => {
           <DatetimePicker
             displayFormat="h:mm a"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -180,7 +180,7 @@ export const All = () => {
             displayFormat="h:mm A"
             minuteValues="0,15,30,45"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -192,7 +192,7 @@ export const All = () => {
             monthValues="6,7,8"
             yearValues={customYearValues}
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
 
@@ -204,7 +204,7 @@ export const All = () => {
             dayValues="01,02,03,04,05,06,08,09,10, 11, 12, 13, 14"
             displayFormat="DD/MMM/YYYY"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.detail.value!)}
+            onChange={(e: any) => setSelectedDate(e.detail.value!)}
           ></DatetimePicker>
         </Item>
       </Content>

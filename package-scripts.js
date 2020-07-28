@@ -168,6 +168,10 @@ module.exports = {
       description: 'Format code with Prettier',
     },
     lint: {
+      default: {
+        script: npsUtils.concurrent.nps('env.dev nps lint.js', 'lint.ts', 'lint.css'),
+        description: 'Check JS lint, TS type and CSS lint',
+      },
       js: {
         default: {
           script: "eslint './src/**/*.{ts,tsx}'",
@@ -182,6 +186,10 @@ module.exports = {
       css: {
         script: "stylelint '**/*.pcss'",
         description: 'Lint CSS and show errors with Stylelint',
+      },
+      ts: {
+        script: 'tsc -p tsconfig.json --noEmit',
+        description: 'Type checking',
       },
     },
     license: {

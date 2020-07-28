@@ -14,7 +14,6 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
-import ChatItem from 'components/ChatItem';
 import faker from 'faker';
 import { addCircle, expand } from 'ionicons/icons';
 import React from 'react';

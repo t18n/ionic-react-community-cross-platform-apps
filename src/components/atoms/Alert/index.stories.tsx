@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Button } from '../Button';
-import { Col, Row } from '../Grid';
+import { Col, Row } from '../Layout/Grid';
 import { Alert } from '.';
 
 export default {

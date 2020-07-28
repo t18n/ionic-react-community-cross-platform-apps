@@ -16,10 +16,10 @@ import {
   IonText,
   IonToolbar,
 } from '@ionic/react';
-import ConnectItem from 'components/ConnectItem';
-import { connections } from 'components/ConnectItem';
-import FollowCard from 'components/FollowCard';
-import { follows } from 'components/FollowCard';
+import ConnectItem from 'components/molecules/ConnectItem';
+import { connections } from 'components/molecules/ConnectItem';
+import FollowCard from 'components/molecules/FollowCard';
+import { follows } from 'components/molecules/FollowCard';
 import { chevronDown } from 'ionicons/icons';
 import React, { useState } from 'react';
 

@@ -20,7 +20,7 @@ module.exports = {
       version: 'detect',
     },
   },
-  'overrides': [
+  overrides: [
     {
       'files': ['*.js'],
       rules: {

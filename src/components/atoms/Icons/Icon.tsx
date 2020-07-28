@@ -13,7 +13,7 @@ export type IconProps = {
   name?: string;
   size?: 'large' | 'small';
   src?: string;
-  slot: 'start' | 'end';
+  slot?: 'start' | 'end' | 'icon-only';
 };
 
 export const Icon = (props: IconProps) => {

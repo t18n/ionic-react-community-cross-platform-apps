@@ -1,9 +1,8 @@
 import './index.min.css';
 
 import { IonContent, IonHeader, IonPage } from '@ionic/react';
-import NotificationItem from 'components/NotificationItem';
-import { notifications } from 'components/NotificationItem';
-import Topbar from 'components/Topbar/Topbar';
+import NotificationItem, { notifications } from 'components/molecules/NotificationItem';
+import Topbar from 'components/organisms/Topbar';
 import React from 'react';
 
 const Notifications = () => {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import { Col, Row } from '../Grid';
 import { Item, ItemDivider } from '../Item';
 import { Label } from '../Item';
+import { Col, Row } from '../Layout/Grid';
 import { List } from '../List';
 import { Checkbox } from '.';
 
