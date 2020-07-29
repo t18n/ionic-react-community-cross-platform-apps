@@ -1,10 +1,12 @@
+import { JSX } from '@ionic/core';
 import { IonToolbar } from '@ionic/react';
-import React, { ReactNode } from 'react';
+import React, { HTMLAttributes, ReactNode } from 'react';
 
-type ToolbarProps = {
-  children: ReactNode;
-};
+type ToolbarProps = JSX.IonToolbar &
+  HTMLAttributes<HTMLIonToolbarElement> & {
+    children: ReactNode;
+  };
 
-export function Toolbar(props: ToolbarProps) {
+export const Toolbar = (props: ToolbarProps) => {
   return <IonToolbar>{props.children}</IonToolbar>;
-}
+};

@@ -1,4 +1,5 @@
 import './styles/main.min.css';
+import './utils/debugger';
 
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';

@@ -1,58 +1,104 @@
 import React from 'react';
 
-import { icCircleCheck, Icon, icSearch, icSquareCheck, icStar, icUser } from '../Icons';
-import { Col, Row } from '../Layout/Grid';
-import { Text } from '../Text';
-import { BackButton, Button, ButtonGroup } from '.';
+import { icHome, Icon, icStar } from '../Icons';
+import { Row } from '../Layout/Grid';
+import { Toolbar } from '../Toolbar/index';
+import { Button, ButtonGroup } from '.';
+import { ButtonBack } from './index';
 
 export default {
   title: 'Button',
   component: Button,
 };
 
-export const ButtonsExample: React.FC = () => (
-  <Row>
-    <Col>
-      <ButtonGroup slot="start">
-        <BackButton defaultHref="/" />
-      </ButtonGroup>
-      <Text>Back Button</Text>
-    </Col>
+export const Independent = () => (
+  <>
+    <Row>
+      {/*-- Default --*/}
+      <Button>Default</Button>
 
-    <Col>
-      <ButtonGroup slot="secondary">
-        <Button>
-          <Icon slot="icon-only" icon={icUser} />
-        </Button>
-        <Button>
-          <Icon slot="icon-only" icon={icSearch} />
-        </Button>
-      </ButtonGroup>
-      <Text>Default Buttons</Text>
-      <ButtonGroup slot="primary">
-        <Button color="secondary">
-          <Icon slot="icon-only" ios={icCircleCheck} md={icSquareCheck} />
-        </Button>
-      </ButtonGroup>
-    </Col>
+      {/*-- Anchor --*/}
+      <Button href="#">Anchor</Button>
 
-    <Col>
-      <ButtonGroup slot="primary">
+      {/*-- Colors --*/}
+      <Button color="primary">Primary</Button>
+      <Button color="secondary">Secondary</Button>
+      <Button color="tertiary">Tertiary</Button>
+      <Button color="success">Success</Button>
+      <Button color="warning">Warning</Button>
+      <Button color="danger">Danger</Button>
+      <Button color="light">Light</Button>
+      <Button color="medium">Medium</Button>
+      <Button color="dark">Dark</Button>
+    </Row>
+
+    <Row>
+      {/*-- Expand --*/}
+      <Button expand="full">Full Button</Button>
+      <Button expand="block">Block Button</Button>
+    </Row>
+
+    {/*-- Round --*/}
+    <Row>
+      <Button shape="round">Round Button</Button>
+      <Button shape="round">
+        <Icon slot="icon-only" icon={icStar} />
+      </Button>
+    </Row>
+
+    {/*-- Fill --*/}
+    <Row>
+      <Button expand="full" fill="outline">
+        Outline + Full
+      </Button>
+      <Button expand="block" fill="outline">
+        Outline + Block
+      </Button>
+      <Button shape="round" fill="outline">
+        Outline + Round
+      </Button>
+    </Row>
+
+    {/*-- Icons --*/}
+    <Row>
+      <Button>
+        <Icon slot="start" icon={icStar} />
+        Left Icon
+      </Button>
+      <Button>
+        Right Icon
+        <Icon slot="end" icon={icStar} />
+      </Button>
+      <Button>
+        <Icon slot="icon-only" icon={icStar} />
+      </Button>
+    </Row>
+
+    {/*-- Sizes --*/}
+    <Row>
+      <Button size="large">Large</Button>
+      <Button>Default</Button>
+      <Button size="small">Small</Button>
+    </Row>
+  </>
+);
+
+export const InToolbar = () => (
+  <>
+    <Toolbar>
+      <ButtonBack defaultHref="/" />
+
+      <ButtonGroup slot="end">
         <Button onClick={() => console.log('hey')}>
-          <Icon slot="icon-only" icon={icStar} />
+          <Icon slot="icon-only" icon={icHome} />
         </Button>
       </ButtonGroup>
-      <Text>Right side menu toggle</Text>
-      <ButtonGroup slot="end">{/* <IonMenuButton autoHide={false} /> */}</ButtonGroup>
-    </Col>
 
-    <Col>
       <ButtonGroup collapse>
         <Button>
           <Icon slot="icon-only" icon={icStar} />
         </Button>
       </ButtonGroup>
-      <Text>Collapsible Buttons</Text>
-    </Col>
-  </Row>
+    </Toolbar>
+  </>
 );
