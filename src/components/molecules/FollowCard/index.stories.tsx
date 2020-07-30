@@ -3,11 +3,11 @@ import React from 'react';
 import FollowCard, { follows } from '.';
 
 export default {
-  title: 'FollowCard',
+  title: 'Molecules',
   component: FollowCard,
 };
 
-export const Default = () =>
+export const FollowCardExample = () =>
   follows.map((follow, i) => (
     <FollowCard
       key={i}

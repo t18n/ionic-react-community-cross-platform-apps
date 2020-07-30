@@ -3,8 +3,8 @@ import React from 'react';
 import Placeholder from '.';
 
 export default {
-  title: 'Placeholder',
+  title: 'Molecules',
   component: Placeholder,
 };
 
-export const Default = () => <div />;
+export const SkeletonElement = () => <div />;

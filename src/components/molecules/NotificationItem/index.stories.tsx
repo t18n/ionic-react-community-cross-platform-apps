@@ -3,11 +3,11 @@ import React from 'react';
 import NotificationItem, { notifications } from './';
 
 export default {
-  title: 'Notification Item',
+  title: 'Molecules',
   component: NotificationItem,
 };
 
-export const Default = () =>
+export const NotificationItemExample = () =>
   notifications.map((notification, index) => (
     <NotificationItem
       key={index}

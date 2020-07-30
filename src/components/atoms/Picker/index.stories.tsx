@@ -7,8 +7,8 @@ import { Content } from '../Layout/Content';
 import { Footer } from '../Layout/Footer';
 import { Header } from '../Layout/Header';
 import { Page } from '../Layout/Page';
-import { Title } from '../Title';
-import { Toolbar } from '../Toolbar';
+import { Toolbar } from '../Layout/Toolbar';
+import { ToolbarTitle } from '../Layout/Toolbar';
 import { Picker } from '.';
 import { DatetimePicker } from '.';
 
@@ -27,7 +27,7 @@ export const All = () => {
     <Page>
       <Header>
         <Toolbar>
-          <Title>DatetimePicker Examples</Title>
+          <ToolbarTitle>DatetimePicker Examples</ToolbarTitle>
         </Toolbar>
       </Header>
       <Content>

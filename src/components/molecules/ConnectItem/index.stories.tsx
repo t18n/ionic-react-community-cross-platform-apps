@@ -1,15 +1,14 @@
-import { IonCol, IonRow } from '@ionic/react';
-import faker from 'faker';
+import { IonRow } from '@ionic/react';
 import React from 'react';
 
 import ConnectItem, { connections } from './';
 
 export default {
-  title: 'Connect Item',
+  title: 'Molecules',
   component: ConnectItem,
 };
 
-export const Default = () => (
+export const ConnectItemExample = () => (
   <IonRow>
     {connections.map((connection, i) => (
       <ConnectItem

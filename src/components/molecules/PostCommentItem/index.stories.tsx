@@ -3,11 +3,11 @@ import React from 'react';
 import PostCommentItem, { postComments } from './';
 
 export default {
-  title: 'Post Comments',
+  title: 'Molecules',
   component: PostCommentItem,
 };
 
-export const Item = () =>
+export const PostCommentItemExample = () =>
   postComments.map((postComment, index) => (
     <PostCommentItem
       key={index}

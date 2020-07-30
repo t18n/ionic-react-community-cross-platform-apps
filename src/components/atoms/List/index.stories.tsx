@@ -1,13 +1,13 @@
 import React from 'react';
 
+import { Toggle } from '../Button';
 import { Checkbox } from '../Checkbox';
 import { Input } from '../Input';
 import { Item, ItemOption, ItemOptionGroup } from '../Item';
 import { Label } from '../Item';
 import { ItemSliding } from '../Item/index';
 import { Content } from '../Layout/Content';
-import { Radio } from '../Radio/index';
-import { Toggle } from '../Toggle';
+import { Radio } from '../Radio';
 import { List } from '.';
 
 export default {

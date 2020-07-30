@@ -5,10 +5,11 @@ import React, { HTMLAttributes, ReactNode } from 'react';
 /**
  * Types
  */
-type PopoverProps = JSX.IonPopover &
+type PopoverProps = Partial<JSX.IonPopover> &
   HTMLAttributes<HTMLIonPopoverElement> & {
     children: ReactNode;
     isOpen: boolean;
+    onDidDismiss: (e: any) => void;
   };
 
 /**

@@ -4,7 +4,7 @@ import { IonAvatar, IonButton, IonCol, IonIcon, IonRow, IonText } from '@ionic/r
 import faker from 'faker';
 import React from 'react';
 
-import { icArrowsMaximize, icArrowsMinimize, icMessages, icThumbUp } from '../../atoms/Icons';
+import { icArrowsMaximize, icArrowsMinimize, icMessages, icThumbUp } from '../../atoms/Icon';
 
 export interface PostCommentItemProps {
   isReply?: boolean;

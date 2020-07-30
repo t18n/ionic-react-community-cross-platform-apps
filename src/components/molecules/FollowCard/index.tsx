@@ -4,7 +4,7 @@ import { IonButton, IonCol, IonIcon, IonRow, IonText, IonThumbnail } from '@ioni
 import faker from 'faker';
 import React from 'react';
 
-import { icWorld } from '../../atoms/Icons';
+import { icWorld } from '../../atoms/Icon';
 import AvatarGroup, { AvatarGroupProps } from '../../organisms/AvatarGroup';
 
 export type FollowCardProps = Omit<AvatarGroupProps, 'size'> & {

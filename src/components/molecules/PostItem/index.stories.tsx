@@ -4,11 +4,11 @@ import React from 'react';
 import { PostItem, postItems } from './index';
 
 export default {
-  title: 'PostItem',
+  title: 'Molecules',
   component: PostItem,
 };
 
-export const Default = () => (
+export const PostItemExample = () => (
   <IonRow>
     {postItems.map((post, i) => (
       <IonCol key={i} size="4">

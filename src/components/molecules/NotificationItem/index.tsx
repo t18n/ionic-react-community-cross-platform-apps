@@ -12,7 +12,7 @@ import {
 import faker from 'faker';
 import React from 'react';
 
-import { icArrowsMaximize } from '../../atoms/Icons';
+import { icArrowsMaximize } from '../../atoms/Icon';
 
 export type NotificationItemProps = {
   type?: 'activity';

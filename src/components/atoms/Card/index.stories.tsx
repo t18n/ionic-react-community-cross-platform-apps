@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button } from '../Button';
-import { icAdjustments, icAlien, icBasket, icMapPin, Icon, icWifi } from '../Icons';
+import { icAdjustments, icAlien, icBasket, icMapPin, Icon, icWifi } from '../Icon';
 import { Item } from '../Item';
 import { Label } from '../Item';
 import { Col, Row } from '../Layout/Grid';

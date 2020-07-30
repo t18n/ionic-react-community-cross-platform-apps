@@ -4,7 +4,7 @@ import { IonAvatar, IonButton, IonIcon, IonText } from '@ionic/react';
 import faker from 'faker';
 import React from 'react';
 
-import { icLink } from '../../atoms/Icons';
+import { icLink } from '../../atoms/Icon';
 
 export interface ConnectItemProps {
   avatar: string;

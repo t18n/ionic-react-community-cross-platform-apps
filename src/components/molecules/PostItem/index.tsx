@@ -13,7 +13,7 @@ import {
   icShare,
   icThumbDown,
   icThumbUp,
-} from '../../atoms/Icons';
+} from '../../atoms/Icon';
 
 export type PostItemProps = {
   onClickDetail?: () => void;

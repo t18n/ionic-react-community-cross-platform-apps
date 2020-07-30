@@ -4,12 +4,12 @@ import { MemoryRouter } from 'react-router-dom';
 import ChatItem, { chatItems } from '.';
 
 export default {
-  title: 'Chat Item',
+  title: 'Molecules',
   component: ChatItem,
   decorators: [(getStory) => <MemoryRouter>{getStory()}</MemoryRouter>],
 };
 
-export const Default = () =>
+export const ChatItemExample = () =>
   chatItems.map((item, i) => (
     <ChatItem
       key={i}

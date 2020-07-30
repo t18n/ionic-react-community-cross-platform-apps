@@ -13,11 +13,11 @@ const checkboxList = [
 ];
 
 export default {
-  title: 'Checkbox',
+  title: 'Form',
   component: Checkbox,
 };
 
-export const All = () => {
+export const AllCheckbox = () => {
   const [checked, setChecked] = useState(false);
 
   return (

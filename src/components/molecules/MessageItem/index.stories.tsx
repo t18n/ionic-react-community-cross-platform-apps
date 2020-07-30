@@ -3,11 +3,11 @@ import React from 'react';
 import MessageItem, { messages } from './';
 
 export default {
-  title: 'Message Item',
+  title: 'Molecules',
   component: MessageItem,
 };
 
-export const Default = () =>
+export const MessageItemExample = () =>
   messages.map((message, i) => (
     <MessageItem
       key={i}

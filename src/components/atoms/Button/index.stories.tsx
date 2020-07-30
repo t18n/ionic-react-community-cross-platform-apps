@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { icHome, Icon, icStar } from '../Icons';
+import { icHome, Icon, icStar } from '../Icon';
+import { Item, ItemDivider, Label } from '../Item';
+import { Content } from '../Layout/Content';
 import { Row } from '../Layout/Grid';
-import { Toolbar } from '../Toolbar/index';
-import { Button, ButtonGroup } from '.';
+import { Toolbar } from '../Layout/Toolbar';
+import { List } from '../List';
+import { Button, ButtonGroup, Toggle } from '.';
 import { ButtonBack } from './index';
 
 export default {
@@ -102,3 +105,62 @@ export const InToolbar = () => (
     </Toolbar>
   </>
 );
+
+export const Toggles = () => {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <Content>
+      <List>
+        <ItemDivider>Default Toggle</ItemDivider>
+        <Item>
+          <Label>Checked: {JSON.stringify(checked)}</Label>
+          <Toggle checked={checked} onChange={(e: any) => setChecked(e.detail.checked)} />
+        </Item>
+
+        <ItemDivider>Disabled Toggle</ItemDivider>
+        <Item>
+          <Toggle disabled />
+        </Item>
+
+        <ItemDivider>Checked Toggle</ItemDivider>
+        <Item>
+          <Toggle checked />
+        </Item>
+
+        <ItemDivider>Toggle Colors</ItemDivider>
+        <Item>
+          <Toggle color="primary" />
+        </Item>
+        <Item>
+          <Toggle color="secondary" />
+        </Item>
+        <Item>
+          <Toggle color="danger" />
+        </Item>
+        <Item>
+          <Toggle color="light" />
+        </Item>
+        <Item>
+          <Toggle color="dark" />
+        </Item>
+
+        <ItemDivider>Toggles in a List</ItemDivider>
+        <Item>
+          <Label>Pepperoni</Label>
+          <Toggle value="pepperoni" />
+        </Item>
+
+        <Item>
+          <Label>Sausage</Label>
+          <Toggle value="sausage" disabled={true} />
+        </Item>
+
+        <Item>
+          <Label>Mushrooms</Label>
+          <Toggle value="mushrooms" />
+        </Item>
+      </List>
+    </Content>
+  );
+};

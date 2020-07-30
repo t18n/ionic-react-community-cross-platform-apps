@@ -4,11 +4,11 @@ import React from 'react';
 import NewsletterItem, { newsletters } from './';
 
 export default {
-  title: 'Newsletter Item',
+  title: 'Molecules',
   component: NewsletterItem,
 };
 
-export const Default = () =>
+export const NewsletterItemExample = () =>
   newsletters.map((newsletter, i) => (
     <IonCol size="6" key={i}>
       <NewsletterItem

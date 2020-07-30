@@ -3,11 +3,11 @@ import React from 'react';
 import InvitationItem, { invitations } from './';
 
 export default {
-  title: 'Invitation Item',
+  title: 'Molecules',
   component: InvitationItem,
 };
 
-export const Default = () =>
+export const InvitationItemExample = () =>
   invitations.map((invitation, i) => (
     <InvitationItem
       key={i}
