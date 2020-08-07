@@ -10,7 +10,7 @@ type Props = {
   noAnimated?: boolean;
 };
 
-const SkeletonElement: React.FC<Props> = (props) => {
+const SkeletonElement = (props: Props) => {
   let styles: any = {};
 
   styles = {

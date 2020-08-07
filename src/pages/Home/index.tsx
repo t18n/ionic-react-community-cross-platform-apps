@@ -8,11 +8,11 @@ import Topbar from 'components/organisms/Topbar';
 import { camera, create, videocam } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 
-type Props = {
+type HomeProps = {
   history: any;
 };
 
-const Home: React.FC<Props> = ({ history }) => {
+export const Home = ({ history }: HomeProps) => {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -95,5 +95,3 @@ const Home: React.FC<Props> = ({ history }) => {
     </IonPage>
   );
 };
-
-export default Home;

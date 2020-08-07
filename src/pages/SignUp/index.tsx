@@ -18,16 +18,16 @@ import React from 'react';
 
 type Props = {
   onClose: () => void;
-  onLogin: () => void;
+  onSignUp: () => void;
 };
 
-const Login = (props: Props) => {
+const SignUp = (props: Props) => {
   const closeModal = () => {
     props.onClose();
   };
 
   const login = () => {
-    props.onLogin();
+    props.onSignUp();
   };
 
   return (
@@ -83,4 +83,4 @@ const Login = (props: Props) => {
   );
 };
 
-export default Login;
+export default SignUp;

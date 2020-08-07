@@ -1,5 +1,6 @@
 import { JSX } from '@ionic/core';
 import {
+  IonItem,
   IonItemDivider,
   IonItemOption,
   IonItemOptions,
@@ -26,7 +27,7 @@ export const ItemDivider = (props: ItemDividerProps) => {
 };
 
 export const Item = (props: ItemProps) => {
-  return <Item {...props} />;
+  return <IonItem {...props} />;
 };
 
 export const ItemSliding = (props: ItemSlidingProps) => {

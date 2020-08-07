@@ -5,7 +5,7 @@ import NotificationItem, { notifications } from 'components/molecules/Notificati
 import Topbar from 'components/organisms/Topbar';
 import React from 'react';
 
-const Notifications = () => {
+export const Notifications = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -58,5 +58,3 @@ const Notifications = () => {
     </IonPage>
   );
 };
-
-export default Notifications;

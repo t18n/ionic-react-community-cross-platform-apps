@@ -2,7 +2,10 @@ import { JSX } from '@ionic/core';
 import { IonItem, IonList, IonListHeader } from '@ionic/react';
 import React, { HTMLAttributes } from 'react';
 
-type ListItemProps = JSX.IonItem & HTMLAttributes<HTMLIonItemElement>;
+type ListItemProps = JSX.IonItem &
+  HTMLAttributes<HTMLIonItemElement> & {
+    routerLink?: string;
+  };
 
 type ListProps = JSX.IonList & HTMLAttributes<HTMLIonColElement>;
 

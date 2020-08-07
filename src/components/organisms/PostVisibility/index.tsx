@@ -21,7 +21,7 @@ type Props = {
   onClose: () => void;
 };
 
-const PostVisibility: React.FC<Props> = (props) => {
+const PostVisibility = (props: Props) => {
   const closeModal = () => {
     props.onClose();
   };

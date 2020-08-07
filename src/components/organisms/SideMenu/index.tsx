@@ -1,50 +1,26 @@
 import './index.min.css';
 
-import {
-  IonAvatar,
-  IonButton,
-  IonCol,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonMenu,
-  IonMenuToggle,
-  IonRow,
-  IonToggle,
-  IonToolbar,
-} from '@ionic/react';
-import faker from 'faker';
-import { arrowDown, arrowUp, bookmark, close, people } from 'ionicons/icons';
+import { IonMenu } from '@ionic/react';
+import { Toggle } from 'components/atoms/Button';
+import { Icon } from 'components/atoms/Icon';
+import { Label } from 'components/atoms/Item';
+import { Content } from 'components/atoms/Layout/Content';
+import { Header } from 'components/atoms/Layout/Header';
+import { Toolbar } from 'components/atoms/Layout/Toolbar';
+import { Item, List } from 'components/atoms/List';
+import { Img } from 'components/atoms/Media';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import ThemeService from 'services/theme';
+import { appPages } from 'settings/appPages';
 
-const SideMenu = () => {
-  const [showRecentList, setShowRecentList] = useState(false);
-  const [showGroupList, setShowGroupList] = useState(false);
-  const [showHashTagList, setShowHashTagList] = useState(false);
+import logo from '../../../assets/brand/logo.svg';
+import { Text } from '../../atoms/Text/index';
+
+const SideIonMenu = () => {
   const [isDarkMode, setIsDarkMode] = useState(ThemeService.getCurrentSetting());
 
-  const toggle = (target: string) => {
-    switch (target) {
-      case 'showRecentList':
-        setShowRecentList(!showRecentList);
-        break;
-      case 'showGroupList':
-        setShowGroupList(!showGroupList);
-        break;
-      case 'showHashTagList':
-        setShowHashTagList(!showHashTagList);
-        break;
-      default:
-        return;
-    }
-  };
-
   const toggleDarkMode = () => {
+    console.log('toggling');
     setIsDarkMode(!isDarkMode);
   };
 
@@ -54,127 +30,32 @@ const SideMenu = () => {
 
   return (
     <IonMenu type="overlay" side="start" contentId="main" menuId="main" swipeGesture={false}>
-      <IonHeader>
-        <IonToolbar className="no-border" color="light">
-          <IonRow className="ion-no-padding ion-align-items-center">
-            <IonCol size="auto">
-              <IonAvatar className="menu-avatar">
-                <img src={faker.image.avatar()} alt="" />
-              </IonAvatar>
-            </IonCol>
-            <IonCol>
-              <div>
-                <strong>{faker.name.firstName()}</strong>
-              </div>
-              <div className="text-sm">
-                <IonMenuToggle>
-                  <Link to="/profile">
-                    <strong>View Profile</strong>
-                  </Link>
-                </IonMenuToggle>
-              </div>
-            </IonCol>
-            <IonCol size="auto">
-              <IonMenuToggle>
-                <IonButton fill="clear" color="medium">
-                  <IonIcon slot="icon-only" icon={close} />
-                </IonButton>
-              </IonMenuToggle>
-            </IonCol>
-          </IonRow>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonList>
-          <IonItem lines="full" onClick={() => toggle('showRecentList')}>
-            <IonLabel>
-              <strong>Recent</strong>
-            </IonLabel>
-            <IonIcon
-              icon={showRecentList ? arrowUp : arrowDown}
-              slot="end"
-              mode="ios"
-              size="small"
-            />
-          </IonItem>
-          {showRecentList && (
-            <IonList className="sub-list">
-              {[0, 1, 2, 3].map((i) => (
-                <IonItem lines="full" key={i}>
-                  <IonIcon slot="start" icon={people} color="medium" size="small" />
-                  <IonLabel>
-                    <div className="text-sm">{faker.lorem.sentence()}</div>
-                  </IonLabel>
-                </IonItem>
-              ))}
-            </IonList>
-          )}
+      <Header>
+        <Toolbar className="no-border" color="light">
+          <Img src={logo} alt="Brightizen" />
+        </Toolbar>
+      </Header>
+      <Content>
+        <List>
+          {appPages.map((page) => (
+            <Item key={page.title} lines="full" routerLink={page.url}>
+              <Icon icon={page.icon} slot="start" size="large" />
+              <Label color="primary">
+                <Text>
+                  <h5>{page.title}</h5>
+                </Text>
+              </Label>
+            </Item>
+          ))}
 
-          <IonItem lines="full" onClick={() => toggle('showGroupList')}>
-            <IonLabel color="primary">
-              <strong>Groups</strong>
-            </IonLabel>
-            <IonIcon
-              icon={showGroupList ? arrowUp : arrowDown}
-              slot="end"
-              mode="ios"
-              size="small"
-            />
-          </IonItem>
-          {showGroupList && (
-            <IonList className="sub-list">
-              {[0, 1, 2, 3].map((i) => (
-                <IonItem lines="full" key={i}>
-                  <IonIcon slot="start" icon={people} color="medium" size="small" />
-                  <IonLabel>
-                    <div className="text-sm">{faker.company.companyName()}</div>
-                  </IonLabel>
-                </IonItem>
-              ))}
-            </IonList>
-          )}
-
-          <IonItem lines="full" onClick={() => toggle('showHashTagList')}>
-            <IonLabel color="primary">
-              <strong>Followed Hashtags</strong>
-            </IonLabel>
-            <IonIcon
-              icon={showHashTagList ? arrowUp : arrowDown}
-              slot="end"
-              mode="ios"
-              size="small"
-            />
-          </IonItem>
-
-          {showHashTagList && (
-            <IonList className="sub-list">
-              {[0, 1, 2, 3, 4, 5].map((i) => (
-                <IonItem lines="full" key={i}>
-                  <IonIcon slot="start" icon={bookmark} color="medium" size="small" />
-                  <IonLabel>
-                    <div className="text-sm">{faker.name.jobType()}</div>
-                  </IonLabel>
-                </IonItem>
-              ))}
-            </IonList>
-          )}
-
-          <IonMenuToggle>
-            <IonItem lines="full" detail={false} routerLink="/landing">
-              <IonLabel color="primary">
-                <strong>Show Welcome page</strong>
-              </IonLabel>
-            </IonItem>
-          </IonMenuToggle>
-
-          <IonItem lines="full">
-            <IonLabel>Dark mode</IonLabel>
-            <IonToggle checked={isDarkMode} onIonChange={toggleDarkMode}></IonToggle>
-          </IonItem>
-        </IonList>
-      </IonContent>
+          <Item lines="full">
+            <Toggle checked={isDarkMode} onChange={toggleDarkMode} slot="start" />
+            <Label>Dark mode</Label>
+          </Item>
+        </List>
+      </Content>
     </IonMenu>
   );
 };
 
-export default SideMenu;
+export default SideIonMenu;

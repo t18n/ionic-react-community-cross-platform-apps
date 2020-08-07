@@ -21,7 +21,6 @@ export const connections: ConnectItemProps[] = [...Array(15)].map(() => ({
 }));
 
 const ConnectItem = ({ connectionCount, avatar, firstName, badge }: ConnectItemProps) => {
-  console.log(connections);
   return (
     <div className="connect-item">
       <div

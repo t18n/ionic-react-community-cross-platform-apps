@@ -18,7 +18,7 @@ import faker from 'faker';
 import { addCircle, expand } from 'ionicons/icons';
 import React from 'react';
 
-const Chat = () => {
+export const Messages = () => {
   return (
     <IonPage className="chat-page">
       <IonHeader>
@@ -65,21 +65,21 @@ const Chat = () => {
             <div className="label-time">AUG 14</div>
           </div>
 
-          {/* <ChatItem /> */}
+          {/* <MessagesItem /> */}
 
           <div className="conversation-divider">
             <div className="line-horizontal"></div>
             <div className="label-time">AUG 15</div>
           </div>
 
-          {/* <ChatItem /> */}
+          {/* <MessagesItem /> */}
 
           <div className="conversation-divider">
             <div className="line-horizontal"></div>
             <div className="label-time">AUG 16</div>
           </div>
 
-          {/* <ChatItem /> */}
+          {/* <MessagesItem /> */}
         </div>
       </IonContent>
 
@@ -103,5 +103,3 @@ const Chat = () => {
     </IonPage>
   );
 };
-
-export default Chat;

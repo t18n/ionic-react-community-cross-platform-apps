@@ -30,7 +30,7 @@ type Props = {
   onClose: () => void;
 };
 
-const NewPost: React.FC<Props> = (props) => {
+const NewPost = (props: Props) => {
   const [showOptions, setShowOptions] = useState(false);
   const closeModal = () => {
     props.onClose();

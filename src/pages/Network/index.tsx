@@ -24,7 +24,7 @@ import { personAdd } from 'ionicons/icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Network = () => {
+export const Network = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -155,5 +155,3 @@ const Network = () => {
     </IonPage>
   );
 };
-
-export default Network;
