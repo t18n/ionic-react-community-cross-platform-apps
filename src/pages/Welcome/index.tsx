@@ -1,11 +1,11 @@
 import './index.min.css';
 
-import { IonPage } from '@ionic/react';
 import { Button } from 'components/atoms/Button';
 import { Input } from 'components/atoms/Input';
 import { Item } from 'components/atoms/Item';
 import { Content } from 'components/atoms/Layout/Content';
 import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Page } from 'components/atoms/Layout/Page';
 import { List } from 'components/atoms/List';
 import React from 'react';
 
@@ -15,7 +15,7 @@ export const Welcome = (props: WelcomeProps) => {
   const login = () => console.log('logging in');
 
   return (
-    <IonPage>
+    <Page>
       <Content className="bg-primary">
         <div className="landing-login">
           <List inset>
@@ -53,6 +53,6 @@ export const Welcome = (props: WelcomeProps) => {
           </Row>
         </div>
       </Content>
-    </IonPage>
+    </Page>
   );
 };
