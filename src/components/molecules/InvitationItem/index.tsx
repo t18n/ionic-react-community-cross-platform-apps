@@ -1,10 +1,9 @@
 import './index.min.css';
 
 import { IonAvatar, IonButton, IonCol, IonIcon, IonRow, IonText } from '@ionic/react';
+import { icCheck, icLink, icX } from 'components/atoms/Icon';
 import faker from 'faker';
 import React from 'react';
-
-import { icCheck, icLink, icX } from '../../atoms/Icon';
 
 export interface InvitationItemProps {
   avatar: string;

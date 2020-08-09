@@ -1,9 +1,6 @@
 import './index.min.css';
 
 import { IonAvatar, IonButton, IonCol, IonIcon, IonRow, IonText } from '@ionic/react';
-import faker from 'faker';
-import React from 'react';
-
 import {
   icChevronDown,
   icHeart,
@@ -13,7 +10,9 @@ import {
   icShare,
   icThumbDown,
   icThumbUp,
-} from '../../atoms/Icon';
+} from 'components/atoms/Icon';
+import faker from 'faker';
+import React from 'react';
 
 export type PostItemProps = {
   onClickDetail?: () => void;

@@ -3,17 +3,16 @@ import './utils/debugger';
 
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import I18nProvider from 'components/organisms/I18n';
 import Modals from 'components/organisms/Modals';
 import SideMenu from 'components/organisms/SideMenu';
 import Provider from 'context/Provider';
+import { ApolloProvider } from 'graphql/ApolloProvider';
 import Tabs from 'pages/Tabs';
 import { Welcome } from 'pages/Welcome';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { appPages } from 'settings/appPages';
-
-import I18nProvider from './components/organisms/I18n';
-import { ApolloProvider } from './graphql/ApolloProvider';
 
 export const App = () => {
   const isAuthed = false;

@@ -1,6 +1,7 @@
 import './index.min.css';
 
 import { IonMenu } from '@ionic/react';
+import logo from 'assets/brand/logo.svg';
 import { Toggle } from 'components/atoms/Button';
 import { Icon } from 'components/atoms/Icon';
 import { Label } from 'components/atoms/Item';
@@ -9,12 +10,10 @@ import { Header } from 'components/atoms/Layout/Header';
 import { Toolbar } from 'components/atoms/Layout/Toolbar';
 import { Item, List } from 'components/atoms/List';
 import { Img } from 'components/atoms/Media';
+import { Text } from 'components/atoms/Text';
 import React, { useEffect, useState } from 'react';
 import ThemeService from 'services/theme';
 import { appPages } from 'settings/appPages';
-
-import logo from '../../../assets/brand/logo.svg';
-import { Text } from '../../atoms/Text/index';
 
 const SideIonMenu = () => {
   const [isDarkMode, setIsDarkMode] = useState(ThemeService.getCurrentSetting());

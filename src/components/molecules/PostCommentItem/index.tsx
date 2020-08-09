@@ -1,10 +1,9 @@
 import './index.min.css';
 
 import { IonAvatar, IonButton, IonCol, IonIcon, IonRow, IonText } from '@ionic/react';
+import { icArrowsMaximize, icArrowsMinimize, icMessages, icThumbUp } from 'components/atoms/Icon';
 import faker from 'faker';
 import React from 'react';
-
-import { icArrowsMaximize, icArrowsMinimize, icMessages, icThumbUp } from '../../atoms/Icon';
 
 export interface PostCommentItemProps {
   isReply?: boolean;

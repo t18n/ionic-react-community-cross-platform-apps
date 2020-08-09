@@ -15,25 +15,25 @@ import {
   icUserPlus,
 } from 'components/atoms/Icon';
 import { Explore } from 'pages/Explore';
+import { Idea } from 'pages/Idea';
 import Landing from 'pages/Landing';
 import Login from 'pages/Login';
+import Media from 'pages/Media';
 import Medium from 'pages/Medium';
-import { Medium as Medium2 } from 'pages/Medium2';
 import { Messages } from 'pages/Messages';
 import { Network } from 'pages/Network';
 import { Notifications } from 'pages/Notifications';
+import Profile from 'pages/Profile';
+import Search from 'pages/Search';
+import SignUp from 'pages/SignUp';
 import Tabs from 'pages/Tabs';
-
-import { Idea } from '../pages/Idea/index';
-import Profile from '../pages/Profile/index';
-import Search from '../pages/Search/index';
-import SignUp from '../pages/SignUp/index';
+import { FC } from 'react';
 
 interface AppPage {
   url: string;
   title: string;
   icon: string;
-  component: React.FunctionComponent<any> | any;
+  component: FC<any>;
 }
 
 export const appPages: AppPage[] = [
@@ -57,16 +57,16 @@ export const appPages: AppPage[] = [
   },
 
   {
-    title: 'Medium',
+    title: 'Media',
+    url: '/media',
+    icon: icCompass,
+    component: Media,
+  },
+  {
+    title: 'Medium ',
     url: '/medium',
     icon: icCompass,
     component: Medium,
-  },
-  {
-    title: 'Medium 2',
-    url: '/medium-2',
-    icon: icCompass,
-    component: Medium2,
   },
   {
     title: 'Explore',

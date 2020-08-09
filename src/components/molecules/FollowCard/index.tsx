@@ -1,11 +1,10 @@
 import './index.min.css';
 
 import { IonButton, IonCol, IonIcon, IonRow, IonText, IonThumbnail } from '@ionic/react';
+import { icWorld } from 'components/atoms/Icon';
+import AvatarGroup, { AvatarGroupProps } from 'components/organisms/AvatarGroup';
 import faker from 'faker';
 import React from 'react';
-
-import { icWorld } from '../../atoms/Icon';
-import AvatarGroup, { AvatarGroupProps } from '../../organisms/AvatarGroup';
 
 export type FollowCardProps = Omit<AvatarGroupProps, 'size'> & {
   onClickDetail?: () => void;

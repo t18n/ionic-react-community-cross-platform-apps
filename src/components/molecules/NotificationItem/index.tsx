@@ -9,10 +9,9 @@ import {
   IonText,
   IonThumbnail,
 } from '@ionic/react';
+import { icArrowsMaximize } from 'components/atoms/Icon';
 import faker from 'faker';
 import React from 'react';
-
-import { icArrowsMaximize } from '../../atoms/Icon';
 
 export type NotificationItemProps = {
   type?: 'activity';

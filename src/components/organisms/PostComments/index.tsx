@@ -1,10 +1,9 @@
 import './index.min.css';
 
 import { IonCol, IonIcon, IonRow, IonText } from '@ionic/react';
+import PostCommentItem, { postComments } from 'components/molecules/PostCommentItem';
 import { code } from 'ionicons/icons';
 import React from 'react';
-
-import PostCommentItem, { postComments } from '../../molecules/PostCommentItem';
 
 export const PostComments = () => {
   return (

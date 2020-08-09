@@ -4,7 +4,7 @@ module.exports = {
   sourceLocale: 'en', // Add default value to English
   catalogs: [
     {
-      path: '<rootDir>/locale/{locale}/messages',
+      path: '<rootDir>/src/locale/{locale}/messages',
       include: ['<rootDir>'],
       exclude: ['**/node_modules/**'],
     },
