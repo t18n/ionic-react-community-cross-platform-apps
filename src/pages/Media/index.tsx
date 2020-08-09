@@ -38,19 +38,19 @@ const Media: React.FC<Props> = ({ history }) => {
               <IonCol>
                 <div className="text-xl">6</div>
                 <IonText color="medium">
-                  <div className="text-xs">Saved jobs</div>
+                  <div className="text-xs">saves</div>
                 </IonText>
               </IonCol>
               <IonCol>
                 <div className="text-xl">0</div>
                 <IonText color="medium">
-                  <div className="text-xs">Applied jobs</div>
+                  <div className="text-xs">comments</div>
                 </IonText>
               </IonCol>
               <IonCol>
                 <IonIcon icon={create} mode="md" />
                 <IonText color="medium">
-                  <div className="text-xs">Career interests</div>
+                  <div className="text-xs">interests</div>
                 </IonText>
               </IonCol>
             </IonRow>

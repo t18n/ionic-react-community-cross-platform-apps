@@ -9,7 +9,7 @@ import {
 import { Settings } from 'context/Settings';
 import { briefcase, create, home, notificationsOutline, people } from 'ionicons/icons';
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import { Home } from '../Home';
 import Invitations from '../Invitations';

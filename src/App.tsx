@@ -6,9 +6,6 @@ import { IonReactRouter } from '@ionic/react-router';
 import Modals from 'components/organisms/Modals';
 import SideMenu from 'components/organisms/SideMenu';
 import Provider from 'context/Provider';
-import Landing from 'pages/Landing';
-import { Messages } from 'pages/Messages';
-import Messaging from 'pages/Messaging';
 import Tabs from 'pages/Tabs';
 import { Welcome } from 'pages/Welcome';
 import React from 'react';
@@ -17,7 +14,6 @@ import { appPages } from 'settings/appPages';
 
 import I18nProvider from './components-old/I18n';
 import { ApolloProvider } from './graphql/ApolloProvider';
-import { Home } from './pages/Home';
 
 export const App = () => {
   const isAuthed = false;

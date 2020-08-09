@@ -14,11 +14,11 @@ import {
   icUserCheck,
   icUserPlus,
 } from 'components/atoms/Icon';
+import Landing from 'pages/Landing';
 import { Messages } from 'pages/Messages';
 import { Network } from 'pages/Network';
 import { Notifications } from 'pages/Notifications';
 import Tabs from 'pages/Tabs';
-import { Welcome } from 'pages/Welcome';
 
 import { Home } from '../pages-old/Home/index';
 import { Login } from '../pages-old/Login/index';
@@ -31,7 +31,7 @@ interface AppPage {
   url: string;
   title: string;
   icon: string;
-  component: React.FunctionComponent<any>;
+  component: React.FunctionComponent<any> | any;
 }
 
 export const appPages: AppPage[] = [
@@ -39,7 +39,7 @@ export const appPages: AppPage[] = [
     title: 'Welcome',
     url: '/welcome',
     icon: icAlien,
-    component: Welcome,
+    component: Landing,
   },
   {
     title: 'Login',
