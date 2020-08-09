@@ -1,8 +1,8 @@
 import {
-  icAlien,
   icBell,
   icBookmark,
   icBulb,
+  icCompass,
   icHome,
   icMenu,
   icMessage,
@@ -14,14 +14,16 @@ import {
   icUserCheck,
   icUserPlus,
 } from 'components/atoms/Icon';
+import { Explore } from 'pages/Explore';
 import Landing from 'pages/Landing';
+import Login from 'pages/Login';
+import Medium from 'pages/Medium';
+import { Medium as Medium2 } from 'pages/Medium2';
 import { Messages } from 'pages/Messages';
 import { Network } from 'pages/Network';
 import { Notifications } from 'pages/Notifications';
 import Tabs from 'pages/Tabs';
 
-import { Home } from '../pages-old/Home/index';
-import { Login } from '../pages-old/Login/index';
 import { Idea } from '../pages/Idea/index';
 import Profile from '../pages/Profile/index';
 import Search from '../pages/Search/index';
@@ -38,7 +40,7 @@ export const appPages: AppPage[] = [
   {
     title: 'Welcome',
     url: '/welcome',
-    icon: icAlien,
+    icon: icHome,
     component: Landing,
   },
   {
@@ -53,15 +55,28 @@ export const appPages: AppPage[] = [
     icon: icUserPlus,
     component: SignUp,
   },
+
   {
-    title: 'Home',
-    url: '/home',
-    icon: icHome,
-    component: Home,
+    title: 'Medium',
+    url: '/medium',
+    icon: icCompass,
+    component: Medium,
+  },
+  {
+    title: 'Medium 2',
+    url: '/medium-2',
+    icon: icCompass,
+    component: Medium2,
   },
   {
     title: 'Explore',
     url: '/explore',
+    icon: icCompass,
+    component: Explore,
+  },
+  {
+    title: 'Search',
+    url: '/search',
     icon: icSearch,
     component: Search,
   },

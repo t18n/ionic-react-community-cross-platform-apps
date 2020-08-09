@@ -12,7 +12,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { appPages } from 'settings/appPages';
 
-import I18nProvider from './components-old/I18n';
+import I18nProvider from './components/organisms/I18n';
 import { ApolloProvider } from './graphql/ApolloProvider';
 
 export const App = () => {

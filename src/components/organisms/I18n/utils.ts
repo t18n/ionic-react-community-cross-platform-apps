@@ -1,7 +1,7 @@
 import { i18n } from '@lingui/core';
 import { en, vi } from 'make-plural/plurals';
 
-import { LocaleId } from '../../settings/locale';
+import { LocaleId } from '../../../settings/locale';
 
 i18n.loadLocaleData('en', { plurals: en });
 i18n.loadLocaleData('vi', { plurals: vi });

@@ -5,16 +5,13 @@ import {
   IonHeader,
   IonList,
   IonListHeader,
+  IonPage,
   IonRow,
   IonSpinner,
   IonTitle,
   IonToolbar,
   useIonViewDidEnter,
 } from '@ionic/react';
-import { t, Trans } from '@lingui/macro';
-import { Header } from 'components-old/Header';
-import { Layout } from 'components-old/Layout';
-import { TagPreview } from 'components-old/TagPreview';
 import { useMediumsQuery } from 'graphql/operation/medium/query';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -46,7 +43,7 @@ export const Explore = () => {
   });
 
   return (
-    <Layout id="explore-page" title={<Trans id="page.title.explore" />}>
+    <IonPage>
       <IonContent fullscreen={true}>
         <IonHeader collapse="condense" className="ion-no-border">
           <IonToolbar className=" transparent">
@@ -65,9 +62,7 @@ export const Explore = () => {
                   {MEDIUM_data &&
                     MEDIUM_data.mediums.items.slice(0, 4).map(({ id, slug, title, cover }) => (
                       <IonCol sizeLg="4" sizeXl="3" key={id} className="ion-no-padding">
-                        <Link to={`mediums/${slug}`}>
-                          <TagPreview title={title} imgSrc={cover} imgAlt={title} rating="4.5" />
-                        </Link>
+                        <Link to={`mediums/${slug}`}>{title}</Link>
                       </IonCol>
                     ))}
                 </IonRow>
@@ -80,6 +75,6 @@ export const Explore = () => {
           </div>
         )}
       </IonContent>
-    </Layout>
+    </IonPage>
   );
 };

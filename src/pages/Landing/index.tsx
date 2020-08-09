@@ -50,7 +50,7 @@ export const Landing = ({ history }: LandingProps) => {
   return (
     <IonPage>
       <IonModal isOpen={isOpenLogin}>
-        <Login onClose={() => setIsOpenLogin(false)} onLogin={onLogin} />
+        <Login onClose={() => setIsOpenLogin(false)} onLogin={onLogin} history={history} />
       </IonModal>
 
       <IonContent className={activeIndex > 0 ? 'bg-primary' : ''}>
