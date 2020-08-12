@@ -1,12 +1,18 @@
 module.exports = {
   stories: ['../src/**/*.stories.tsx'],
   addons: [
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        actions: true,
+        backgrounds: true,
+        controls: true,
+        docs: true,
+        viewport: true,
+        toolbars: true
+      }
+    },
     '@storybook/preset-create-react-app',
-    '@storybook/addon-actions',
-    '@storybook/addon-links',
-    '@storybook/addon-options',
-    '@storybook/addon-viewport',
-    '@storybook/addon-a11y/register',
-    'storybook-addon-react-docgen'
+    '@storybook/addon-a11y',
   ],
 };

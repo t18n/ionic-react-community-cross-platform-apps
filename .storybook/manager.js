@@ -1,5 +1,4 @@
 import 'storybook-addon-jsx/register';
-import 'storybook-dark-mode/register';
 import { addons } from '@storybook/addons';
 import theme from './theme';
 
