@@ -48,7 +48,7 @@ const SideIonMenu = () => {
           ))}
 
           <Item lines="full">
-            <Toggle checked={isDarkMode} onChange={toggleDarkMode} slot="start" />
+            <Toggle checked={isDarkMode} onIonChange={toggleDarkMode} slot="start" />
             <Label>Dark mode</Label>
           </Item>
         </List>
