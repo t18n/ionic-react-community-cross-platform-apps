@@ -1,11 +1,11 @@
 import { IonButton, IonModal } from '@ionic/react';
 import React, { useState } from 'react';
 
-import Modals from '.';
+import { NewPostModal } from '.';
 
 export default {
-  title: 'Modals',
-  component: Modals,
+  title: 'NewPostModal',
+  component: NewPostModal,
 };
 
 export const Default = () => {
@@ -21,7 +21,7 @@ export const Default = () => {
 
   return (
     <>
-      {/* <Modals /> */}
+      <NewPostModal />
       <IonButton fill="outline" color="medium" size="small" onClick={openOptions}>
         Open Modal
       </IonButton>

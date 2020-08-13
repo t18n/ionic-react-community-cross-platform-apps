@@ -5,7 +5,7 @@ import { Settings } from 'context/Settings';
 import NewPost from 'pages/NewPost';
 import React from 'react';
 
-const Modals = () => {
+export const NewPostModal = () => {
   return (
     <Settings.Consumer>
       {({ modals, closeModal }) => (
@@ -16,5 +16,3 @@ const Modals = () => {
     </Settings.Consumer>
   );
 };
-
-export default Modals;

@@ -17,7 +17,7 @@ import {
 import { Explore } from 'pages/Explore';
 import { Idea } from 'pages/Idea';
 import Landing from 'pages/Landing';
-import Login from 'pages/Login';
+import { Login } from 'pages/Login';
 import Media from 'pages/Media';
 import Medium from 'pages/Medium';
 import { Messages } from 'pages/Messages';

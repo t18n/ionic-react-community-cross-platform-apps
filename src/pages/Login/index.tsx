@@ -28,7 +28,7 @@ type Props = {
   history: any;
 };
 
-const Login = ({ history, onLogin, onClose }: Props) => {
+export const Login = ({ history, onLogin, onClose }: Props) => {
   const [login, { loading: LOGIN_loading }] = useLoginUser();
   const [toast, setToast] = useToast(null);
 
@@ -151,5 +151,3 @@ const Login = ({ history, onLogin, onClose }: Props) => {
     </>
   );
 };
-
-export default Login;

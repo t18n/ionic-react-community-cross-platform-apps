@@ -1,24 +1,19 @@
 import './index.min.css';
 
-import {
-  IonAvatar,
-  IonButton,
-  IonContent,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonModal,
-  IonPage,
-  IonSlide,
-  IonSlides,
-  IonText,
-} from '@ionic/react';
+import logo from 'assets/brand/logo.svg';
+import { Button } from 'components/atoms/Button';
+import { icCheck, Icon, icUser } from 'components/atoms/Icon';
+import { Item, Label } from 'components/atoms/Item';
+import { Content } from 'components/atoms/Layout/Content';
+import { Page } from 'components/atoms/Layout/Page';
+import { List } from 'components/atoms/List';
+import { Avatar } from 'components/atoms/Media';
+import { Modal } from 'components/atoms/Modal';
+import { Slide, Slides } from 'components/atoms/Slide';
+import { Text } from 'components/atoms/Text';
 import faker from 'faker';
-import { briefcase, logoGoogle, logoLinkedin } from 'ionicons/icons';
+import { Login } from 'pages/Login';
 import React, { useRef, useState } from 'react';
-
-import Login from '../Login';
 
 const slideOpts = {
   initialSlide: 0,
@@ -48,72 +43,71 @@ export const Landing = ({ history }: LandingProps) => {
   };
 
   return (
-    <IonPage>
-      <IonModal isOpen={isOpenLogin}>
+    <Page>
+      <Modal isOpen={isOpenLogin}>
         <Login onClose={() => setIsOpenLogin(false)} onLogin={onLogin} history={history} />
-      </IonModal>
+      </Modal>
 
-      <IonContent className={activeIndex > 0 ? 'bg-primary' : ''}>
+      <Content className={activeIndex > 0 ? 'bg-primary' : ''}>
         <div className="landing-slide vertical-layout">
           <div className="slides-container">
-            <IonSlides
+            <Slides
               className={`slides-intro${activeIndex > 0 ? ' inverse' : ''}`}
               pager
               options={slideOpts}
-              onIonSlideDidChange={handleOnSlided}
+              onSlideDidChange={handleOnSlided}
               ref={ionSlidesRef}
             >
-              <IonSlide>
+              <Slide>
                 <div className="slide-inner">
                   <h2 className="logo">
-                    Career
-                    <IonIcon icon={logoLinkedin} color="primary" />
+                    <Icon icon={logo} color="primary" />
                   </h2>
                 </div>
-              </IonSlide>
-              <IonSlide>
+              </Slide>
+              <Slide>
                 <div className="slide-inner">
-                  <IonText color={'white'}>
+                  <Text color={'white'}>
                     <h2>
                       Create your
                       <br />
                       professional profile
                     </h2>
-                  </IonText>
+                  </Text>
 
                   <div className="panel-landing user-card">
                     <div className="user-profile">
-                      <IonAvatar className="user-image float">
+                      <Avatar className="user-image float">
                         <img src={faker.image.avatar()} alt="" />
-                      </IonAvatar>
+                      </Avatar>
                       <h3>{faker.name.firstName()}</h3>
                       <div className="m-b-xs">{faker.name.jobDescriptor()}</div>
-                      <IonText color="medium">
+                      <Text color="medium">
                         <div className="text-sm">{faker.address.county()}</div>
-                      </IonText>
+                      </Text>
                     </div>
                     <div className="horizontal-line"></div>
-                    <IonButton expand="block" fill="clear" color="primary">
+                    <Button expand="block" fill="clear" color="primary">
                       Connect
-                    </IonButton>
+                    </Button>
                   </div>
                 </div>
-              </IonSlide>
-              <IonSlide>
+              </Slide>
+              <Slide>
                 <div className="slide-inner">
-                  <IonText color="white">
+                  <Text color="white">
                     <h2>
                       Connect and keep in touch
                       <br />
                       with your network
                     </h2>
-                  </IonText>
+                  </Text>
 
                   <div className="chat">
                     <div className="incoming">
-                      <IonAvatar className="user-image small">
+                      <Avatar className="user-image small">
                         <img src={faker.image.avatar()} alt="" />
-                      </IonAvatar>
+                      </Avatar>
                       <div className="message-group">
                         <div className="message">Congrats on your new role!</div>
                       </div>
@@ -126,48 +120,48 @@ export const Landing = ({ history }: LandingProps) => {
                     </div>
                   </div>
                 </div>
-              </IonSlide>
-              <IonSlide>
+              </Slide>
+              <Slide>
                 <div className="slide-inner">
-                  <IonText color="white">
+                  <Text color="white">
                     <h2>
                       Connect people
                       <br />
                       to share knowledge
                     </h2>
-                  </IonText>
+                  </Text>
 
                   <div className="panel-landing">
-                    <IonList className="m-n">
-                      <IonItem lines="none">
-                        <IonAvatar slot="start">
+                    <List className="m-n">
+                      <Item lines="none">
+                        <Avatar slot="start">
                           <img src={faker.image.avatar()} alt="" />
-                        </IonAvatar>
-                        <IonLabel>
+                        </Avatar>
+                        <Label>
                           <span className="text-sm">Joe recommends</span>
-                        </IonLabel>
-                      </IonItem>
+                        </Label>
+                      </Item>
 
-                      <IonItem lines="none">
-                        <IonIcon icon={briefcase} color="medium" slot="start" />
-                        <IonLabel>
-                          <span className="text-sm font-bold">You next job</span>
-                        </IonLabel>
-                      </IonItem>
-                      <IonItem lines="none">
-                        <IonIcon icon={briefcase} color="medium" slot="start" />
-                        <IonLabel>
-                          <span className="text-sm font-bold">You next career move</span>
-                        </IonLabel>
-                      </IonItem>
-                    </IonList>
+                      <Item lines="none">
+                        <Icon icon={icCheck} color="medium" slot="start" />
+                        <Label>
+                          <span className="text-sm font-bold">You next takeaway</span>
+                        </Label>
+                      </Item>
+                      <Item lines="none">
+                        <Icon icon={icCheck} color="medium" slot="start" />
+                        <Label>
+                          <span className="text-sm font-bold">You next life changing moment</span>
+                        </Label>
+                      </Item>
+                    </List>
                   </div>
                 </div>
-              </IonSlide>
-            </IonSlides>
+              </Slide>
+            </Slides>
           </div>
           <div className="buttons-container ion-padding">
-            <IonButton
+            <Button
               onClick={() => setIsOpenLogin(true)}
               expand="block"
               color={activeIndex > 0 ? 'white' : 'primary'}
@@ -175,18 +169,18 @@ export const Landing = ({ history }: LandingProps) => {
               className="ion-margin-bottom"
             >
               Join now
-            </IonButton>
-            <IonButton
+            </Button>
+            <Button
               onClick={() => setIsOpenLogin(true)}
               expand="block"
               fill={'outline'}
               color={activeIndex > 0 ? 'white' : 'primary'}
               className="ion-margin-bottom"
             >
-              <IonIcon slot="start" icon={logoGoogle} size="small" color="danger" />
+              <Icon slot="start" icon={icUser} size="small" color="danger" />
               Login
-            </IonButton>
-            <IonButton
+            </Button>
+            <Button
               onClick={() => setIsOpenLogin(true)}
               expand="block"
               fill={'clear'}
@@ -194,11 +188,11 @@ export const Landing = ({ history }: LandingProps) => {
               className="ion-margin-bottom"
             >
               Sign in
-            </IonButton>
+            </Button>
           </div>
         </div>
-      </IonContent>
-    </IonPage>
+      </Content>
+    </Page>
   );
 };
 
