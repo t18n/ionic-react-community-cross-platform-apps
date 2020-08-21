@@ -43,7 +43,7 @@ const SignUp = (props: Props) => {
       </IonHeader>
 
       <IonContent className="bg-primary">
-        <div className="landing-login">
+        <div className="tour-login">
           <IonList inset>
             <IonItem lines="full">
               <IonInput type="text" placeholder="Email"></IonInput>

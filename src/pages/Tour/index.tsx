@@ -1,5 +1,6 @@
 import './index.min.css';
 
+import { Trans } from '@lingui/macro';
 import logo from 'assets/brand/logo.svg';
 import { Button } from 'components/atoms/Button';
 import { icCheck, Icon, icUser } from 'components/atoms/Icon';
@@ -20,11 +21,11 @@ const slideOpts = {
   speed: 400,
 };
 
-type LandingProps = {
+type TourProps = {
   history: any;
 };
 
-export const Landing = ({ history }: LandingProps) => {
+export const Tour = ({ history }: TourProps) => {
   const ionSlidesRef = useRef<HTMLIonSlidesElement>();
   const [activeIndex, setActiveIndex] = useState(slideOpts.initialSlide);
   const [isOpenLogin, setIsOpenLogin] = useState(false);
@@ -49,7 +50,7 @@ export const Landing = ({ history }: LandingProps) => {
       </Modal>
 
       <Content className={activeIndex > 0 ? 'bg-primary' : ''}>
-        <div className="landing-slide vertical-layout">
+        <div className="tour-slide vertical-layout">
           <div className="slides-container">
             <Slides
               className={`slides-intro${activeIndex > 0 ? ' inverse' : ''}`}
@@ -60,106 +61,71 @@ export const Landing = ({ history }: LandingProps) => {
             >
               <Slide>
                 <div className="slide-inner">
-                  <h2 className="logo">
-                    <Icon icon={logo} color="primary" />
+                  <Icon icon={logo} color="primary" />
+                  <h2>
+                    <Trans id="tour.main.headline" />
                   </h2>
                 </div>
               </Slide>
-              <Slide>
-                <div className="slide-inner">
-                  <Text color={'white'}>
-                    <h2>
-                      Create your
-                      <br />
-                      professional profile
-                    </h2>
-                  </Text>
 
-                  <div className="panel-landing user-card">
-                    <div className="user-profile">
-                      <Avatar className="user-image float">
-                        <img src={faker.image.avatar()} alt="" />
-                      </Avatar>
-                      <h3>{faker.name.firstName()}</h3>
-                      <div className="m-b-xs">{faker.name.jobDescriptor()}</div>
-                      <Text color="medium">
-                        <div className="text-sm">{faker.address.county()}</div>
-                      </Text>
-                    </div>
-                    <div className="horizontal-line"></div>
-                    <Button expand="block" fill="clear" color="primary">
-                      Connect
-                    </Button>
-                  </div>
-                </div>
-              </Slide>
               <Slide>
                 <div className="slide-inner">
                   <Text color="white">
                     <h2>
-                      Connect and keep in touch
-                      <br />
-                      with your network
+                      <Trans id="tour.explore.headline" />
                     </h2>
                   </Text>
 
-                  <div className="chat">
-                    <div className="incoming">
-                      <Avatar className="user-image small">
-                        <img src={faker.image.avatar()} alt="" />
-                      </Avatar>
-                      <div className="message-group">
-                        <div className="message">Congrats on your new role!</div>
-                      </div>
-                    </div>
-
-                    <div className="outgoing">
-                      <div className="message-group">
-                        <div className="message">Thanks, sure!</div>
-                      </div>
-                    </div>
+                  <div className="panel-tour">
+                    <Trans id="tour.explore.description" />
                   </div>
                 </div>
               </Slide>
+
               <Slide>
                 <div className="slide-inner">
                   <Text color="white">
                     <h2>
-                      Connect people
-                      <br />
-                      to share knowledge
+                      <Trans id="tour.share.headline" />
                     </h2>
                   </Text>
 
-                  <div className="panel-landing">
-                    <List className="m-n">
-                      <Item lines="none">
-                        <Avatar slot="start">
-                          <img src={faker.image.avatar()} alt="" />
-                        </Avatar>
-                        <Label>
-                          <span className="text-sm">Joe recommends</span>
-                        </Label>
-                      </Item>
+                  <div className="panel-tour">
+                    <Trans id="tour.share.description" />
+                  </div>
+                </div>
+              </Slide>
 
-                      <Item lines="none">
-                        <Icon icon={icCheck} color="medium" slot="start" />
-                        <Label>
-                          <span className="text-sm font-bold">You next takeaway</span>
-                        </Label>
-                      </Item>
-                      <Item lines="none">
-                        <Icon icon={icCheck} color="medium" slot="start" />
-                        <Label>
-                          <span className="text-sm font-bold">You next life changing moment</span>
-                        </Label>
-                      </Item>
-                    </List>
+              <Slide>
+                <div className="slide-inner">
+                  <Text color="white">
+                    <h2>
+                      <Trans id="tour.learnAndRetain.headline" />
+                    </h2>
+                  </Text>
+
+                  <div className="panel-tour">
+                    <Trans id="tour.learnAndRetain.description" />
+                  </div>
+                </div>
+              </Slide>
+
+              <Slide>
+                <div className="slide-inner">
+                  <Text color="white">
+                    <h2>
+                      <Trans id="tour.buildALibrary.headline" />
+                    </h2>
+                  </Text>
+
+                  <div className="panel-tour">
+                    <Trans id="tour.buildALibrary.description" />
                   </div>
                 </div>
               </Slide>
             </Slides>
           </div>
+
           <div className="buttons-container ion-padding">
             <Button
               onClick={() => setIsOpenLogin(true)}
@@ -196,4 +162,4 @@ export const Landing = ({ history }: LandingProps) => {
   );
 };
 
-export default Landing;
+export default Tour;

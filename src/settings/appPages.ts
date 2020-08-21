@@ -16,7 +16,6 @@ import {
 } from 'components/atoms/Icon';
 import { Explore } from 'pages/Explore';
 import { Idea } from 'pages/Idea';
-import Landing from 'pages/Landing';
 import { Login } from 'pages/Login';
 import Media from 'pages/Media';
 import Medium from 'pages/Medium';
@@ -27,6 +26,7 @@ import Profile from 'pages/Profile';
 import Search from 'pages/Search';
 import SignUp from 'pages/SignUp';
 import Tabs from 'pages/Tabs';
+import Tour from 'pages/Tour';
 import { FC } from 'react';
 
 interface AppPage {
@@ -41,7 +41,7 @@ export const appPages: AppPage[] = [
     title: 'Welcome',
     url: '/welcome',
     icon: icHome,
-    component: Landing,
+    component: Tour,
   },
   {
     title: 'Login',

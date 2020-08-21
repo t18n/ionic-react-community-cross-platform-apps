@@ -15,7 +15,7 @@ export const Welcome = () => {
   return (
     <Page>
       <Content className="bg-primary">
-        <div className="landing-login">
+        <div className="tour-login">
           <List inset>
             <Item lines="full">
               <Input type="text" placeholder="Email" />

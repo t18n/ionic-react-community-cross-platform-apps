@@ -1,18 +1,11 @@
 {
-  "medium.brief.comments": "bình luận",
-  "medium.brief.reactions": "tương tác",
-  "medium.header.author": "Tác giả",
-  "medium.header.button.buy": "Mua",
-  "medium.header.button.save": "Lưu",
-  "medium.header.isbn": "Mã sách",
-  "medium.header.published": "Xuất bản",
-  "medium.tabs.comments": "Bình luận",
-  "medium.tabs.ideas": "Ý tưởng",
-  "medium.tabs.ratings": "Đánh giá",
-  "page.title.explore": "Khám phá",
-  "page.title.home": "Trang chủ",
-  "page.title.login": "Đăng nhập",
-  "page.title.medium": "Tài nguyên",
-  "page.title.search": "Tìm kiếm",
-  "page.title.tag": "Thẻ"
+  "tour.buildALibrary.description": "Mọi thành viên đều có thể đóng góp vào thư viện mở, cũng như có thể nhận xét, báo cáo xấu tài nguyên được đóng góp bởi các thành viên khác.",
+  "tour.buildALibrary.headline": "Cùng nhau, chúng ta xây dựng một nguồn tài nguyên có chọn lọc",
+  "tour.explore.description": "Dù là tìm kiếm một đầu sách mới, một ý tưởng hay, hay muốn tìm hiểu ẩn ý từ một bức họa nổi tiếng, có lẽ thư viện mở sẽ là nơi bạn thấy hứng thú.",
+  "tour.explore.headline": "Khám phá những nguôn kiến thức mới",
+  "tour.learnAndRetain.description": "Tìm kiếm kiến thức đã là khó, ghi nhớ chúng còn khó hơn. Chúng tôi xây dựng một nền tảng cho bạn lưu trữ những kiến thức đó, kết nối những kiến thức liên quan và hiển thị chúng một cách thông minh, giúp bạn dễ dàng ghi nhớ và tìm kiếm.",
+  "tour.learnAndRetain.headline": "Học hỏi và ghi nhớ một cách có hệ thống",
+  "tour.main.headline": "Là thành viên của Bright với tinh thần học hỏi và chia sẻ",
+  "tour.share.description": "Mỗi nguồn kiến thức đều có những ý tưởng hay. Nếu bạn đã tiếp thu, học hỏi, ứng dụng những ý tưởng đó, hãy chia sẻ với cộng đồng.",
+  "tour.share.headline": "Chia sẻ những ý tưởng, kinh nghiệm về những nguốn kiến thức bạn đang tìm hiểu"
 }

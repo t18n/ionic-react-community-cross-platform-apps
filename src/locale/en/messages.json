@@ -1,18 +1,11 @@
 {
-  "medium.brief.comments": "comment",
-  "medium.brief.reactions": "reaction",
-  "medium.header.author": "Author",
-  "medium.header.button.buy": "Buy",
-  "medium.header.button.save": "Save",
-  "medium.header.isbn": "ISBN",
-  "medium.header.published": "Published",
-  "medium.tabs.comments": "Comments",
-  "medium.tabs.ideas": "Ideas",
-  "medium.tabs.ratings": "Ratings",
-  "page.title.explore": "Explore",
-  "page.title.home": "Home",
-  "page.title.login": "Login",
-  "page.title.medium": "Medium",
-  "page.title.search": "Search",
-  "page.title.tag": "Tag"
+  "tour.buildALibrary.description": "Bitizens can contribute to our open library, and they can give a review to a medium, and report any type of content that are not complying our learning and sharing spirit.",
+  "tour.buildALibrary.headline": "Together building a curated media library",
+  "tour.explore.description": "Whether you are to find a new book to read, choose a new video to get inspiration from or try to discover a hidden message from a piece of artwork, it is likely that the bright community has some hints to offer you",
+  "tour.explore.headline": "Exploring new medium to learn from",
+  "tour.learnAndRetain.description": "Gaining more knowledge is difficult, but retaining them is even more so. We built a system that allow you to save information you want to remember, link to associated content and smartly display them so you can refresh your memory every time you rehearse.",
+  "tour.learnAndRetain.headline": "Learning and retaining new ideas systematically",
+  "tour.main.headline": "Being a bitizen with a mindset of learning and sharing.",
+  "tour.share.description": "Every medium has some interesting ideas. You have extracted these ideas, learned them, applied them, let's share it to others.",
+  "tour.share.headline": "Sharing ideas, stories of the medium you are consuming"
 }
