@@ -6,7 +6,9 @@ type State = {
   modals: Record<string, any>;
 };
 
-export default class Provider extends React.Component<{}, State> {
+interface Props {}
+
+export default class Provider extends React.Component<Props, State> {
   state = {
     modals: {
       newPost: false,

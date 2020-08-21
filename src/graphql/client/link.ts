@@ -1,5 +1,5 @@
 import { ApolloLink, HttpLink } from '@apollo/client';
-import { onError } from '@apollo/link-error';
+import { onError } from '@apollo/client/link/error';
 
 /**
  * Link

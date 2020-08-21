@@ -9,9 +9,7 @@ import { Page } from 'components/atoms/Layout/Page';
 import { List } from 'components/atoms/List';
 import React from 'react';
 
-type WelcomeProps = {};
-
-export const Welcome = (props: WelcomeProps) => {
+export const Welcome = () => {
   const login = () => console.log('logging in');
 
   return (

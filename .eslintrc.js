@@ -32,7 +32,9 @@ module.exports = {
     'prettier/prettier': 'error',
     'simple-import-sort/sort': 'error',
     'react/prop-types': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/camelcase': 'off'
+    // '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/camelcase': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': "off",
+    '@typescript-eslint/no-empty-interface': 'off'
   }
 };
