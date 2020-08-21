@@ -3,16 +3,12 @@ import './index.min.css';
 import { Trans } from '@lingui/macro';
 import logo from 'assets/brand/logo.svg';
 import { Button } from 'components/atoms/Button';
-import { icCheck, Icon, icUser } from 'components/atoms/Icon';
-import { Item, Label } from 'components/atoms/Item';
+import { Icon, icUser } from 'components/atoms/Icon';
 import { Content } from 'components/atoms/Layout/Content';
 import { Page } from 'components/atoms/Layout/Page';
-import { List } from 'components/atoms/List';
-import { Avatar } from 'components/atoms/Media';
 import { Modal } from 'components/atoms/Modal';
 import { Slide, Slides } from 'components/atoms/Slide';
 import { Text } from 'components/atoms/Text';
-import faker from 'faker';
 import { Login } from 'pages/Login';
 import React, { useRef, useState } from 'react';
 
@@ -61,19 +57,21 @@ export const Tour = ({ history }: TourProps) => {
             >
               <Slide>
                 <div className="slide-inner">
-                  <Icon icon={logo} color="primary" />
-                  <h2>
+                  <div className="logo">
+                    <Icon icon={logo} color="primary" />
+                  </div>
+                  <h3>
                     <Trans id="tour.main.headline" />
-                  </h2>
+                  </h3>
                 </div>
               </Slide>
 
               <Slide>
                 <div className="slide-inner">
                   <Text color="white">
-                    <h2>
+                    <h3>
                       <Trans id="tour.explore.headline" />
-                    </h2>
+                    </h3>
                   </Text>
 
                   <div className="panel-tour">
@@ -85,9 +83,9 @@ export const Tour = ({ history }: TourProps) => {
               <Slide>
                 <div className="slide-inner">
                   <Text color="white">
-                    <h2>
+                    <h3>
                       <Trans id="tour.share.headline" />
-                    </h2>
+                    </h3>
                   </Text>
 
                   <div className="panel-tour">
@@ -99,9 +97,9 @@ export const Tour = ({ history }: TourProps) => {
               <Slide>
                 <div className="slide-inner">
                   <Text color="white">
-                    <h2>
+                    <h3>
                       <Trans id="tour.learnAndRetain.headline" />
-                    </h2>
+                    </h3>
                   </Text>
 
                   <div className="panel-tour">
@@ -113,9 +111,9 @@ export const Tour = ({ history }: TourProps) => {
               <Slide>
                 <div className="slide-inner">
                   <Text color="white">
-                    <h2>
+                    <h3>
                       <Trans id="tour.buildALibrary.headline" />
-                    </h2>
+                    </h3>
                   </Text>
 
                   <div className="panel-tour">
