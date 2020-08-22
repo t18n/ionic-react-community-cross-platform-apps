@@ -5,6 +5,16 @@ module.exports = {
       stage: 2,
     }),
     require('postcss-nested'),
+    require('postcss-bem')({
+      defaultNamespace: undefined, // default namespace to use, none by default
+      style: 'suit', // suit or bem, suit by default,
+      separators: {
+        descendent: '__', // overwrite any default separator for chosen style
+      },
+      shortcuts: {
+        utility: 'util', //override at-rule name
+      },
+    }),
     require('postcss-custom-media')({
       importFrom: [
         {
