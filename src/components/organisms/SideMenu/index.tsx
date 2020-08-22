@@ -9,7 +9,7 @@ import { Content } from 'components/atoms/Layout/Content';
 import { Header } from 'components/atoms/Layout/Header';
 import { Toolbar } from 'components/atoms/Layout/Toolbar';
 import { Item, List } from 'components/atoms/List';
-import { Img } from 'components/atoms/Media';
+import { Logo } from 'components/atoms/Logo';
 import { Text } from 'components/atoms/Text';
 import React, { useEffect, useState } from 'react';
 import ThemeService from 'services/theme';
@@ -30,8 +30,8 @@ const SideIonMenu = () => {
   return (
     <IonMenu type="overlay" side="start" contentId="main" menuId="main" swipeGesture={false}>
       <Header>
-        <Toolbar className="no-border" color="light">
-          <Img src={logo} alt="Brightizen" />
+        <Toolbar className="no-border">
+          <Logo width={200} />
         </Toolbar>
       </Header>
       <Content>

@@ -1,11 +1,11 @@
 import './index.min.css';
 
 import { Trans } from '@lingui/macro';
-import logo from 'assets/brand/logo.svg';
 import { Button } from 'components/atoms/Button';
 import { Icon, icUser } from 'components/atoms/Icon';
 import { Content } from 'components/atoms/Layout/Content';
 import { Page } from 'components/atoms/Layout/Page';
+import { Logo } from 'components/atoms/Logo';
 import { Modal } from 'components/atoms/Modal';
 import { Slide, Slides } from 'components/atoms/Slide';
 import { Text } from 'components/atoms/Text';
@@ -57,9 +57,7 @@ export const Tour = ({ history }: TourProps) => {
             >
               <Slide>
                 <div className="slide-inner">
-                  <div className="logo">
-                    <Icon icon={logo} color="primary" />
-                  </div>
+                  <Logo width={200} />
                   <h3>
                     <Trans id="tour.main.headline" />
                   </h3>
