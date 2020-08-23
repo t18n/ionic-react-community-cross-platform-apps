@@ -10,7 +10,7 @@ const SkeletonPost = () => {
       {[0, 1].map((i) => (
         <div className="skeleton-post" key={i}>
           <IonRow>
-            <IonCol size="auto" className="ion-padding-start">
+            <IonCol size="auto" className="p-start">
               <SkeletonElement height={'32px'} width={'32px'} radius={'50%'} />
             </IonCol>
             <IonCol>
@@ -19,7 +19,7 @@ const SkeletonPost = () => {
               <SkeletonElement height={'6px'} width={'25%'} />
             </IonCol>
           </IonRow>
-          <div className="ion-padding">
+          <div className="p-all">
             <SkeletonElement height={'10px'} />
             <SkeletonElement height={'10px'} />
             <SkeletonElement height={'10px'} />
@@ -28,13 +28,13 @@ const SkeletonPost = () => {
           </div>
           <SkeletonElement height={'200px'} />
           <IonRow className="ion-justify-content-between">
-            <IonCol size="auto" className="ion-padding-start">
+            <IonCol size="auto" className="p-start">
               <SkeletonElement height={'12px'} width={'60px'} />
             </IonCol>
             <IonCol size="auto">
               <SkeletonElement height={'12px'} width={'60px'} />
             </IonCol>
-            <IonCol size="auto" className="ion-padding-end">
+            <IonCol size="auto" className="p-end">
               <SkeletonElement height={'12px'} width={'60px'} />
             </IonCol>
           </IonRow>

@@ -1,86 +1,129 @@
 import './index.min.css';
 
-import {
-  IonButton,
-  IonButtons,
-  IonCol,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonInput,
-  IonItem,
-  IonList,
-  IonRow,
-  IonToolbar,
-} from '@ionic/react';
-import { close } from 'ionicons/icons';
-import React from 'react';
+import { Button } from 'components/atoms/Button';
+import { Input } from 'components/atoms/Input';
+import { Item, Label } from 'components/atoms/Item';
+import { Content } from 'components/atoms/Layout/Content';
+import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Page } from 'components/atoms/Layout/Page';
+import { List } from 'components/atoms/List';
+import { Loading } from 'components/atoms/Loading';
+import { Toast } from 'components/atoms/Toast';
+import { useLoginUser } from 'graphql/operation/user/mutation';
+import { ME } from 'graphql/operation/user/shape';
+import { useToast } from 'hooks/useToast';
+import React, { useState } from 'react';
 
-type Props = {
-  onClose: () => void;
-  onSignUp: () => void;
+type SignupProps = {
+  history: any;
 };
 
-const SignUp = (props: Props) => {
-  const closeModal = () => {
-    props.onClose();
-  };
+export const Signup = ({ history }: SignupProps) => {
+  const [login, { loading: LOGIN_loading }] = useLoginUser();
+  const [toast, setToast] = useToast(null);
 
-  const login = () => {
-    props.onSignUp();
+  const [inputEmail, setInputEmail] = useState('');
+  const [inputPassword, setInputPassword] = useState('');
+
+  const onSignupUser = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!inputPassword || !inputEmail) {
+      setToast({
+        status: true,
+        position: 'bottom',
+        message: `Please fill all required data`,
+        duration: 3000,
+        color: 'danger',
+      });
+    }
+
+    // Signup user
+    try {
+      await login({
+        variables: {
+          data: { email: inputEmail, password: inputPassword },
+        },
+        update(cache, { data: { login } }) {
+          // const { me } = cache.readQuery({ query: ME });
+          cache.writeQuery({
+            query: ME,
+            data: { me: login },
+          });
+        },
+      });
+
+      history.push('/explore', { direct: 'none' });
+    } catch (e) {
+      setToast({
+        status: true,
+        position: 'bottom',
+        message: `Signup unsuccessfully! ${e}`,
+        duration: 3000,
+        color: 'danger',
+      });
+      return;
+    }
   };
 
   return (
-    <>
-      <IonHeader>
-        <IonToolbar className="no-border" color="primary">
-          <IonButtons slot="end">
-            <IonButton onClick={closeModal}>
-              <IonIcon slot="icon-only" icon={close} />
-            </IonButton>
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
+    <Page>
+      <Content className="">
+        <form noValidate onSubmit={onSignupUser}>
+          <List>
+            <Item>
+              <Label position="stacked" color="primary">
+                Email
+              </Label>
+              <Input
+                name="email"
+                type="text"
+                value={inputEmail}
+                spellCheck={false}
+                autocapitalize="off"
+                onChange={(e: any) => setInputEmail(e.detail.value)}
+                required
+              ></Input>
+            </Item>
 
-      <IonContent className="bg-primary">
-        <div className="tour-login">
-          <IonList inset>
-            <IonItem lines="full">
-              <IonInput type="text" placeholder="Email"></IonInput>
-            </IonItem>
-            <IonItem lines="none">
-              <IonInput type="password" placeholder="Password"></IonInput>
-            </IonItem>
-          </IonList>
+            <Item>
+              <Label position="stacked" color="primary">
+                Password
+              </Label>
+              <Input
+                name="password"
+                type="password"
+                value={inputPassword}
+                onChange={(e: any) => setInputPassword(e.detail.value)}
+              ></Input>
+            </Item>
+          </List>
 
-          <div className="ion-padding">
-            <IonButton
-              className="ion-margin-left ion-margin-right"
-              onClick={login}
-              expand="block"
-              color="white"
-              fill="outline"
-            >
-              Sign in
-            </IonButton>
-          </div>
+          <Toast
+            isOpen={toast?.status}
+            position={toast?.position}
+            message={toast?.message}
+            duration={toast?.duration}
+            color={toast?.color}
+            onDidDismiss={() => setToast({ ...toast, status: false })}
+          />
 
-          <IonRow>
-            <IonCol>
-              <IonButton fill="clear" color="white" size="small">
-                Forgot password?
-              </IonButton>
-            </IonCol>
-            <IonCol className="ion-text-right">
-              <IonButton fill="clear" color="white" size="small">
-                Join now
-              </IonButton>
-            </IonCol>
-          </IonRow>
-        </div>
-      </IonContent>
-    </>
+          {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={'Logging in...'} />}
+
+          <Row>
+            <Col>
+              <Button type="submit" expand="block">
+                Signup
+              </Button>
+            </Col>
+            <Col>
+              <Button routerLink="/signup" color="light" expand="block">
+                Signup
+              </Button>
+            </Col>
+          </Row>
+        </form>
+      </Content>
+    </Page>
   );
 };
-
-export default SignUp;

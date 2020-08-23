@@ -25,9 +25,9 @@ export const Welcome = () => {
             </Item>
           </List>
 
-          <div className="ion-padding">
+          <div className="p-all">
             <Button
-              className="ion-margin-left ion-margin-right"
+              className="m--left m--right"
               onClick={login}
               expand="block"
               color="white"

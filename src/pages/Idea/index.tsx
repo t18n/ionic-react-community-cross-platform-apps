@@ -88,12 +88,12 @@ export const Idea = () => {
             </div>
 
             <IonRow>
-              <IonCol className="ion-no-padding">
+              <IonCol className="p-0">
                 <IonButton expand="block" fill="outline" color="primary" size="small">
                   Save
                 </IonButton>
               </IonCol>
-              <IonCol className="ion-no-padding">
+              <IonCol className="p-0">
                 <IonButton expand="block" color="primary" size="small">
                   Apply
                   <IonIcon icon={open} mode="md" />
@@ -195,7 +195,7 @@ export const Idea = () => {
                   <div className="text-sm">54,710 followers</div>
                 </IonText>
               </IonCol>
-              <IonCol className="ion-no-padding" size="auto">
+              <IonCol className="p-0" size="auto">
                 <IonButton fill="clear" className="button-no-padding" color="primary" size="small">
                   <IonIcon icon={add} mode="ios" />
                   Follow

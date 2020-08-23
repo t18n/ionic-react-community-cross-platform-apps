@@ -43,7 +43,7 @@ const MessageItem = ({
         </IonCol>
         <IonCol>
           <IonRow>
-            <IonCol className="ion-no-padding">
+            <IonCol className="p-0">
               {isUnread && (
                 <div>
                   <strong>{firstName}</strong>
@@ -52,7 +52,7 @@ const MessageItem = ({
 
               {!isUnread && <div>{firstName}</div>}
             </IonCol>
-            <IonCol className="ion-no-padding" size="auto">
+            <IonCol className="p-0" size="auto">
               <IonText color="medium">
                 <div className="text-xs">{timestamp}</div>
               </IonText>
@@ -60,7 +60,7 @@ const MessageItem = ({
           </IonRow>
 
           <IonRow>
-            <IonCol className="ion-no-padding">
+            <IonCol className="p-0">
               <IonText color={isUnread ? 'dark' : 'medium'}>
                 <div className="text-sm">{content}</div>
               </IonText>

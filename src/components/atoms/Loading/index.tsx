@@ -24,7 +24,7 @@ type RefresherContentProps = JSX.IonRefresherContent &
 type LoadingProps = JSX.IonLoading &
   HTMLAttributes<HTMLIonLoadingElement> & {
     isOpen: boolean;
-    onDidDismiss: (e?: any) => void;
+    onDidDismiss?: (e?: any) => void;
   };
 
 type ProgressBarProps = JSX.IonProgressBar & HTMLAttributes<HTMLIonProgressBarElement>;

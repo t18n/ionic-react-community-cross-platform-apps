@@ -60,12 +60,12 @@ const NewPost = (props: Props) => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent className="new-post-page ion-padding">
+      <IonContent className="new-post-page p-all">
         <IonAvatar className="floating-avatar" slot="fixed">
           <img src={faker.image.avatar()} alt="" />
         </IonAvatar>
 
-        <div className="ion-padding-top">
+        <div className="p-top">
           <div className="ion-text-center">
             <IonButton fill="outline" color="medium" size="small" onClick={openOptions}>
               <IonIcon icon={globe} mode="md" slot="start" />

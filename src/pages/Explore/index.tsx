@@ -54,14 +54,14 @@ export const Explore = () => {
         {!state.isLoading ? (
           <>
             <IonList>
-              <IonGrid fixed={true} className="ion-no-padding">
+              <IonGrid fixed={true} className="p-0">
                 <IonListHeader>
                   <h1>Top Mediums</h1>
                 </IonListHeader>
                 <IonRow className="ion-justify-content-start">
                   {MEDIUM_data &&
                     MEDIUM_data.mediums.items.slice(0, 4).map(({ id, slug, title, cover }) => (
-                      <IonCol sizeLg="4" sizeXl="3" key={id} className="ion-no-padding">
+                      <IonCol sizeLg="4" sizeXl="3" key={id} className="p-0">
                         <Link to={`mediums/${slug}`}>{title}</Link>
                       </IonCol>
                     ))}
@@ -70,7 +70,7 @@ export const Explore = () => {
             </IonList>
           </>
         ) : (
-          <div className="ion-text-center ion-padding">
+          <div className="ion-text-center p-all">
             <IonSpinner color="primary" />
           </div>
         )}

@@ -9,9 +9,9 @@ export const PostComments = () => {
   return (
     <div className="post-comments">
       <div className="panel-title">
-        <IonRow className="ion-no-padding">
-          <IonCol className="ion-no-padding">Comments</IonCol>
-          <IonCol className="ion-no-padding" size="auto">
+        <IonRow className="p-0">
+          <IonCol className="p-0">Comments</IonCol>
+          <IonCol className="p-0" size="auto">
             <div className="text-sm">
               <IonText color="medium">
                 Sort by{' '}

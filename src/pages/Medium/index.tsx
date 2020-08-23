@@ -86,7 +86,7 @@ const Medium = ({
 
       <IonContent className="bg-light">
         {loading ? (
-          <div className="ion-text-center ion-padding">
+          <div className="ion-text-center p-all">
             <IonSpinner color="primary" />
           </div>
         ) : (
@@ -116,12 +116,12 @@ const Medium = ({
                   </div>
 
                   <IonRow>
-                    <IonCol className="ion-no-padding">
+                    <IonCol className="p-0">
                       <IonButton expand="block" fill="outline" color="primary" size="small">
                         Save
                       </IonButton>
                     </IonCol>
-                    <IonCol className="ion-no-padding">
+                    <IonCol className="p-0">
                       <IonButton expand="block" color="primary" size="small">
                         Apply
                         <IonIcon icon={open} mode="md" />
@@ -223,7 +223,7 @@ const Medium = ({
                         <div className="text-sm">54,710 followers</div>
                       </IonText>
                     </IonCol>
-                    <IonCol className="ion-no-padding" size="auto">
+                    <IonCol className="p-0" size="auto">
                       <IonButton
                         fill="clear"
                         className="button-no-padding"

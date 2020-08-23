@@ -51,12 +51,12 @@ const PostCommentItem = ({
           <div className="comment-main">
             <div className="comment-body">
               <IonRow>
-                <IonCol className="ion-no-padding">
+                <IonCol className="p-0">
                   <div className="text-sm">
                     <strong>{username}</strong>
                   </div>
                 </IonCol>
-                <IonCol size="auto" className="ion-no-padding">
+                <IonCol size="auto" className="p-0">
                   <div className="text-sm">
                     <IonText color="medium">{timestamp}</IonText>
                     <IonButton className="button-options" fill="clear" color="medium" size="small">

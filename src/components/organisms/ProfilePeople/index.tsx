@@ -53,7 +53,7 @@ const ProfilePeople = () => {
                 </div>
                 <div className="text-sm">{item.job}</div>
               </IonCol>
-              <IonCol className="ion-no-padding" size="auto">
+              <IonCol className="p-0" size="auto">
                 <IonButton fill="clear" className="button-no-padding" color="white">
                   <IonIcon slot="icon-only" icon={chatbubbles} mode="ios" />
                 </IonButton>

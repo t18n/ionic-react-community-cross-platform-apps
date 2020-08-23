@@ -24,7 +24,7 @@ import { Network } from 'pages/Network';
 import { Notifications } from 'pages/Notifications';
 import Profile from 'pages/Profile';
 import Search from 'pages/Search';
-import SignUp from 'pages/SignUp';
+import { Signup } from 'pages/Signup';
 import Tabs from 'pages/Tabs';
 import Tour from 'pages/Tour';
 import { FC } from 'react';
@@ -44,16 +44,16 @@ export const appPages: AppPage[] = [
     component: Tour,
   },
   {
-    title: 'Login',
+    title: 'Log in',
     url: '/login',
     icon: icUser,
     component: Login,
   },
   {
-    title: 'Sign Up',
+    title: 'Sign up',
     url: '/signup',
     icon: icUserPlus,
-    component: SignUp,
+    component: Signup,
   },
 
   {
@@ -63,7 +63,7 @@ export const appPages: AppPage[] = [
     component: Media,
   },
   {
-    title: 'Medium ',
+    title: 'Medium',
     url: '/medium',
     icon: icCompass,
     component: Medium,

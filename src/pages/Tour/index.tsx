@@ -24,7 +24,6 @@ type TourProps = {
 export const Tour = ({ history }: TourProps) => {
   const ionSlidesRef = useRef<HTMLIonSlidesElement>();
   const [activeIndex, setActiveIndex] = useState(slideOpts.initialSlide);
-  const [isOpenLogin, setIsOpenLogin] = useState(false);
 
   const handleOnSlided = () => {
     if (ionSlidesRef && ionSlidesRef.current) {
@@ -34,17 +33,8 @@ export const Tour = ({ history }: TourProps) => {
     }
   };
 
-  const onLogin = () => {
-    setIsOpenLogin(false);
-    history.push('/home', { direction: 'none' });
-  };
-
   return (
     <Page>
-      <Modal isOpen={isOpenLogin}>
-        <Login onClose={() => setIsOpenLogin(false)} onLogin={onLogin} history={history} />
-      </Modal>
-
       <Content className={activeIndex > 0 ? 'bg-primary' : ''}>
         <div className="tour-slide vertical-layout">
           <div className="slides-container">
@@ -122,32 +112,32 @@ export const Tour = ({ history }: TourProps) => {
             </Slides>
           </div>
 
-          <div className="buttons-container ion-padding">
+          <div className="buttons-container p-all">
             <Button
-              onClick={() => setIsOpenLogin(true)}
+              routerLink="/signup"
               expand="block"
               color={activeIndex > 0 ? 'white' : 'primary'}
               fill={activeIndex > 0 ? 'outline' : 'solid'}
-              className="ion-margin-bottom"
+              className="m--bottom"
             >
               Join now
             </Button>
             <Button
-              onClick={() => setIsOpenLogin(true)}
+              routerLink="/login"
               expand="block"
               fill={'outline'}
               color={activeIndex > 0 ? 'white' : 'primary'}
-              className="ion-margin-bottom"
+              className="m--bottom"
             >
               <Icon slot="start" icon={icUser} size="small" color="danger" />
               Login
             </Button>
             <Button
-              onClick={() => setIsOpenLogin(true)}
+              routerLink="/login"
               expand="block"
               fill={'clear'}
               color={activeIndex > 0 ? 'white' : 'primary'}
-              className="ion-margin-bottom"
+              className="m--bottom"
             >
               Sign in
             </Button>

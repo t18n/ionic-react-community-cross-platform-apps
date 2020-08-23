@@ -11,7 +11,7 @@ const ProfileActivity = () => {
         <div className="panel-header">
           <div>{faker.company.companyName()}</div>
           <div className="text-sm">
-            <IonText color="medium" className="ion-margin-end">
+            <IonText color="medium" className="m--end">
               {faker.random.number()} followers
             </IonText>
 

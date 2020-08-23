@@ -64,7 +64,7 @@ const Search = () => {
           )}
         </IonToolbar>
         <IonToolbar color="white" className="toolbar-shadow no-border">
-          <div className="scroll-horizontal">
+          <div className="scroll-x">
             <IonButton className="scroll-item" fill="outline" color="medium" size="small">
               People
             </IonButton>
@@ -130,7 +130,7 @@ const Search = () => {
             </IonRow>
           </div>
           <div className="panel-body no-padding">
-            <div className="scroll-horizontal">
+            <div className="scroll-x">
               {connections.map((connection, i) => (
                 <div className="scroll-item" key={i}>
                   <ConnectItem

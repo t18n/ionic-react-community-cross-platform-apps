@@ -5,7 +5,11 @@ import React, { HTMLAttributes } from 'react';
 /**
  * Types
  */
-type ButtonProps = JSX.IonButton & HTMLAttributes<HTMLIonButtonElement>;
+type ButtonProps = JSX.IonButton &
+  HTMLAttributes<HTMLIonButtonElement> & {
+    routerLink?: string;
+  };
+
 type BackButtonProps = JSX.IonBackButton & HTMLAttributes<HTMLIonBackButtonElement>;
 type ButtonGroupProps = JSX.IonButtons & HTMLAttributes<HTMLIonButtonsElement>;
 type ToggleProps = JSX.IonToggle & HTMLAttributes<HTMLIonToggleElement>;

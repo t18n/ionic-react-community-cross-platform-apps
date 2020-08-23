@@ -1,34 +1,24 @@
 import './index.min.css';
 
-import {
-  IonButton,
-  IonButtons,
-  IonCol,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonInput,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonLoading,
-  IonRow,
-  IonToast,
-  IonToolbar,
-} from '@ionic/react';
+import { Button } from 'components/atoms/Button';
+import { Input } from 'components/atoms/Input';
+import { Item, Label } from 'components/atoms/Item';
+import { Content } from 'components/atoms/Layout/Content';
+import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Page } from 'components/atoms/Layout/Page';
+import { List } from 'components/atoms/List';
+import { Loading } from 'components/atoms/Loading';
+import { Toast } from 'components/atoms/Toast';
 import { useLoginUser } from 'graphql/operation/user/mutation';
 import { ME } from 'graphql/operation/user/shape';
 import { useToast } from 'hooks/useToast';
-import { close } from 'ionicons/icons';
 import React, { useState } from 'react';
 
-type Props = {
-  onClose: () => void;
-  onLogin: () => void;
+type LoginProps = {
   history: any;
 };
 
-export const Login = ({ history, onLogin, onClose }: Props) => {
+export const Login = ({ history }: LoginProps) => {
   const [login, { loading: LOGIN_loading }] = useLoginUser();
   const [toast, setToast] = useToast(null);
 
@@ -63,7 +53,7 @@ export const Login = ({ history, onLogin, onClose }: Props) => {
         },
       });
 
-      history.push('/explore', { direction: 'none' });
+      history.push('/explore', { direct: 'none' });
     } catch (e) {
       setToast({
         status: true,
@@ -76,54 +66,40 @@ export const Login = ({ history, onLogin, onClose }: Props) => {
     }
   };
 
-  const closeModal = () => {
-    onClose();
-  };
-
   return (
-    <>
-      <IonHeader>
-        <IonToolbar className="no-border" color="primary">
-          <IonButtons slot="end">
-            <IonButton onClick={closeModal}>
-              <IonIcon slot="icon-only" icon={close} />
-            </IonButton>
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
-
-      <IonContent className="bg-primary">
+    <Page>
+      <Content className="">
         <form noValidate onSubmit={onLoginUser}>
-          <IonList>
-            <IonItem>
-              <IonLabel position="stacked" color="primary">
+          <List>
+            <Item>
+              <Label position="stacked" color="primary">
                 Email
-              </IonLabel>
-              <IonInput
+              </Label>
+              <Input
                 name="email"
                 type="text"
                 value={inputEmail}
                 spellCheck={false}
                 autocapitalize="off"
-                onIonChange={(e) => setInputEmail(e.detail.value)}
+                onChange={(e: any) => setInputEmail(e.detail.value)}
                 required
-              ></IonInput>
-            </IonItem>
+              ></Input>
+            </Item>
 
-            <IonItem>
-              <IonLabel position="stacked" color="primary">
+            <Item>
+              <Label position="stacked" color="primary">
                 Password
-              </IonLabel>
-              <IonInput
+              </Label>
+              <Input
                 name="password"
                 type="password"
                 value={inputPassword}
-                onIonChange={(e) => setInputPassword(e.detail.value)}
-              ></IonInput>
-            </IonItem>
-          </IonList>
+                onChange={(e: any) => setInputPassword(e.detail.value)}
+              ></Input>
+            </Item>
+          </List>
 
-          <IonToast
+          <Toast
             isOpen={toast?.status}
             position={toast?.position}
             message={toast?.message}
@@ -132,22 +108,22 @@ export const Login = ({ history, onLogin, onClose }: Props) => {
             onDidDismiss={() => setToast({ ...toast, status: false })}
           />
 
-          {LOGIN_loading && <IonLoading isOpen={LOGIN_loading} message={'Logging in...'} />}
+          {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={'Logging in...'} />}
 
-          <IonRow>
-            <IonCol>
-              <IonButton type="submit" expand="block">
+          <Row>
+            <Col>
+              <Button type="submit" expand="block">
                 Login
-              </IonButton>
-            </IonCol>
-            <IonCol>
-              <IonButton routerLink="/signup" color="light" expand="block">
+              </Button>
+            </Col>
+            <Col>
+              <Button routerLink="/signup" color="light" expand="block">
                 Signup
-              </IonButton>
-            </IonCol>
-          </IonRow>
+              </Button>
+            </Col>
+          </Row>
         </form>
-      </IonContent>
-    </>
+      </Content>
+    </Page>
   );
 };
