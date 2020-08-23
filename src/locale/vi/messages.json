@@ -1,4 +1,11 @@
 {
+  "Logging in...": "Đang đăng nhập...",
+  "Login unsuccessfully! {e}": "Đăng nhập thành công! {e}",
+  "Please fill all required data": "Làm ơn điền đầy đủ các thông tin cần thiết",
+  "label.button.login": "Đăng nhập",
+  "label.button.signup": "Đăng kí",
+  "label.input.email": "Email",
+  "label.input.password": "Mật khẩu",
   "tour.buildALibrary.description": "Mọi thành viên đều có thể đóng góp vào thư viện mở, cũng như có thể nhận xét, báo cáo xấu tài nguyên được đóng góp bởi các thành viên khác.",
   "tour.buildALibrary.headline": "Cùng nhau, chúng ta xây dựng một nguồn tài nguyên có chọn lọc",
   "tour.explore.description": "Dù là tìm kiếm một đầu sách mới, một ý tưởng hay, hay muốn tìm hiểu ẩn ý từ một bức họa nổi tiếng, có lẽ thư viện mở sẽ là nơi bạn thấy hứng thú.",

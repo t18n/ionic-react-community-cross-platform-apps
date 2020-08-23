@@ -9,30 +9,34 @@ import { Toolbar } from '../Toolbar/index';
 
 type PageProps = {
   children: ReactNode;
+  title: string;
+  noBreadcrumb?: boolean;
 };
 
-export const Page = (props: PageProps) => {
+export const Page = ({ title, children, noBreadcrumb }: PageProps) => {
   return (
     <IonPage>
-      <Header>
-        <Toolbar color="primary">
-          <ButtonGroup slot="start">
-            <ButtonBack defaultHref="/messaging" />
-          </ButtonGroup>
+      {!noBreadcrumb && (
+        <Header>
+          <Toolbar color="primary">
+            <ButtonGroup slot="start">
+              <ButtonBack defaultHref="/messaging" />
+            </ButtonGroup>
 
-          <Text>
-            <h6 className="p-0 m-0">Helolo</h6>
-          </Text>
+            <Text>
+              <h6 className="p-0 m-0">{title}</h6>
+            </Text>
 
-          <ButtonGroup slot="end">
-            <Button>
-              <Icon slot="icon-only" icon={icArrowsMaximize} size="small" />
-            </Button>
-          </ButtonGroup>
-        </Toolbar>
-      </Header>
+            <ButtonGroup slot="end">
+              <Button>
+                <Icon slot="icon-only" icon={icArrowsMaximize} size="small" />
+              </Button>
+            </ButtonGroup>
+          </Toolbar>
+        </Header>
+      )}
 
-      {props.children}
+      {children}
     </IonPage>
   );
 };

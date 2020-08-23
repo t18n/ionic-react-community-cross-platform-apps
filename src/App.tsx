@@ -9,7 +9,7 @@ import SideMenu from 'components/organisms/SideMenu';
 import Provider from 'context/Provider';
 import { ApolloProvider } from 'graphql/ApolloProvider';
 import Tabs from 'pages/Tabs';
-import { Welcome } from 'pages/Welcome';
+import { Tour } from 'pages/Tour';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { appPages } from 'settings/appPages';
@@ -30,14 +30,12 @@ export const App = () => {
                   {appPages.map((page) => {
                     if (page.url === '/') {
                       return (
-                        <Route
-                          key="/"
-                          path="/"
-                          render={() => (isAuthed ? <Tabs /> : <Welcome />)}
-                        />
+                        <Route key="/" path="/" render={() => (isAuthed ? <Tabs /> : <Tour />)} />
                       );
                     } else {
-                      return <Route path={page.url} component={page.component} exact />;
+                      return (
+                        <Route key={page.url} path={page.url} component={page.component} exact />
+                      );
                     }
                   })}
                 </IonRouterOutlet>

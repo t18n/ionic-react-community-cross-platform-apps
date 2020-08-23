@@ -1,5 +1,6 @@
 import './index.min.css';
 
+import { t, Trans } from '@lingui/macro';
 import { Button } from 'components/atoms/Button';
 import { Input } from 'components/atoms/Input';
 import { Item, Label } from 'components/atoms/Item';
@@ -32,7 +33,7 @@ export const Login = ({ history }: LoginProps) => {
       setToast({
         status: true,
         position: 'bottom',
-        message: `Please fill all required data`,
+        message: t`Please fill all required data`,
         duration: 3000,
         color: 'danger',
       });
@@ -58,7 +59,7 @@ export const Login = ({ history }: LoginProps) => {
       setToast({
         status: true,
         position: 'bottom',
-        message: `Login unsuccessfully! ${e}`,
+        message: t`Login unsuccessfully! ${e}`,
         duration: 3000,
         color: 'danger',
       });
@@ -67,13 +68,13 @@ export const Login = ({ history }: LoginProps) => {
   };
 
   return (
-    <Page>
-      <Content className="">
-        <form noValidate onSubmit={onLoginUser}>
+    <Page title="Log In">
+      <Content className="flex justify-center">
+        <form className="w-m m-x-auto m-y-auto" noValidate onSubmit={onLoginUser}>
           <List>
-            <Item>
+            <Item className="p-0">
               <Label position="stacked" color="primary">
-                Email
+                <Trans id="label.input.email" />
               </Label>
               <Input
                 name="email"
@@ -83,12 +84,13 @@ export const Login = ({ history }: LoginProps) => {
                 autocapitalize="off"
                 onChange={(e: any) => setInputEmail(e.detail.value)}
                 required
+                placeholder="example@brightizen.com"
               ></Input>
             </Item>
 
-            <Item>
+            <Item className="p-0">
               <Label position="stacked" color="primary">
-                Password
+                <Trans id="label.input.password" />
               </Label>
               <Input
                 name="password"
@@ -108,17 +110,17 @@ export const Login = ({ history }: LoginProps) => {
             onDidDismiss={() => setToast({ ...toast, status: false })}
           />
 
-          {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={'Logging in...'} />}
+          {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={t`Logging in...`} />}
 
           <Row>
-            <Col>
+            <Col className="p-0">
               <Button type="submit" expand="block">
-                Login
+                <Trans id="label.button.login" />
               </Button>
             </Col>
-            <Col>
-              <Button routerLink="/signup" color="light" expand="block">
-                Signup
+            <Col className="p-0">
+              <Button routerLink="/signup" expand="block" fill="outline">
+                <Trans id="label.button.signup" />
               </Button>
             </Col>
           </Row>

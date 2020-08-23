@@ -67,7 +67,7 @@ export const Signup = ({ history }: SignupProps) => {
   };
 
   return (
-    <Page>
+    <Page title="Sign Up">
       <Content className="">
         <form noValidate onSubmit={onSignupUser}>
           <List>

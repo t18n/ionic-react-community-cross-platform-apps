@@ -1,4 +1,11 @@
 {
+  "Logging in...": "Logging in...",
+  "Login unsuccessfully! {e}": "Login unsuccessfully! {e}",
+  "Please fill all required data": "Please fill all required data",
+  "label.button.login": "Login",
+  "label.button.signup": "Sign up",
+  "label.input.email": "Email",
+  "label.input.password": "Password",
   "tour.buildALibrary.description": "Bitizens can contribute to our open library, and they can give a review to a medium, and report any type of content that are not complying our learning and sharing spirit.",
   "tour.buildALibrary.headline": "Together building a curated media library",
   "tour.explore.description": "Whether you are to find a new book to read, choose a new video to get inspiration from or try to discover a hidden message from a piece of artwork, it is likely that the bright community has some hints to offer you",

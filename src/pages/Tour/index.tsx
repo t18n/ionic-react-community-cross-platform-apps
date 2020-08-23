@@ -6,10 +6,8 @@ import { Icon, icUser } from 'components/atoms/Icon';
 import { Content } from 'components/atoms/Layout/Content';
 import { Page } from 'components/atoms/Layout/Page';
 import { Logo } from 'components/atoms/Logo';
-import { Modal } from 'components/atoms/Modal';
 import { Slide, Slides } from 'components/atoms/Slide';
 import { Text } from 'components/atoms/Text';
-import { Login } from 'pages/Login';
 import React, { useRef, useState } from 'react';
 
 const slideOpts = {
@@ -18,10 +16,10 @@ const slideOpts = {
 };
 
 type TourProps = {
-  history: any;
+  history?: any;
 };
 
-export const Tour = ({ history }: TourProps) => {
+export const Tour = (props: TourProps) => {
   const ionSlidesRef = useRef<HTMLIonSlidesElement>();
   const [activeIndex, setActiveIndex] = useState(slideOpts.initialSlide);
 
@@ -34,7 +32,7 @@ export const Tour = ({ history }: TourProps) => {
   };
 
   return (
-    <Page>
+    <Page title="Welcome">
       <Content className={activeIndex > 0 ? 'bg-primary' : ''}>
         <div className="tour-slide vertical-layout">
           <div className="slides-container">

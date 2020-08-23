@@ -1,4 +1,27 @@
 /*
+* Size
+*/
+.w-100p {
+  width: 100%;
+}
+
+.h-100p {
+  height: 100%;
+}
+
+.w-m {
+  width: 100%;
+
+  @media (--viewport-tablet) {
+    width: calc(var(--grid) * 125);
+  }
+
+  @media (--viewport-desktop) {
+    width: calc(var(--grid) * 160);
+  }
+}
+
+/*
 * Padding
 */
 .p-0 {
@@ -78,6 +101,22 @@
   margin-right: 0;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.m-x-auto {
+  --margin-start: auto;
+  --margin-end: auto;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.m-y-auto {
+  --margin-top: auto;
+  --margin-bottom: auto;
+
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .m-all {

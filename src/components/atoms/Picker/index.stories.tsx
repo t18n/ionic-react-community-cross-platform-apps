@@ -24,7 +24,7 @@ const customDayShortNames = ['s\u00f8n', 'man', 'tir', 'ons', 'tor', 'fre', 'l\u
 export const All = () => {
   const [selectedDate, setSelectedDate] = useState<string>('2012-12-15T13:47:20.789');
   return (
-    <Page>
+    <Page title="Picker" noBreadcrumb>
       <Header>
         <Toolbar>
           <ToolbarTitle>DatetimePicker Examples</ToolbarTitle>
