@@ -1,1 +1,1 @@
-.logo{background-color:red;display:flex;align-items:center}.logo ion-img::part(image){height:calc(var(--grid)*15)}
+.logo{display:flex;align-items:center}.logo ion-img::part(image){height:100%;width:100%}

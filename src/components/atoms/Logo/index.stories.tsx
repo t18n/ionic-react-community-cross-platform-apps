@@ -10,6 +10,6 @@ export default {
 
 export const Logo = () => (
   <Row>
-    <LogoComponent width={200} />
+    <LogoComponent />
   </Row>
 );

@@ -1,1 +1,1 @@
-.side-menu{height:100%}.side-menu .menu-avatar{margin:calc(var(--grid)*2) 0 calc(var(--grid)*2) calc(var(--grid)*2)}.side-menu .sub-list{margin-bottom:0}
+.side-menu{height:100%}.side-menu__logo{padding-left:calc(var(--grid)*4);padding-top:calc(var(--grid)*5);width:calc(var(--grid)*70)}

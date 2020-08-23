@@ -57,7 +57,7 @@ export const Tour = ({ history }: TourProps) => {
             >
               <Slide>
                 <div className="slide-inner">
-                  <Logo width={200} />
+                  <Logo extraClasses="slide-inner__logo" />
                   <h3>
                     <Trans id="tour.main.headline" />
                   </h3>

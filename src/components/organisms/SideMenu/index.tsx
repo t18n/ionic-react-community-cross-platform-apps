@@ -31,7 +31,7 @@ const SideIonMenu = () => {
     <IonMenu type="overlay" side="start" contentId="main" menuId="main" swipeGesture={false}>
       <Header>
         <Toolbar className="no-border">
-          <Logo width={200} />
+          <Logo extraClasses="side-menu__logo" />
         </Toolbar>
       </Header>
       <Content>
