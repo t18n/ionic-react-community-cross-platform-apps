@@ -22,7 +22,7 @@ export const Messages = () => {
   return (
     <IonPage className="chat-page">
       <IonHeader>
-        <IonToolbar className="no-border" color="primary">
+        <IonToolbar className="border-0" color="primary">
           <IonButtons slot="start">
             <IonBackButton defaultHref="/messaging" />
           </IonButtons>

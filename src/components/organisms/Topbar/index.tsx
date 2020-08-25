@@ -33,7 +33,7 @@ const Topbar = ({ onBlur, onFocus }: Props) => {
   };
 
   return (
-    <IonToolbar className="toolbar-search no-border" color="primary">
+    <IonToolbar className="toolbar-search border-0" color="primary">
       {!isFocused && (
         <IonButtons slot="start">
           <IonMenuToggle autoHide={false}>

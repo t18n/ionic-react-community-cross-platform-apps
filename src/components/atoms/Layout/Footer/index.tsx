@@ -6,5 +6,5 @@ type FooterProps = {
 };
 
 export function Footer(props: FooterProps) {
-  return <IonFooter>{props.children}</IonFooter>;
+  return <IonFooter {...props} />;
 }

@@ -13,9 +13,9 @@ type RadioGroupProps = JSX.IonRadioGroup & HTMLAttributes<HTMLIonRadioGroupEleme
  * Component
  */
 export const Radio = (props: RadioProps) => {
-  return <IonRadio {...props}>{props.children}</IonRadio>;
+  return <IonRadio {...props} />;
 };
 
 export const RadioGroup = (props: RadioGroupProps) => {
-  return <IonRadioGroup {...props}>{props.children}</IonRadioGroup>;
+  return <IonRadioGroup {...props} />;
 };

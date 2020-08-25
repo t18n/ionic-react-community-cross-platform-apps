@@ -13,9 +13,9 @@ type MenuToggleProps = JSX.IonMenuToggle &
   };
 
 export const Menu = (props: MenuProps) => {
-  return <IonMenu>{props.children}</IonMenu>;
+  return <IonMenu {...props} />;
 };
 
 export const MenuToggle = (props: MenuToggleProps) => {
-  return <IonMenuToggle>{props.children}</IonMenuToggle>;
+  return <IonMenuToggle {...props} />;
 };

@@ -18,17 +18,17 @@ type ToggleProps = JSX.IonToggle & HTMLAttributes<HTMLIonToggleElement>;
  * Components
  */
 export const Button = (props: ButtonProps) => {
-  return <IonButton {...props}>{props.children}</IonButton>;
+  return <IonButton {...props} />;
 };
 
 export const ButtonBack = (props: BackButtonProps) => {
-  return <IonBackButton {...props}>{props.children}</IonBackButton>;
+  return <IonBackButton {...props} />;
 };
 
 export const ButtonGroup = (props: ButtonGroupProps) => {
-  return <IonButtons {...props}>{props.children}</IonButtons>;
+  return <IonButtons {...props} />;
 };
 
 export const Toggle = (props: ToggleProps) => {
-  return <IonToggle {...props}>{props.children}</IonToggle>;
+  return <IonToggle {...props} />;
 };

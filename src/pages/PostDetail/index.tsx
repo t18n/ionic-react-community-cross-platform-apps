@@ -32,7 +32,7 @@ const PostDetail = ({ history }: Props) => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar className="no-border" color="primary">
+        <IonToolbar className="border-0" color="primary">
           <IonButtons slot="start">
             <IonBackButton defaultHref="/home" />
           </IonButtons>
@@ -65,7 +65,7 @@ const PostDetail = ({ history }: Props) => {
         <PostComments />
       </IonContent>
 
-      <IonFooter className="footer-shadow no-border">
+      <IonFooter className="footer-shadow border-0">
         <IonToolbar>
           <IonButtons slot="start">
             <IonAvatar className="toolbar-avatar thumbnail-tiny">

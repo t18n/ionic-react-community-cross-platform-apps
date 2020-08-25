@@ -5,5 +5,5 @@ import React, { HTMLAttributes } from 'react';
 type CheckboxProps = JSX.IonCheckbox & HTMLAttributes<HTMLIonCheckboxElement>;
 
 export const Checkbox = (props: CheckboxProps) => {
-  return <IonCheckbox {...props}>{props.children}</IonCheckbox>;
+  return <IonCheckbox {...props} />;
 };

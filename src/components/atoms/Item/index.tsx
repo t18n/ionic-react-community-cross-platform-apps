@@ -43,5 +43,5 @@ export const ItemOption = (props: ItemOptionProps) => {
 };
 
 export const Label = (props: LabelProps) => {
-  return <IonLabel {...props}>{props.children}</IonLabel>;
+  return <IonLabel {...props} />;
 };

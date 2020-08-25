@@ -5,5 +5,5 @@ import React, { HTMLAttributes } from 'react';
 type ChipProps = JSX.IonChip & HTMLAttributes<HTMLIonChipElement>;
 
 export const Chip = (props: ChipProps) => {
-  return <IonChip {...props}>{props.children}</IonChip>;
+  return <IonChip {...props} />;
 };

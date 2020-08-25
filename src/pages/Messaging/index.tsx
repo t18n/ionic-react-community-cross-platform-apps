@@ -30,7 +30,7 @@ const Messaging = ({ history }: Props) => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar className="no-border" color="primary">
+        <IonToolbar className="border-0" color="primary">
           <IonButtons slot="start">
             <IonBackButton defaultHref="/home" />
           </IonButtons>

@@ -5,9 +5,9 @@ import React, { HTMLAttributes } from 'react';
 export const SelectOption = (
   props: JSX.IonSelectOption & HTMLAttributes<HTMLIonSelectOptionElement>
 ) => {
-  return <IonSelectOption {...props}>{props.children}</IonSelectOption>;
+  return <IonSelectOption {...props} />;
 };
 
 export const Select = (props: JSX.IonSelect & HTMLAttributes<HTMLIonSelectElement>) => {
-  return <IonSelect {...props}>{props.children}</IonSelect>;
+  return <IonSelect {...props} />;
 };

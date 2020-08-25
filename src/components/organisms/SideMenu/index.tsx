@@ -29,13 +29,13 @@ const SideIonMenu = () => {
 
   return (
     <IonMenu type="overlay" side="start" contentId="main" menuId="main" swipeGesture={false}>
-      <Header>
-        <Toolbar className="no-border">
+      <Header className="border-0">
+        <Toolbar color="light">
           <Logo extraClasses="side-menu__logo" />
         </Toolbar>
       </Header>
       <Content>
-        <List>
+        <List color="light">
           {appPages.map((page) => (
             <Item key={page.title} lines="full" routerLink={page.url}>
               <Icon icon={page.icon} slot="start" size="large" />

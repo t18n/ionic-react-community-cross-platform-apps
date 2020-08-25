@@ -45,7 +45,7 @@ export const Explore = () => {
   return (
     <IonPage>
       <IonContent fullscreen={true}>
-        <IonHeader collapse="condense" className="ion-no-border">
+        <IonHeader collapse="condense" className="border-0">
           <IonToolbar className=" transparent">
             <IonTitle size="large">Browse</IonTitle>
           </IonToolbar>

@@ -16,9 +16,9 @@ type TitleProps = JSX.IonTitle & HTMLAttributes<HTMLIonTitleElement>;
  * Component
  */
 export const Toolbar = (props: ToolbarProps) => {
-  return <IonToolbar>{props.children}</IonToolbar>;
+  return <IonToolbar {...props} />;
 };
 
 export const ToolbarTitle = (props: TitleProps) => {
-  return <IonTitle>{props.children}</IonTitle>;
+  return <IonTitle {...props} />;
 };

@@ -41,7 +41,7 @@ const Search = () => {
   return (
     <IonPage className="search-page">
       <IonHeader>
-        <IonToolbar className="toolbar-search no-border" color="primary">
+        <IonToolbar className="toolbar-search border-0" color="primary">
           {!isFocused && (
             <IonButtons slot="start">
               <IonBackButton />
@@ -63,7 +63,7 @@ const Search = () => {
             </IonButtons>
           )}
         </IonToolbar>
-        <IonToolbar color="white" className="toolbar-shadow no-border">
+        <IonToolbar color="white" className="toolbar-shadow border-0">
           <div className="scroll-x">
             <IonButton className="scroll-item" fill="outline" color="medium" size="small">
               People

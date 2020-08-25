@@ -9,5 +9,5 @@ type ToastProps = JSX.IonToast &
   };
 
 export const Toast = (props: ToastProps) => {
-  return <IonToast {...props}>{props.children}</IonToast>;
+  return <IonToast {...props} />;
 };

@@ -21,21 +21,21 @@ type CardSubtitleProps = JSX.IonCardSubtitle & HTMLAttributes<HTMLIonCardSubtitl
  * Components
  */
 export const Card = (props: CardProps) => {
-  return <IonCard {...props}>{props.children}</IonCard>;
+  return <IonCard {...props} />;
 };
 
 export const CardTitle = (props: CardTitleProps) => {
-  return <IonCardTitle {...props}>{props.children}</IonCardTitle>;
+  return <IonCardTitle {...props} />;
 };
 
 export const CardSubtitle = (props: CardSubtitleProps) => {
-  return <IonCardSubtitle {...props}>{props.children}</IonCardSubtitle>;
+  return <IonCardSubtitle {...props} />;
 };
 
 export const CardContent = (props: CardContentProps) => {
-  return <IonCardContent {...props}>{props.children}</IonCardContent>;
+  return <IonCardContent {...props} />;
 };
 
 export const CardHeader = (props: CardHeaderProps) => {
-  return <IonCardHeader {...props}>{props.children}</IonCardHeader>;
+  return <IonCardHeader {...props} />;
 };

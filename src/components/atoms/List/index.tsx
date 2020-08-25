@@ -12,13 +12,13 @@ type ListProps = JSX.IonList & HTMLAttributes<HTMLIonColElement>;
 type ListHeaderProps = JSX.IonListHeader & HTMLAttributes<HTMLIonListHeaderElement>;
 
 export const Item = (props: ListItemProps) => {
-  return <IonItem {...props}>{props.children}</IonItem>;
+  return <IonItem {...props} />;
 };
 
 export const List = (props: ListProps) => {
-  return <IonList {...props}>{props.children}</IonList>;
+  return <IonList {...props} />;
 };
 
 export const ListHeader = (props: ListHeaderProps) => {
-  return <IonListHeader {...props}>{props.children}</IonListHeader>;
+  return <IonListHeader {...props} />;
 };

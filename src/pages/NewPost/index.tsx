@@ -47,7 +47,7 @@ const NewPost = (props: Props) => {
   return (
     <>
       <IonHeader>
-        <IonToolbar className="no-border" color="primary">
+        <IonToolbar className="border-0" color="primary">
           <IonButtons slot="start">
             <IonButton onClick={closeModal}>
               <IonIcon slot="icon-only" icon={close} />

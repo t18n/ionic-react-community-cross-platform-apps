@@ -5,5 +5,5 @@ import React, { HTMLAttributes } from 'react';
 type SearchBarProps = JSX.IonSearchbar & HTMLAttributes<HTMLIonSearchbarElement>;
 
 export const SearchBar = (props: SearchBarProps) => {
-  return <IonSearchbar {...props}>{props.children}</IonSearchbar>;
+  return <IonSearchbar {...props} />;
 };

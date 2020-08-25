@@ -33,7 +33,7 @@ const Profile = () => {
   return (
     <IonPage className="profile-page">
       <IonHeader>
-        <IonToolbar className="toolbar-search no-border" color="primary">
+        <IonToolbar className="toolbar-search border-0" color="primary">
           <IonButtons slot="start">
             <IonBackButton defaultHref="/home" />
           </IonButtons>

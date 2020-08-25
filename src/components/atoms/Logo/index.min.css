@@ -1,1 +1,1 @@
-.logo{display:flex;align-items:center}.logo ion-img::part(image){height:100%;width:100%}
+.logo{display:flex;align-items:center;cursor:pointer}.logo ion-img::part(image){height:100%;width:100%}

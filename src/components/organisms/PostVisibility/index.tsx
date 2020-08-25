@@ -29,7 +29,7 @@ const PostVisibility = (props: Props) => {
   return (
     <>
       <IonHeader>
-        <IonToolbar className="no-border" color="light">
+        <IonToolbar className="border-0" color="light">
           <IonButtons slot="start">
             <IonButton color="medium" onClick={closeModal}>
               <IonIcon slot="icon-only" icon={close} />

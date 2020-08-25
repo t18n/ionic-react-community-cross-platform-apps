@@ -5,5 +5,5 @@ import React, { HTMLAttributes } from 'react';
 type BadgeProps = JSX.IonBadge & HTMLAttributes<HTMLIonBadgeElement>;
 
 export const Badge = (props: BadgeProps) => {
-  return <IonBadge {...props}>{props.children}</IonBadge>;
+  return <IonBadge {...props} />;
 };

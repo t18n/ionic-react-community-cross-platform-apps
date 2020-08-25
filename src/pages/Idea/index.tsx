@@ -36,7 +36,7 @@ export const Idea = () => {
   return (
     <IonPage className="job-detail-page">
       <IonHeader>
-        <IonToolbar className="toolbar-search no-border" color="primary">
+        <IonToolbar className="toolbar-search border-0" color="primary">
           {!isFocused && (
             <IonButtons slot="start">
               <IonBackButton />

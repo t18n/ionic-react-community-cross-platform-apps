@@ -20,7 +20,7 @@ const Recommendations = () => {
   return (
     <IonPage className="recommendations-page">
       <IonHeader>
-        <IonToolbar className="no-border" color="primary">
+        <IonToolbar className="border-0" color="primary">
           <IonButtons slot="start">
             <IonBackButton defaultHref="/network" />
           </IonButtons>

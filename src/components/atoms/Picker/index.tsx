@@ -16,9 +16,9 @@ type PickerProps = JSX.IonPicker &
  * Picker
  */
 export const Picker = (props: PickerProps) => {
-  return <IonPicker {...props}>{props.children}</IonPicker>;
+  return <IonPicker {...props} />;
 };
 
 export const DatetimePicker = (props: DatetimePickerProps) => {
-  return <IonDatetime {...props}>{props.children}</IonDatetime>;
+  return <IonDatetime {...props} />;
 };
