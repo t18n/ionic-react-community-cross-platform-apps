@@ -148,7 +148,7 @@ export const Network = () => {
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton>
-            <IonIcon icon={personAdd} mode="md" />
+            <IonIcon icon={personAdd} mode="ios" />
           </IonFabButton>
         </IonFab>
       </IonContent>

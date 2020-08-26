@@ -39,7 +39,7 @@ const Messaging = ({ history }: Props) => {
 
           <IonButtons slot="end">
             <IonButton>
-              <IonIcon slot="icon-only" icon={personAdd} mode="md" />
+              <IonIcon slot="icon-only" icon={personAdd} mode="ios" />
             </IonButton>
           </IonButtons>
         </IonToolbar>

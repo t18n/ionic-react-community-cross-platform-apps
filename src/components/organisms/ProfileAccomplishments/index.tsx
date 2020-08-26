@@ -26,7 +26,7 @@ const ProfileAccomplishments = () => {
               </IonCol>
               <IonCol size="auto">
                 <IonButton fill="clear" color="primary" size="small" className="button-no-padding">
-                  <IonIcon slot="icon-only" icon={create} mode="md" />
+                  <IonIcon slot="icon-only" icon={create} mode="ios" />
                 </IonButton>
               </IonCol>
             </IonRow>
@@ -46,7 +46,7 @@ const ProfileAccomplishments = () => {
               </IonCol>
               <IonCol size="auto">
                 <IonButton fill="clear" color="primary" size="small" className="button-no-padding">
-                  <IonIcon slot="icon-only" icon={create} mode="md" />
+                  <IonIcon slot="icon-only" icon={create} mode="ios" />
                 </IonButton>
               </IonCol>
             </IonRow>

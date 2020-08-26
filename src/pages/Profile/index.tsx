@@ -44,7 +44,7 @@ const Profile = () => {
 
           <IonButtons slot="end" className="pos-rlt">
             <IonButton color="white" routerLink="/settings">
-              <IonIcon slot="icon-only" icon={settings} mode="md" />
+              <IonIcon slot="icon-only" icon={settings} mode="ios" />
             </IonButton>
           </IonButtons>
         </IonToolbar>
@@ -63,7 +63,7 @@ const Profile = () => {
                 <img src={faker.image.avatar()} alt="" />
               </IonAvatar>
               <IonButton fill="clear" color="primary" size="small" className="button-edit">
-                <IonIcon slot="icon-only" icon={create} mode="md" />
+                <IonIcon slot="icon-only" icon={create} mode="ios" />
               </IonButton>
               <div className="profile-name">
                 {faker.name.firstName()}
@@ -96,7 +96,7 @@ const Profile = () => {
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton>
-            <IonIcon icon={add} mode="md" />
+            <IonIcon icon={add} mode="ios" />
           </IonFabButton>
         </IonFab>
       </IonContent>

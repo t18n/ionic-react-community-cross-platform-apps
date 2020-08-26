@@ -60,17 +60,17 @@ const NewPost = (props: Props) => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent className="new-post-page p-all">
+      <IonContent className="new-post-page pa-m">
         <IonAvatar className="floating-avatar" slot="fixed">
           <img src={faker.image.avatar()} alt="" />
         </IonAvatar>
 
-        <div className="p-top">
+        <div className="pt-m">
           <div className="ion-text-center">
             <IonButton fill="outline" color="medium" size="small" onClick={openOptions}>
-              <IonIcon icon={globe} mode="md" slot="start" />
+              <IonIcon icon={globe} mode="ios" slot="start" />
               Anyone
-              <IonIcon icon={chevronDown} mode="md" slot="end" />
+              <IonIcon icon={chevronDown} mode="ios" slot="end" />
             </IonButton>
           </div>
 
@@ -82,13 +82,13 @@ const NewPost = (props: Props) => {
         <IonToolbar>
           <IonButtons slot="start">
             <IonButton fill="clear" color="medium">
-              <IonIcon slot="icon-only" icon={camera} mode="md" />
+              <IonIcon slot="icon-only" icon={camera} mode="ios" />
             </IonButton>
             <IonButton fill="clear" color="medium">
               <IonIcon slot="icon-only" icon={videocam} />
             </IonButton>
             <IonButton fill="clear" color="medium">
-              <IonIcon slot="icon-only" icon={image} mode="md" />
+              <IonIcon slot="icon-only" icon={image} mode="ios" />
             </IonButton>
             <IonButton fill="clear" color="medium">
               <IonIcon slot="icon-only" icon={expand} mode="ios" />

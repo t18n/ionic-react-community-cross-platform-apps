@@ -70,7 +70,7 @@ export const Login = ({ history }: LoginProps) => {
   return (
     <Page title="Log In">
       <Content className="flex justify-center">
-        <form className="w-m m-x-auto m-y-auto" noValidate onSubmit={onLoginUser}>
+        <form className="w-m mx-auto my-auto" noValidate onSubmit={onLoginUser}>
           <List>
             <Item className="p-0">
               <Label position="stacked" color="primary">
@@ -112,7 +112,7 @@ export const Login = ({ history }: LoginProps) => {
 
           {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={t`Logging in...`} />}
 
-          <Row>
+          <Row className="mt-l">
             <Col className="p-0">
               <Button type="submit" expand="block">
                 <Trans id="label.button.login" />

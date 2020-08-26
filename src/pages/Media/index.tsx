@@ -48,7 +48,7 @@ const Media: React.FC<Props> = ({ history }) => {
                 </IonText>
               </IonCol>
               <IonCol>
-                <IonIcon icon={create} mode="md" />
+                <IonIcon icon={create} mode="ios" />
                 <IonText color="medium">
                   <div className="text-xs">interests</div>
                 </IonText>

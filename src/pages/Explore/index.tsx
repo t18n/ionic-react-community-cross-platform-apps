@@ -70,7 +70,7 @@ export const Explore = () => {
             </IonList>
           </>
         ) : (
-          <div className="ion-text-center p-all">
+          <div className="ion-text-center pa-m">
             <IonSpinner color="primary" />
           </div>
         )}

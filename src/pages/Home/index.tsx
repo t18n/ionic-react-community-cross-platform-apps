@@ -61,7 +61,7 @@ export const Home = ({ history }: HomeProps) => {
           <div className="toolbar-post">
             <IonButton color="white" className="button-post post-input">
               <div className="button-inner-left">
-                <IonIcon color="medium" icon={create} mode="md" />
+                <IonIcon color="medium" icon={create} mode="ios" />
                 <IonText color="medium">Write a post</IonText>
               </div>
             </IonButton>

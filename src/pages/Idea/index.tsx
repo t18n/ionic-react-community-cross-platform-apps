@@ -96,7 +96,7 @@ export const Idea = () => {
               <IonCol className="p-0">
                 <IonButton expand="block" color="primary" size="small">
                   Apply
-                  <IonIcon icon={open} mode="md" />
+                  <IonIcon icon={open} mode="ios" />
                 </IonButton>
               </IonCol>
             </IonRow>
@@ -125,7 +125,7 @@ export const Idea = () => {
           <div className="panel-body no-padding-top">
             <IonRow className="ion-align-items-center">
               <IonCol size="auto">
-                <IonIcon icon={checkmarkCircle} mode="md" color="primary" size="small" />
+                <IonIcon icon={checkmarkCircle} mode="ios" color="primary" size="small" />
               </IonCol>
               <IonCol>
                 <div className="text-sm">
@@ -138,7 +138,7 @@ export const Idea = () => {
             </IonRow>
             <IonRow className="ion-align-items-center">
               <IonCol size="auto">
-                <IonIcon icon={checkmarkCircle} mode="md" color="primary" size="small" />
+                <IonIcon icon={checkmarkCircle} mode="ios" color="primary" size="small" />
               </IonCol>
               <IonCol>
                 <div className="text-sm">

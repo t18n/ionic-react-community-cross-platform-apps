@@ -1,18 +1,28 @@
+const postCssCustomProperties = require('postcss-custom-properties');
+const postCssImport = require('postcss-import');
+const postcssPresetEnv = require('postcss-preset-env');
+const postCssNested = require('postcss-nested');
+const postCssBEM = require('postcss-bem');
+const postCssCustomMedia = require('postcss-custom-media');
+const postCssInlineSvg = require('postcss-inline-svg');
+const postCssAutoprefixer = require('autoprefixer');
+const postCssPxToRem = require('postcss-pxtorem');
+const postCssNano = require('cssnano');
+
 module.exports = {
   plugins: [
-    require('postcss-import'),
-    require('postcss-preset-env')({
-      stage: 2,
-    }),
-    require('postcss-nested'),
-    require('postcss-bem')({
+    postCssImport,
+    postcssPresetEnv({ stage: 2 }),
+    postCssNested,
+    postCssBEM({
       defaultNamespace: undefined, // default namespace to use, none by default
       style: 'bem', // suit or bem, suit by default,
       shortcuts: {
         utility: 'util', //override at-rule name
       },
     }),
-    require('postcss-custom-media')({
+    postCssCustomProperties({ preserve: true }),
+    postCssCustomMedia({
       importFrom: [
         {
           customMedia: {
@@ -25,9 +35,9 @@ module.exports = {
       ],
       preserve: false, // Remove custom media after parsing source to value
     }),
-    require('postcss-inline-svg'),
-    require('autoprefixer'),
-    require('postcss-pxtorem')({
+    postCssInlineSvg,
+    postCssAutoprefixer,
+    postCssPxToRem({
       rootValue: 16,
       unitPrecision: 5,
       propList: ['*', '!border-radius'],
@@ -37,17 +47,13 @@ module.exports = {
       minPixelValue: 0, // Set the minimum pixel value to replace.
       exclude: /node_modules/i,
     }),
-    require('cssnano')({
+    postCssNano({
       preset: [
         'default', // https://cssnano.co/guides/optimisations
         {
           discardComments: { removeAll: true },
           svgo: {
-            plugins: [
-              {
-                removeDoctype: false,
-              },
-            ],
+            plugins: [{ removeDoctype: false }],
           },
         },
       ],

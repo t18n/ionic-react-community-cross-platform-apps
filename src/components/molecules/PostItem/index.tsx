@@ -107,7 +107,7 @@ export const PostItem = ({
             <div className="text-xs">
               <IonText color="medium">
                 on Twitter
-                <IonIcon icon={icLink} mode="md" />
+                <IonIcon icon={icLink} mode="ios" />
               </IonText>
             </div>
           </div>

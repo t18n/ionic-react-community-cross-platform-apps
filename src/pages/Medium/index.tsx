@@ -86,7 +86,7 @@ const Medium = ({
 
       <IonContent className="bg-light">
         {loading ? (
-          <div className="ion-text-center p-all">
+          <div className="ion-text-center pa-m">
             <IonSpinner color="primary" />
           </div>
         ) : (
@@ -124,7 +124,7 @@ const Medium = ({
                     <IonCol className="p-0">
                       <IonButton expand="block" color="primary" size="small">
                         Apply
-                        <IonIcon icon={open} mode="md" />
+                        <IonIcon icon={open} mode="ios" />
                       </IonButton>
                     </IonCol>
                   </IonRow>
@@ -153,7 +153,7 @@ const Medium = ({
                 <div className="panel-body no-padding-top">
                   <IonRow className="ion-align-items-center">
                     <IonCol size="auto">
-                      <IonIcon icon={checkmarkCircle} mode="md" color="primary" size="small" />
+                      <IonIcon icon={checkmarkCircle} mode="ios" color="primary" size="small" />
                     </IonCol>
                     <IonCol>
                       <div className="text-sm">
@@ -166,7 +166,7 @@ const Medium = ({
                   </IonRow>
                   <IonRow className="ion-align-items-center">
                     <IonCol size="auto">
-                      <IonIcon icon={checkmarkCircle} mode="md" color="primary" size="small" />
+                      <IonIcon icon={checkmarkCircle} mode="ios" color="primary" size="small" />
                     </IonCol>
                     <IonCol>
                       <div className="text-sm">

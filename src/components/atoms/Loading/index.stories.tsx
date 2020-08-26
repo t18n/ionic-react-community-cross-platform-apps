@@ -74,7 +74,7 @@ export const SkeletonTextExample = () => {
     <Row>
       {data ? (
         <>
-          <div className="p-all">
+          <div className="pa-m">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac eros est. Cras
             iaculis pulvinar arcu non vehicula. Fusce at quam a eros malesuada condimentum. Aliquam
             tincidunt tincidunt vehicula.
@@ -116,7 +116,7 @@ export const SkeletonTextExample = () => {
         </>
       ) : (
         <>
-          <div className="p-all custom-skeleton">
+          <div className="pa-m custom-skeleton">
             <SkeletonText animated style={{ width: '60%' }} />
             <SkeletonText animated />
             <SkeletonText animated style={{ width: '88%' }} />

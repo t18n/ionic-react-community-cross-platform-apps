@@ -110,7 +110,7 @@ export const Tour = (props: TourProps) => {
             </Slides>
           </div>
 
-          <div className="buttons-container p-all">
+          <div className="buttons-container pa-m">
             <Button
               routerLink="/signup"
               expand="block"
