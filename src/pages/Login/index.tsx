@@ -1,5 +1,3 @@
-import './index.min.css';
-
 import { t, Trans } from '@lingui/macro';
 import { Button } from 'components/atoms/Button';
 import { Checkbox } from 'components/atoms/Checkbox';
@@ -71,7 +69,7 @@ export const Login = ({ history }: LoginProps) => {
   };
 
   return (
-    <Page title="Log In">
+    <Page title={t`page.title.login`}>
       <Content>
         <form
           className="w-100p h-100p flex flex-col content-center justify-center"
@@ -115,7 +113,9 @@ export const Login = ({ history }: LoginProps) => {
                   checked={rememberChecked}
                   onChange={(e: any) => setRememberChecked(e.detail.checked)}
                 />
-                <Label className="ml-s text-button case-none color-medium">Remember Me</Label>
+                <Label className="ml-s text-button case-none color-medium">
+                  <Trans id="label.checkbox.rememberMe" />
+                </Label>
               </div>
             </Col>
             <Col className="p-0 flex items-center justify-end">

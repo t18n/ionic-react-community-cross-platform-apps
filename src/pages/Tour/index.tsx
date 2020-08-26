@@ -1,6 +1,6 @@
 import './index.min.css';
 
-import { Trans } from '@lingui/macro';
+import { t, Trans } from '@lingui/macro';
 import { Button } from 'components/atoms/Button';
 import { Icon, icUser } from 'components/atoms/Icon';
 import { Content } from 'components/atoms/Layout/Content';
@@ -32,7 +32,7 @@ export const Tour = (props: TourProps) => {
   };
 
   return (
-    <Page title="Welcome">
+    <Page title={t`page.title.welcome`}>
       <Content className={activeIndex > 0 ? 'bg-primary' : ''}>
         <div className="tour-slide vertical-layout">
           <div className="slides-container">

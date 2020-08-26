@@ -1,6 +1,6 @@
-import './index.min.css';
-
+import { t, Trans } from '@lingui/macro';
 import { Button } from 'components/atoms/Button';
+import { Checkbox } from 'components/atoms/Checkbox';
 import { Input } from 'components/atoms/Input';
 import { Item, Label } from 'components/atoms/Item';
 import { Content } from 'components/atoms/Layout/Content';
@@ -24,6 +24,8 @@ export const Signup = ({ history }: SignupProps) => {
 
   const [inputEmail, setInputEmail] = useState('');
   const [inputPassword, setInputPassword] = useState('');
+  const [inputFirstName, setInputFirstName] = useState('');
+  const [rememberChecked, setRememberChecked] = useState(false);
 
   const onSignupUser = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,7 +34,7 @@ export const Signup = ({ history }: SignupProps) => {
       setToast({
         status: true,
         position: 'bottom',
-        message: `Please fill all required data`,
+        message: t`Please fill all required data`,
         duration: 3000,
         color: 'danger',
       });
@@ -58,7 +60,7 @@ export const Signup = ({ history }: SignupProps) => {
       setToast({
         status: true,
         position: 'bottom',
-        message: `Signup unsuccessfully! ${e}`,
+        message: t`Signup unsuccessfully! ${e}`,
         duration: 3000,
         color: 'danger',
       });
@@ -67,13 +69,32 @@ export const Signup = ({ history }: SignupProps) => {
   };
 
   return (
-    <Page title="Sign Up">
-      <Content className="">
-        <form noValidate onSubmit={onSignupUser}>
-          <List>
-            <Item>
+    <Page title={t`page.title.signup`}>
+      <Content>
+        <form
+          className="w-100p h-100p flex flex-col content-center justify-center"
+          noValidate
+          onSubmit={onSignupUser}
+        >
+          <List slot="start" className="w-m mx-auto">
+            <Item className="p-0 mt-m item-input">
               <Label position="stacked" color="primary">
-                Email
+                <Trans id="label.input.firstName" />
+              </Label>
+              <Input
+                name="firstName"
+                type="text"
+                value={inputFirstName}
+                spellCheck={false}
+                autocapitalize="off"
+                onChange={(e: any) => setInputFirstName(e.detail.value)}
+                required
+              />
+            </Item>
+
+            <Item className="p-0 mt-m item-input">
+              <Label position="stacked" color="primary">
+                <Trans id="label.input.email" />
               </Label>
               <Input
                 name="email"
@@ -83,21 +104,54 @@ export const Signup = ({ history }: SignupProps) => {
                 autocapitalize="off"
                 onChange={(e: any) => setInputEmail(e.detail.value)}
                 required
-              ></Input>
+                placeholder="example@brightizen.com"
+              />
             </Item>
 
-            <Item>
+            <Item className="p-0 mt-m item-input">
               <Label position="stacked" color="primary">
-                Password
+                <Trans id="label.input.password" />
               </Label>
               <Input
                 name="password"
                 type="password"
                 value={inputPassword}
                 onChange={(e: any) => setInputPassword(e.detail.value)}
-              ></Input>
+              />
             </Item>
           </List>
+
+          <Row className="w-m mx-auto mt-m">
+            <Col className="p-0">
+              <div className="flex items-center justify-start">
+                <Checkbox
+                  checked={rememberChecked}
+                  onChange={(e: any) => setRememberChecked(e.detail.checked)}
+                />
+                <Label className="ml-s text-button case-none color-medium">
+                  <Trans id="label.checkbox.signUpConsent" />
+                </Label>
+              </div>
+              <div className="flex items-center justify-start mt-s">
+                <Checkbox
+                  checked={rememberChecked}
+                  onChange={(e: any) => setRememberChecked(e.detail.checked)}
+                />
+                <Label className="ml-s text-button case-none color-medium">
+                  <Trans id="label.checkbox.newsletterConsent" />
+                </Label>
+              </div>
+            </Col>
+          </Row>
+
+          <Row className="w-m mt-l mx-auto">
+            <Col className="p-0 mr-m">
+              <Button type="submit" expand="block">
+                <Trans id="label.button.signup" />
+              </Button>
+            </Col>
+            <Col className="p-0 ml-m"></Col>
+          </Row>
 
           <Toast
             isOpen={toast?.status}
@@ -108,20 +162,7 @@ export const Signup = ({ history }: SignupProps) => {
             onDidDismiss={() => setToast({ ...toast, status: false })}
           />
 
-          {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={'Logging in...'} />}
-
-          <Row>
-            <Col>
-              <Button type="submit" expand="block">
-                Signup
-              </Button>
-            </Col>
-            <Col>
-              <Button routerLink="/signup" color="light" expand="block">
-                Signup
-              </Button>
-            </Col>
-          </Row>
+          {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={t`Logging in...`} />}
         </form>
       </Content>
     </Page>
