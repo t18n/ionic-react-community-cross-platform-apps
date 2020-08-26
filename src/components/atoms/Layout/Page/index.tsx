@@ -24,7 +24,7 @@ export const Page = ({ title, children, noBreadcrumb }: PageProps) => {
             </ButtonGroup>
 
             <Text>
-              <h6 className="p-0 m-0">{title}</h6>
+              <h6 className="p-0 m-0 medium-title">{title}</h6>
             </Text>
 
             <ButtonGroup slot="end">

@@ -2,6 +2,7 @@ import './index.min.css';
 
 import { t, Trans } from '@lingui/macro';
 import { Button } from 'components/atoms/Button';
+import { Checkbox } from 'components/atoms/Checkbox';
 import { Input } from 'components/atoms/Input';
 import { Item, Label } from 'components/atoms/Item';
 import { Content } from 'components/atoms/Layout/Content';
@@ -25,6 +26,8 @@ export const Login = ({ history }: LoginProps) => {
 
   const [inputEmail, setInputEmail] = useState('');
   const [inputPassword, setInputPassword] = useState('');
+
+  const [rememberChecked, setRememberChecked] = useState(false);
 
   const onLoginUser = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,10 +72,14 @@ export const Login = ({ history }: LoginProps) => {
 
   return (
     <Page title="Log In">
-      <Content className="flex justify-center">
-        <form className="w-m mx-auto my-auto" noValidate onSubmit={onLoginUser}>
-          <List>
-            <Item className="p-0">
+      <Content>
+        <form
+          className="w-100p h-100p flex flex-col content-center justify-center"
+          noValidate
+          onSubmit={onLoginUser}
+        >
+          <List slot="start" className="w-m mx-auto">
+            <Item className="p-0 mt-m item-input">
               <Label position="stacked" color="primary">
                 <Trans id="label.input.email" />
               </Label>
@@ -85,10 +92,10 @@ export const Login = ({ history }: LoginProps) => {
                 onChange={(e: any) => setInputEmail(e.detail.value)}
                 required
                 placeholder="example@brightizen.com"
-              ></Input>
+              />
             </Item>
 
-            <Item className="p-0">
+            <Item className="p-0 mt-m item-input">
               <Label position="stacked" color="primary">
                 <Trans id="label.input.password" />
               </Label>
@@ -97,9 +104,44 @@ export const Login = ({ history }: LoginProps) => {
                 type="password"
                 value={inputPassword}
                 onChange={(e: any) => setInputPassword(e.detail.value)}
-              ></Input>
+              />
             </Item>
           </List>
+
+          <Row className="w-m mx-auto mt-m">
+            <Col className="p-0">
+              <div className="flex items-center justify-start">
+                <Checkbox
+                  checked={rememberChecked}
+                  onChange={(e: any) => setRememberChecked(e.detail.checked)}
+                />
+                <Label className="ml-s text-button case-none color-medium">Remember Me</Label>
+              </div>
+            </Col>
+            <Col className="p-0 flex items-center justify-end">
+              <Button
+                routerLink="/forgot-password"
+                expand="block"
+                fill="clear"
+                className="ml-auto color-medium"
+              >
+                <Trans id="label.button.forgotPassword" />
+              </Button>
+            </Col>
+          </Row>
+
+          <Row className="w-m mt-l mx-auto">
+            <Col className="p-0 mr-m">
+              <Button type="submit" expand="block">
+                <Trans id="label.button.login" />
+              </Button>
+            </Col>
+            <Col className="p-0 ml-m">
+              <Button routerLink="/signup" expand="block" fill="outline">
+                <Trans id="label.button.signup" />
+              </Button>
+            </Col>
+          </Row>
 
           <Toast
             isOpen={toast?.status}
@@ -111,19 +153,6 @@ export const Login = ({ history }: LoginProps) => {
           />
 
           {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={t`Logging in...`} />}
-
-          <Row className="mt-l">
-            <Col className="p-0">
-              <Button type="submit" expand="block">
-                <Trans id="label.button.login" />
-              </Button>
-            </Col>
-            <Col className="p-0">
-              <Button routerLink="/signup" expand="block" fill="outline">
-                <Trans id="label.button.signup" />
-              </Button>
-            </Col>
-          </Row>
         </form>
       </Content>
     </Page>

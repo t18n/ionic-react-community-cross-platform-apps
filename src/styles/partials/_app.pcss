@@ -16,13 +16,52 @@ body {
   padding-top: env(safe-area-inset-top); /* for iOS 11.2 */
 }
 
-/*
+/* Removing input background colour for Chrome autocomplete */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 calc(var(--grid) * 8) white inset !important;
+}
+
+/******************
 * Ionic elements
-*/
+******************/
+
+/* Ion Item */
+ion-item {
+  --padding-start: 0;
+  --padding-end: 0;
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+  --border-width: 0 0 0 0;
+}
+
+ion-menu ion-item {
+  --padding-start: calc(var(--grid) * 4);
+  --border-width: 0 0 1px 0 !important;
+}
+
+/* Ion Button */
 ion-button {
   font-weight: 700;
 
   --border-radius: calc(var(--grid) * 0.5);
+
+  &.hydrated {
+    --background-color: transparent !important;
+  }
+
+  /* Button with clear background */
+  &.button.button-block.button-clear {
+    text-transform: none;
+    width: fit-content;
+    height: calc(var(--grid) * 4);
+    line-height: 2;
+
+    --padding-start: 0;
+    --padding-end: 0;
+  }
 }
 
 ion-back-button {
@@ -30,6 +69,7 @@ ion-back-button {
   margin-right: calc(var(--grid) * 2);
 }
 
+/* Ion Thumbnail */
 ion-thumbnail {
   border-radius: calc(var(--grid) * 0.5);
   overflow: hidden;
@@ -48,8 +88,7 @@ ion-thumbnail {
   }
 }
 
+/* Ion Input */
 ion-input {
-  --padding-start: calc(var(--grid) * 2) !important;
-
   outline: 0;
 }

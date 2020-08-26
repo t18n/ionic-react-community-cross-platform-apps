@@ -2,6 +2,8 @@
   "Logging in...": "Logging in...",
   "Login unsuccessfully! {e}": "Login unsuccessfully! {e}",
   "Please fill all required data": "Please fill all required data",
+  "label.button.forgotPassword": "Forgot password",
+  "label.button.joinNow": "Join Now",
   "label.button.login": "Login",
   "label.button.signup": "Sign up",
   "label.input.email": "Email",

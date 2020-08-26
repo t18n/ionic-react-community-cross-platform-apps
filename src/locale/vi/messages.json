@@ -2,6 +2,8 @@
   "Logging in...": "Đang đăng nhập...",
   "Login unsuccessfully! {e}": "Đăng nhập thành công! {e}",
   "Please fill all required data": "Làm ơn điền đầy đủ các thông tin cần thiết",
+  "label.button.forgotPassword": "Quên mật khẩu",
+  "label.button.joinNow": "Đăng kí",
   "label.button.login": "Đăng nhập",
   "label.button.signup": "Đăng kí",
   "label.input.email": "Email",

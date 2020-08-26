@@ -55,7 +55,6 @@ span,
 small,
 div,
 blockquote,
-button,
 a {
   font-family: var(--font-body);
 }
@@ -74,7 +73,9 @@ div {
 }
 
 button,
-ion-button {
+ion-button,
+.text-button {
+  font-family: var(--font-body);
   font-size: 12px;
   letter-spacing: 1.25px;
   font-weight: 600;
@@ -132,4 +133,13 @@ code {
   font-size: 12px;
   letter-spacing: 0.4px;
   font-weight: 400;
+}
+
+/* Text style */
+.case-none {
+  text-transform: none;
+}
+
+.case-upper {
+  text-transform: uppercase;
 }
