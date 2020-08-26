@@ -67,7 +67,7 @@ export const PostItem = ({
   return (
     <div className="post-item">
       <IonButton className="post-options" size="small" fill="clear">
-        <IonIcon slot="icon-only" icon={icChevronDown} mode="ios" color="medium" />
+        <IonIcon slot="icon-only" icon={icChevronDown} color="medium" />
       </IonButton>
 
       <IonRow className="post-item-header">
@@ -107,7 +107,7 @@ export const PostItem = ({
             <div className="text-xs">
               <IonText color="medium">
                 on Twitter
-                <IonIcon icon={icLink} mode="ios" />
+                <IonIcon icon={icLink} />
               </IonText>
             </div>
           </div>
@@ -115,8 +115,8 @@ export const PostItem = ({
 
         <IonRow className="post-item-stats">
           <IonCol>
-            <IonIcon icon={icMoodHappy} mode="ios" color="medium" />
-            <IonIcon icon={icHeart} mode="ios" color="medium" />
+            <IonIcon icon={icMoodHappy} color="medium" />
+            <IonIcon icon={icHeart} color="medium" />
             <IonIcon icon={icThumbDown} color="medium" />
             <IonText color="medium">{reactionCount}</IonText>
           </IonCol>
@@ -129,19 +129,19 @@ export const PostItem = ({
       <IonRow className="post-item-footer ion-justify-content-between">
         <IonCol size="auto">
           <IonButton color="medium" fill="clear" size="small">
-            <IonIcon slot="start" icon={icThumbUp} mode="ios" />
+            <IonIcon slot="start" icon={icThumbUp} />
             <IonText>React</IonText>
           </IonButton>
         </IonCol>
         <IonCol size="auto">
           <IonButton color="medium" fill="clear" size="small" onClick={onCommentClick}>
-            <IonIcon slot="start" icon={icMessage} mode="ios" />
+            <IonIcon slot="start" icon={icMessage} />
             <IonText>Comment</IonText>
           </IonButton>
         </IonCol>
         <IonCol size="auto">
           <IonButton color="medium" fill="clear" size="small">
-            <IonIcon slot="start" icon={icShare} mode="ios" />
+            <IonIcon slot="start" icon={icShare} />
             <IonText>Share</IonText>
           </IonButton>
         </IonCol>

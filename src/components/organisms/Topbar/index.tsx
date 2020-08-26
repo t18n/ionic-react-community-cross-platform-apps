@@ -61,7 +61,7 @@ const Topbar = ({ onBlur, onFocus }: Props) => {
       {!isFocused && (
         <IonButtons slot="end" className="pos-rlt">
           <IonButton routerLink="/messaging">
-            <IonIcon slot="icon-only" icon={chatbubbles} mode="ios" />
+            <IonIcon slot="icon-only" icon={chatbubbles} />
           </IonButton>
           <IonBadge className="badge-message" color="danger">
             2

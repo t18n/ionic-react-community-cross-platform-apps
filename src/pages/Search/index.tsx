@@ -82,11 +82,11 @@ const Search = () => {
             </IonButton>
             <IonButton className="scroll-item" fill="outline" color="medium" size="small">
               Date Posted
-              <IonIcon icon={chevronDown} mode="ios" />
+              <IonIcon icon={chevronDown} />
             </IonButton>
             <IonButton className="scroll-item" fill="outline" color="medium" size="small">
               Level
-              <IonIcon icon={chevronDown} mode="ios" />
+              <IonIcon icon={chevronDown} />
             </IonButton>
           </div>
         </IonToolbar>

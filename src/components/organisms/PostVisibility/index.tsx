@@ -44,7 +44,7 @@ const PostVisibility = (props: Props) => {
         <IonList>
           <IonRadioGroup>
             <IonItem>
-              <IonIcon icon={globe} slot="start" mode="ios" color="medium" />
+              <IonIcon icon={globe} slot="start" color="medium" />
               <IonLabel color="primary">
                 <div className="text-sm">
                   <strong>Anyone</strong>
@@ -53,7 +53,7 @@ const PostVisibility = (props: Props) => {
               <IonRadio slot="end" defaultChecked></IonRadio>
             </IonItem>
             <IonItem>
-              <IonIcon icon={globe} slot="start" mode="ios" color="medium" />
+              <IonIcon icon={globe} slot="start" color="medium" />
               <IonLabel color="medium">
                 <div className="text-sm">
                   <strong>Anyone + Twitter (@TurboThinh)</strong>
@@ -62,7 +62,7 @@ const PostVisibility = (props: Props) => {
               <IonRadio slot="end"></IonRadio>
             </IonItem>
             <IonItem>
-              <IonIcon icon={people} slot="start" mode="ios" color="medium" />
+              <IonIcon icon={people} slot="start" color="medium" />
               <IonLabel color="medium">
                 <div className="text-sm">
                   <strong>Connections</strong>
@@ -71,7 +71,7 @@ const PostVisibility = (props: Props) => {
               <IonRadio slot="end"></IonRadio>
             </IonItem>
             <IonItem>
-              <IonIcon icon={logoIonic} slot="start" mode="ios" color="medium" />
+              <IonIcon icon={logoIonic} slot="start" color="medium" />
               <IonLabel color="medium">
                 <div className="text-sm">
                   <strong>Ionic framework</strong>
@@ -80,7 +80,7 @@ const PostVisibility = (props: Props) => {
               <IonRadio slot="end"></IonRadio>
             </IonItem>
             <IonItem>
-              <IonIcon icon={logoFacebook} slot="start" mode="ios" color="medium" />
+              <IonIcon icon={logoFacebook} slot="start" color="medium" />
               <IonLabel color="medium">
                 <div className="text-sm">
                   <strong>Facebook</strong>
@@ -89,7 +89,7 @@ const PostVisibility = (props: Props) => {
               <IonRadio slot="end"></IonRadio>
             </IonItem>
             <IonItem>
-              <IonIcon icon={logoPinterest} slot="start" mode="ios" color="medium" />
+              <IonIcon icon={logoPinterest} slot="start" color="medium" />
               <IonLabel color="medium">
                 <div className="text-sm">
                   <strong>Pinterest</strong>

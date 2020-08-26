@@ -39,7 +39,7 @@ const PostDetail = ({ history }: Props) => {
 
           <IonButtons slot="end">
             <IonButton>
-              <IonIcon slot="icon-only" icon={expand} mode="ios" />
+              <IonIcon slot="icon-only" icon={expand} />
             </IonButton>
           </IonButtons>
         </IonToolbar>

@@ -39,7 +39,7 @@ const Messaging = ({ history }: Props) => {
 
           <IonButtons slot="end">
             <IonButton>
-              <IonIcon slot="icon-only" icon={personAdd} mode="ios" />
+              <IonIcon slot="icon-only" icon={personAdd} />
             </IonButton>
           </IonButtons>
         </IonToolbar>
@@ -64,7 +64,7 @@ const Messaging = ({ history }: Props) => {
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton>
-            <IonIcon icon={create} mode="ios" />
+            <IonIcon icon={create} />
           </IonFabButton>
         </IonFab>
       </IonContent>

@@ -17,7 +17,7 @@ const ProfileContact: React.FC<Props> = () => {
             <IonCol>Contact</IonCol>
             <IonCol size="auto">
               <IonButton fill="clear" color="primary" size="small" className="button-edit">
-                <IonIcon slot="icon-only" icon={create} mode="ios" />
+                <IonIcon slot="icon-only" icon={create} />
               </IonButton>
             </IonCol>
           </IonRow>
@@ -36,7 +36,7 @@ const ProfileContact: React.FC<Props> = () => {
             </IonLabel>
           </IonItem>
           <IonItem>
-            <IonIcon icon={call} mode="ios" slot="start" color="medium" />
+            <IonIcon icon={call} slot="start" color="medium" />
             <IonLabel>
               <div className="text-sm">
                 <strong>Phone</strong>
@@ -47,7 +47,7 @@ const ProfileContact: React.FC<Props> = () => {
             </IonLabel>
           </IonItem>
           <IonItem>
-            <IonIcon icon={mail} mode="ios" slot="start" color="medium" />
+            <IonIcon icon={mail} slot="start" color="medium" />
             <IonLabel>
               <div className="text-sm">
                 <strong>Email</strong>

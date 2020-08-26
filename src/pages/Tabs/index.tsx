@@ -45,17 +45,17 @@ const Tabs = () => {
               <IonIcon icon={home} />
             </IonTabButton>
             <IonTabButton tab="network" href="/network">
-              <IonIcon icon={people} mode="ios" />
+              <IonIcon icon={people} />
             </IonTabButton>
             <IonTabButton onClick={() => openModal('newPost')}>
-              <IonIcon icon={create} mode="ios" />
+              <IonIcon icon={create} />
             </IonTabButton>
             <IonTabButton tab="notifications" href="/notifications">
               <IonIcon icon={notificationsOutline} />
               <IonBadge color="danger">9</IonBadge>
             </IonTabButton>
             <IonTabButton tab="media" href="/media">
-              <IonIcon icon={briefcase} mode="ios" />
+              <IonIcon icon={briefcase} />
             </IonTabButton>
           </IonTabBar>
         </IonTabs>

@@ -48,7 +48,7 @@ const Media: React.FC<Props> = ({ history }) => {
                 </IonText>
               </IonCol>
               <IonCol>
-                <IonIcon icon={create} mode="ios" />
+                <IonIcon icon={create} />
                 <IonText color="medium">
                   <div className="text-xs">interests</div>
                 </IonText>
@@ -87,7 +87,7 @@ const Media: React.FC<Props> = ({ history }) => {
                   <div className="text-xs">Mars, Universe</div>
                 </IonText>
               </IonLabel>
-              <IonIcon icon={notifications} mode="ios" slot="end" color="primary" />
+              <IonIcon icon={notifications} slot="end" color="primary" />
             </IonItem>
           </div>
         </div>

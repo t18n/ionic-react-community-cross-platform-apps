@@ -60,7 +60,7 @@ const PostCommentItem = ({
                   <div className="text-sm">
                     <IonText color="medium">{timestamp}</IonText>
                     <IonButton className="button-options" fill="clear" color="medium" size="small">
-                      <IonIcon icon={icArrowsMaximize || icArrowsMinimize} mode="ios" />
+                      <IonIcon icon={icArrowsMaximize || icArrowsMinimize} />
                     </IonButton>
                   </div>
                 </IonCol>

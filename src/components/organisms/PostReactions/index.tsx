@@ -35,7 +35,7 @@ const PostReactions = () => {
           </div>
         </IonAvatar>
         <IonButton className="reactor-expand" fill="clear" color="medium">
-          <IonIcon slot="icon-only" icon={expand} mode="ios" />
+          <IonIcon slot="icon-only" icon={expand} />
         </IonButton>
       </div>
     </div>

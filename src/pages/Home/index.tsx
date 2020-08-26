@@ -61,15 +61,15 @@ export const Home = ({ history }: HomeProps) => {
           <div className="toolbar-post">
             <IonButton color="white" className="button-post post-input">
               <div className="button-inner-left">
-                <IonIcon color="medium" icon={create} mode="ios" />
+                <IonIcon color="medium" icon={create} />
                 <IonText color="medium">Write a post</IonText>
               </div>
             </IonButton>
             <IonButton color="white" className="button-post">
-              <IonIcon color="medium" icon={videocam} mode="ios" />
+              <IonIcon color="medium" icon={videocam} />
             </IonButton>
             <IonButton color="white" className="button-post">
-              <IonIcon color="medium" icon={camera} mode="ios" />
+              <IonIcon color="medium" icon={camera} />
             </IonButton>
           </div>
 

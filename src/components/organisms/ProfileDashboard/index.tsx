@@ -14,7 +14,7 @@ const ProfileDashboard = () => {
             <IonCol size="auto">
               <IonText color="medium">
                 <div className="text-sm">
-                  <IonIcon icon={starOutline} mode="ios" />
+                  <IonIcon icon={starOutline} />
                   <strong>ALL-STAR</strong>
                 </div>
               </IonText>

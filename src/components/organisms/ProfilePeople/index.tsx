@@ -55,7 +55,7 @@ const ProfilePeople = () => {
               </IonCol>
               <IonCol className="p-0" size="auto">
                 <IonButton fill="clear" className="button-no-padding" color="white">
-                  <IonIcon slot="icon-only" icon={chatbubbles} mode="ios" />
+                  <IonIcon slot="icon-only" icon={chatbubbles} />
                 </IonButton>
               </IonCol>
             </IonRow>

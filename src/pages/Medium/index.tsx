@@ -77,7 +77,7 @@ const Medium = ({
           {!isFocused && (
             <IonButtons slot="end" className="pos-rlt">
               <IonButton fill="clear">
-                <IonIcon slot="icon-only" icon={expand} mode="ios" />
+                <IonIcon slot="icon-only" icon={expand} />
               </IonButton>
             </IonButtons>
           )}
@@ -124,7 +124,7 @@ const Medium = ({
                     <IonCol className="p-0">
                       <IonButton expand="block" color="primary" size="small">
                         Apply
-                        <IonIcon icon={open} mode="ios" />
+                        <IonIcon icon={open} />
                       </IonButton>
                     </IonCol>
                   </IonRow>
@@ -153,7 +153,7 @@ const Medium = ({
                 <div className="panel-body no-padding-top">
                   <IonRow className="ion-align-items-center">
                     <IonCol size="auto">
-                      <IonIcon icon={checkmarkCircle} mode="ios" color="primary" size="small" />
+                      <IonIcon icon={checkmarkCircle} color="primary" size="small" />
                     </IonCol>
                     <IonCol>
                       <div className="text-sm">
@@ -166,7 +166,7 @@ const Medium = ({
                   </IonRow>
                   <IonRow className="ion-align-items-center">
                     <IonCol size="auto">
-                      <IonIcon icon={checkmarkCircle} mode="ios" color="primary" size="small" />
+                      <IonIcon icon={checkmarkCircle} color="primary" size="small" />
                     </IonCol>
                     <IonCol>
                       <div className="text-sm">
@@ -192,7 +192,6 @@ const Medium = ({
                       <IonIcon
                         className="icon-align-middle"
                         icon={checkmarkCircleOutline}
-                        mode="ios"
                         color="success"
                         size="small"
                       />
@@ -230,7 +229,7 @@ const Medium = ({
                         color="primary"
                         size="small"
                       >
-                        <IonIcon icon={add} mode="ios" />
+                        <IonIcon icon={add} />
                         Follow
                       </IonButton>
                     </IonCol>

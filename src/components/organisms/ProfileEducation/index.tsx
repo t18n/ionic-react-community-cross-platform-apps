@@ -14,7 +14,7 @@ const ProfileEducation = () => {
             <IonCol>Education</IonCol>
             <IonCol size="auto">
               <IonButton fill="clear" color="primary" size="small" className="button-edit">
-                <IonIcon slot="icon-only" icon={create} mode="ios" />
+                <IonIcon slot="icon-only" icon={create} />
               </IonButton>
             </IonCol>
           </IonRow>

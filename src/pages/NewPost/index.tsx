@@ -68,9 +68,9 @@ const NewPost = (props: Props) => {
         <div className="pt-m">
           <div className="ion-text-center">
             <IonButton fill="outline" color="medium" size="small" onClick={openOptions}>
-              <IonIcon icon={globe} mode="ios" slot="start" />
+              <IonIcon icon={globe} slot="start" />
               Anyone
-              <IonIcon icon={chevronDown} mode="ios" slot="end" />
+              <IonIcon icon={chevronDown} slot="end" />
             </IonButton>
           </div>
 
@@ -82,22 +82,22 @@ const NewPost = (props: Props) => {
         <IonToolbar>
           <IonButtons slot="start">
             <IonButton fill="clear" color="medium">
-              <IonIcon slot="icon-only" icon={camera} mode="ios" />
+              <IonIcon slot="icon-only" icon={camera} />
             </IonButton>
             <IonButton fill="clear" color="medium">
               <IonIcon slot="icon-only" icon={videocam} />
             </IonButton>
             <IonButton fill="clear" color="medium">
-              <IonIcon slot="icon-only" icon={image} mode="ios" />
+              <IonIcon slot="icon-only" icon={image} />
             </IonButton>
             <IonButton fill="clear" color="medium">
-              <IonIcon slot="icon-only" icon={expand} mode="ios" />
+              <IonIcon slot="icon-only" icon={expand} />
             </IonButton>
           </IonButtons>
 
           <IonButtons slot="end">
             <IonButton fill="clear" color="medium">
-              <IonIcon slot="icon-only" icon={keypad} mode="ios" />
+              <IonIcon slot="icon-only" icon={keypad} />
             </IonButton>
           </IonButtons>
         </IonToolbar>

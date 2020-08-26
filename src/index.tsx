@@ -1,5 +1,5 @@
 import { Plugins } from '@capacitor/core';
-import { setupConfig } from '@ionic/react';
+import { isPlatform, setupConfig } from '@ionic/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -12,8 +12,9 @@ const { SplashScreen } = Plugins;
 // https://ionicframework.com/docs/react/config
 setupConfig({
   rippleEffect: false,
-  mode: 'ios', // force the theme to iOS mode
+  mode: 'ios', // force the theme to iOS mode for all elements which has no mode specified
   backButtonText: '',
+  animated: !isPlatform('mobileweb'), // disable animations if app run in browser of slower device
 });
 
 ReactDOM.render(<App />, document.getElementById('root'));
