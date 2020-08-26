@@ -28,7 +28,7 @@ export const AllSelect = () => {
           <Select
             value={gender}
             placeholder="Select One"
-            onChange={(e: any) => setGender(e.detail.value)}
+            onIonChange={(e: any) => setGender(e.detail.value)}
           >
             <SelectOption value="female">Female</SelectOption>
             <SelectOption value="male">Male</SelectOption>
@@ -41,7 +41,7 @@ export const AllSelect = () => {
             value={hairColor}
             okText="Okay"
             cancelText="Dismiss"
-            onChange={(e: any) => setHairColor(e.detail.value)}
+            onIonChange={(e: any) => setHairColor(e.detail.value)}
           >
             <SelectOption value="brown">Brown</SelectOption>
             <SelectOption value="blonde">Blonde</SelectOption>

@@ -39,7 +39,7 @@ ion-item {
 
 ion-menu ion-item {
   --padding-start: calc(var(--grid) * 4);
-  --border-width: 0 0 1px 0 !important;
+  --padding-end: calc(var(--grid) * 4);
 }
 
 /* Ion Button */
@@ -97,4 +97,45 @@ ion-input {
 ion-checkbox {
   width: calc(var(--grid) * 5);
   height: calc(var(--grid) * 5);
+}
+
+/* Ion Icon */
+ion-icon {
+  &.tiny {
+    font-size: calc(var(--grid) * 2);
+  }
+
+  &.small {
+    font-size: calc(var(--grid) * 4);
+  }
+
+  &.medium {
+    font-size: calc(var(--grid) * 6);
+  }
+
+  &.large {
+    font-size: calc(var(--grid) * 8);
+  }
+}
+
+/* Ion Popover */
+ion-popover .popover-wrapper .popover-content {
+  width: 80% !important;
+  height: 80% !important;
+  background: #fff !important;
+
+  @media (--viewport-tablet) {
+    width: calc(var(--grid) * 70) !important;
+    height: calc(var(--grid) * 60) !important;
+  }
+
+  @media (--viewport-desktop) {
+    width: calc(var(--grid) * 90) !important;
+    height: calc(var(--grid) * 80) !important;
+  }
+}
+
+/** List */
+ion-list-header {
+  padding-inline-start: 0;
 }

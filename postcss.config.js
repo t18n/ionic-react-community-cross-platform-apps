@@ -8,6 +8,7 @@ const postCssInlineSvg = require('postcss-inline-svg');
 const postCssAutoprefixer = require('autoprefixer');
 const postCssPxToRem = require('postcss-pxtorem');
 const postCssNano = require('cssnano');
+const postCssColorFunction = require('postcss-color-function');
 
 module.exports = {
   plugins: [
@@ -22,6 +23,7 @@ module.exports = {
       },
     }),
     postCssCustomProperties({ preserve: true }),
+    postCssColorFunction,
     postCssCustomMedia({
       importFrom: [
         {

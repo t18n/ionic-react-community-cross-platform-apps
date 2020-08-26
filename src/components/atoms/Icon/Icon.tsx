@@ -1,5 +1,3 @@
-import './index.min.css';
-
 import { IonIcon } from '@ionic/react';
 import React, { HTMLAttributes, useEffect } from 'react';
 
@@ -19,7 +17,7 @@ export type IconProps = HTMLAttributes<HTMLIonIconElement> & {
   part?: 'icon';
 };
 
-export const Icon = ({ ...rest }: IconProps) => {
+export const Icon = ({ size, ...rest }: IconProps) => {
   // TODO: Use CSS to set all SVG icons stroke-width to 1.5
   // This is just a hack
   useEffect(() => {
@@ -36,5 +34,5 @@ export const Icon = ({ ...rest }: IconProps) => {
     }, 500);
   }, []);
 
-  return <IonIcon part="icon" {...rest} />;
+  return <IonIcon part="icon" {...rest} className={size} />;
 };

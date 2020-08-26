@@ -24,6 +24,18 @@
   height: 100%;
 }
 
+.h-m {
+  height: 80%;
+
+  @media (--viewport-tablet) {
+    height: calc(var(--grid) * 70);
+  }
+
+  @media (--viewport-desktop) {
+    height: calc(var(--grid) * 80);
+  }
+}
+
 /*
 * Padding
 */
@@ -243,4 +255,26 @@
 
   --border: 0 !important;
   --border-width: 0 !important;
+}
+
+/*
+* Radius
+*/
+.radius-all {
+  border-radius: 50%;
+}
+
+.radius-s {
+  border-radius: var(--grid);
+}
+
+/*
+* Text
+*/
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
 }
