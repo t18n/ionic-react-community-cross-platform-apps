@@ -23,7 +23,7 @@ export const AllInput: React.FC = () => {
           <Input
             value={text}
             placeholder="Enter Input"
-            onChange={(e: any) => setText(e.detail.value!)}
+            onIonChange={(e: any) => setText(e.detail.value!)}
           ></Input>
         </Item>
 
@@ -32,7 +32,7 @@ export const AllInput: React.FC = () => {
           <Input
             value={text}
             placeholder="Enter Input"
-            onChange={(e: any) => setText(e.detail.value!)}
+            onIonChange={(e: any) => setText(e.detail.value!)}
             clearInput
           ></Input>
         </Item>
@@ -43,7 +43,7 @@ export const AllInput: React.FC = () => {
             type="number"
             value={number}
             placeholder="Enter Number"
-            onChange={(e: any) => setNumber(parseInt(e.detail.value!, 10))}
+            onIonChange={(e: any) => setNumber(parseInt(e.detail.value!, 10))}
           ></Input>
         </Item>
 
@@ -91,7 +91,7 @@ export const AllTextarea: React.FC = () => {
       <List>
         <ItemDivider>Default textarea</ItemDivider>
         <Item>
-          <Textarea value={text} onChange={(e: any) => setText(e.detail.value!)}></Textarea>
+          <Textarea value={text} onIonChange={(e: any) => setText(e.detail.value!)}></Textarea>
         </Item>
 
         <ItemDivider>Textarea in an item with a placeholder</ItemDivider>
@@ -99,14 +99,14 @@ export const AllTextarea: React.FC = () => {
           <Textarea
             placeholder="Enter more information here..."
             value={text}
-            onChange={(e: any) => setText(e.detail.value!)}
+            onIonChange={(e: any) => setText(e.detail.value!)}
           ></Textarea>
         </Item>
 
         <ItemDivider>Textarea in an item with a floating label</ItemDivider>
         <Item>
           <Label position="floating">Description</Label>
-          <Textarea value={text} onChange={(e: any) => setText(e.detail.value!)}></Textarea>
+          <Textarea value={text} onIonChange={(e: any) => setText(e.detail.value!)}></Textarea>
         </Item>
 
         <ItemDivider>Disabled and readonly textarea in an item with a stacked label</ItemDivider>
@@ -116,7 +116,7 @@ export const AllTextarea: React.FC = () => {
             disabled
             readonly
             value={text}
-            onChange={(e: any) => setText(e.detail.value!)}
+            onIonChange={(e: any) => setText(e.detail.value!)}
           ></Textarea>
         </Item>
 
@@ -126,7 +126,7 @@ export const AllTextarea: React.FC = () => {
           <Textarea
             clearOnEdit={true}
             value={text}
-            onChange={(e: any) => setText(e.detail.value!)}
+            onIonChange={(e: any) => setText(e.detail.value!)}
           ></Textarea>
         </Item>
 
@@ -138,7 +138,7 @@ export const AllTextarea: React.FC = () => {
             cols={20}
             placeholder="Enter any notes here..."
             value={text}
-            onChange={(e: any) => setText(e.detail.value!)}
+            onIonChange={(e: any) => setText(e.detail.value!)}
           ></Textarea>
         </Item>
       </List>

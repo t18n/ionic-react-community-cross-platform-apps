@@ -12,7 +12,7 @@ import { Toast } from 'components/atoms/Toast';
 import { useLoginUser } from 'graphql/operation/user/mutation';
 import { ME } from 'graphql/operation/user/shape';
 import { useToast } from 'hooks/useToast';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 type LoginProps = {
   history: any;
@@ -26,6 +26,11 @@ export const Login = ({ history }: LoginProps) => {
   const [inputPassword, setInputPassword] = useState('');
 
   const [rememberChecked, setRememberChecked] = useState(false);
+
+  useEffect(() => {
+    console.log('inputEmail', inputEmail);
+    console.log('inputPassword', inputPassword);
+  }, [inputEmail, inputPassword]);
 
   const onLoginUser = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,7 +92,7 @@ export const Login = ({ history }: LoginProps) => {
                 value={inputEmail}
                 spellCheck={false}
                 autocapitalize="off"
-                onChange={(e: any) => setInputEmail(e.detail.value)}
+                onIonChange={(e: any) => setInputEmail(e.detail.value)}
                 required
                 placeholder="example@brightizen.com"
               />
@@ -101,7 +106,7 @@ export const Login = ({ history }: LoginProps) => {
                 name="password"
                 type="password"
                 value={inputPassword}
-                onChange={(e: any) => setInputPassword(e.detail.value)}
+                onIonChange={(e: any) => setInputPassword(e.detail.value)}
               />
             </Item>
           </List>
@@ -111,7 +116,7 @@ export const Login = ({ history }: LoginProps) => {
               <div className="flex items-center justify-start">
                 <Checkbox
                   checked={rememberChecked}
-                  onChange={(e: any) => setRememberChecked(e.detail.checked)}
+                  onIonChange={(e: any) => setRememberChecked(e.detail.checked)}
                 />
                 <Label className="ml-s text-button case-none color-medium">
                   <Trans id="label.checkbox.rememberMe" />

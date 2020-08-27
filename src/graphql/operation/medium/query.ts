@@ -20,7 +20,7 @@ type MediumQueryOptions = {
  * Fetch list of mediums
  */
 export const useMediumsQuery = (options: MediumsQueryOptions) => {
-  return useQuery<{ mediums: MediaQuery_media }>(MEDIA_QUERY, options);
+  return useQuery<{ media: MediaQuery_media }>(MEDIA_QUERY, options);
 };
 
 /**

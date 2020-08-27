@@ -87,7 +87,7 @@ export const Signup = ({ history }: SignupProps) => {
                 value={inputFirstName}
                 spellCheck={false}
                 autocapitalize="off"
-                onChange={(e: any) => setInputFirstName(e.detail.value)}
+                onIonChange={(e: any) => setInputFirstName(e.detail.value)}
                 required
               />
             </Item>
@@ -102,7 +102,7 @@ export const Signup = ({ history }: SignupProps) => {
                 value={inputEmail}
                 spellCheck={false}
                 autocapitalize="off"
-                onChange={(e: any) => setInputEmail(e.detail.value)}
+                onIonChange={(e: any) => setInputEmail(e.detail.value)}
                 required
                 placeholder="example@brightizen.com"
               />
@@ -116,7 +116,7 @@ export const Signup = ({ history }: SignupProps) => {
                 name="password"
                 type="password"
                 value={inputPassword}
-                onChange={(e: any) => setInputPassword(e.detail.value)}
+                onIonChange={(e: any) => setInputPassword(e.detail.value)}
               />
             </Item>
           </List>
@@ -126,7 +126,7 @@ export const Signup = ({ history }: SignupProps) => {
               <div className="flex items-center justify-start">
                 <Checkbox
                   checked={rememberChecked}
-                  onChange={(e: any) => setRememberChecked(e.detail.checked)}
+                  onIonChange={(e: any) => setRememberChecked(e.detail.checked)}
                 />
                 <Label className="ml-s text-button case-none color-medium">
                   <Trans id="label.checkbox.signUpConsent" />
@@ -135,7 +135,7 @@ export const Signup = ({ history }: SignupProps) => {
               <div className="flex items-center justify-start mt-s">
                 <Checkbox
                   checked={rememberChecked}
-                  onChange={(e: any) => setRememberChecked(e.detail.checked)}
+                  onIonChange={(e: any) => setRememberChecked(e.detail.checked)}
                 />
                 <Label className="ml-s text-button case-none color-medium">
                   <Trans id="label.checkbox.newsletterConsent" />

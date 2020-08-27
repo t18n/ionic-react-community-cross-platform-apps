@@ -1,19 +1,12 @@
-import {
-  IonCol,
-  IonContent,
-  IonGrid,
-  IonHeader,
-  IonList,
-  IonListHeader,
-  IonPage,
-  IonRow,
-  IonSpinner,
-  IonTitle,
-  IonToolbar,
-  useIonViewDidEnter,
-} from '@ionic/react';
+import { useIonViewDidEnter } from '@ionic/react';
+import { t } from '@lingui/macro';
+import { Content } from 'components/atoms/Layout/Content';
+import { Col, Grid, Row } from 'components/atoms/Layout/Grid';
+import { Page } from 'components/atoms/Layout/Page';
+import { List, ListHeader } from 'components/atoms/List';
+import { Spinner } from 'components/atoms/Loading';
 import { useMediumsQuery } from 'graphql/operation/medium/query';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export const Explore = () => {
@@ -31,8 +24,6 @@ export const Explore = () => {
     },
   });
 
-  useEffect(() => console.log('MEDIUM_data', MEDIUM_data), [MEDIUM_data]);
-
   useIonViewDidEnter(() => {
     setState({
       topTags: [],
@@ -43,38 +34,31 @@ export const Explore = () => {
   });
 
   return (
-    <IonPage>
-      <IonContent fullscreen={true}>
-        <IonHeader collapse="condense" className="border-0">
-          <IonToolbar className=" transparent">
-            <IonTitle size="large">Browse</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+    <Page title={t`page.title.explore`}>
+      <Content fullscreen={true}>
         {isError ? 'There are some errors' : null}
         {!state.isLoading ? (
-          <>
-            <IonList>
-              <IonGrid fixed={true} className="p-0">
-                <IonListHeader>
-                  <h1>Top Mediums</h1>
-                </IonListHeader>
-                <IonRow className="ion-justify-content-start">
-                  {MEDIUM_data &&
-                    MEDIUM_data.mediums.items.slice(0, 4).map(({ id, slug, title, cover }) => (
-                      <IonCol sizeLg="4" sizeXl="3" key={id} className="p-0">
-                        <Link to={`mediums/${slug}`}>{title}</Link>
-                      </IonCol>
-                    ))}
-                </IonRow>
-              </IonGrid>
-            </IonList>
-          </>
+          <List>
+            <Grid fixed={true} className="p-0">
+              <ListHeader>
+                <h1>Top Mediums</h1>
+              </ListHeader>
+              <Row className="ion-justify-content-start">
+                {MEDIUM_data &&
+                  MEDIUM_data.media.items.slice(0, 4).map(({ id, slug, title, cover }) => (
+                    <Col sizeLg="4" sizeXl="3" key={id} className="p-0">
+                      <Link to={`mediums/${slug}`}>{title}</Link>
+                    </Col>
+                  ))}
+              </Row>
+            </Grid>
+          </List>
         ) : (
           <div className="ion-text-center pa-m">
-            <IonSpinner color="primary" />
+            <Spinner color="primary" />
           </div>
         )}
-      </IonContent>
-    </IonPage>
+      </Content>
+    </Page>
   );
 };

@@ -8,14 +8,14 @@ import { NewPostModal } from 'components/organisms/NewPostModal';
 import SideMenu from 'components/organisms/SideMenu';
 import Provider from 'context/Provider';
 import { ApolloProvider } from 'graphql/ApolloProvider';
-import Tabs from 'pages/Tabs';
+import { Explore } from 'pages/Explore';
 import { Tour } from 'pages/Tour';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { appPages } from 'settings/appPages';
 
 export const App = () => {
-  const isAuthed = false;
+  const isAuthed = true;
 
   return (
     <ApolloProvider>
@@ -30,7 +30,11 @@ export const App = () => {
                   {appPages.map((page) => {
                     if (page.url === '/') {
                       return (
-                        <Route key="/" path="/" render={() => (isAuthed ? <Tabs /> : <Tour />)} />
+                        <Route
+                          key="/"
+                          path="/"
+                          render={() => (isAuthed ? <Explore /> : <Tour />)}
+                        />
                       );
                     } else {
                       return (
