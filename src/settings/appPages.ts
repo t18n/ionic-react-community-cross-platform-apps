@@ -36,102 +36,108 @@ interface AppPage {
   component: FC<any>;
 }
 
-export const appPages: AppPage[] = [
-  {
+export const appPages: Record<string, AppPage> = {
+  home: {
+    title: 'Welcome',
+    url: '/',
+    icon: icHome,
+    component: Tour,
+  },
+  welcome: {
     title: 'Welcome',
     url: '/welcome',
     icon: icHome,
     component: Tour,
   },
-  {
+  login: {
     title: 'Log in',
     url: '/login',
     icon: icUser,
     component: Login,
   },
-  {
+  signup: {
     title: 'Sign up',
     url: '/signup',
     icon: icUserPlus,
     component: Signup,
   },
 
-  {
+  media: {
     title: 'Media',
     url: '/media',
     icon: icCompass,
     component: Media,
   },
-  {
+  medium: {
     title: 'Medium',
     url: '/medium',
     icon: icCompass,
     component: Medium,
   },
-  {
+  title: {
     title: 'Explore',
     url: '/explore',
     icon: icCompass,
     component: Explore,
   },
-  {
+  search: {
     title: 'Search',
     url: '/search',
     icon: icSearch,
     component: Search,
   },
-  {
+  messages: {
     title: 'Messages',
     url: '/messages',
     icon: icMessage,
     component: Messages,
   },
-  {
+  messageDetails: {
     title: 'Messages Detail',
     url: '/messageDetails',
     icon: icMessage2,
     component: Messages,
   },
-  {
+  ideas: {
     title: 'Ideas',
     url: '/ideas',
     icon: icBulb,
     component: Idea,
   },
-  {
+  notifications: {
     title: 'Notifications',
     url: '/notifications',
     icon: icBell,
     component: Notifications,
   },
-  {
+  network: {
     title: 'Network',
     url: '/network',
     icon: icSocial,
     component: Network,
   },
-  {
+  profile: {
     title: 'Profile',
     url: '/profile',
     icon: icUserCheck,
     component: Profile,
   },
-  {
+  library: {
     title: 'Library',
     url: '/library',
     icon: icBookmark,
     component: Tabs,
   },
-  {
+  process: {
     title: 'Progress',
     url: '/progress',
     icon: icPlane,
     component: Tabs,
   },
-  {
+  tabs: {
     title: 'Tabs',
     url: '/tabs',
     icon: icMenu,
     component: Tabs,
   },
-];
+};

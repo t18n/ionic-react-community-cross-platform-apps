@@ -27,18 +27,23 @@ export const App = () => {
                 <NewPostModal />
                 <SideMenu />
                 <IonRouterOutlet id="main">
-                  {appPages.map((page) => {
-                    if (page.url === '/') {
+                  {Object.keys(appPages).map((id) => {
+                    if (id === 'home') {
                       return (
                         <Route
-                          key="/"
-                          path="/"
+                          key={id}
+                          path={appPages[id].url}
                           render={() => (isAuthed ? <Explore /> : <Tour />)}
                         />
                       );
                     } else {
                       return (
-                        <Route key={page.url} path={page.url} component={page.component} exact />
+                        <Route
+                          key={id}
+                          path={appPages[id].url}
+                          component={appPages[id].component}
+                          exact
+                        />
                       );
                     }
                   })}

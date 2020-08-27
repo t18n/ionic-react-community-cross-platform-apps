@@ -11,7 +11,7 @@ export type IconProps = HTMLAttributes<HTMLIonIconElement> & {
   md?: string;
   mode?: 'ios' | 'md';
   name?: string;
-  size?: 'large' | 'small';
+  size?: 'tiny' | 'small' | 'medium' | 'large' | 'x-large';
   src?: string;
   slot?: 'start' | 'end' | 'icon-only';
   part?: 'icon';
