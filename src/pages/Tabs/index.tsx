@@ -6,56 +6,45 @@ import {
   IonTabButton,
   IonTabs,
 } from '@ionic/react';
+import { icNote } from 'components/atoms/Icon';
 import { Settings } from 'context/Settings';
-import { briefcase, create, home, notificationsOutline, people } from 'ionicons/icons';
 import React from 'react';
 import { Route } from 'react-router-dom';
-
-import { Home } from '../Home';
-import Invitations from '../Invitations';
-import Media from '../Media';
-import Medium from '../Medium';
-import { Network } from '../Network';
-import { Notifications } from '../Notifications';
-import PostDetail from '../PostDetail';
-import Profile from '../Profile';
-import Recommendations from '../Recommendations';
-import Search from '../Search';
+import { appPages } from 'settings/appPages';
 
 const Tabs = () => {
+  const homePage = appPages['home'];
+  const networkPage = appPages['network'];
+  const nofiticationPage = appPages['notifications'];
+  const mediaPage = appPages['media'];
+
   return (
     <Settings.Consumer>
       {({ openModal }) => (
         <IonTabs>
           <IonRouterOutlet>
-            <Route path="/" component={Home} exact />
-            <Route path="/post/:id" component={PostDetail} exact />
-            <Route path="/network" component={Network} exact />
-            <Route path="/network/invitations" component={Invitations} exact />
-            <Route path="/network/recommendations" component={Recommendations} exact />
-            <Route path="/notifications" component={Notifications} exact />
-            <Route path="/media" component={Media} exact />
-            <Route path="/media/medium" component={Medium} exact />
-            <Route path="/profile" component={Profile} exact />
-            <Route path="/search" component={Search} exact />
+            <Route path={homePage.url} component={homePage.component} exact />
+            <Route path={networkPage.url} component={homePage.component} exact />
+            <Route path={nofiticationPage.url} component={homePage.component} exact />
+            <Route path={mediaPage.url} component={homePage.component} exact />
           </IonRouterOutlet>
 
           <IonTabBar slot="bottom">
-            <IonTabButton tab="home" href="/">
-              <IonIcon icon={home} />
+            <IonTabButton tab={homePage.title} href={homePage.url}>
+              <IonIcon icon={homePage.icon} />
             </IonTabButton>
-            <IonTabButton tab="network" href="/network">
-              <IonIcon icon={people} />
+            <IonTabButton tab={networkPage.title} href={networkPage.url}>
+              <IonIcon icon={networkPage.icon} />
             </IonTabButton>
             <IonTabButton onClick={() => openModal('newPost')}>
-              <IonIcon icon={create} />
+              <IonIcon icon={icNote} />
             </IonTabButton>
-            <IonTabButton tab="notifications" href="/notifications">
-              <IonIcon icon={notificationsOutline} />
+            <IonTabButton tab={nofiticationPage.title} href={nofiticationPage.url}>
+              <IonIcon icon={nofiticationPage.icon} />
               <IonBadge color="danger">9</IonBadge>
             </IonTabButton>
-            <IonTabButton tab="media" href="/media">
-              <IonIcon icon={briefcase} />
+            <IonTabButton tab={mediaPage.title} href={mediaPage.url}>
+              <IonIcon icon={mediaPage.icon} />
             </IonTabButton>
           </IonTabBar>
         </IonTabs>

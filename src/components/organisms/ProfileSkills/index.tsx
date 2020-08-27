@@ -44,7 +44,7 @@ const ProfileSkills = () => {
               </div>
               <IonRow>
                 <IonCol size="auto">
-                  <IonAvatar className="thumbnail-tiny">
+                  <IonAvatar className="tiny">
                     <img src={faker.image.avatar()} alt="" />
                   </IonAvatar>
                 </IonCol>
@@ -56,7 +56,7 @@ const ProfileSkills = () => {
               </IonRow>
               <IonRow>
                 <IonCol size="auto">
-                  <IonThumbnail className="thumbnail-tiny">
+                  <IonThumbnail className="tiny">
                     <img src={faker.image.avatar()} alt="" />
                   </IonThumbnail>
                 </IonCol>

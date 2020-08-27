@@ -123,22 +123,4 @@ export const appPages: Record<string, AppPage> = {
     icon: icUserCheck,
     component: Profile,
   },
-  library: {
-    title: 'Library',
-    url: '/library',
-    icon: icBookmark,
-    component: Tabs,
-  },
-  process: {
-    title: 'Progress',
-    url: '/progress',
-    icon: icPlane,
-    component: Tabs,
-  },
-  tabs: {
-    title: 'Tabs',
-    url: '/tabs',
-    icon: icMenu,
-    component: Tabs,
-  },
 };

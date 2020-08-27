@@ -43,7 +43,7 @@ const PostCommentItem = ({
     <div className="post-comment-item">
       <IonRow>
         <IonCol size="auto">
-          <IonAvatar className={isReply ? 'thumbnail-tiny' : 'thumbnail-small'}>
+          <IonAvatar className={isReply ? 'tiny' : 'small'}>
             <img src={avatar} alt="" />
           </IonAvatar>
         </IonCol>

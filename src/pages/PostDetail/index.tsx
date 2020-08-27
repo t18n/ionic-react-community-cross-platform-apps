@@ -68,7 +68,7 @@ const PostDetail = ({ history }: Props) => {
       <IonFooter className="footer-shadow border-0">
         <IonToolbar>
           <IonButtons slot="start">
-            <IonAvatar className="toolbar-avatar thumbnail-tiny">
+            <IonAvatar className="toolbar-avatar tiny">
               <img src={faker.image.avatar()} alt="" />
             </IonAvatar>
           </IonButtons>

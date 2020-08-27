@@ -29,7 +29,7 @@ const NewsletterItem = ({ cover, avatar, content, badge }: NewsletterItemProps) 
 
         <IonRow>
           <IonCol size="auto">
-            <IonThumbnail className="item-author-thumbnail thumbnail-tiny">
+            <IonThumbnail className="item-author-thumbnail tiny">
               <img src={avatar} alt="" />
             </IonThumbnail>
           </IonCol>

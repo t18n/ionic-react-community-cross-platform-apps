@@ -84,45 +84,31 @@ const SideIonMenu = () => {
     <IonMenu type="overlay" side="start" contentId="main" menuId="main" swipeGesture={false}>
       <Content>
         <List color="light">
-          <Header>
+          <Header slot="start">
             <Toolbar className="border-0" color="light">
               <Logo extraClasses="side-menu__logo" />
             </Toolbar>
           </Header>
 
-          {Object.keys(appPages).map(
-            (id) =>
-              !excludedPages.includes(id) && (
-                <Item
-                  key={appPages[id].title}
-                  lines="none"
-                  routerLink={appPages[id].url}
-                  detail={false}
-                >
-                  <Icon icon={appPages[id].icon} slot="start" size="large" color="medium" />
-                  <Label color="medium">
-                    <Text>
-                      <h6>{appPages[id].title}</h6>
-                    </Text>
-                  </Label>
-                </Item>
-              )
-          )}
+          {/* My profile */}
 
           {ME_data?.me ? (
-            <Item lines="none" slot="end" detail={false} className="mt-l">
-              <Thumbnail slot="start" className="radius-all">
+            <Item
+              lines="none"
+              detail={false}
+              onClick={() => setShowPopover(true)}
+              type="button"
+              className="cursor-pointer mt-s"
+            >
+              <Thumbnail slot="start" className="radius-all small">
                 <Img src={ME_data.me.cover} />
               </Thumbnail>
 
-              <div className="flex flex-col items-start justify-center">
-                <span className="subtitle-large text-bold">{ME_data.me?.name}</span>
-                <span className="subtitle-small color-medium">{ME_data.me?.slug}</span>
-              </div>
-
-              <Button onClick={() => setShowPopover(true)} fill="clear" slot="end">
-                <Icon slot="icon-only" icon={icChevronDown} size="large" color="medium" />
-              </Button>
+              <Label color="medium">
+                <Text>
+                  <a className="medium-title bold">{ME_data.me?.name}</a>
+                </Text>
+              </Label>
 
               <Popover
                 isOpen={showPopover}
@@ -136,7 +122,7 @@ const SideIonMenu = () => {
                 </ListHeader>
                 <List className="h-100p w-100p bg-transparent flex flex-col items-center py-m">
                   {/* Dark mode */}
-                  <Item lines="none">
+                  <Item lines="none" className="mt-s">
                     <Toggle slot="start" checked={isDarkMode} onIonChange={toggleDarkMode} />
                     <Label color="medium">
                       <Text>
@@ -146,7 +132,7 @@ const SideIonMenu = () => {
                   </Item>
 
                   {/* Language */}
-                  <Item>
+                  <Item lines="none" className="mt-s">
                     <Label>
                       <Trans id="label.item.language" />
                     </Label>
@@ -166,7 +152,7 @@ const SideIonMenu = () => {
                   </Item>
 
                   {/* Logout */}
-                  <Item lines="none" onClick={onLogout}>
+                  <Item lines="none" onClick={onLogout} className="cursor-pointer mt-s">
                     <Label color="medium">
                       <Text>
                         <Trans id="label.item.logOut" />
@@ -177,7 +163,7 @@ const SideIonMenu = () => {
               </Popover>
             </Item>
           ) : (
-            <Item lines="none" slot="end" detail={false} className="mt-l">
+            <Item lines="none" slot="end" detail={false} className="mt-s">
               <Item key={loginPage.title} lines="none" routerLink={loginPage.url} detail={false}>
                 <Icon icon={loginPage.icon} slot="start" size="large" color="medium" />
                 <Label color="medium">
@@ -187,6 +173,27 @@ const SideIonMenu = () => {
                 </Label>
               </Item>
             </Item>
+          )}
+
+          {/* List of pages */}
+          {Object.keys(appPages).map(
+            (id) =>
+              !excludedPages.includes(id) && (
+                <Item
+                  className="mt-s"
+                  key={appPages[id].title}
+                  lines="none"
+                  routerLink={appPages[id].url}
+                  detail={false}
+                >
+                  <Icon icon={appPages[id].icon} slot="start" size="large" color="medium" />
+                  <Label color="medium">
+                    <Text>
+                      <a className="medium-title bold">{appPages[id].title}</a>
+                    </Text>
+                  </Label>
+                </Item>
+              )
           )}
         </List>
       </Content>

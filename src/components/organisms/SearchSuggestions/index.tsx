@@ -17,7 +17,7 @@ const SearchSuggestions = ({ history }: RouteComponentProps) => {
           <div className="suggestion-item" key={i} onClick={goToSearch}>
             <IonRow className="ion-align-items-center">
               <IonCol size="auto">
-                <IonAvatar className="thumbnail-tiny">
+                <IonAvatar className="tiny">
                   <img src={faker.image.avatar()} alt="" />
                 </IonAvatar>
               </IonCol>

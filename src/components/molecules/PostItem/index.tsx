@@ -72,7 +72,7 @@ export const PostItem = ({
 
       <IonRow className="post-item-header">
         <IonCol size="auto">
-          <IonAvatar className="avatar thumbnail-small" onClick={handleGoToProfile}>
+          <IonAvatar className="avatar small" onClick={handleGoToProfile}>
             <img src={avatar} alt="" />
             <div className="avatar-status">
               <div className="online-status active"></div>

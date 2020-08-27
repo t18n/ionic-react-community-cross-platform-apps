@@ -13,7 +13,7 @@ const ProfileHighlights = () => {
           <div className="media-item">
             <IonRow>
               <IonCol size="auto">
-                <IonAvatar className="thumbnail-small">
+                <IonAvatar className="small">
                   <img src={faker.image.avatar()} alt="" />
                 </IonAvatar>
               </IonCol>

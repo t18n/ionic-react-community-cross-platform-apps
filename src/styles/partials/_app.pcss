@@ -28,6 +28,11 @@ input:-webkit-autofill:active {
 * Ionic elements
 ******************/
 
+/* Menu */
+ion-menu {
+  width: calc(var(--grid) * 70);
+}
+
 /* Ion Item */
 ion-item {
   --padding-start: 0;
@@ -77,12 +82,12 @@ ion-thumbnail {
 
 ion-avatar,
 ion-thumbnail {
-  &.thumbnail-tiny {
+  &.tiny {
     width: calc(var(--grid) * 6);
     height: calc(var(--grid) * 6);
   }
 
-  &.thumbnail-small {
+  &.small {
     width: calc(var(--grid) * 8);
     height: calc(var(--grid) * 8);
   }
