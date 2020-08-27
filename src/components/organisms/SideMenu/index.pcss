@@ -1,4 +1,4 @@
-.side-menu {
+.main-menu {
   height: 100%;
 
   &__logo {
@@ -6,5 +6,10 @@
     padding-top: calc(var(--grid) * 4);
     padding-bottom: calc(var(--grid) * 2);
     width: calc(var(--grid) * 40);
+  }
+
+  ion-item:hover ion-icon,
+  ion-item:hover ion-label {
+    color: var(--ion-color-dark);
   }
 }

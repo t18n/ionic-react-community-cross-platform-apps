@@ -2,8 +2,8 @@ import './index.min.css';
 
 import { IonMenu } from '@ionic/react';
 import { t, Trans } from '@lingui/macro';
-import { Button, Toggle } from 'components/atoms/Button';
-import { icChevronDown, Icon } from 'components/atoms/Icon';
+import { Toggle } from 'components/atoms/Button';
+import { Icon } from 'components/atoms/Icon';
 import { Label } from 'components/atoms/Item';
 import { Content } from 'components/atoms/Layout/Content';
 import { Header } from 'components/atoms/Layout/Header';
@@ -81,12 +81,19 @@ const SideIonMenu = () => {
   }, [isDarkMode]);
 
   return (
-    <IonMenu type="overlay" side="start" contentId="main" menuId="main" swipeGesture={false}>
+    <IonMenu
+      type="overlay"
+      side="start"
+      contentId="main"
+      menuId="main"
+      swipeGesture={false}
+      className="main-menu"
+    >
       <Content>
         <List color="light">
           <Header slot="start">
             <Toolbar className="border-0" color="light">
-              <Logo extraClasses="side-menu__logo" />
+              <Logo extraClasses="main-menu__logo" />
             </Toolbar>
           </Header>
 

@@ -1,1 +1,1 @@
-.side-menu{height:100%}.side-menu__logo{padding-left:calc(var(--grid)*4);padding-top:calc(var(--grid)*4);padding-bottom:calc(var(--grid)*2);width:calc(var(--grid)*40)}
+.main-menu{height:100%}.main-menu__logo{padding-left:calc(var(--grid)*4);padding-top:calc(var(--grid)*4);padding-bottom:calc(var(--grid)*2);width:calc(var(--grid)*40)}.main-menu ion-item:hover ion-icon,.main-menu ion-item:hover ion-label{color:var(--ion-color-dark)}
