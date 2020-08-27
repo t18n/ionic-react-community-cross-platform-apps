@@ -1,12 +1,21 @@
 import './index.min.css';
 
-import { IonButton, IonContent, IonHeader, IonIcon, IonPage, IonText } from '@ionic/react';
+import { t } from '@lingui/macro';
+import { Button } from 'components/atoms/Button';
+import { icNote, Icon } from 'components/atoms/Icon';
+import { Content } from 'components/atoms/Layout/Content';
+import { Header } from 'components/atoms/Layout/Header';
+import { Page } from 'components/atoms/Layout/Page';
 import PostItem, { postItems } from 'components/molecules/PostItem';
 import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import SkeletonPost from 'components/organisms/SkeletonPost';
 import Topbar from 'components/organisms/Topbar';
-import { camera, create, videocam } from 'ionicons/icons';
+import { useLoggedInUser } from 'graphql/operation/user/query';
+import { camera, videocam } from 'ionicons/icons';
+import Tour from 'pages/Tour';
 import React, { useEffect, useState } from 'react';
+
+import { Text } from '../../components/atoms/Text/index';
 
 type HomeProps = {
   history: any;
@@ -16,19 +25,13 @@ export const Home = ({ history }: HomeProps) => {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const { isAuthed } = useLoggedInUser();
+
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
   });
-
-  const goToProfile = () => {
-    history.push('/profile');
-  };
-
-  const goToPostDetail = () => {
-    history.push('/post/1');
-  };
 
   const handleOnFocus = () => {
     setIsSearchFocused(true);
@@ -38,39 +41,41 @@ export const Home = ({ history }: HomeProps) => {
     setIsSearchFocused(false);
   };
 
-  return (
-    <IonPage>
-      <IonHeader>
+  return !isAuthed ? (
+    <Tour />
+  ) : (
+    <Page title={t`page.title.home`}>
+      <Header>
         <Topbar onFocus={handleOnFocus} onBlur={handleOnBlur} />
-      </IonHeader>
+      </Header>
 
-      <IonContent className={!isSearchFocused ? 'ion-hide' : ''}>
+      <Content className={!isSearchFocused ? 'ion-hide' : ''}>
         <div className="content-overlay">
           <SearchSuggestions />
         </div>
-      </IonContent>
+      </Content>
 
       {isLoading && (
-        <IonContent className="bg-light">
+        <Content className="bg-light">
           <SkeletonPost />
-        </IonContent>
+        </Content>
       )}
 
       {!isLoading && (
-        <IonContent className={`bg-light${isSearchFocused ? ' ion-hide' : ''}`}>
+        <Content className={`bg-light${isSearchFocused ? ' ion-hide' : ''}`}>
           <div className="toolbar-post">
-            <IonButton color="white" className="button-post post-input">
+            <Button color="white" className="button-post post-input">
               <div className="button-inner-left">
-                <IonIcon color="medium" icon={create} />
-                <IonText color="medium">Write a post</IonText>
+                <Icon color="medium" icon={icNote} />
+                <Text color="medium">Write a post</Text>
               </div>
-            </IonButton>
-            <IonButton color="white" className="button-post">
-              <IonIcon color="medium" icon={videocam} />
-            </IonButton>
-            <IonButton color="white" className="button-post">
-              <IonIcon color="medium" icon={camera} />
-            </IonButton>
+            </Button>
+            <Button color="white" className="button-post">
+              <Icon color="medium" icon={videocam} />
+            </Button>
+            <Button color="white" className="button-post">
+              <Icon color="medium" icon={camera} />
+            </Button>
           </div>
 
           <div className="post-list">
@@ -90,8 +95,8 @@ export const Home = ({ history }: HomeProps) => {
               />
             ))}
           </div>
-        </IonContent>
+        </Content>
       )}
-    </IonPage>
+    </Page>
   );
 };

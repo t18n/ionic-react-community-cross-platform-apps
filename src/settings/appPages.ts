@@ -29,6 +29,8 @@ import Tabs from 'pages/Tabs';
 import Tour from 'pages/Tour';
 import { FC } from 'react';
 
+import { Home } from '../pages/Home/index';
+
 interface AppPage {
   url: string;
   title: string;
@@ -38,10 +40,10 @@ interface AppPage {
 
 export const appPages: Record<string, AppPage> = {
   home: {
-    title: 'Welcome',
+    title: 'Home',
     url: '/',
     icon: icHome,
-    component: Tour,
+    component: Home,
   },
   welcome: {
     title: 'Welcome',
@@ -61,7 +63,6 @@ export const appPages: Record<string, AppPage> = {
     icon: icUserPlus,
     component: Signup,
   },
-
   media: {
     title: 'Media',
     url: '/media',

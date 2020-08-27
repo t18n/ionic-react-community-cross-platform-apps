@@ -9,7 +9,6 @@ import { Content } from 'components/atoms/Layout/Content';
 import { Header } from 'components/atoms/Layout/Header';
 import { Toolbar } from 'components/atoms/Layout/Toolbar';
 import { Item, List, ListHeader } from 'components/atoms/List';
-import { SkeletonText } from 'components/atoms/Loading';
 import { Logo } from 'components/atoms/Logo';
 import { Img, Thumbnail } from 'components/atoms/Media';
 import { Popover } from 'components/atoms/Popover';
@@ -36,7 +35,8 @@ const SideIonMenu = () => {
   const { data: ME_data } = useLoggedInUser();
   const [logout, { loading: LOGOUT_loading }] = useLogoutUser();
 
-  const isAuth = true;
+  const excludedPages = ['login', 'signup', 'welcome'];
+
   const loginPage = appPages.login;
 
   /**
@@ -90,21 +90,24 @@ const SideIonMenu = () => {
             </Toolbar>
           </Header>
 
-          {Object.keys(appPages).map((id) => (
-            <Item
-              key={appPages[id].title}
-              lines="none"
-              routerLink={appPages[id].url}
-              detail={false}
-            >
-              <Icon icon={appPages[id].icon} slot="start" size="large" color="medium" />
-              <Label color="medium">
-                <Text>
-                  <h6>{appPages[id].title}</h6>
-                </Text>
-              </Label>
-            </Item>
-          ))}
+          {Object.keys(appPages).map(
+            (id) =>
+              !excludedPages.includes(id) && (
+                <Item
+                  key={appPages[id].title}
+                  lines="none"
+                  routerLink={appPages[id].url}
+                  detail={false}
+                >
+                  <Icon icon={appPages[id].icon} slot="start" size="large" color="medium" />
+                  <Label color="medium">
+                    <Text>
+                      <h6>{appPages[id].title}</h6>
+                    </Text>
+                  </Label>
+                </Item>
+              )
+          )}
 
           {ME_data?.me ? (
             <Item lines="none" slot="end" detail={false} className="mt-l">
