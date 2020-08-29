@@ -1,28 +1,23 @@
 import './index.min.css';
 
 import { t } from '@lingui/macro';
-import { Button } from 'components/atoms/Button';
-import { icNote, Icon } from 'components/atoms/Icon';
 import { Content } from 'components/atoms/Layout/Content';
-import { Header } from 'components/atoms/Layout/Header';
 import { Page } from 'components/atoms/Layout/Page';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import PostItem, { postItems } from 'components/molecules/PostItem';
 import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import SkeletonPost from 'components/organisms/SkeletonPost';
-import Topbar from 'components/organisms/Topbar';
 import { useLoggedInUser } from 'graphql/operation/user/query';
-import { camera, videocam } from 'ionicons/icons';
+import { useSearchBar } from 'hooks/useSearchbar';
 import Tour from 'pages/Tour';
 import React, { useEffect, useState } from 'react';
-
-import { Text } from '../../components/atoms/Text/index';
 
 type HomeProps = {
   history: any;
 };
 
 export const Home = ({ history }: HomeProps) => {
-  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
   const [isLoading, setIsLoading] = useState(true);
 
   const { isAuthed } = useLoggedInUser();
@@ -33,27 +28,19 @@ export const Home = ({ history }: HomeProps) => {
     }, 3000);
   });
 
-  const handleOnFocus = () => {
-    setIsSearchFocused(true);
-  };
-
-  const handleOnBlur = () => {
-    setIsSearchFocused(false);
-  };
-
   return !isAuthed ? (
     <Tour />
   ) : (
-    <Page title={t`page.title.home`}>
-      <Header>
-        <Topbar onFocus={handleOnFocus} onBlur={handleOnBlur} />
-      </Header>
+    <Page>
+      <Breadcrumb
+        title={t`page.title.home`}
+        searchBar={{
+          onSearchChange: onSearchChange,
+          onSearchCancel: onSearchCancel,
+        }}
+      />
 
-      <Content className={!isSearchFocused ? 'ion-hide' : ''}>
-        <div className="content-overlay">
-          <SearchSuggestions />
-        </div>
-      </Content>
+      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
       {isLoading && (
         <Content className="bg-light">
@@ -62,22 +49,7 @@ export const Home = ({ history }: HomeProps) => {
       )}
 
       {!isLoading && (
-        <Content className={`bg-light${isSearchFocused ? ' ion-hide' : ''}`}>
-          <div className="toolbar-post">
-            <Button color="white" className="button-post post-input">
-              <div className="button-inner-left">
-                <Icon color="medium" icon={icNote} />
-                <Text color="medium">Write a post</Text>
-              </div>
-            </Button>
-            <Button color="white" className="button-post">
-              <Icon color="medium" icon={videocam} />
-            </Button>
-            <Button color="white" className="button-post">
-              <Icon color="medium" icon={camera} />
-            </Button>
-          </div>
-
+        <Content className={`bg-light${isSearchFocused ? ' hide' : ''}`}>
           <div className="post-list">
             {postItems.map((post, i) => (
               <PostItem

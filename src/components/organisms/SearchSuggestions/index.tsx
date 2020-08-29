@@ -1,45 +1,57 @@
 import './index.min.css';
 
-import { IonAvatar, IonCol, IonItem, IonLabel, IonRow, IonText } from '@ionic/react';
+import { Item, Label } from 'components/atoms/Item';
+import { Content } from 'components/atoms/Layout/Content';
+import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Avatar } from 'components/atoms/Media';
 import faker from 'faker';
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 
-const SearchSuggestions = ({ history }: RouteComponentProps) => {
+import { Text } from '../../atoms/Text/index';
+
+interface SearchSuggestionsProps extends RouteComponentProps {
+  isFocused: boolean;
+  searchTerm: string;
+}
+
+const SearchSuggestions = ({ history, isFocused, searchTerm }: SearchSuggestionsProps) => {
   const goToSearch = () => {
     history.push('/search');
   };
 
   return (
-    <div>
-      <div className="search-suggestions">
-        {[0, 1, 2, 3, 4].map((i) => (
-          <div className="suggestion-item" key={i} onClick={goToSearch}>
-            <IonRow className="ion-align-items-center">
-              <IonCol size="auto">
-                <IonAvatar className="tiny">
-                  <img src={faker.image.avatar()} alt="" />
-                </IonAvatar>
-              </IonCol>
-              <IonCol>
-                <div className="text-sm">
-                  <strong>{faker.company.companyName()} </strong>
-                  <IonText color="medium">Industry: {faker.company.companyName()}</IonText>
-                </div>
-              </IonCol>
-            </IonRow>
-          </div>
-        ))}
-      </div>
+    <Content className={!isFocused ? 'hide' : ''}>
+      <div className="content-overlay">
+        <div className="search-suggestions">
+          {[0, 1, 2, 3, 4].map((i) => (
+            <div className="search-suggestions__items" key={i} onClick={goToSearch}>
+              <Row className="items-center">
+                <Col size="auto">
+                  <Avatar className="tiny">
+                    <img src={faker.image.avatar()} alt="" />
+                  </Avatar>
+                </Col>
+                <Col>
+                  <div className="text-sm">
+                    <strong>{faker.company.companyName()} </strong>
+                    <Text color="medium">Category: {faker.company.companyName()}</Text>
+                  </div>
+                </Col>
+              </Row>
+            </div>
+          ))}
+        </div>
 
-      <IonItem lines="none" onClick={goToSearch}>
-        <IonLabel color="primary">
-          <div className="text-sm">
-            <strong>See all results for {faker.lorem.word()}</strong>
-          </div>
-        </IonLabel>
-      </IonItem>
-    </div>
+        <Item lines="none" onClick={goToSearch}>
+          <Label color="primary">
+            <div className="text-sm">
+              <strong>See all results for {searchTerm}</strong>
+            </div>
+          </Label>
+        </Item>
+      </div>
+    </Content>
   );
 };
 

@@ -11,6 +11,8 @@ import {
   IonPage,
   IonRow,
 } from '@ionic/react';
+import { t } from '@lingui/macro';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import ConnectItem from 'components/molecules/ConnectItem';
 import { connections } from 'components/molecules/ConnectItem';
 import InvitationItem from 'components/molecules/InvitationItem';
@@ -19,17 +21,25 @@ import NewsletterItem from 'components/molecules/NewsletterItem';
 import { newsletters } from 'components/molecules/NewsletterItem';
 import ProfileCard from 'components/organisms/ProfileCard';
 import { profiles } from 'components/organisms/ProfileCard';
-import Topbar from 'components/organisms/Topbar';
+import SearchSuggestions from 'components/organisms/SearchSuggestions';
+import { useSearchBar } from 'hooks/useSearchbar';
 import { personAdd } from 'ionicons/icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const Network = () => {
+  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
+
   return (
     <IonPage>
-      <IonHeader>
-        <Topbar />
-      </IonHeader>
+      <Breadcrumb
+        title={t`page.title.network`}
+        searchBar={{
+          onSearchChange: onSearchChange,
+          onSearchCancel: onSearchCancel,
+        }}
+      />
+      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
       <IonContent className="bg-light">
         <div className="panel">

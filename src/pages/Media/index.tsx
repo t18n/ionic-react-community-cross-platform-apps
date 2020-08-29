@@ -11,8 +11,11 @@ import {
   IonRow,
   IonText,
 } from '@ionic/react';
+import { t } from '@lingui/macro';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import FollowCard, { follows } from 'components/molecules/FollowCard';
-import Topbar from 'components/organisms/Topbar';
+import SearchSuggestions from 'components/organisms/SearchSuggestions';
+import { useSearchBar } from 'hooks/useSearchbar';
 import { create, notifications } from 'ionicons/icons';
 import React from 'react';
 
@@ -21,15 +24,22 @@ type Props = {
 };
 
 const Media: React.FC<Props> = ({ history }) => {
+  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
+
   const goToMedium = () => {
     history.push('/media/jd');
   };
 
   return (
     <IonPage>
-      <IonHeader>
-        <Topbar />
-      </IonHeader>
+      <Breadcrumb
+        title={t`page.title.media`}
+        searchBar={{
+          onSearchChange: onSearchChange,
+          onSearchCancel: onSearchCancel,
+        }}
+      />
+      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
       <IonContent className="bg-light">
         <div className="panel">

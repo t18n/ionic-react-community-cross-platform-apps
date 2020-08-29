@@ -38,7 +38,7 @@ const ProfilePeople = () => {
 
         <div className="panel-body has-grid">
           {items.map((item, i) => (
-            <IonRow className="ion-align-items-center" key={i}>
+            <IonRow className="items-center" key={i}>
               <IonCol size="auto">
                 <IonAvatar className="avatar">
                   <img src={item.image} alt="" />

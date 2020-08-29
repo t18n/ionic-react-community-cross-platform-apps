@@ -9,6 +9,7 @@ import { Page } from 'components/atoms/Layout/Page';
 import { List } from 'components/atoms/List';
 import { Loading } from 'components/atoms/Loading';
 import { Toast } from 'components/atoms/Toast';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import { useLoginUser } from 'graphql/operation/user/mutation';
 import { ME } from 'graphql/operation/user/shape';
 import { useToast } from 'hooks/useToast';
@@ -74,7 +75,8 @@ export const Login = ({ history }: LoginProps) => {
   };
 
   return (
-    <Page title={t`page.title.login`}>
+    <Page>
+      <Breadcrumb title={t`page.title.login`} />
       <Content>
         <form
           className="w-100p h-100p flex flex-col content-center justify-center"

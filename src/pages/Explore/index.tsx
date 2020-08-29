@@ -5,11 +5,16 @@ import { Col, Grid, Row } from 'components/atoms/Layout/Grid';
 import { Page } from 'components/atoms/Layout/Page';
 import { List, ListHeader } from 'components/atoms/List';
 import { Spinner } from 'components/atoms/Loading';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
+import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import { useMediumsQuery } from 'graphql/operation/medium/query';
+import { useSearchBar } from 'hooks/useSearchbar';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export const Explore = () => {
+  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
+
   const [state, setState] = useState({
     isLoading: true,
     topTags: [],
@@ -34,7 +39,17 @@ export const Explore = () => {
   });
 
   return (
-    <Page title={t`page.title.explore`}>
+    <Page>
+      <Breadcrumb
+        title={t`page.title.explore`}
+        searchBar={{
+          onSearchChange: onSearchChange,
+          onSearchCancel: onSearchCancel,
+        }}
+      />
+
+      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
+
       <Content fullscreen={true}>
         {isError ? 'There are some errors' : null}
         {!state.isLoading ? (

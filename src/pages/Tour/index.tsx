@@ -8,6 +8,7 @@ import { Page } from 'components/atoms/Layout/Page';
 import { Logo } from 'components/atoms/Logo';
 import { Slide, Slides } from 'components/atoms/Slide';
 import { Text } from 'components/atoms/Text';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import React, { useRef, useState } from 'react';
 
 const slideOpts = {
@@ -32,7 +33,8 @@ export const Tour = (props: TourProps) => {
   };
 
   return (
-    <Page title={t`page.title.welcome`}>
+    <Page>
+      <Breadcrumb title={t`page.title.welcome`} />
       <Content className={activeIndex > 0 ? 'bg-primary' : ''}>
         <div className="tour-slide vertical-layout">
           <div className="slides-container">

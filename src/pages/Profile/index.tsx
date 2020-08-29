@@ -2,19 +2,16 @@ import './index.min.css';
 
 import {
   IonAvatar,
-  IonBackButton,
   IonButton,
-  IonButtons,
   IonContent,
   IonFab,
   IonFabButton,
-  IonHeader,
   IonIcon,
   IonPage,
-  IonSearchbar,
   IonText,
-  IonToolbar,
 } from '@ionic/react';
+import { t } from '@lingui/macro';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import ProfileAbout from 'components/organisms/ProfileAbout';
 import ProfileAccomplishments from 'components/organisms/ProfileAccomplishments';
 import ProfileActivity from 'components/organisms/ProfileActivity';
@@ -25,30 +22,25 @@ import ProfileExperience from 'components/organisms/ProfileExperience';
 import ProfileHighlights from 'components/organisms/ProfileHighlights';
 import ProfilePeople from 'components/organisms/ProfilePeople';
 import ProfileSkills from 'components/organisms/ProfileSkills';
+import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import faker from 'faker';
-import { add, create, settings } from 'ionicons/icons';
+import { useSearchBar } from 'hooks/useSearchbar';
+import { add, create } from 'ionicons/icons';
 import React from 'react';
 
 const Profile = () => {
+  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
+
   return (
     <IonPage className="profile-page">
-      <IonHeader>
-        <IonToolbar className="toolbar-search border-0" color="primary">
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/home" />
-          </IonButtons>
-
-          <div className="searchbar-wrapper">
-            <IonSearchbar placeholder=""></IonSearchbar>
-          </div>
-
-          <IonButtons slot="end" className="pos-rlt">
-            <IonButton color="white" routerLink="/settings">
-              <IonIcon slot="icon-only" icon={settings} />
-            </IonButton>
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
+      <Breadcrumb
+        title={t`page.title.profile`}
+        searchBar={{
+          onSearchChange: onSearchChange,
+          onSearchCancel: onSearchCancel,
+        }}
+      />
+      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
       <IonContent className="bg-light">
         <div className="panel">

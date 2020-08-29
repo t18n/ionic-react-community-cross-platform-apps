@@ -1,67 +1,39 @@
 import './index.pcss';
 
 import {
-  IonBackButton,
   IonButton,
-  IonButtons,
   IonCol,
   IonContent,
-  IonHeader,
   IonIcon,
   IonItem,
   IonLabel,
   IonPage,
   IonRow,
-  IonSearchbar,
   IonText,
   IonThumbnail,
   IonToggle,
-  IonToolbar,
 } from '@ionic/react';
+import { t } from '@lingui/macro';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
+import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import faker from 'faker';
-import { add, checkmarkCircle, checkmarkCircleOutline, expand, open } from 'ionicons/icons';
-import React, { useState } from 'react';
+import { useSearchBar } from 'hooks/useSearchbar';
+import { add, checkmarkCircle, checkmarkCircleOutline, open } from 'ionicons/icons';
+import React from 'react';
 
 export const Idea = () => {
-  const [isFocused, setIsFocused] = useState(false);
-
-  const onSearchFocus = () => {
-    setIsFocused(true);
-  };
-
-  const onSearchBlur = () => {
-    setIsFocused(false);
-  };
+  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
 
   return (
     <IonPage className="job-detail-page">
-      <IonHeader>
-        <IonToolbar className="toolbar-search border-0" color="primary">
-          {!isFocused && (
-            <IonButtons slot="start">
-              <IonBackButton />
-            </IonButtons>
-          )}
-
-          <div className="searchbar-wrapper">
-            <IonSearchbar
-              placeholder="takethatdesign.com"
-              value="Senior Frontend Engineer"
-              showCancelButton="focus"
-              onIonFocus={onSearchFocus}
-              onIonCancel={onSearchBlur}
-            ></IonSearchbar>
-          </div>
-
-          {!isFocused && (
-            <IonButtons slot="end" className="pos-rlt">
-              <IonButton fill="clear">
-                <IonIcon slot="icon-only" icon={expand} />
-              </IonButton>
-            </IonButtons>
-          )}
-        </IonToolbar>
-      </IonHeader>
+      <Breadcrumb
+        title={t`page.title.idea`}
+        searchBar={{
+          onSearchChange: onSearchChange,
+          onSearchCancel: onSearchCancel,
+        }}
+      />
+      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
       <IonContent className="bg-light">
         <div className="panel">
@@ -123,7 +95,7 @@ export const Idea = () => {
             </IonText>
           </div>
           <div className="panel-body no-padding-top">
-            <IonRow className="ion-align-items-center">
+            <IonRow className="items-center">
               <IonCol size="auto">
                 <IonIcon icon={checkmarkCircle} color="primary" size="small" />
               </IonCol>
@@ -136,7 +108,7 @@ export const Idea = () => {
                 </div>
               </IonCol>
             </IonRow>
-            <IonRow className="ion-align-items-center">
+            <IonRow className="items-center">
               <IonCol size="auto">
                 <IonIcon icon={checkmarkCircle} color="primary" size="small" />
               </IonCol>
@@ -180,7 +152,7 @@ export const Idea = () => {
         <div className="panel">
           <div className="panel-header">Learn expand about Career Interest</div>
           <div className="panel-body">
-            <IonRow className="ion-align-items-center">
+            <IonRow className="items-center">
               <IonCol size="auto">
                 <IonThumbnail className="avatar">
                   <img src={faker.image.avatar()} alt="" />

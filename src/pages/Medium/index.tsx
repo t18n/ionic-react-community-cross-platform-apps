@@ -1,29 +1,28 @@
 import './index.pcss';
 
 import {
-  IonBackButton,
   IonButton,
-  IonButtons,
   IonCol,
   IonContent,
-  IonHeader,
   IonIcon,
   IonItem,
   IonLabel,
   IonPage,
   IonRow,
-  IonSearchbar,
   IonSpinner,
   IonText,
   IonThumbnail,
   IonToggle,
-  IonToolbar,
   useIonViewDidEnter,
 } from '@ionic/react';
+import { t } from '@lingui/macro';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
+import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import faker from 'faker';
 import { useMediumQuery } from 'graphql/operation/medium/query';
-import { add, checkmarkCircle, checkmarkCircleOutline, expand, open } from 'ionicons/icons';
-import React, { useState } from 'react';
+import { useSearchBar } from 'hooks/useSearchbar';
+import { add, checkmarkCircle, checkmarkCircleOutline, open } from 'ionicons/icons';
+import React from 'react';
 
 interface MediumProps {
   match: any;
@@ -34,7 +33,7 @@ const Medium = ({
     params: { slug },
   },
 }: MediumProps) => {
-  const [isFocused, setIsFocused] = useState(false);
+  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
 
   const { data, loading } = useMediumQuery({
     variables: {
@@ -46,43 +45,17 @@ const Medium = ({
     console.log(slug);
   });
 
-  const onSearchFocus = () => {
-    setIsFocused(true);
-  };
-
-  const onSearchBlur = () => {
-    setIsFocused(false);
-  };
-
   return (
     <IonPage className="job-detail-page">
-      <IonHeader>
-        <IonToolbar className="toolbar-search border-0" color="primary">
-          {!isFocused && (
-            <IonButtons slot="start">
-              <IonBackButton />
-            </IonButtons>
-          )}
+      <Breadcrumb
+        title={t`page.title.medium`}
+        searchBar={{
+          onSearchChange: onSearchChange,
+          onSearchCancel: onSearchCancel,
+        }}
+      />
 
-          <div className="searchbar-wrapper">
-            <IonSearchbar
-              placeholder="takethatdesign.com"
-              value="Senior Frontend Engineer"
-              showCancelButton="focus"
-              onIonFocus={onSearchFocus}
-              onIonCancel={onSearchBlur}
-            ></IonSearchbar>
-          </div>
-
-          {!isFocused && (
-            <IonButtons slot="end" className="pos-rlt">
-              <IonButton fill="clear">
-                <IonIcon slot="icon-only" icon={expand} />
-              </IonButton>
-            </IonButtons>
-          )}
-        </IonToolbar>
-      </IonHeader>
+      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
       <IonContent className="bg-light">
         {loading ? (
@@ -151,7 +124,7 @@ const Medium = ({
                   </IonText>
                 </div>
                 <div className="panel-body no-padding-top">
-                  <IonRow className="ion-align-items-center">
+                  <IonRow className="items-center">
                     <IonCol size="auto">
                       <IonIcon icon={checkmarkCircle} color="primary" size="small" />
                     </IonCol>
@@ -164,7 +137,7 @@ const Medium = ({
                       </div>
                     </IonCol>
                   </IonRow>
-                  <IonRow className="ion-align-items-center">
+                  <IonRow className="items-center">
                     <IonCol size="auto">
                       <IonIcon icon={checkmarkCircle} color="primary" size="small" />
                     </IonCol>
@@ -208,7 +181,7 @@ const Medium = ({
               <div className="panel">
                 <div className="panel-header">Learn expand about Career Interest</div>
                 <div className="panel-body">
-                  <IonRow className="ion-align-items-center">
+                  <IonRow className="items-center">
                     <IonCol size="auto">
                       <IonThumbnail className="avatar">
                         <img src={faker.image.avatar()} alt="" />

@@ -14,36 +14,16 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
+import { t } from '@lingui/macro';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import faker from 'faker';
-import { addCircle, expand } from 'ionicons/icons';
+import { addCircle } from 'ionicons/icons';
 import React from 'react';
 
 export const Messages = () => {
   return (
     <IonPage className="chat-page">
-      <IonHeader>
-        <IonToolbar className="border-0" color="primary">
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/messaging" />
-          </IonButtons>
-
-          <IonTitle className="title-custom">
-            <div className="text-sm">
-              <strong>{faker.name.firstName()}</strong>
-            </div>
-            <div className="text-xxs">
-              <div className="online-status active"></div>
-              <span className="status">Mobile</span>·<span className="status">22h ago</span>
-            </div>
-          </IonTitle>
-
-          <IonButtons slot="end">
-            <IonButton>
-              <IonIcon slot="icon-only" icon={expand} />
-            </IonButton>
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
+      <Breadcrumb title={t`page.title.media`} />
 
       <IonContent>
         <div className="chat-header">

@@ -16,23 +16,19 @@ import {
   IonText,
   IonToolbar,
 } from '@ionic/react';
+import { t } from '@lingui/macro';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import ConnectItem from 'components/molecules/ConnectItem';
 import { connections } from 'components/molecules/ConnectItem';
 import FollowCard from 'components/molecules/FollowCard';
 import { follows } from 'components/molecules/FollowCard';
+import SearchSuggestions from 'components/organisms/SearchSuggestions';
+import { useSearchBar } from 'hooks/useSearchbar';
 import { chevronDown } from 'ionicons/icons';
 import React, { useState } from 'react';
 
 const Search = () => {
-  const [isFocused, setIsFocused] = useState(false);
-
-  const onSearchFocus = () => {
-    setIsFocused(true);
-  };
-
-  const onSearchBlur = () => {
-    setIsFocused(false);
-  };
+  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
 
   const goToMedium = () => {
     console.log('goToMedium');
@@ -41,28 +37,15 @@ const Search = () => {
   return (
     <IonPage className="search-page">
       <IonHeader>
-        <IonToolbar className="toolbar-search border-0" color="primary">
-          {!isFocused && (
-            <IonButtons slot="start">
-              <IonBackButton />
-            </IonButtons>
-          )}
+        <Breadcrumb
+          title={t`page.title.search`}
+          searchBar={{
+            onSearchChange: onSearchChange,
+            onSearchCancel: onSearchCancel,
+          }}
+        />
+        <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
-          <div className="searchbar-wrapper">
-            <IonSearchbar
-              placeholder="Search"
-              showCancelButton="focus"
-              onIonFocus={onSearchFocus}
-              onIonCancel={onSearchBlur}
-            ></IonSearchbar>
-          </div>
-
-          {!isFocused && (
-            <IonButtons slot="end" className="pos-rlt">
-              <IonButton>Filters</IonButton>
-            </IonButtons>
-          )}
-        </IonToolbar>
         <IonToolbar color="white" className="toolbar-shadow border-0">
           <div className="scroll-x">
             <IonButton className="scroll-item" fill="outline" color="medium" size="small">
