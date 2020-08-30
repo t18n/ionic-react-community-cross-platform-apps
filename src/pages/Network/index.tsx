@@ -6,12 +6,12 @@ import {
   IonContent,
   IonFab,
   IonFabButton,
-  IonHeader,
   IonIcon,
   IonPage,
   IonRow,
 } from '@ionic/react';
 import { t } from '@lingui/macro';
+import { Link } from 'components/atoms/Layout/Link';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import ConnectItem from 'components/molecules/ConnectItem';
 import { connections } from 'components/molecules/ConnectItem';
@@ -25,7 +25,6 @@ import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import { useSearchBar } from 'hooks/useSearchbar';
 import { personAdd } from 'ionicons/icons';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export const Network = () => {
   const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
@@ -47,7 +46,7 @@ export const Network = () => {
             <IonRow>
               <IonCol>{invitations.length} new invitations</IonCol>
               <IonCol size="auto">
-                <Link to="/network/invitations">
+                <Link href="/network/invitations">
                   <span className="text-sm">
                     <strong>See all</strong>
                   </span>

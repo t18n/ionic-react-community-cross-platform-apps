@@ -15,6 +15,7 @@ export const PostItemExample = () => (
         <PostItem
           onClickDetail={post.onClickDetail}
           onClickProfile={post.onClickProfile}
+          reportCount={post.reportCount}
           reactionCount={post.reactionCount}
           commentCount={post.commentCount}
           summary={post.summary}
@@ -23,6 +24,7 @@ export const PostItemExample = () => (
           badge={post.badge}
           firstName={post.firstName}
           cover={post.cover}
+          title={post.title}
         />
       </IonCol>
     ))}

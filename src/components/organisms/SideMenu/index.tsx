@@ -124,7 +124,7 @@ const SideIonMenu = () => {
               >
                 <ListHeader className="text-center">
                   <Label color="dark">
-                    <Trans id="label.item.preferences" />
+                    <Trans id="label.preferences" />
                   </Label>
                 </ListHeader>
                 <List className="h-100p w-100p bg-transparent flex flex-col items-center py-m">
@@ -133,7 +133,7 @@ const SideIonMenu = () => {
                     <Toggle slot="start" checked={isDarkMode} onIonChange={toggleDarkMode} />
                     <Label color="medium">
                       <Text>
-                        <Trans id="label.item.darkMode" />
+                        <Trans id="label.darkMode" />
                       </Text>
                     </Label>
                   </Item>
@@ -141,7 +141,7 @@ const SideIonMenu = () => {
                   {/* Language */}
                   <Item lines="none" className="mt-s">
                     <Label>
-                      <Trans id="label.item.language" />
+                      <Trans id="label.language" />
                     </Label>
                     <Select
                       value={LocaleId.EN}
@@ -150,10 +150,10 @@ const SideIonMenu = () => {
                       onIonChange={(e: any) => activateLanguage(e.detail.value)}
                     >
                       <SelectOption value={LocaleId.VI}>
-                        <Trans id="label.item.vietnamese" />
+                        <Trans id="label.vietnamese" />
                       </SelectOption>
                       <SelectOption value={LocaleId.EN}>
-                        <Trans id="label.item.english" />
+                        <Trans id="label.english" />
                       </SelectOption>
                     </Select>
                   </Item>
@@ -162,7 +162,7 @@ const SideIonMenu = () => {
                   <Item lines="none" onClick={onLogout} className="cursor-pointer mt-s">
                     <Label color="medium">
                       <Text>
-                        <Trans id="label.item.logOut" />
+                        <Trans id="label.logOut" />
                       </Text>
                     </Label>
                   </Item>

@@ -52,6 +52,7 @@ const PostDetail = ({ history }: Props) => {
             onClickDetail={post.onClickDetail}
             onClickProfile={post.onClickProfile}
             reactionCount={post.reactionCount}
+            reportCount={post.reportCount}
             commentCount={post.commentCount}
             summary={post.summary}
             editTimestamp={post.editTimestamp}
@@ -59,6 +60,7 @@ const PostDetail = ({ history }: Props) => {
             badge={post.badge}
             firstName={post.firstName}
             cover={post.cover}
+            title={post.title}
           />
         ))}
         <PostReactions />

@@ -149,7 +149,7 @@ export const Signup = ({ history }: SignupProps) => {
           <Row className="w-m mt-l mx-auto">
             <Col className="p-0 mr-m">
               <Button type="submit" expand="block">
-                <Trans id="label.button.signup" />
+                <Trans id="label.signup" />
               </Button>
             </Col>
             <Col className="p-0 ml-m"></Col>

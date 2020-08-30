@@ -132,7 +132,7 @@ export const Login = ({ history }: LoginProps) => {
                 fill="clear"
                 className="ml-auto color-medium"
               >
-                <Trans id="label.button.forgotPassword" />
+                <Trans id="label.forgotPassword" />
               </Button>
             </Col>
           </Row>
@@ -140,12 +140,12 @@ export const Login = ({ history }: LoginProps) => {
           <Row className="w-m mt-l mx-auto">
             <Col className="p-0 mr-m">
               <Button type="submit" expand="block">
-                <Trans id="label.button.login" />
+                <Trans id="label.login" />
               </Button>
             </Col>
             <Col className="p-0 ml-m">
               <Button routerLink="/signup" expand="block" fill="outline">
-                <Trans id="label.button.signup" />
+                <Trans id="label.signup" />
               </Button>
             </Col>
           </Row>

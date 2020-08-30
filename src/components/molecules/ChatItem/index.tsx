@@ -3,7 +3,8 @@ import './index.min.css';
 import { IonAvatar, IonCol, IonRow, IonText } from '@ionic/react';
 import faker from 'faker';
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import { Link } from '../../atoms/Layout/Link/index';
 
 export interface ChatItemProps {
   thumbnail: string;
@@ -32,7 +33,7 @@ const ChatItem = ({ thumbnail, timestamp, content, firstName, profileSlug }: Cha
         </IonCol>
         <IonCol>
           <div>
-            <Link to={profileSlug}>
+            <Link href={profileSlug}>
               <strong>{firstName}</strong>
             </Link>
 

@@ -47,6 +47,27 @@
   @mixin spaceRight padding, 0;
 }
 
+.pa-s {
+  @mixin spaceTop padding, calc(var(--grid) * 2);
+  @mixin spaceBottom padding, calc(var(--grid) * 2);
+  @mixin spaceLeft padding, calc(var(--grid) * 2);
+  @mixin spaceRight padding, calc(var(--grid) * 2);
+
+  @media (--viewport-tablet) {
+    @mixin spaceTop padding, calc(var(--grid) * 3);
+    @mixin spaceBottom padding, calc(var(--grid) * 3);
+    @mixin spaceLeft padding, calc(var(--grid) * 3);
+    @mixin spaceRight padding, calc(var(--grid) * 3);
+  }
+
+  @media (--viewport-desktop) {
+    @mixin spaceTop padding, calc(var(--grid) * 4);
+    @mixin spaceBottom padding, calc(var(--grid) * 4);
+    @mixin spaceLeft padding, calc(var(--grid) * 4);
+    @mixin spaceRight padding, calc(var(--grid) * 4);
+  }
+}
+
 .pa-m {
   @mixin spaceTop padding, calc(var(--grid) * 5);
   @mixin spaceBottom padding, calc(var(--grid) * 5);
