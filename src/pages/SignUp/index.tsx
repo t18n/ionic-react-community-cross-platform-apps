@@ -72,7 +72,7 @@ export const Signup = ({ history }: SignupProps) => {
   return (
     <Page>
       <Breadcrumb title={t`page.title.signup`} />
-      <Content>
+      <Content className="px py">
         <form
           className="w-100p h-100p flex flex-col content-center justify-center"
           noValidate

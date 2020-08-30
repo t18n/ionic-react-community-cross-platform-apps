@@ -9,11 +9,13 @@ const postCssAutoprefixer = require('autoprefixer');
 const postCssPxToRem = require('postcss-pxtorem');
 const postCssNano = require('cssnano');
 const postCssColorFunction = require('postcss-color-function');
+const postCssMixins = require('postcss-mixins');
 
 module.exports = {
   plugins: [
     postCssImport,
     postcssPresetEnv({ stage: 2 }),
+    postCssMixins, // Must be set before postcss-simple-vars and postcss-nested.
     postCssNested,
     postCssBEM({
       defaultNamespace: undefined, // default namespace to use, none by default

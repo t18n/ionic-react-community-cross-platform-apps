@@ -12,7 +12,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { appPages } from 'settings/appPages';
 
-export const App = () => {
+const App = () => {
   return (
     <ApolloProvider>
       <I18nProvider>
@@ -40,3 +40,5 @@ export const App = () => {
     </ApolloProvider>
   );
 };
+
+export default App;

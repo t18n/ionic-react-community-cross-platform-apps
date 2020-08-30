@@ -44,8 +44,8 @@ export const Breadcrumb = ({ title, searchBar }: BreadcrumbProps) => (
         />
       )}
 
-      <ButtonGroup slot="end">
-        <Button>
+      <ButtonGroup slot="end" className="mr-m p-0">
+        <Button className="m-0 p-0">
           <Icon slot="icon-only" icon={icArrowsMaximize} size="small" />
         </Button>
       </ButtonGroup>

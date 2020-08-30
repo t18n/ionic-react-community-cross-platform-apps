@@ -26,7 +26,49 @@ input:-webkit-autofill:active {
 
 /******************
 * Ionic elements
-******************/
+******************
+/* Content */
+ion-content {
+  &.px {
+    @mixin spaceLeft padding, calc(var(--grid) * 5);
+    @mixin spaceRight padding, calc(var(--grid) * 5);
+
+    @media (--viewport-tablet) {
+      @mixin spaceLeft padding, calc(var(--grid) * 12);
+      @mixin spaceRight padding, calc(var(--grid) * 12);
+    }
+
+    @media (--viewport-desktop) {
+      @mixin spaceLeft padding, calc(var(--grid) * 14);
+      @mixin spaceRight padding, calc(var(--grid) * 14);
+    }
+
+    @media (--viewport-desktopLarge) {
+      @mixin spaceLeft padding, calc(var(--grid) * 16);
+      @mixin spaceRight padding, calc(var(--grid) * 16);
+    }
+  }
+
+  &.py {
+    @mixin spaceTop padding, calc(var(--grid) * 5);
+    @mixin spaceBottom padding, calc(var(--grid) * 5);
+
+    @media (--viewport-tablet) {
+      @mixin spaceTop padding, calc(var(--grid) * 8);
+      @mixin spaceBottom padding, calc(var(--grid) * 8);
+    }
+
+    @media (--viewport-desktop) {
+      @mixin spaceTop padding, calc(var(--grid) * 8);
+      @mixin spaceBottom padding, calc(var(--grid) * 8);
+    }
+
+    @media (--viewport-desktopLarge) {
+      @mixin spaceTop padding, calc(var(--grid) * 10);
+      @mixin spaceBottom padding, calc(var(--grid) * 10);
+    }
+  }
+}
 
 /* Menu */
 ion-menu {

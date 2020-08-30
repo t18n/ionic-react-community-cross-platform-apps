@@ -50,7 +50,7 @@ export const Explore = () => {
 
       <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
-      <Content fullscreen={true}>
+      <Content fullscreen={true} className="px py">
         {isError ? 'There are some errors' : null}
         {!state.isLoading ? (
           <List>

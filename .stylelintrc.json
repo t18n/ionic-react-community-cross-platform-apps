@@ -16,7 +16,13 @@
       true,
       {
         "ignoreAtRules": [
-          "/^custom-/"
+          "/^custom-/",
+          "define-mixin",
+          "function",
+          "if",
+          "each",
+          "include",
+          "mixin"
         ]
       }
     ],

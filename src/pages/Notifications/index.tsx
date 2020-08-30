@@ -23,7 +23,7 @@ export const Notifications = () => {
       />
       <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
-      <Content className="bg-light">
+      <Content className="px py">
         <div className="panel">
           <div className="panel-header">
             <div className="text-sm">

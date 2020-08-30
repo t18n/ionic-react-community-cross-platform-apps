@@ -39,211 +39,118 @@
 /*
 * Padding
 */
-.p-0 {
-  --padding-start: 0 !important;
-  --padding-end: 0 !important;
-  --padding-top: 0 !important;
-  --padding-bottom: 0 !important;
 
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+.p-0 {
+  @mixin spaceTop padding, 0;
+  @mixin spaceBottom padding, 0;
+  @mixin spaceLeft padding, 0;
+  @mixin spaceRight padding, 0;
 }
 
 .pa-m {
-  --padding-start: var(--padding, calc(var(--grid) * 4));
-  --padding-end: var(--padding, calc(var(--grid) * 4));
-  --padding-top: var(--padding, calc(var(--grid) * 4));
-  --padding-bottom: var(--padding, calc(var(--grid) * 4));
-
-  padding-left: var(--padding, calc(var(--grid) * 4));
-  padding-right: var(--padding, calc(var(--grid) * 4));
-  padding-top: var(--padding, calc(var(--grid) * 4));
-  padding-bottom: var(--padding, calc(var(--grid) * 4));
+  @mixin spaceTop padding, calc(var(--grid) * 5);
+  @mixin spaceBottom padding, calc(var(--grid) * 5);
+  @mixin spaceLeft padding, calc(var(--grid) * 5);
+  @mixin spaceRight padding, calc(var(--grid) * 5);
 }
 
 .pt-m {
-  --padding-top: var(--padding, calc(var(--grid) * 4));
-
-  padding-top: var(--padding, calc(var(--grid) * 4));
+  @mixin spaceTop padding, calc(var(--grid) * 5);
 }
 
 .pb-m {
-  --padding-bottom: var(--padding, calc(var(--grid) * 4));
-
-  padding-bottom: var(--padding, calc(var(--grid) * 4));
+  @mixin spaceBottom padding, calc(var(--grid) * 5);
 }
 
 .pl-m {
-  --padding-left: var(--padding, calc(var(--grid) * 4));
-
-  padding-left: var(--padding, calc(var(--grid) * 4));
+  @mixin spaceLeft padding, calc(var(--grid) * 5);
 }
 
 .pr-m {
-  --padding-right: var(--padding, calc(var(--grid) * 4));
-
-  padding-right: var(--padding, calc(var(--grid) * 4));
-}
-
-.py-m {
-  --padding-top: var(--padding, calc(var(--grid) * 4));
-  --padding-bottom: var(--padding, calc(var(--grid) * 4));
-
-  padding-top: var(--padding, calc(var(--grid) * 4));
-  padding-bottom: var(--padding, calc(var(--grid) * 4));
-}
-
-.px-m {
-  --padding-start: var(--padding, calc(var(--grid) * 4));
-  --padding-end: var(--padding, calc(var(--grid) * 4));
-
-  padding-left: var(--padding, calc(var(--grid) * 4));
-  padding-right: var(--padding, calc(var(--grid) * 4));
+  @mixin spaceRight padding, calc(var(--grid) * 5);
 }
 
 /*
 * Margin
 */
 .m-0 {
-  --margin-start: 0;
-  --margin-end: 0;
-  --margin-top: 0;
-  --margin-bottom: 0;
-
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  margin-bottom: 0;
+  @mixin spaceTop margin, 0;
+  @mixin spaceBottom margin, 0;
+  @mixin spaceLeft margin, 0;
+  @mixin spaceRight margin, 0;
 }
 
 .mx-auto {
-  --margin-start: auto;
-  --margin-end: auto;
-
-  margin-left: auto;
-  margin-right: auto;
+  @mixin spaceLeft margin, auto;
+  @mixin spaceRight margin, auto;
 }
 
 .my-auto {
-  --margin-top: auto;
-  --margin-bottom: auto;
-
-  margin-top: auto;
-  margin-bottom: auto;
+  @mixin spaceTop margin, auto;
+  @mixin spaceBottom margin, auto;
 }
 
 .ml-auto {
-  --margin-start: auto;
-
-  margin-left: auto;
+  @mixin spaceLeft margin, auto;
 }
 
 .mr-auto {
-  --margin-end: auto;
-
-  margin-right: auto;
+  @mixin spaceRight margin, auto;
 }
 
 .ma-m {
-  --margin-start: var(--margin, calc(var(--grid) * 4));
-  --margin-end: var(--margin, calc(var(--grid) * 4));
-  --margin-top: var(--margin, calc(var(--grid) * 4));
-  --margin-bottom: var(--margin, calc(var(--grid) * 4));
-
-  margin-left: var(--margin, calc(var(--grid) * 4));
-  margin-right: var(--margin, calc(var(--grid) * 4));
-  margin-top: var(--margin, calc(var(--grid) * 4));
-  margin-bottom: var(--margin, calc(var(--grid) * 4));
+  @mixin spaceTop margin, calc(var(--grid) * 5);
+  @mixin spaceBottom margin, calc(var(--grid) * 5);
+  @mixin spaceLeft margin, calc(var(--grid) * 5);
+  @mixin spaceRight margin, calc(var(--grid) * 5);
 }
 
 .mt-s {
-  --margin-top: var(--margin, calc(var(--grid) * 2));
-
-  margin-top: var(--margin, calc(var(--grid) * 2));
+  @mixin spaceTop margin, calc(var(--grid) * 3);
 }
 
 .mt-m {
-  --margin-top: var(--margin, calc(var(--grid) * 4));
-
-  margin-top: var(--margin, calc(var(--grid) * 4));
+  @mixin spaceTop margin, calc(var(--grid) * 5);
 }
 
 .mt-l {
-  --margin-top: var(--margin, calc(var(--grid) * 6));
-
-  margin-top: var(--margin, calc(var(--grid) * 6));
+  @mixin spaceTop margin, calc(var(--grid) * 8);
 }
 
 .mb-s {
-  --margin-bottom: var(--margin, calc(var(--grid) * 2));
-
-  margin-bottom: var(--margin, calc(var(--grid) * 2));
+  @mixin spaceBottom margin, calc(var(--grid) * 3);
 }
 
 .mb-m {
-  --margin-bottom: var(--margin, calc(var(--grid) * 4));
-
-  margin-bottom: var(--margin, calc(var(--grid) * 4));
+  @mixin spaceBottom margin, calc(var(--grid) * 5);
 }
 
 .mb-l {
-  --margin-bottom: var(--margin, calc(var(--grid) * 6));
-
-  margin-bottom: var(--margin, calc(var(--grid) * 6));
+  @mixin spaceBottom margin, calc(var(--grid) * 8);
 }
 
 .ml-s {
-  --margin-left: var(--margin, calc(var(--grid) * 2));
-
-  margin-left: var(--margin, calc(var(--grid) * 2));
+  @mixin spaceLeft margin, calc(var(--grid) * 3);
 }
 
 .ml-m {
-  --margin-left: var(--margin, calc(var(--grid) * 4));
-
-  margin-left: var(--margin, calc(var(--grid) * 4));
+  @mixin spaceLeft margin, calc(var(--grid) * 5);
 }
 
 .ml-l {
-  --margin-left: var(--margin, calc(var(--grid) * 6));
-
-  margin-left: var(--margin, calc(var(--grid) * 6));
+  @mixin spaceLeft margin, calc(var(--grid) * 8);
 }
 
 .mr-s {
-  --margin-right: var(--margin, calc(var(--grid) * 2));
-
-  margin-right: var(--margin, calc(var(--grid) * 2));
+  @mixin spaceRight margin, calc(var(--grid) * 3);
 }
 
 .mr-m {
-  --margin-right: var(--margin, calc(var(--grid) * 4));
-
-  margin-right: var(--margin, calc(var(--grid) * 4));
+  @mixin spaceRight margin, calc(var(--grid) * 5);
 }
 
 .mr-l {
-  --margin-right: var(--margin, calc(var(--grid) * 6));
-
-  margin-right: var(--margin, calc(var(--grid) * 6));
-}
-
-.my-m {
-  --margin-top: var(--margin, calc(var(--grid) * 4));
-  --margin-bottom: var(--margin, calc(var(--grid) * 4));
-
-  margin-top: var(--margin, calc(var(--grid) * 4));
-  margin-bottom: var(--margin, calc(var(--grid) * 4));
-}
-
-.mx-m {
-  --margin-start: var(--margin, calc(var(--grid) * 4));
-  --margin-end: var(--margin, calc(var(--grid) * 4));
-
-  margin-left: var(--margin, calc(var(--grid) * 4));
-  margin-right: var(--margin, calc(var(--grid) * 4));
+  @mixin spaceRight margin, calc(var(--grid) * 8);
 }
 
 /*

@@ -35,7 +35,7 @@ export const Tour = (props: TourProps) => {
   return (
     <Page>
       <Breadcrumb title={t`page.title.welcome`} />
-      <Content className={activeIndex > 0 ? 'bg-primary' : ''}>
+      <Content className={`px py ${activeIndex > 0 ? 'bg-primary' : ''}`}>
         <div className="tour-slide vertical-layout">
           <div className="slides-container">
             <Slides

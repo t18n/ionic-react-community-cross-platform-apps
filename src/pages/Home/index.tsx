@@ -1,7 +1,9 @@
 import './index.min.css';
 
 import { t } from '@lingui/macro';
+import { Badge } from 'components/atoms/Badge';
 import { Content } from 'components/atoms/Layout/Content';
+import { Col, Row } from 'components/atoms/Layout/Grid';
 import { Page } from 'components/atoms/Layout/Page';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import PostItem, { postItems } from 'components/molecules/PostItem';
@@ -25,7 +27,7 @@ export const Home = ({ history }: HomeProps) => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 1000);
   });
 
   return !isAuthed ? (
@@ -43,13 +45,22 @@ export const Home = ({ history }: HomeProps) => {
       <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
       {isLoading && (
-        <Content className="bg-light">
+        <Content className="px py">
           <SkeletonPost />
         </Content>
       )}
 
       {!isLoading && (
-        <Content className={`bg-light${isSearchFocused ? ' hide' : ''}`}>
+        <Content className={`px py ${isSearchFocused ? 'hide' : ''}`}>
+          <Row>
+            <Col>
+              <Badge className="mr-s">Hello</Badge>
+              <Badge className="mr-s">Hello</Badge>
+              <Badge className="mr-s">Hello</Badge>
+              <Badge className="mr-s">Hello</Badge>
+              <Badge className="mr-s">Hello</Badge>
+            </Col>
+          </Row>
           <div className="post-list">
             {postItems.map((post, i) => (
               <PostItem
