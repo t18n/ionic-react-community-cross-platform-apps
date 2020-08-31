@@ -1,15 +1,22 @@
 .main-menu {
   height: 100%;
 
+  &__item {
+    --background-hover: transparent;
+
+    &:hover * {
+      --ion-color-base: var(--ion-color-dark) !important;
+    }
+
+    &.active * {
+      --ion-color-base: var(--ion-color-primary) !important;
+    }
+  }
+
   &__logo {
     padding-left: calc(var(--grid) * 4);
     padding-top: calc(var(--grid) * 4);
     padding-bottom: calc(var(--grid) * 2);
     width: calc(var(--grid) * 40);
-  }
-
-  ion-item:hover ion-icon,
-  ion-item:hover ion-label {
-    color: var(--ion-color-dark);
   }
 }

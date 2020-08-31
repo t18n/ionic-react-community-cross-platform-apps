@@ -20,6 +20,7 @@ import { useLoggedInUser } from 'graphql/operation/user/query';
 import { ME } from 'graphql/operation/user/shape';
 import { useToast } from 'hooks/useToast';
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import ThemeService from 'services/theme';
 import { appPages } from 'settings/appPages';
 import { LocaleId } from 'settings/locale';
@@ -31,6 +32,7 @@ const SideIonMenu = () => {
   const [isDarkMode, setIsDarkMode] = useState(ThemeService.getCurrentSetting());
   const [showPopover, setShowPopover] = useState(false);
   const [toast, setToast] = useToast(null);
+  const location = useLocation();
 
   const { data: ME_data } = useLoggedInUser();
   const [logout, { loading: LOGOUT_loading }] = useLogoutUser();
@@ -46,7 +48,9 @@ const SideIonMenu = () => {
     setIsDarkMode(!isDarkMode);
   };
 
-  // Logout an user
+  /**
+   * Logout an user
+   */
   const onLogout = async (e) => {
     e.preventDefault();
 
@@ -116,61 +120,9 @@ const SideIonMenu = () => {
                   {ME_data.me?.name}
                 </Text>
               </Label>
-
-              <Popover
-                isOpen={showPopover}
-                onDidDismiss={() => setShowPopover(false)}
-                className="bg-overlay"
-              >
-                <ListHeader className="text-center">
-                  <Label color="dark">
-                    <Trans id="label.preferences" />
-                  </Label>
-                </ListHeader>
-                <List className="h-100p w-100p bg-transparent flex flex-col items-center py-m">
-                  {/* Dark mode */}
-                  <Item lines="none" className="mt-s">
-                    <Toggle slot="start" checked={isDarkMode} onIonChange={toggleDarkMode} />
-                    <Label color="medium">
-                      <Text as="span">
-                        <Trans id="label.darkMode" />
-                      </Text>
-                    </Label>
-                  </Item>
-
-                  {/* Language */}
-                  <Item lines="none" className="mt-s">
-                    <Label>
-                      <Trans id="label.language" />
-                    </Label>
-                    <Select
-                      value={LocaleId.EN}
-                      okText="Select"
-                      cancelText="Cancel"
-                      onIonChange={(e: any) => activateLanguage(e.detail.value)}
-                    >
-                      <SelectOption value={LocaleId.VI}>
-                        <Trans id="label.vietnamese" />
-                      </SelectOption>
-                      <SelectOption value={LocaleId.EN}>
-                        <Trans id="label.english" />
-                      </SelectOption>
-                    </Select>
-                  </Item>
-
-                  {/* Logout */}
-                  <Item lines="none" onClick={onLogout} className="cursor-pointer mt-s">
-                    <Label color="medium">
-                      <Text as="span">
-                        <Trans id="label.logOut" />
-                      </Text>
-                    </Label>
-                  </Item>
-                </List>
-              </Popover>
             </Item>
           ) : (
-            <Item lines="none" slot="end" detail={false} className="mt-s">
+            <Item lines="none" slot="end" detail={false} className="mt-s main-menu__item">
               <Item key={loginPage.title} lines="none" routerLink={loginPage.url} detail={false}>
                 <Icon icon={loginPage.icon} slot="start" size="large" color="medium" />
                 <Label color="medium">
@@ -185,7 +137,9 @@ const SideIonMenu = () => {
             (id) =>
               !excludedPages.includes(id) && (
                 <Item
-                  className="mt-s"
+                  className={`mt-s main-menu__item ${
+                    location.pathname === appPages[id].url && 'active'
+                  }`}
                   key={appPages[id].title}
                   lines="none"
                   routerLink={appPages[id].url}
@@ -202,6 +156,58 @@ const SideIonMenu = () => {
           )}
         </List>
       </Content>
+
+      <Popover
+        isOpen={showPopover}
+        onDidDismiss={() => setShowPopover(false)}
+        className="bg-overlay"
+      >
+        <ListHeader className="text-center">
+          <Label color="dark">
+            <Trans id="label.preferences" />
+          </Label>
+        </ListHeader>
+        <List className="h-100p w-100p bg-transparent flex flex-col items-center py-m">
+          {/* Dark mode */}
+          <Item lines="none" className="mt-s">
+            <Toggle slot="start" checked={isDarkMode} onIonChange={toggleDarkMode} />
+            <Label color="medium">
+              <Text as="span">
+                <Trans id="label.darkMode" />
+              </Text>
+            </Label>
+          </Item>
+
+          {/* Language */}
+          <Item lines="none" className="mt-s">
+            <Label>
+              <Trans id="label.language" />
+            </Label>
+            <Select
+              value={LocaleId.EN}
+              okText="Select"
+              cancelText="Cancel"
+              onIonChange={(e: any) => activateLanguage(e.detail.value)}
+            >
+              <SelectOption value={LocaleId.VI}>
+                <Trans id="label.vietnamese" />
+              </SelectOption>
+              <SelectOption value={LocaleId.EN}>
+                <Trans id="label.english" />
+              </SelectOption>
+            </Select>
+          </Item>
+
+          {/* Logout */}
+          <Item lines="none" onClick={onLogout} className="cursor-pointer mt-s">
+            <Label color="medium">
+              <Text as="span">
+                <Trans id="label.logOut" />
+              </Text>
+            </Label>
+          </Item>
+        </List>
+      </Popover>
 
       {LOGOUT_loading && <Loading isOpen={LOGOUT_loading} message={t`Logging out...`} />}
 
