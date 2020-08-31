@@ -1,7 +1,12 @@
 import './index.min.css';
 
-import { IonAvatar, IonButton, IonCol, IonIcon, IonRow, IonText } from '@ionic/react';
-import { icArrowsMaximize, icArrowsMinimize, icMessages, icThumbUp } from 'components/atoms/Icon';
+import { Trans } from '@lingui/macro';
+import { Button } from 'components/atoms/Button';
+import { icDots, icMessage, Icon, icShare, icThumbUp } from 'components/atoms/Icon';
+import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Link } from 'components/atoms/Layout/Link';
+import { Avatar } from 'components/atoms/Media';
+import { Text } from 'components/atoms/Text';
 import faker from 'faker';
 import React from 'react';
 
@@ -40,75 +45,73 @@ const PostCommentItem = ({
   reactionCount,
 }: PostCommentItemProps) => {
   return (
-    <div className="post-comment-item">
-      <IonRow>
-        <IonCol size="auto">
-          <IonAvatar className={isReply ? 'tiny' : 'small'}>
-            <img src={avatar} alt="" />
-          </IonAvatar>
-        </IonCol>
-        <IonCol>
-          <div className="comment-main">
-            <div className="comment-body">
-              <IonRow>
-                <IonCol className="p-0">
-                  <div className="text-sm">
-                    <strong>{username}</strong>
-                  </div>
-                </IonCol>
-                <IonCol size="auto" className="p-0">
-                  <div className="text-sm">
-                    <IonText color="medium">{timestamp}</IonText>
-                    <IonButton className="button-options" fill="clear" color="medium" size="small">
-                      <IonIcon icon={icArrowsMaximize || icArrowsMinimize} />
-                    </IonButton>
-                  </div>
-                </IonCol>
-              </IonRow>
-              <div className="text-xs">
-                <IonText color="medium">{badge}</IonText>
-              </div>
-              <div className="comment-text text-sm">{content}</div>
-            </div>
-
-            <div className="comment-footer">
-              <IonRow>
-                <IonCol size="auto">
-                  <IonButton fill="clear" color="medium" size="small">
-                    <IonIcon slot="icon-only" icon={icThumbUp} size="small" />
-                  </IonButton>
-                  <span> · </span>
-                  {reactionCount > 0 && (
-                    <span className="text-xs">
-                      <IonText color="medium">
-                        {reactionCount > 1
-                          ? `${reactionCount} reactions`
-                          : `${reactionCount} reaction`}
-                      </IonText>
-                    </span>
-                  )}
-                </IonCol>
-                <IonCol size="auto">
-                  <div className="vertical-divider"></div>
-                </IonCol>
-                <IonCol size="auto">
-                  <IonButton fill="clear" color="medium" size="small">
-                    <IonIcon slot="icon-only" icon={icMessages} size="small" />
-                  </IonButton>
-                  {repliesCount > 0 && (
-                    <span className="text-xs">
-                      <IonText color="medium">
-                        {repliesCount > 1 ? `${repliesCount} replies` : `${repliesCount} reply`}
-                      </IonText>
-                    </span>
-                  )}
-                </IonCol>
-              </IonRow>
-            </div>
+    <Row>
+      <Col size="auto" className="flex items-start">
+        <Avatar className="small">
+          <img src={avatar} alt="" />
+        </Avatar>
+      </Col>
+      <Col className="flex items-start">
+        <div className="ml-s">
+          <div>
+            <Row>
+              <Col className="p-0">
+                <div className="caption flex flex-col items-start">
+                  <Link href="/" className="subtitle-large text-bold">
+                    {username}
+                  </Link>
+                  <Text color="medium">{badge}</Text>
+                </div>
+              </Col>
+              <Col size="auto" className="p-0">
+                <div className="caption">
+                  <Text color="medium">{timestamp}</Text>
+                </div>
+              </Col>
+            </Row>
           </div>
-        </IonCol>
-      </IonRow>
-    </div>
+
+          <p>{content}</p>
+
+          {/* <div className="mt-m flex justify-start">
+            <div className="mr-m subtitle-small color-medium">
+              {reactionCount} <Trans id="label.reactions" />
+            </div>
+            <div className="mr-m subtitle-small color-medium">
+              {repliesCount}{' '}
+              {repliesCount > 1 ? <Trans id="label.replies" /> : <Trans id="label.reply" />}
+            </div>
+          </div> */}
+
+          <div className="flex justify-between">
+            <div>
+              <Button color="medium" fill="clear" size="small" className="mr-s">
+                <Icon slot="start" icon={icThumbUp} />
+                <Text>react</Text>
+              </Button>
+              <Button
+                color="medium"
+                fill="clear"
+                size="small"
+                className="mr-s"
+                onClick={() => console.log('ss')}
+              >
+                <Icon slot="start" icon={icMessage} />
+                <Text>reply</Text>
+              </Button>
+              <Button color="medium" fill="clear" size="small" className="mr-s">
+                <Icon slot="start" icon={icShare} />
+                <Text>share</Text>
+              </Button>
+            </div>
+            <Button color="medium" fill="clear" size="small" slot="end">
+              <Icon slot="start" icon={icDots} />
+              <Text>more</Text>
+            </Button>
+          </div>
+        </div>
+      </Col>
+    </Row>
   );
 };
 

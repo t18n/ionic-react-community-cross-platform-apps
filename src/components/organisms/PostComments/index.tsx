@@ -1,6 +1,10 @@
 import './index.min.css';
 
-import { IonCol, IonIcon, IonRow, IonText } from '@ionic/react';
+import { Trans } from '@lingui/macro';
+import { Button } from 'components/atoms/Button';
+import { Icon } from 'components/atoms/Icon';
+import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Text } from 'components/atoms/Text/index';
 import PostCommentItem, { postComments } from 'components/molecules/PostCommentItem';
 import { code } from 'ionicons/icons';
 import React from 'react';
@@ -9,19 +13,19 @@ export const PostComments = () => {
   return (
     <div className="post-comments">
       <div className="panel-title">
-        <IonRow className="p-0">
-          <IonCol className="p-0">Comments</IonCol>
-          <IonCol className="p-0" size="auto">
+        <Row className="p-0">
+          <Col className="p-0">
+            <Trans id="label.comments" />
+          </Col>
+          <Col className="p-0" size="auto">
             <div className="text-sm">
-              <IonText color="medium">
-                Sort by{' '}
-                <strong>
-                  Top <IonIcon icon={code} className="icon-sort" />
-                </strong>
-              </IonText>
+              <Text color="medium">
+                <Trans id="label.button.sortByTop" />
+                <Icon icon={code} className="icon-sort" />
+              </Text>
             </div>
-          </IonCol>
-        </IonRow>
+          </Col>
+        </Row>
       </div>
 
       <div className="comments-list">
@@ -38,9 +42,7 @@ export const PostComments = () => {
               reactionCount={postComment.reactionCount}
             />
             <div className="replies-list">
-              <div className="button-show-more text-xs">
-                <strong>Show 1 more reply</strong>
-              </div>
+              <Button fill="clear">Show 1 more reply</Button>
               <PostCommentItem
                 isReply={postComment.isReply}
                 badge={postComment.badge}

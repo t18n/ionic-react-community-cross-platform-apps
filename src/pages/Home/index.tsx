@@ -80,10 +80,11 @@ export const Home = ({ history }: HomeProps) => {
                   summary={post.summary}
                   editTimestamp={post.editTimestamp}
                   avatar={post.avatar}
-                  badge={post.badge}
+                  type={post.type}
                   firstName={post.firstName}
                   cover={post.cover}
                   title={post.title}
+                  comments={post.comments}
                 />
               ))}
             </Col>

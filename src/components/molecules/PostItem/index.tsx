@@ -7,6 +7,11 @@ import { Link } from 'components/atoms/Layout/Link';
 import { Item } from 'components/atoms/List';
 import { Avatar, Img } from 'components/atoms/Media';
 import { OnlineStatus } from 'components/atoms/OnlineStatus';
+import PostCommentItem, {
+  PostCommentItemProps,
+  postComments,
+} from 'components/molecules/PostCommentItem';
+import PostComments from 'components/organisms/PostComments';
 import faker from 'faker';
 import React from 'react';
 
@@ -21,10 +26,11 @@ export type PostItemProps = {
   summary: string;
   editTimestamp: string;
   avatar: string;
-  badge: string;
+  type: string;
   firstName: string;
   cover: string;
   title: string;
+  comments: PostCommentItemProps[] | null;
 };
 
 export const postItems: PostItemProps[] = [...Array(14)].map(() => ({
@@ -36,10 +42,11 @@ export const postItems: PostItemProps[] = [...Array(14)].map(() => ({
   summary: faker.lorem.sentence(),
   editTimestamp: `${faker.date.past().getUTCDay()}d`,
   avatar: faker.image.avatar(),
-  badge: faker.name.jobTitle(),
+  type: faker.random.word(),
   firstName: faker.name.firstName(),
   cover: faker.image.nature(),
   title: faker.random.words(),
+  comments: postComments,
 }));
 
 export const PostItem = ({
@@ -51,7 +58,7 @@ export const PostItem = ({
   summary,
   editTimestamp,
   avatar,
-  badge,
+  type,
   firstName,
   cover,
   title,
@@ -82,7 +89,7 @@ export const PostItem = ({
                 <strong>{firstName}</strong>
               </Link>{' '}
               <div className="text-xs text-ellipsis">
-                <Text color="medium">{badge}</Text>
+                <Text color="medium">{type}</Text>
               </div>
             </div>
             <div className="flex">
@@ -95,7 +102,7 @@ export const PostItem = ({
           </div>
         </Item>
         <Item lines="none" slot="end">
-          <Badge>{badge}</Badge>
+          <Badge>{type}</Badge>
         </Item>
       </Item>
 
@@ -123,15 +130,21 @@ export const PostItem = ({
 
       <Item className="flex justify-between" lines="none">
         <div>
-          <Button color="medium" fill="clear" size="small">
+          <Button color="medium" fill="clear" size="small" className="mr-s">
             <Icon slot="start" icon={icThumbUp} />
             <Text>react</Text>
           </Button>
-          <Button color="medium" fill="clear" size="small" onClick={onCommentClick}>
+          <Button
+            color="medium"
+            fill="clear"
+            size="small"
+            className="mr-s"
+            onClick={onCommentClick}
+          >
             <Icon slot="start" icon={icMessage} />
             <Text>comment</Text>
           </Button>
-          <Button color="medium" fill="clear" size="small">
+          <Button color="medium" fill="clear" size="small" className="mr-s">
             <Icon slot="start" icon={icShare} />
             <Text>share</Text>
           </Button>
@@ -140,6 +153,10 @@ export const PostItem = ({
           <Icon slot="start" icon={icDots} />
           <Text>more</Text>
         </Button>
+      </Item>
+
+      <Item lines="none">
+        <PostComments />
       </Item>
     </Card>
   );
