@@ -7,55 +7,55 @@
 }
 
 @define-mixin text-title-xxxl {
-  @mixin text var(--font-heading), 96px, 300, -1.5px;
+  @mixin text var(--font-heading), 105px, 300, -1.5px;
 }
 
 @define-mixin text-title-xxl {
-  @mixin text var(--font-heading), 60px, 300, -0.5px;
+  @mixin text var(--font-heading), 66px, 300, -0.5px;
 }
 
 @define-mixin text-title-xl {
-  @mixin text var(--font-heading), 48px, 400, 0;
+  @mixin text var(--font-heading), 52px, 400, 0;
 }
 
 @define-mixin text-title-l {
-  @mixin text var(--font-heading), 33px, 400, 0.25px;
+  @mixin text var(--font-heading), 37px, 400, 0.25px;
 }
 
 @define-mixin text-title-m {
-  @mixin text var(--font-heading), 24px, 400, 0;
+  @mixin text var(--font-heading), 26px, 400, 0;
 }
 
 @define-mixin text-title-s {
-  @mixin text var(--font-heading), 20px, 500, 0;
-}
-
-@define-mixin text-overline {
-  @mixin text var(--font-body), 10px, 400, 1.5px, uppercase;
-}
-
-@define-mixin text-paragraph-s {
-  @mixin text var(--font-body), 13px, 400, 0.5px;
-}
-
-@define-mixin text-paragraph-l {
-  @mixin text var(--font-body), 15px, 400, 0.25px;
-}
-
-@define-mixin text-subtitle-s {
-  @mixin text var(--font-body), 12px, 400, 0.1px;
+  @mixin text var(--font-heading), 22px, 500, 0.15px;
 }
 
 @define-mixin text-subtitle-l {
-  @mixin text var(--font-body), 15px, 400, 0.15px;
+  @mixin text var(--font-body), 17px, 400, 0.15px;
 }
 
-@define-mixin text-caption {
-  @mixin text var(--font-body), 12px, 400, 0.4px;
+@define-mixin text-subtitle-s {
+  @mixin text var(--font-body), 15px, 400, 0.1px;
+}
+
+@define-mixin text-paragraph-l {
+  @mixin text var(--font-body), 17px, 400, 0.5px;
+}
+
+@define-mixin text-paragraph-s {
+  @mixin text var(--font-body), 15px, 400, 0.25px;
 }
 
 @define-mixin text-button {
-  @mixin text var(--font-body), 12px, 600, 1.25px, uppercase;
+  @mixin text var(--font-body), 15px, 600, 1.25px, uppercase;
+}
+
+@define-mixin text-caption {
+  @mixin text var(--font-body), 13px, 400, 0.4px;
+}
+
+@define-mixin text-overline {
+  @mixin text var(--font-body), 11px, 400, 1.5px, uppercase;
 }
 
 .brightizen {
@@ -188,15 +188,15 @@
     text-transform: uppercase;
   }
 
+  .text-light {
+    font-weight: 300 !important;
+  }
+
   .text-normal {
-    font-weight: 400;
+    font-weight: 400 !important;
   }
 
   .text-bold {
-    font-weight: 500;
-  }
-
-  .text-bolder {
-    font-weight: 900;
+    font-weight: 700 !important;
   }
 }

@@ -112,7 +112,7 @@ const SideIonMenu = () => {
               </Thumbnail>
 
               <Label color="medium">
-                <Text as="a" type="title-s" fontWeight="text-bold" extraClasses="ml-s">
+                <Text as="a" type="subtitle-l" fontWeight="text-bold" extraClasses="ml-s">
                   {ME_data.me?.name}
                 </Text>
               </Label>
@@ -193,7 +193,7 @@ const SideIonMenu = () => {
                 >
                   <Icon icon={appPages[id].icon} slot="start" size="large" color="medium" />
                   <Label color="medium">
-                    <Text as="a" fontWeight="text-bold" type="title-s" extraClasses="ml-s">
+                    <Text as="a" fontWeight="text-bold" type="subtitle-l" extraClasses="ml-s">
                       {appPages[id].title}
                     </Text>
                   </Label>

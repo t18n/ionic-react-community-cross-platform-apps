@@ -7,7 +7,7 @@ import React, { ReactNode } from 'react';
 interface TextProps {
   children: ReactNode;
   as: keyof JSX.IntrinsicElements;
-  fontWeight?: 'text-bold' | 'text-bolder' | 'text-normal';
+  fontWeight?: 'text-light' | 'text-normal' | 'text-bold';
   transform?: 'case-none' | 'case-upper';
   color?:
     | 'primary'
