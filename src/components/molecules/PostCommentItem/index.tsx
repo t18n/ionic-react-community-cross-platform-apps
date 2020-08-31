@@ -76,10 +76,10 @@ const PostCommentItem = ({
           <Text as="p">{content}</Text>
 
           {/* <div className="mt-m flex justify-start">
-            <div className="mr-m subtitle-small color-medium">
+            <div className="mr-m subtitle-s color-medium">
               {reactionCount} <Trans id="label.reactions" />
             </div>
-            <div className="mr-m subtitle-small color-medium">
+            <div className="mr-m subtitle-s color-medium">
               {repliesCount}{' '}
               {repliesCount > 1 ? <Trans id="label.replies" /> : <Trans id="label.reply" />}
             </div>

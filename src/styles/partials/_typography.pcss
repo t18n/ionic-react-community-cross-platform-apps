@@ -1,3 +1,11 @@
+@define-mixin text $font, $size, $fontWeight, $letterSpace, $transform: none {
+  font-family: $font;
+  font-size: $size;
+  font-weight: $fontWeight;
+  letter-spacing: $letterSpace;
+  text-transform: $transform;
+}
+
 @define-mixin text-title-xxxl {
   @mixin text var(--font-heading), 96px, 300, -1.5px;
 }

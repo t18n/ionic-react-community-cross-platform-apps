@@ -47,7 +47,7 @@ export const Text = ({
   ...rest
 }: TextProps) => {
   const Tag = as;
-  const colorStyle = color ? `ion-color-${color}` : null;
+  const colorStyle = color ? `ion-color-${color} color-base` : null;
 
   return (
     <Tag className={classNames(fontWeight, transform, type, colorStyle, extraClasses)} {...rest} />

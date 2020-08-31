@@ -1,3 +1,4 @@
+import { IonText } from '@ionic/react';
 import { Trans } from '@lingui/macro';
 import { Badge } from 'components/atoms/Badge';
 import { Button } from 'components/atoms/Button';
@@ -115,14 +116,20 @@ export const PostItem = ({
       <CardContent className="mt-s">{summary}</CardContent>
 
       <Item className="mt-m flex justify-start">
-        <Item lines="none" className="mr-m subtitle-small color-medium">
-          {reactionCount} reactions
+        <Item lines="none" className="mr-m subtitle-s">
+          <Text as="span" color="medium">
+            {reactionCount} reactions
+          </Text>
         </Item>
-        <Item lines="none" className="mr-m subtitle-small color-medium">
-          {commentCount} comments
+        <Item lines="none" className="mr-m subtitle-s">
+          <Text as="span" color="medium">
+            {commentCount} comments
+          </Text>
         </Item>
-        <Item lines="none" className="mr-m subtitle-small color-medium">
-          {reportCount} reports
+        <Item lines="none" className="mr-m subtitle-s">
+          <Text as="span" color="medium">
+            {reportCount} reports
+          </Text>
         </Item>
       </Item>
 
@@ -130,7 +137,9 @@ export const PostItem = ({
         <div>
           <Button color="medium" fill="clear" size="small" className="mr-s">
             <Icon slot="start" icon={icThumbUp} />
-            <Text as="span">react</Text>
+            <Text as="span" color="medium">
+              react
+            </Text>
           </Button>
           <Button
             color="medium"
@@ -140,16 +149,22 @@ export const PostItem = ({
             onClick={onCommentClick}
           >
             <Icon slot="start" icon={icMessage} />
-            <Text as="span">comment</Text>
+            <Text as="span" color="medium">
+              comment
+            </Text>
           </Button>
           <Button color="medium" fill="clear" size="small" className="mr-s">
             <Icon slot="start" icon={icShare} />
-            <Text as="span">share</Text>
+            <Text as="span" color="medium">
+              share
+            </Text>
           </Button>
         </div>
         <Button color="medium" fill="clear" size="small" slot="end">
           <Icon slot="start" icon={icDots} />
-          <Text as="span">more</Text>
+          <Text as="span" color="medium">
+            more
+          </Text>
         </Button>
       </Item>
 
