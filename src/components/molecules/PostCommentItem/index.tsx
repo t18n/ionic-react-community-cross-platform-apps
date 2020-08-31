@@ -23,7 +23,6 @@ export interface PostCommentItemProps {
 
 export const postComments: PostCommentItemProps[] = [
   {
-    isReply: true,
     avatar: faker.image.avatar(),
     timestamp: `${faker.date.past().getUTCDay()}d`,
     badge: faker.name.jobTitle(),
@@ -35,7 +34,6 @@ export const postComments: PostCommentItemProps[] = [
 ];
 
 const PostCommentItem = ({
-  isReply,
   avatar,
   timestamp,
   badge,
@@ -60,18 +58,22 @@ const PostCommentItem = ({
                   <Link href="/" className="subtitle-large text-bold">
                     {username}
                   </Link>
-                  <Text color="medium">{badge}</Text>
+                  <Text as="span" color="medium">
+                    {badge}
+                  </Text>
                 </div>
               </Col>
               <Col size="auto" className="p-0">
                 <div className="caption">
-                  <Text color="medium">{timestamp}</Text>
+                  <Text as="span" color="medium">
+                    {timestamp}
+                  </Text>
                 </div>
               </Col>
             </Row>
           </div>
 
-          <p>{content}</p>
+          <Text as="p">{content}</Text>
 
           {/* <div className="mt-m flex justify-start">
             <div className="mr-m subtitle-small color-medium">
@@ -87,7 +89,7 @@ const PostCommentItem = ({
             <div>
               <Button color="medium" fill="clear" size="small" className="mr-s">
                 <Icon slot="start" icon={icThumbUp} />
-                <Text>react</Text>
+                <Text as="span">react</Text>
               </Button>
               <Button
                 color="medium"
@@ -97,16 +99,16 @@ const PostCommentItem = ({
                 onClick={() => console.log('ss')}
               >
                 <Icon slot="start" icon={icMessage} />
-                <Text>reply</Text>
+                <Text as="span">reply</Text>
               </Button>
               <Button color="medium" fill="clear" size="small" className="mr-s">
                 <Icon slot="start" icon={icShare} />
-                <Text>share</Text>
+                <Text as="span">share</Text>
               </Button>
             </div>
             <Button color="medium" fill="clear" size="small" slot="end">
               <Icon slot="start" icon={icDots} />
-              <Text>more</Text>
+              <Text as="span">more</Text>
             </Button>
           </div>
         </div>

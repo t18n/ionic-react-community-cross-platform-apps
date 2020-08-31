@@ -56,10 +56,8 @@ export const Tour = (props: TourProps) => {
 
               <Slide>
                 <div className="slide-inner">
-                  <Text color="white">
-                    <h3>
-                      <Trans id="tour.explore.headline" />
-                    </h3>
+                  <Text as="h3" color="light">
+                    <Trans id="tour.explore.headline" />
                   </Text>
 
                   <div className="panel-tour">
@@ -70,10 +68,8 @@ export const Tour = (props: TourProps) => {
 
               <Slide>
                 <div className="slide-inner">
-                  <Text color="white">
-                    <h3>
-                      <Trans id="tour.share.headline" />
-                    </h3>
+                  <Text as="h3" color="light">
+                    <Trans id="tour.share.headline" />
                   </Text>
 
                   <div className="panel-tour">
@@ -84,10 +80,8 @@ export const Tour = (props: TourProps) => {
 
               <Slide>
                 <div className="slide-inner">
-                  <Text color="white">
-                    <h3>
-                      <Trans id="tour.learnAndRetain.headline" />
-                    </h3>
+                  <Text as="h3" color="light">
+                    <Trans id="tour.learnAndRetain.headline" />
                   </Text>
 
                   <div className="panel-tour">
@@ -98,10 +92,8 @@ export const Tour = (props: TourProps) => {
 
               <Slide>
                 <div className="slide-inner">
-                  <Text color="white">
-                    <h3>
-                      <Trans id="tour.buildALibrary.headline" />
-                    </h3>
+                  <Text as="h3" color="light">
+                    <Trans id="tour.buildALibrary.headline" />
                   </Text>
 
                   <div className="panel-tour">

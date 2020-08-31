@@ -35,7 +35,9 @@ const SearchSuggestions = ({ history, isFocused, searchTerm }: SearchSuggestions
                 <Col>
                   <div className="text-sm">
                     <strong>{faker.company.companyName()} </strong>
-                    <Text color="medium">Category: {faker.company.companyName()}</Text>
+                    <Text as="span" color="medium">
+                      Category: {faker.company.companyName()}
+                    </Text>
                   </div>
                 </Col>
               </Row>

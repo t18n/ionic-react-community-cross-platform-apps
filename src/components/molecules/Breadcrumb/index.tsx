@@ -20,12 +20,12 @@ interface BreadcrumbProps {
 
 export const Breadcrumb = ({ title, searchBar }: BreadcrumbProps) => (
   <Header>
-    <Toolbar color="primary">
+    <Toolbar color="primary flex items-center">
       <ButtonGroup slot="start">
         <ButtonBack />
 
-        <Text className="ml-m">
-          <h6 className="p-0 m-0 medium-title">{title}</h6>
+        <Text as="h5" extraClasses="ml-m">
+          {title}
         </Text>
       </ButtonGroup>
 
@@ -45,8 +45,8 @@ export const Breadcrumb = ({ title, searchBar }: BreadcrumbProps) => (
       )}
 
       <ButtonGroup slot="end" className="mr-m p-0">
-        <Button className="m-0 p-0">
-          <Icon slot="icon-only" icon={icArrowsMaximize} size="small" />
+        <Button>
+          <Icon slot="icon-only" icon={icArrowsMaximize} size="tiny" />
         </Button>
       </ButtonGroup>
     </Toolbar>

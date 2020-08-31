@@ -1,15 +1,55 @@
-import { JSX } from '@ionic/core';
-import { IonText } from '@ionic/react';
-import React, { HTMLAttributes } from 'react';
+import classNames from 'classnames';
+import React, { ReactNode } from 'react';
 
 /**
  * Types
  */
-type TextProps = JSX.IonText & HTMLAttributes<HTMLIonTextElement>;
+interface TextProps {
+  children: ReactNode;
+  as: keyof JSX.IntrinsicElements;
+  fontWeight?: 'text-bold' | 'text-bolder' | 'text-normal';
+  transform?: 'case-none' | 'case-upper';
+  color?:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'light'
+    | 'medium'
+    | 'dark';
+  extraClasses?: string;
+  type?:
+    | 'title-xxxl'
+    | 'title-xxl'
+    | 'title-xl'
+    | 'title-l'
+    | 'title-m'
+    | 'title-s'
+    | 'paragraph-s'
+    | 'paragraph-l'
+    | 'subtitle-s'
+    | 'subtitle-l'
+    | 'caption';
+}
 
 /**
  * Components
  */
-export const Text = (props: TextProps) => {
-  return <IonText {...props} />;
+export const Text = ({
+  as,
+  fontWeight,
+  transform,
+  type,
+  extraClasses,
+  color,
+  ...rest
+}: TextProps) => {
+  const Tag = as;
+  const colorStyle = color ? `ion-color-${color}` : null;
+
+  return (
+    <Tag className={classNames(fontWeight, transform, type, colorStyle, extraClasses)} {...rest} />
+  );
 };

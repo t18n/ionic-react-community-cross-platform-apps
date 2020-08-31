@@ -88,16 +88,14 @@ export const PostItem = ({
               <Link href="/" className="mr-s">
                 <strong>{firstName}</strong>
               </Link>{' '}
-              <div className="text-xs text-ellipsis">
-                <Text color="medium">{type}</Text>
-              </div>
+              <Text as="span" color="medium" type="subtitle-s">
+                {type}
+              </Text>
             </div>
             <div className="flex">
-              <div className="text-xs text-ellipsis">
-                <Text color="medium">
-                  {editTimestamp} · <Trans id="label.edited" />
-                </Text>
-              </div>
+              <Text as="span" color="medium" type="subtitle-s">
+                {editTimestamp} · <Trans id="label.edited" />
+              </Text>
             </div>
           </div>
         </Item>
@@ -132,7 +130,7 @@ export const PostItem = ({
         <div>
           <Button color="medium" fill="clear" size="small" className="mr-s">
             <Icon slot="start" icon={icThumbUp} />
-            <Text>react</Text>
+            <Text as="span">react</Text>
           </Button>
           <Button
             color="medium"
@@ -142,16 +140,16 @@ export const PostItem = ({
             onClick={onCommentClick}
           >
             <Icon slot="start" icon={icMessage} />
-            <Text>comment</Text>
+            <Text as="span">comment</Text>
           </Button>
           <Button color="medium" fill="clear" size="small" className="mr-s">
             <Icon slot="start" icon={icShare} />
-            <Text>share</Text>
+            <Text as="span">share</Text>
           </Button>
         </div>
         <Button color="medium" fill="clear" size="small" slot="end">
           <Icon slot="start" icon={icDots} />
-          <Text>more</Text>
+          <Text as="span">more</Text>
         </Button>
       </Item>
 

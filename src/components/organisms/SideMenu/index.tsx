@@ -112,8 +112,8 @@ const SideIonMenu = () => {
               </Thumbnail>
 
               <Label color="medium">
-                <Text>
-                  <a className="medium-title bold">{ME_data.me?.name}</a>
+                <Text as="a" type="title-s" fontWeight="text-bold" extraClasses="ml-s">
+                  {ME_data.me?.name}
                 </Text>
               </Label>
 
@@ -132,7 +132,7 @@ const SideIonMenu = () => {
                   <Item lines="none" className="mt-s">
                     <Toggle slot="start" checked={isDarkMode} onIonChange={toggleDarkMode} />
                     <Label color="medium">
-                      <Text>
+                      <Text as="span">
                         <Trans id="label.darkMode" />
                       </Text>
                     </Label>
@@ -161,7 +161,7 @@ const SideIonMenu = () => {
                   {/* Logout */}
                   <Item lines="none" onClick={onLogout} className="cursor-pointer mt-s">
                     <Label color="medium">
-                      <Text>
+                      <Text as="span">
                         <Trans id="label.logOut" />
                       </Text>
                     </Label>
@@ -174,9 +174,7 @@ const SideIonMenu = () => {
               <Item key={loginPage.title} lines="none" routerLink={loginPage.url} detail={false}>
                 <Icon icon={loginPage.icon} slot="start" size="large" color="medium" />
                 <Label color="medium">
-                  <Text>
-                    <h6>{loginPage.title}</h6>
-                  </Text>
+                  <Text as="h6">{loginPage.title}</Text>
                 </Label>
               </Item>
             </Item>
@@ -195,8 +193,8 @@ const SideIonMenu = () => {
                 >
                   <Icon icon={appPages[id].icon} slot="start" size="large" color="medium" />
                   <Label color="medium">
-                    <Text>
-                      <a className="medium-title bold">{appPages[id].title}</a>
+                    <Text as="a" fontWeight="text-bold" type="title-s" extraClasses="ml-s">
+                      {appPages[id].title}
                     </Text>
                   </Label>
                 </Item>

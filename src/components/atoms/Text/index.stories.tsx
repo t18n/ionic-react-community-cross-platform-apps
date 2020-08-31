@@ -11,42 +11,39 @@ export default {
 
 export const TextExamples = () => (
   <Content>
-    <Text color="secondary">
-      <h1>H1: The quick brown fox jumps over the lazy dog</h1>
+    <Text as="h1" color="secondary">
+      H1: The quick brown fox jumps over the lazy dog
     </Text>
 
-    <Text color="primary">
-      <h2>H2: The quick brown fox jumps over the lazy dog</h2>
+    <Text as="h2" color="primary">
+      H2: The quick brown fox jumps over the lazy dog
     </Text>
 
-    <Text color="light">
-      <h3>H3: The quick brown fox jumps over the lazy dog</h3>
+    <Text as="h3" color="light">
+      H3: The quick brown fox jumps over the lazy dog
     </Text>
 
-    <Text color="danger">
-      <h4>H4: The quick brown fox jumps over the lazy dog</h4>
+    <Text as="h4" color="danger">
+      H4: The quick brown fox jumps over the lazy dog
     </Text>
 
-    <Text color="dark">
-      <h5>H5: The quick brown fox jumps over the lazy dog</h5>
+    <Text as="h5" color="dark">
+      H5: The quick brown fox jumps over the lazy dog
     </Text>
 
-    <p>
+    <Text as="p">
       I saw a werewolf with a Chinese menu in his hand. Walking through the{' '}
-      <Text color="danger">
-        <sub>streets</sub>
+      <Text as="sub" color="danger">
+        streets
       </Text>{' '}
       of Soho in the rain. He{' '}
-      <Text color="primary">
-        <i>was</i>
+      <Text as="i" color="primary">
+        was
       </Text>{' '}
       looking for a place called Lee Ho Fooks. Gonna get a{' '}
-      <Text color="secondary">
-        <a>big dish of beef chow mein.</a>
+      <Text as="a" color="secondary">
+        big dish of beef chow mein.
       </Text>
-      <Text color="danger">
-        <Icon name={icHome} />
-      </Text>
-    </p>
+    </Text>
   </Content>
 );

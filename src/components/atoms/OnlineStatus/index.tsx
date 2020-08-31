@@ -1,7 +1,7 @@
 import './index.min.css';
 
+import classNames from 'classnames';
 import React from 'react';
-import { makeClassNames } from 'utils/css';
 
 interface OnlineStatusProps {
   status: 'active' | 'inactive';
@@ -9,7 +9,5 @@ interface OnlineStatusProps {
 }
 
 export const OnlineStatus = ({ status, extraClasses }: OnlineStatusProps) => {
-  const classNames = `online-status ${status}`;
-
-  return <div className={makeClassNames(classNames, extraClasses)} />;
+  return <div className={classNames(`online-status ${status}`, extraClasses)} />;
 };

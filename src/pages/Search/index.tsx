@@ -46,7 +46,7 @@ const Search = () => {
         />
         <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
-        <IonToolbar color="white" className="toolbar-shadow border-0">
+        <IonToolbar color="light" className="toolbar-shadow border-0">
           <div className="scroll-x">
             <IonButton className="scroll-item" fill="outline" color="medium" size="small">
               People
