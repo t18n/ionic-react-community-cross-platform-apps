@@ -60,52 +60,56 @@ export const Home = ({ history }: HomeProps) => {
 
       {!isLoading && (
         <Content className={`px py ${isSearchFocused ? 'hide' : ''}`}>
-          <Grid>
-            <Row>
-              <Col size="12">
-                <Chip outline className="mr-s" color="medium">
-                  Hello
-                </Chip>
-                <Chip outline className="mr-s" color="medium">
-                  Hello
-                </Chip>
-                <Chip outline className="mr-s" color="medium">
-                  Hello
-                </Chip>
-                <Chip outline className="mr-s" color="medium">
-                  Hello
-                </Chip>
-                <Chip outline className="mr-s" color="medium">
-                  Hello
-                </Chip>
-                <Chip outline className="mr-s" color="medium">
-                  Hello
-                </Chip>
-              </Col>
-            </Row>
+          {/* Col 8 */}
+          <div>
+            <Grid className="flex justify-between">
+              <Row className="col-1">
+                {/* Chips */}
+                <Col size="12">
+                  <Chip outline className="mr-s" color="medium">
+                    Hello
+                  </Chip>
+                  <Chip outline className="mr-s" color="medium">
+                    Hello
+                  </Chip>
+                  <Chip outline className="mr-s" color="medium">
+                    Hello
+                  </Chip>
+                  <Chip outline className="mr-s" color="medium">
+                    Hello
+                  </Chip>
+                  <Chip outline className="mr-s" color="medium">
+                    Hello
+                  </Chip>
+                  <Chip outline className="mr-s" color="medium">
+                    Hello
+                  </Chip>
+                </Col>
 
-            <Row>
-              <Col size="8" className="pr-m">
-                {postItems.map((post, i) => (
-                  <PostItem
-                    key={i}
-                    onClickDetail={post.onClickDetail}
-                    onClickProfile={post.onClickProfile}
-                    reactionCount={post.reactionCount}
-                    reportCount={post.reportCount}
-                    commentCount={post.commentCount}
-                    summary={post.summary}
-                    editTimestamp={post.editTimestamp}
-                    avatar={post.avatar}
-                    type={post.type}
-                    firstName={post.firstName}
-                    cover={post.cover}
-                    title={post.title}
-                    comments={post.comments}
-                  />
-                ))}
-              </Col>
-              <Col size="4">
+                <Col size="12" className="pl-m">
+                  {postItems.map((post, i) => (
+                    <PostItem
+                      key={i}
+                      onClickDetail={post.onClickDetail}
+                      onClickProfile={post.onClickProfile}
+                      reactionCount={post.reactionCount}
+                      reportCount={post.reportCount}
+                      commentCount={post.commentCount}
+                      summary={post.summary}
+                      editTimestamp={post.editTimestamp}
+                      avatar={post.avatar}
+                      type={post.type}
+                      firstName={post.firstName}
+                      cover={post.cover}
+                      title={post.title}
+                      comments={post.comments}
+                    />
+                  ))}
+                </Col>
+              </Row>
+
+              {/* Col 4 */}
+              <Row className="col-2">
                 <Card className="pa-m">
                   <Item lines="none">
                     <Label className="flex items-center">
@@ -163,9 +167,9 @@ export const Home = ({ history }: HomeProps) => {
                     </List>
                   </CardContent>
                 </Card>
-              </Col>
-            </Row>
-          </Grid>
+              </Row>
+            </Grid>
+          </div>
         </Content>
       )}
     </Page>
