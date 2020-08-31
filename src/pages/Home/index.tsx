@@ -7,7 +7,7 @@ import { Card, CardContent } from 'components/atoms/Card';
 import { Icon, icPoint } from 'components/atoms/Icon';
 import { Item, Label } from 'components/atoms/Item';
 import { Content } from 'components/atoms/Layout/Content';
-import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Col, Grid, Row } from 'components/atoms/Layout/Grid';
 import { Link } from 'components/atoms/Layout/Link';
 import { Page } from 'components/atoms/Layout/Page';
 import { List } from 'components/atoms/List';
@@ -19,6 +19,8 @@ import { useLoggedInUser } from 'graphql/operation/user/query';
 import { useSearchBar } from 'hooks/useSearchbar';
 import Tour from 'pages/Tour';
 import React, { useEffect, useState } from 'react';
+
+import { Chip } from '../../components/atoms/Chip/index';
 
 type HomeProps = {
   history: any;
@@ -58,96 +60,112 @@ export const Home = ({ history }: HomeProps) => {
 
       {!isLoading && (
         <Content className={`px py ${isSearchFocused ? 'hide' : ''}`}>
-          <Row>
-            <Col>
-              <Badge className="mr-s">Hello</Badge>
-              <Badge className="mr-s">Hello</Badge>
-              <Badge className="mr-s">Hello</Badge>
-              <Badge className="mr-s">Hello</Badge>
-              <Badge className="mr-s">Hello</Badge>
-            </Col>
-          </Row>
-          <Row className="mt-m">
-            <Col size="8">
-              {postItems.map((post, i) => (
-                <PostItem
-                  key={i}
-                  onClickDetail={post.onClickDetail}
-                  onClickProfile={post.onClickProfile}
-                  reactionCount={post.reactionCount}
-                  reportCount={post.reportCount}
-                  commentCount={post.commentCount}
-                  summary={post.summary}
-                  editTimestamp={post.editTimestamp}
-                  avatar={post.avatar}
-                  type={post.type}
-                  firstName={post.firstName}
-                  cover={post.cover}
-                  title={post.title}
-                  comments={post.comments}
-                />
-              ))}
-            </Col>
-            <Col size="4">
-              <Card className="pa-m">
-                <Item lines="none">
-                  <Label className="flex items-center">
-                    <Icon icon={icPoint} slot="start" />
-                    <Trans id="label.recommendations" />
-                  </Label>
-                  <Button slot="end" fill="clear" expand="block">
-                    <Trans id="label.seeAll" />
-                  </Button>
-                </Item>
+          <Grid>
+            <Row>
+              <Col size="12">
+                <Chip outline className="mr-s" color="medium">
+                  Hello
+                </Chip>
+                <Chip outline className="mr-s" color="medium">
+                  Hello
+                </Chip>
+                <Chip outline className="mr-s" color="medium">
+                  Hello
+                </Chip>
+                <Chip outline className="mr-s" color="medium">
+                  Hello
+                </Chip>
+                <Chip outline className="mr-s" color="medium">
+                  Hello
+                </Chip>
+                <Chip outline className="mr-s" color="medium">
+                  Hello
+                </Chip>
+              </Col>
+            </Row>
 
-                <CardContent>
-                  <List>
-                    <Item lines="none">
-                      <Link href="/">Home</Link>
-                    </Item>
-                    <Item lines="none">
-                      <Link href="/">Home</Link>
-                    </Item>
-                    <Item lines="none">
-                      <Link href="/">Home</Link>
-                    </Item>
-                    <Item lines="none">
-                      <Link href="/">Home</Link>
-                    </Item>
-                  </List>
-                </CardContent>
-              </Card>
+            <Row>
+              <Col size="8" className="pr-m">
+                {postItems.map((post, i) => (
+                  <PostItem
+                    key={i}
+                    onClickDetail={post.onClickDetail}
+                    onClickProfile={post.onClickProfile}
+                    reactionCount={post.reactionCount}
+                    reportCount={post.reportCount}
+                    commentCount={post.commentCount}
+                    summary={post.summary}
+                    editTimestamp={post.editTimestamp}
+                    avatar={post.avatar}
+                    type={post.type}
+                    firstName={post.firstName}
+                    cover={post.cover}
+                    title={post.title}
+                    comments={post.comments}
+                  />
+                ))}
+              </Col>
+              <Col size="4">
+                <Card className="pa-m">
+                  <Item lines="none">
+                    <Label className="flex items-center">
+                      <Icon icon={icPoint} slot="start" />
+                      <Trans id="label.recommendations" />
+                    </Label>
+                    <Button slot="end" fill="clear" expand="block">
+                      <Trans id="label.seeAll" />
+                    </Button>
+                  </Item>
 
-              <Card className="pa-m">
-                <Item lines="none">
-                  <Label className="flex items-center">
-                    <Icon icon={icPoint} slot="start" />
-                    <Trans id="label.recommendations" />
-                  </Label>
-                  <Button slot="end" fill="clear" expand="block">
-                    <Trans id="label.seeAll" />
-                  </Button>
-                </Item>
+                  <CardContent>
+                    <List>
+                      <Item lines="none">
+                        <Link href="/">Home</Link>
+                      </Item>
+                      <Item lines="none">
+                        <Link href="/">Home</Link>
+                      </Item>
+                      <Item lines="none">
+                        <Link href="/">Home</Link>
+                      </Item>
+                      <Item lines="none">
+                        <Link href="/">Home</Link>
+                      </Item>
+                    </List>
+                  </CardContent>
+                </Card>
 
-                <CardContent>
-                  <List>
-                    <Item lines="none">
-                      <Link href="/">Home</Link>
-                    </Item>
-                    <Item lines="none">
-                      <Link href="/">Home</Link>
-                    </Item>
-                    <Item lines="none">
-                      <Link href="/">Home</Link>
-                    </Item>
-                    <Item lines="none">
-                      <Link href="/">Home</Link>
-                    </Item>
-                  </List>
-                </CardContent>
-              </Card>
-            </Col>
-          </Row>
+                <Card className="pa-m">
+                  <Item lines="none">
+                    <Label className="flex items-center">
+                      <Icon icon={icPoint} slot="start" />
+                      <Trans id="label.recommendations" />
+                    </Label>
+                    <Button slot="end" fill="clear" expand="block">
+                      <Trans id="label.seeAll" />
+                    </Button>
+                  </Item>
+
+                  <CardContent>
+                    <List>
+                      <Item lines="none">
+                        <Link href="/">Home</Link>
+                      </Item>
+                      <Item lines="none">
+                        <Link href="/">Home</Link>
+                      </Item>
+                      <Item lines="none">
+                        <Link href="/">Home</Link>
+                      </Item>
+                      <Item lines="none">
+                        <Link href="/">Home</Link>
+                      </Item>
+                    </List>
+                  </CardContent>
+                </Card>
+              </Col>
+            </Row>
+          </Grid>
         </Content>
       )}
     </Page>

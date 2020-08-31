@@ -27,6 +27,15 @@ input:-webkit-autofill:active {
 /******************
 * Ionic elements
 ******************
+/* Header */
+ion-header {
+  height: calc(var(--grid) * 13);
+
+  ion-toolbar {
+    height: 100%;
+  }
+}
+
 /* Content */
 ion-content {
   &.px {
@@ -177,9 +186,14 @@ ion-searchbar {
 }
 
 /* Card */
-ion-card-header,
-ion-card-content {
-  padding: 0 !important;
+ion-card {
+  margin-inline-start: unset;
+  margin-inline-end: unset;
+
+  ion-card-header,
+  ion-card-content {
+    padding: 0 !important;
+  }
 }
 
 /* Ion Button */

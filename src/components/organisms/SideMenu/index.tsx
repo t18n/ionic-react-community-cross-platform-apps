@@ -115,7 +115,7 @@ const SideIonMenu = () => {
                 <Img src={ME_data.me.cover} />
               </Thumbnail>
 
-              <Label color="medium">
+              <Label color="dark">
                 <Text as="a" type="subtitle-l" fontWeight="text-bold" extraClasses="ml-s">
                   {ME_data.me?.name}
                 </Text>

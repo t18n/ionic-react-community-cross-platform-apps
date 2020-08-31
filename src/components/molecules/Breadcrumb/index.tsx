@@ -20,11 +20,11 @@ interface BreadcrumbProps {
 
 export const Breadcrumb = ({ title, searchBar }: BreadcrumbProps) => (
   <Header>
-    <Toolbar color="primary flex items-center">
+    <Toolbar className="flex items-center">
       <ButtonGroup slot="start">
         <ButtonBack />
 
-        <Text as="h5" extraClasses="ml-m">
+        <Text as="span" type="subtitle-l" fontWeight="text-bold" extraClasses="ml-m">
           {title}
         </Text>
       </ButtonGroup>
