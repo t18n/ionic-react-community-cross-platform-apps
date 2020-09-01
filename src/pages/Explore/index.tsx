@@ -1,6 +1,5 @@
 import { useIonViewDidEnter } from '@ionic/react';
 import { t } from '@lingui/macro';
-import { Content } from 'components/atoms/Layout/Content';
 import { Col, Grid, Row } from 'components/atoms/Layout/Grid';
 import { Link } from 'components/atoms/Layout/Link';
 import { Page } from 'components/atoms/Layout/Page';

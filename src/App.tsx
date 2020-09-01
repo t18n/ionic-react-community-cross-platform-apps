@@ -3,7 +3,6 @@ import './utils/debugger';
 
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Content } from 'components/atoms/Layout/Content';
 import I18nProvider from 'components/organisms/I18n';
 import { LeftSidebar } from 'components/organisms/Sidebar/LeftSidebar';
 import { RightSidebar } from 'components/organisms/Sidebar/RightSidebar';
@@ -19,24 +18,22 @@ const App = () => {
       <I18nProvider>
         <Provider>
           <IonApp>
-            <Content>
-              <IonReactRouter>
-                <IonSplitPane contentId="main">
-                  <LeftSidebar />
-                  <IonRouterOutlet id="main">
-                    {Object.keys(appPages).map((id) => (
-                      <Route
-                        key={id}
-                        path={appPages[id].url}
-                        component={appPages[id].component}
-                        exact
-                      />
-                    ))}
-                  </IonRouterOutlet>
-                  <RightSidebar />
-                </IonSplitPane>
-              </IonReactRouter>
-            </Content>
+            <IonReactRouter>
+              <IonSplitPane contentId="main">
+                <LeftSidebar />
+                <IonRouterOutlet id="main">
+                  {Object.keys(appPages).map((id) => (
+                    <Route
+                      key={id}
+                      path={appPages[id].url}
+                      component={appPages[id].component}
+                      exact
+                    />
+                  ))}
+                </IonRouterOutlet>
+                <RightSidebar />
+              </IonSplitPane>
+            </IonReactRouter>
           </IonApp>
         </Provider>
       </I18nProvider>

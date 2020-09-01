@@ -1,9 +1,7 @@
 import './index.min.css';
 
 import {
-  IonBackButton,
   IonButton,
-  IonButtons,
   IonCol,
   IonContent,
   IonHeader,
@@ -12,7 +10,6 @@ import {
   IonLabel,
   IonPage,
   IonRow,
-  IonSearchbar,
   IonText,
   IonToolbar,
 } from '@ionic/react';
@@ -25,7 +22,7 @@ import { follows } from 'components/molecules/FollowCard';
 import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import { useSearchBar } from 'hooks/useSearchbar';
 import { chevronDown } from 'ionicons/icons';
-import React, { useState } from 'react';
+import React from 'react';
 
 const Search = () => {
   const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();

@@ -2,16 +2,13 @@ import './index.min.css';
 
 import {
   IonAvatar,
-  IonBackButton,
   IonButton,
   IonButtons,
   IonContent,
   IonFooter,
-  IonHeader,
   IonIcon,
   IonInput,
   IonPage,
-  IonTitle,
   IonToolbar,
 } from '@ionic/react';
 import { t } from '@lingui/macro';

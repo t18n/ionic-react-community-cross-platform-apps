@@ -1,4 +1,3 @@
-import { IonText } from '@ionic/react';
 import { Trans } from '@lingui/macro';
 import { Badge } from 'components/atoms/Badge';
 import { Button } from 'components/atoms/Button';
@@ -8,10 +7,7 @@ import { Link } from 'components/atoms/Layout/Link';
 import { Item } from 'components/atoms/List';
 import { Avatar, Img } from 'components/atoms/Media';
 import { OnlineStatus } from 'components/atoms/OnlineStatus';
-import PostCommentItem, {
-  PostCommentItemProps,
-  postComments,
-} from 'components/molecules/PostCommentItem';
+import { PostCommentItemProps, postComments } from 'components/molecules/PostCommentItem';
 import PostComments from 'components/organisms/PostComments';
 import faker from 'faker';
 import React from 'react';
@@ -65,10 +61,6 @@ export const PostItem = ({
   title,
 }: PostItemProps) => {
   const onCommentClick = () => {
-    if (onClickDetail) onClickDetail();
-  };
-
-  const onSeeAll = () => {
     if (onClickDetail) onClickDetail();
   };
 

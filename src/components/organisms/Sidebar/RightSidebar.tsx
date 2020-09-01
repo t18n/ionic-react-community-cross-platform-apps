@@ -15,7 +15,7 @@ export const RightSidebar = () => {
   return (
     <Menu
       side="end"
-      contentId="right-sidebar"
+      contentId="page__content"
       menuId="right-sidebar"
       className="right-sidebar"
       swipeGesture

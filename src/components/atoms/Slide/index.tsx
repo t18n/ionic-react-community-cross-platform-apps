@@ -16,10 +16,11 @@ type SlidesProps = JSX.IonSlides &
     onSlideDidChange?: () => void;
   };
 
-export const Slides = (props: SlidesProps) => {
-  return <IonSlides {...props} />;
-};
-
 export const Slide = (props: SlideProps) => {
   return <IonSlide {...props} />;
 };
+
+// eslint-disable-next-line react/display-name
+export const Slides = React.forwardRef((props: SlidesProps, ref: any) => {
+  return <IonSlides ref={ref} {...props} />;
+});

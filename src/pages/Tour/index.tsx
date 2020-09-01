@@ -3,7 +3,6 @@ import './index.min.css';
 import { t, Trans } from '@lingui/macro';
 import { Button } from 'components/atoms/Button';
 import { Icon, icUser } from 'components/atoms/Icon';
-import { Content } from 'components/atoms/Layout/Content';
 import { Page } from 'components/atoms/Layout/Page';
 import { Logo } from 'components/atoms/Logo';
 import { Slide, Slides } from 'components/atoms/Slide';

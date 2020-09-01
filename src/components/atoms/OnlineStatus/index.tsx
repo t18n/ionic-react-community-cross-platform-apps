@@ -8,6 +8,6 @@ interface OnlineStatusProps {
   extraClasses?: string;
 }
 
-export const OnlineStatus = ({ status, extraClasses }: OnlineStatusProps) => {
-  return <div className={classNames(`online-status ${status}`, extraClasses)} />;
+export const OnlineStatus = ({ status, extraClasses, ...rest }: OnlineStatusProps) => {
+  return <div className={classNames(`online-status ${status}`, extraClasses)} {...rest} />;
 };

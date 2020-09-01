@@ -1,14 +1,11 @@
 import { t } from '@lingui/macro';
 import {
   icBell,
-  icBookmark,
   icBulb,
   icCompass,
   icHome,
-  icMenu,
   icMessage,
   icMessage2,
-  icPlane,
   icSearch,
   icSocial,
   icUser,
@@ -26,7 +23,6 @@ import { Notifications } from 'pages/Notifications';
 import Profile from 'pages/Profile';
 import Search from 'pages/Search';
 import { Signup } from 'pages/Signup';
-import Tabs from 'pages/Tabs';
 import Tour from 'pages/Tour';
 import { FC } from 'react';
 

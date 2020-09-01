@@ -3,7 +3,6 @@ import './index.min.css';
 import {
   IonCol,
   IonContent,
-  IonHeader,
   IonIcon,
   IonItem,
   IonLabel,
@@ -25,10 +24,6 @@ type Props = {
 
 const Media: React.FC<Props> = ({ history }) => {
   const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
-
-  const goToMedium = () => {
-    history.push('/media/jd');
-  };
 
   return (
     <IonPage>

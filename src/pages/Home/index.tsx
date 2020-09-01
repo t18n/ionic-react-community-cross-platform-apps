@@ -19,7 +19,7 @@ type HomeProps = {
 };
 
 export const Home = ({ history }: HomeProps) => {
-  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
+  const { isSearchFocused, searchTerm } = useSearchBar();
   const [isLoading, setIsLoading] = useState(true);
 
   const { isAuthed } = useLoggedInUser();
@@ -38,10 +38,9 @@ export const Home = ({ history }: HomeProps) => {
 
       <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
-      {isLoading && <SkeletonPost />}
-
-      {!isLoading && (
-        <PageContent>
+      <PageContent>
+        {isLoading && <SkeletonPost />}
+        {!isLoading && (
           <Row className={`scroll-y px py ${isSearchFocused ? 'hide' : ''}`}>
             {/* Chips */}
             <Col size="12">
@@ -86,8 +85,8 @@ export const Home = ({ history }: HomeProps) => {
               ))}
             </Col>
           </Row>
-        </PageContent>
-      )}
+        )}
+      </PageContent>
     </Page>
   );
 };

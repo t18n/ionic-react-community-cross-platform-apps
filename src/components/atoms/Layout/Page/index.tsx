@@ -4,6 +4,8 @@ import { IonPage } from '@ionic/react';
 import classNames from 'classnames';
 import React, { ReactNode } from 'react';
 
+import { Content } from '../Content';
+
 type PageProps = {
   children: ReactNode;
   className?: string;
@@ -14,10 +16,22 @@ type PageContentProps = {
   className?: string;
 };
 
-export const Page = ({ children, className }: PageProps) => {
-  return <IonPage className={classNames('page', className)}>{children}</IonPage>;
+export const Page = ({ children, className, ...rest }: PageProps) => {
+  return (
+    <IonPage className={classNames('page', className)} {...rest}>
+      {children}
+    </IonPage>
+  );
 };
 
-export const PageContent = ({ children, className }: PageContentProps) => {
-  return <div className={classNames('page__content scroll-y', className)}>{children}</div>;
+export const PageContent = ({ children, className, ...rest }: PageContentProps) => {
+  return (
+    <Content
+      id="page__content"
+      className={classNames('page__content scroll-y', className)}
+      {...rest}
+    >
+      {children}
+    </Content>
+  );
 };

@@ -7,6 +7,10 @@ type ComponentProps = JSX.IonContent &
     children: ReactNode;
   };
 
-export const Content = ({ children, className }: ComponentProps) => {
-  return <IonContent className={className}>{children}</IonContent>;
+export const Content = ({ children, className, ...rest }: ComponentProps) => {
+  return (
+    <IonContent className={className} {...rest}>
+      {children}
+    </IonContent>
+  );
 };

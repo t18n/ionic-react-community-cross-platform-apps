@@ -1,7 +1,6 @@
 import './index.min.css';
 
 import { t } from '@lingui/macro';
-import { Content } from 'components/atoms/Layout/Content';
 import { Page } from 'components/atoms/Layout/Page';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import NotificationItem, { notifications } from 'components/molecules/NotificationItem';

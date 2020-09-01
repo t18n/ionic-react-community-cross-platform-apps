@@ -87,7 +87,7 @@ export const LeftSidebar = () => {
     <Menu
       type="overlay"
       side="start"
-      contentId="left-sidebar"
+      contentId="page__content"
       menuId="left-sidebar"
       className="left-sidebar"
       swipeGesture

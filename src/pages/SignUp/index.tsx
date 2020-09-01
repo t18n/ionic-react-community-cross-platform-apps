@@ -3,7 +3,6 @@ import { Button } from 'components/atoms/Button';
 import { Checkbox } from 'components/atoms/Checkbox';
 import { Input } from 'components/atoms/Input';
 import { Item, Label } from 'components/atoms/Item';
-import { Content } from 'components/atoms/Layout/Content';
 import { Col, Row } from 'components/atoms/Layout/Grid';
 import { Page } from 'components/atoms/Layout/Page';
 import { List } from 'components/atoms/List';

@@ -1,7 +1,6 @@
 import './index.min.css';
 
 import { Item, Label } from 'components/atoms/Item';
-import { Content } from 'components/atoms/Layout/Content';
 import { Col, Row } from 'components/atoms/Layout/Grid';
 import { Avatar } from 'components/atoms/Media';
 import faker from 'faker';
