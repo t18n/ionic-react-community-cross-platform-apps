@@ -3,31 +3,29 @@ import './index.min.css';
 import { Trans } from '@lingui/macro';
 import { Button } from 'components/atoms/Button';
 import { icArrowsVertical, Icon } from 'components/atoms/Icon';
-import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Col, Grid, Row } from 'components/atoms/Layout/Grid';
 import { Text } from 'components/atoms/Text/index';
 import PostCommentItem, { postComments } from 'components/molecules/PostCommentItem';
 import React from 'react';
 
 export const PostComments = () => {
   return (
-    <div className="comments pa-m">
-      <div className="mb-s">
+    <div className="comments mt-s w-100p">
+      <Grid className="mb-s">
         <Row className="p-0">
-          <Col className="p-0">
-            <div className="subtitle-large text-bold">
+          <Col className="p-0 flex justify-start" size="6">
+            <Text as="span" type="subtitle-l" fontWeight="text-bold">
               <Trans id="label.comments" />
-            </div>
+            </Text>
           </Col>
-          <Col className="p-0" size="auto">
-            <div className="text-sm">
-              <Text as="span" color="medium">
-                <Trans id="label.button.sortByTop" />
-                <Icon icon={icArrowsVertical} className="icon-sort" />
-              </Text>
-            </div>
+          <Col className="p-0 flex justify-end" size="6">
+            <Text as="small" color="medium">
+              <Trans id="label.button.sortByTop" />
+              <Icon icon={icArrowsVertical} className="icon-sort" />
+            </Text>
           </Col>
         </Row>
-      </div>
+      </Grid>
 
       <div className="comments-list">
         {postComments.map((postComment, i) => (
@@ -43,7 +41,9 @@ export const PostComments = () => {
               reactionCount={postComment.reactionCount}
             />
             <div className="replies-list">
-              <Button fill="clear">Show 1 more reply</Button>
+              <Button fill="clear">
+                <Trans id="label.show1MoreReply" />
+              </Button>
 
               <PostCommentItem
                 isReply={postComment.isReply}

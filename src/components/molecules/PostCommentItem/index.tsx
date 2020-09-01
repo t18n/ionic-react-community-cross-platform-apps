@@ -3,7 +3,7 @@ import './index.min.css';
 import { Trans } from '@lingui/macro';
 import { Button } from 'components/atoms/Button';
 import { icDots, icMessage, Icon, icShare, icThumbUp } from 'components/atoms/Icon';
-import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Col, Grid, Row } from 'components/atoms/Layout/Grid';
 import { Link } from 'components/atoms/Layout/Link';
 import { Avatar } from 'components/atoms/Media';
 import { Text } from 'components/atoms/Text';
@@ -43,39 +43,40 @@ const PostCommentItem = ({
   reactionCount,
 }: PostCommentItemProps) => {
   return (
-    <Row>
-      <Col size="auto" className="flex items-start">
-        <Avatar className="small">
-          <img src={avatar} alt="" />
-        </Avatar>
-      </Col>
-      <Col className="flex items-start">
-        <div className="ml-s">
-          <div>
-            <Row>
-              <Col className="p-0">
-                <div className="caption flex flex-col items-start">
-                  <Link href="/" className="subtitle-large text-bold">
-                    {username}
-                  </Link>
-                  <Text as="span" color="medium">
-                    {badge}
-                  </Text>
-                </div>
-              </Col>
-              <Col size="auto" className="p-0">
-                <div className="caption">
-                  <Text as="span" color="medium">
-                    {timestamp}
-                  </Text>
-                </div>
-              </Col>
-            </Row>
-          </div>
+    <Grid>
+      <Row className="w-100p">
+        <Col size="auto" className="flex items-start">
+          <Avatar className="small">
+            <img src={avatar} alt="" />
+          </Avatar>
+        </Col>
+        <Col className="flex items-start">
+          <div className="ml-s">
+            <div>
+              <Row>
+                <Col className="p-0">
+                  <div className="caption flex flex-col items-start">
+                    <Link href="/" className="subtitle-large text-bold">
+                      {username}
+                    </Link>
+                    <Text as="span" color="medium">
+                      {badge}
+                    </Text>
+                  </div>
+                </Col>
+                <Col size="auto" className="p-0">
+                  <div className="caption">
+                    <Text as="span" color="medium">
+                      {timestamp}
+                    </Text>
+                  </div>
+                </Col>
+              </Row>
+            </div>
 
-          <Text as="p">{content}</Text>
+            <Text as="p">{content}</Text>
 
-          {/* <div className="mt-m flex justify-start">
+            {/* <div className="mt-m flex justify-start">
             <div className="mr-m subtitle-s color-medium">
               {reactionCount} <Trans id="label.reactions" />
             </div>
@@ -85,35 +86,44 @@ const PostCommentItem = ({
             </div>
           </div> */}
 
-          <div className="flex justify-between">
-            <div>
-              <Button color="medium" fill="clear" size="small" className="mr-s">
-                <Icon slot="start" icon={icThumbUp} />
-                <Text as="span">react</Text>
-              </Button>
-              <Button
-                color="medium"
-                fill="clear"
-                size="small"
-                className="mr-s"
-                onClick={() => console.log('ss')}
-              >
-                <Icon slot="start" icon={icMessage} />
-                <Text as="span">reply</Text>
-              </Button>
-              <Button color="medium" fill="clear" size="small" className="mr-s">
-                <Icon slot="start" icon={icShare} />
-                <Text as="span">share</Text>
+            <div className="flex justify-between">
+              <div>
+                <Button color="medium" fill="clear" size="small" className="mr-s">
+                  <Icon slot="start" icon={icThumbUp} />
+                  <Text as="span">
+                    <Trans id="label.react" />
+                  </Text>
+                </Button>
+                <Button
+                  color="medium"
+                  fill="clear"
+                  size="small"
+                  className="mr-s"
+                  onClick={() => console.log('ss')}
+                >
+                  <Icon slot="start" icon={icMessage} />
+                  <Text as="span">
+                    <Trans id="label.reply" />
+                  </Text>
+                </Button>
+                <Button color="medium" fill="clear" size="small" className="mr-s">
+                  <Icon slot="start" icon={icShare} />
+                  <Text as="span">
+                    <Trans id="label.share" />
+                  </Text>
+                </Button>
+              </div>
+              <Button color="medium" fill="clear" size="small" slot="end">
+                <Icon slot="start" icon={icDots} />
+                <Text as="span">
+                  <Trans id="label.more" />
+                </Text>
               </Button>
             </div>
-            <Button color="medium" fill="clear" size="small" slot="end">
-              <Icon slot="start" icon={icDots} />
-              <Text as="span">more</Text>
-            </Button>
           </div>
-        </div>
-      </Col>
-    </Row>
+        </Col>
+      </Row>
+    </Grid>
   );
 };
 

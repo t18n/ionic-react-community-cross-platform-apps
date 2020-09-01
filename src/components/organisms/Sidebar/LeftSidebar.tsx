@@ -147,7 +147,7 @@ export const LeftSidebar = () => {
                   <Icon icon={appPages[id].icon} slot="start" size="large" color="medium" />
                   <Label color="medium">
                     <Text as="a" fontWeight="text-bold" type="subtitle-l" extraClasses="ml-s">
-                      {appPages[id].title}
+                      <Trans id={appPages[id].title} />
                     </Text>
                   </Label>
                 </Item>
@@ -208,7 +208,7 @@ export const LeftSidebar = () => {
         </List>
       </Popover>
 
-      {LOGOUT_loading && <Loading isOpen={LOGOUT_loading} message={t`Logging out...`} />}
+      {LOGOUT_loading && <Loading isOpen={LOGOUT_loading} message={t`message.loggingOut`} />}
 
       <Toast
         isOpen={toast?.status}

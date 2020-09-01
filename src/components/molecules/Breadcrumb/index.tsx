@@ -34,7 +34,7 @@ export const Breadcrumb = ({ title, searchBar }: BreadcrumbProps) => (
       {!!searchBar && (
         <SearchBar
           className="w-m mx-auto"
-          placeholder={t`search`}
+          placeholder={t`label.search`}
           showCancelButton="never"
           onIonClear={searchBar.onSearchCancel}
           onIonChange={searchBar.onSearchChange}

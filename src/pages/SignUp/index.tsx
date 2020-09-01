@@ -35,7 +35,7 @@ export const Signup = ({ history }: SignupProps) => {
       setToast({
         status: true,
         position: 'bottom',
-        message: t`Please fill all required data`,
+        message: t`error.pleaseFillAllRequiredData`,
         duration: 3000,
         color: 'danger',
       });
@@ -61,7 +61,7 @@ export const Signup = ({ history }: SignupProps) => {
       setToast({
         status: true,
         position: 'bottom',
-        message: t`Signup unsuccessfully! ${e}`,
+        message: `${t`error.signUpUnsuccessfully`}${e}`,
         duration: 3000,
         color: 'danger',
       });
@@ -164,7 +164,7 @@ export const Signup = ({ history }: SignupProps) => {
             onDidDismiss={() => setToast({ ...toast, status: false })}
           />
 
-          {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={t`Logging in...`} />}
+          {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={t`message.loggingIn`} />}
         </form>
       </div>
     </Page>
