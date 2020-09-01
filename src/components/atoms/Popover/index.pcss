@@ -1,3 +1,16 @@
-.a {
-  padding: 0;
+/* Ion Popover */
+ion-popover .popover-wrapper .popover-content {
+  width: 80% !important;
+  height: 80% !important;
+  background: #fff !important;
+
+  @media (--viewport-tablet) {
+    width: calc(var(--grid) * 70) !important;
+    height: calc(var(--grid) * 60) !important;
+  }
+
+  @media (--viewport-desktop) {
+    width: calc(var(--grid) * 90) !important;
+    height: calc(var(--grid) * 80) !important;
+  }
 }

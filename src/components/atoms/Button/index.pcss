@@ -1,3 +1,29 @@
-.a {
-  padding: 0;
+/* Ion Button */
+ion-button {
+  font-weight: 700;
+
+  --border-radius: calc(var(--grid) * 0.5);
+
+  &.hydrated {
+    --background-color: transparent !important;
+  }
+
+  /* Button with clear background */
+  &.button.button-clear {
+    text-transform: none;
+    width: fit-content;
+    line-height: 2;
+
+    --padding-start: 0;
+    --padding-end: 0;
+
+    ion-icon {
+      margin-right: var(--grid);
+    }
+  }
+}
+
+ion-back-button {
+  font-size: 16px;
+  margin-right: calc(var(--grid) * 2);
 }

@@ -50,7 +50,7 @@ export const Explore = () => {
 
       <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
-      <Content fullscreen={true} className="px py">
+      <div className="px py">
         {isError ? 'There are some errors' : null}
         {!state.isLoading ? (
           <List>
@@ -73,7 +73,7 @@ export const Explore = () => {
             <Spinner color="primary" />
           </div>
         )}
-      </Content>
+      </div>
     </Page>
   );
 };

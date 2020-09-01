@@ -72,7 +72,7 @@ export const Signup = ({ history }: SignupProps) => {
   return (
     <Page>
       <Breadcrumb title={t`page.title.signup`} />
-      <Content className="px py">
+      <div className="px py">
         <form
           className="w-100p h-100p flex flex-col content-center justify-center"
           noValidate
@@ -166,7 +166,7 @@ export const Signup = ({ history }: SignupProps) => {
 
           {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={t`Logging in...`} />}
         </form>
-      </Content>
+      </div>
     </Page>
   );
 };

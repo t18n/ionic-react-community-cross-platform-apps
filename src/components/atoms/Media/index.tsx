@@ -1,3 +1,5 @@
+import './index.min.css';
+
 import { JSX } from '@ionic/core';
 import { IonAvatar, IonImg, IonThumbnail } from '@ionic/react';
 import React, { HTMLAttributes, ReactNode } from 'react';

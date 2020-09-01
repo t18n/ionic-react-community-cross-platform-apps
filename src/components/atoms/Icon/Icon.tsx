@@ -1,3 +1,5 @@
+import './index.min.css';
+
 import { IonIcon } from '@ionic/react';
 import React, { HTMLAttributes, useEffect } from 'react';
 

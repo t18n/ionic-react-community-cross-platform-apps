@@ -1,1 +1,1 @@
-.a{padding:0}
+ion-popover .popover-wrapper .popover-content{width:80%!important;height:80%!important;background:#fff!important}@media (width >= 48em){ion-popover .popover-wrapper .popover-content{width:calc(var(--grid)*70)!important;height:calc(var(--grid)*60)!important}}@media (width >= 85.375em){ion-popover .popover-wrapper .popover-content{width:calc(var(--grid)*90)!important;height:calc(var(--grid)*80)!important}}

@@ -47,47 +47,49 @@
 }
 
 .pa-s {
-  @mixin spaceTop padding, calc(var(--grid) * 2);
-  @mixin spaceBottom padding, calc(var(--grid) * 2);
-  @mixin spaceLeft padding, calc(var(--grid) * 2);
-  @mixin spaceRight padding, calc(var(--grid) * 2);
-
-  @media (--viewport-tablet) {
-    @mixin spaceTop padding, calc(var(--grid) * 3);
-    @mixin spaceBottom padding, calc(var(--grid) * 3);
-    @mixin spaceLeft padding, calc(var(--grid) * 3);
-    @mixin spaceRight padding, calc(var(--grid) * 3);
-  }
-
-  @media (--viewport-desktop) {
-    @mixin spaceTop padding, calc(var(--grid) * 4);
-    @mixin spaceBottom padding, calc(var(--grid) * 4);
-    @mixin spaceLeft padding, calc(var(--grid) * 4);
-    @mixin spaceRight padding, calc(var(--grid) * 4);
-  }
+  @mixin spaceTop padding, var(--space-s);
+  @mixin spaceBottom padding, var(--space-s);
+  @mixin spaceLeft padding, var(--space-s);
+  @mixin spaceRight padding, var(--space-s);
 }
 
 .pa-m {
-  @mixin spaceTop padding, calc(var(--grid) * 5);
-  @mixin spaceBottom padding, calc(var(--grid) * 5);
-  @mixin spaceLeft padding, calc(var(--grid) * 5);
-  @mixin spaceRight padding, calc(var(--grid) * 5);
+  @mixin spaceTop padding, var(--space-m);
+  @mixin spaceBottom padding, var(--space-m);
+  @mixin spaceLeft padding, var(--space-m);
+  @mixin spaceRight padding, var(--space-m);
+}
+
+.pt-s {
+  @mixin spaceTop padding, var(--space-s);
+}
+
+.pb-s {
+  @mixin spaceBottom padding, var(--space-s);
+}
+
+.pl-s {
+  @mixin spaceLeft padding, var(--space-s);
+}
+
+.pr-s {
+  @mixin spaceRight padding, var(--space-s);
 }
 
 .pt-m {
-  @mixin spaceTop padding, calc(var(--grid) * 5);
+  @mixin spaceTop padding, var(--space-m);
 }
 
 .pb-m {
-  @mixin spaceBottom padding, calc(var(--grid) * 5);
+  @mixin spaceBottom padding, var(--space-m);
 }
 
 .pl-m {
-  @mixin spaceLeft padding, calc(var(--grid) * 5);
+  @mixin spaceLeft padding, var(--space-m);
 }
 
 .pr-m {
-  @mixin spaceRight padding, calc(var(--grid) * 5);
+  @mixin spaceRight padding, var(--space-m);
 }
 
 /*
@@ -119,58 +121,58 @@
 }
 
 .ma-m {
-  @mixin spaceTop margin, calc(var(--grid) * 5);
-  @mixin spaceBottom margin, calc(var(--grid) * 5);
-  @mixin spaceLeft margin, calc(var(--grid) * 5);
-  @mixin spaceRight margin, calc(var(--grid) * 5);
+  @mixin spaceTop margin, var(--space-m);
+  @mixin spaceBottom margin, var(--space-m);
+  @mixin spaceLeft margin, var(--space-m);
+  @mixin spaceRight margin, var(--space-m);
 }
 
 .mt-s {
-  @mixin spaceTop margin, calc(var(--grid) * 3);
+  @mixin spaceTop margin, var(--space-s);
 }
 
 .mt-m {
-  @mixin spaceTop margin, calc(var(--grid) * 5);
+  @mixin spaceTop margin, var(--space-m);
 }
 
 .mt-l {
-  @mixin spaceTop margin, calc(var(--grid) * 8);
+  @mixin spaceTop margin, var(--space-l);
 }
 
 .mb-s {
-  @mixin spaceBottom margin, calc(var(--grid) * 3);
+  @mixin spaceBottom margin, var(--space-s);
 }
 
 .mb-m {
-  @mixin spaceBottom margin, calc(var(--grid) * 5);
+  @mixin spaceBottom margin, var(--space-m);
 }
 
 .mb-l {
-  @mixin spaceBottom margin, calc(var(--grid) * 8);
+  @mixin spaceBottom margin, var(--space-l);
 }
 
 .ml-s {
-  @mixin spaceLeft margin, calc(var(--grid) * 3);
+  @mixin spaceLeft margin, var(--space-s);
 }
 
 .ml-m {
-  @mixin spaceLeft margin, calc(var(--grid) * 5);
+  @mixin spaceLeft margin, var(--space-m);
 }
 
 .ml-l {
-  @mixin spaceLeft margin, calc(var(--grid) * 8);
+  @mixin spaceLeft margin, var(--space-l);
 }
 
 .mr-s {
-  @mixin spaceRight margin, calc(var(--grid) * 3);
+  @mixin spaceRight margin, var(--space-s);
 }
 
 .mr-m {
-  @mixin spaceRight margin, calc(var(--grid) * 5);
+  @mixin spaceRight margin, var(--space-m);
 }
 
 .mr-l {
-  @mixin spaceRight margin, calc(var(--grid) * 8);
+  @mixin spaceRight margin, var(--space-l);
 }
 
 /*

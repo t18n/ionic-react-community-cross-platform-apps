@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Placeholder from '.';
+import { SkeletonElement } from '.';
 
 export default {
   title: 'Molecules',
-  component: Placeholder,
+  component: SkeletonElement,
 };
 
-export const SkeletonElement = () => <div />;
+export const SkeletonElementExample = () => <div />;

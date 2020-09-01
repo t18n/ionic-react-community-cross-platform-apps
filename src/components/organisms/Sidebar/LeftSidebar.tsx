@@ -1,12 +1,11 @@
 import './index.min.css';
 
-import { IonMenu } from '@ionic/react';
 import { t, Trans } from '@lingui/macro';
 import { Toggle } from 'components/atoms/Button';
 import { Icon } from 'components/atoms/Icon';
 import { Label } from 'components/atoms/Item';
-import { Content } from 'components/atoms/Layout/Content';
 import { Header } from 'components/atoms/Layout/Header';
+import { Menu } from 'components/atoms/Layout/Menu';
 import { Toolbar } from 'components/atoms/Layout/Toolbar';
 import { Item, List, ListHeader } from 'components/atoms/List';
 import { Logo } from 'components/atoms/Logo';
@@ -28,7 +27,7 @@ import { LocaleId } from 'settings/locale';
 import { Loading } from '../../atoms/Loading/index';
 import { activateLanguage } from '../I18n/utils';
 
-const SideIonMenu = () => {
+export const LeftSidebar = () => {
   const [isDarkMode, setIsDarkMode] = useState(ThemeService.getCurrentSetting());
   const [showPopover, setShowPopover] = useState(false);
   const [toast, setToast] = useToast(null);
@@ -85,19 +84,19 @@ const SideIonMenu = () => {
   }, [isDarkMode]);
 
   return (
-    <IonMenu
+    <Menu
       type="overlay"
       side="start"
-      contentId="main"
-      menuId="main"
-      swipeGesture={false}
-      className="main-menu"
+      contentId="left-sidebar"
+      menuId="left-sidebar"
+      className="left-sidebar"
+      swipeGesture
     >
-      <Content>
+      <div className="left-sidebar__content">
         <List color="light">
           <Header slot="start">
             <Toolbar className="border-0" color="light">
-              <Logo extraClasses="main-menu__logo" />
+              <Logo extraClasses="left-sidebar__logo" />
             </Toolbar>
           </Header>
 
@@ -122,7 +121,7 @@ const SideIonMenu = () => {
               </Label>
             </Item>
           ) : (
-            <Item lines="none" slot="end" detail={false} className="mt-s main-menu__item">
+            <Item lines="none" slot="end" detail={false} className="mt-s left-sidebar__item">
               <Item key={loginPage.title} lines="none" routerLink={loginPage.url} detail={false}>
                 <Icon icon={loginPage.icon} slot="start" size="large" color="medium" />
                 <Label color="medium">
@@ -137,7 +136,7 @@ const SideIonMenu = () => {
             (id) =>
               !excludedPages.includes(id) && (
                 <Item
-                  className={`mt-s main-menu__item ${
+                  className={`mt-s left-sidebar__item ${
                     location.pathname === appPages[id].url && 'active'
                   }`}
                   key={appPages[id].title}
@@ -155,7 +154,7 @@ const SideIonMenu = () => {
               )
           )}
         </List>
-      </Content>
+      </div>
 
       <Popover
         isOpen={showPopover}
@@ -219,8 +218,6 @@ const SideIonMenu = () => {
         color={toast?.color}
         onDidDismiss={() => setToast({ ...toast, status: false })}
       />
-    </IonMenu>
+    </Menu>
   );
 };
-
-export default SideIonMenu;

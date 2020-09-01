@@ -1,3 +1,5 @@
+import './index.min.css';
+
 import { JSX } from '@ionic/core';
 import { IonCheckbox } from '@ionic/react';
 import React, { HTMLAttributes } from 'react';

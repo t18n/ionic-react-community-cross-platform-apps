@@ -1,0 +1,1 @@
+.header__content{max-height:calc(var(--grid)*8 + var(--space-s)*2 + var(--ion-safe-area-top));padding-top:calc(var(--space-s) + var(--ion-safe-area-top))!important;padding-bottom:var(--space-s);--padding-top:calc(var(--space-s) + var(--ion-safe-area-top))!important;--padding-bottom:var(--space-s)}

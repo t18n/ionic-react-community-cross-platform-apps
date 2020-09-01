@@ -35,7 +35,7 @@ export const Tour = (props: TourProps) => {
   return (
     <Page>
       <Breadcrumb title={t`page.title.welcome`} />
-      <Content className={`px py ${activeIndex > 0 ? 'bg-primary' : ''}`}>
+      <div className={`px py ${activeIndex > 0 ? 'bg-primary' : ''}`}>
         <div className="tour-slide vertical-layout">
           <div className="slides-container">
             <Slides
@@ -135,7 +135,7 @@ export const Tour = (props: TourProps) => {
             </Button>
           </div>
         </div>
-      </Content>
+      </div>
     </Page>
   );
 };

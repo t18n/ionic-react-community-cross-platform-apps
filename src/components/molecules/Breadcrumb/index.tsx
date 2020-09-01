@@ -1,3 +1,5 @@
+import './index.min.css';
+
 import { t } from '@lingui/macro';
 import { Button, ButtonBack, ButtonGroup } from 'components/atoms/Button';
 import { icArrowsMaximize, Icon, icX } from 'components/atoms/Icon';
@@ -19,8 +21,8 @@ interface BreadcrumbProps {
 }
 
 export const Breadcrumb = ({ title, searchBar }: BreadcrumbProps) => (
-  <Header>
-    <Toolbar className="flex items-center">
+  <Header className="header">
+    <Toolbar className="flex items-center header__content">
       <ButtonGroup slot="start">
         <ButtonBack />
 

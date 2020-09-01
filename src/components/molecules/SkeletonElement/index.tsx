@@ -10,7 +10,7 @@ type Props = {
   noAnimated?: boolean;
 };
 
-const SkeletonElement = (props: Props) => {
+export const SkeletonElement = (props: Props) => {
   let styles: any = {};
 
   styles = {
@@ -29,5 +29,3 @@ const SkeletonElement = (props: Props) => {
     </div>
   );
 };
-
-export default SkeletonElement;

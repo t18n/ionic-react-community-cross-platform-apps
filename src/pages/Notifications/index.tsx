@@ -23,7 +23,7 @@ export const Notifications = () => {
       />
       <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
-      <Content className="px py">
+      <div className="px py">
         <div className="panel">
           <div className="panel-header">
             <div className="text-sm">
@@ -65,7 +65,7 @@ export const Notifications = () => {
             ))}
           </div>
         </div>
-      </Content>
+      </div>
     </Page>
   );
 };

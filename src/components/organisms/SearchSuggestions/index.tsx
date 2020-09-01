@@ -21,7 +21,7 @@ const SearchSuggestions = ({ history, isFocused, searchTerm }: SearchSuggestions
   };
 
   return (
-    <Content className={!isFocused ? 'hide' : ''}>
+    <div className={!isFocused ? 'hide' : ''}>
       <div className="content-overlay">
         <div className="search-suggestions">
           {[0, 1, 2, 3, 4].map((i) => (
@@ -53,7 +53,7 @@ const SearchSuggestions = ({ history, isFocused, searchTerm }: SearchSuggestions
           </Label>
         </Item>
       </div>
-    </Content>
+    </div>
   );
 };
 

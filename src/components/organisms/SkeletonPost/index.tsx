@@ -1,7 +1,7 @@
 import './index.min.css';
 
 import { IonCol, IonRow } from '@ionic/react';
-import SkeletonElement from 'components/molecules/SkeletonElement';
+import { SkeletonElement } from 'components/molecules/SkeletonElement';
 import React from 'react';
 
 const SkeletonPost = () => {
