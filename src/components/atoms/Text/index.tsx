@@ -9,6 +9,7 @@ interface TextProps {
   as: keyof JSX.IntrinsicElements;
   fontWeight?: 'text-light' | 'text-normal' | 'text-bold';
   transform?: 'case-none' | 'case-upper';
+  align?: 'text-center' | 'text-left';
   color?:
     | 'primary'
     | 'secondary'
@@ -40,6 +41,7 @@ interface TextProps {
 export const Text = ({
   as,
   fontWeight,
+  align,
   transform,
   type,
   extraClasses,
@@ -50,6 +52,9 @@ export const Text = ({
   const colorStyle = color ? `ion-color-${color} color-base` : null;
 
   return (
-    <Tag className={classNames(fontWeight, transform, type, colorStyle, extraClasses)} {...rest} />
+    <Tag
+      className={classNames(fontWeight, transform, type, align, colorStyle, extraClasses)}
+      {...rest}
+    />
   );
 };

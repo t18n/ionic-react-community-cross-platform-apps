@@ -1,6 +1,7 @@
 import './index.min.css';
 
 import { Trans } from '@lingui/macro';
+import { classNames } from 'classnames';
 import { Button } from 'components/atoms/Button';
 import { icArrowsVertical, Icon } from 'components/atoms/Icon';
 import { Col, Grid, Row } from 'components/atoms/Layout/Grid';
@@ -10,22 +11,22 @@ import React from 'react';
 
 export const PostComments = () => {
   return (
-    <div className="comments mt-s w-100p">
-      <Grid className="mb-s">
-        <Row className="p-0">
-          <Col className="p-0 flex justify-start" size="6">
-            <Text as="span" type="subtitle-l" fontWeight="text-bold">
-              <Trans id="label.comments" />
-            </Text>
-          </Col>
-          <Col className="p-0 flex justify-end" size="6">
-            <Text as="small" color="medium">
-              <Trans id="label.button.sortByTop" />
-              <Icon icon={icArrowsVertical} className="icon-sort" />
-            </Text>
-          </Col>
-        </Row>
-      </Grid>
+    <Grid className="comments mt-s p-0">
+      <Row className="p-0">
+        <Col className="p-0 flex justify-start" size="6">
+          <Text as="span" type="subtitle-l" fontWeight="text-bold">
+            <Trans id="label.comments" />
+          </Text>
+        </Col>
+        <Col className="p-0 flex justify-end" size="6">
+          <Text as="span" type="subtitle-s" color="dark" extraClasses="flex items-center">
+            <Trans id="label.button.sortByTop" />{' '}
+            <Button fill="clear">
+              <Icon icon={icArrowsVertical} />
+            </Button>
+          </Text>
+        </Col>
+      </Row>
 
       <div className="comments-list">
         {postComments.map((postComment, i) => (
@@ -59,7 +60,7 @@ export const PostComments = () => {
           </div>
         ))}
       </div>
-    </div>
+    </Grid>
   );
 };
 

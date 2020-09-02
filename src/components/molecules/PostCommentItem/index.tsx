@@ -43,7 +43,7 @@ const PostCommentItem = ({
   reactionCount,
 }: PostCommentItemProps) => {
   return (
-    <Grid>
+    <Grid className="p-0">
       <Row className="w-100p">
         <Col size="auto" className="flex items-start">
           <Avatar className="small">
@@ -74,7 +74,9 @@ const PostCommentItem = ({
               </Row>
             </div>
 
-            <Text as="p">{content}</Text>
+            <Text as="p" type="paragraph-s" color="dark" extraClasses="mb-0">
+              {content}
+            </Text>
 
             {/* <div className="mt-m flex justify-start">
             <div className="mr-m subtitle-s color-medium">

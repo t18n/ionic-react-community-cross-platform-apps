@@ -130,7 +130,7 @@ export const PostItem = ({
           <Button color="medium" fill="clear" size="small" className="mr-s">
             <Icon slot="start" icon={icThumbUp} />
             <Text as="span" color="medium">
-              react
+              <Trans id="label.react" />
             </Text>
           </Button>
           <Button
@@ -142,20 +142,20 @@ export const PostItem = ({
           >
             <Icon slot="start" icon={icMessage} />
             <Text as="span" color="medium">
-              comment
+              <Trans id="label.comment" />
             </Text>
           </Button>
           <Button color="medium" fill="clear" size="small" className="mr-s">
             <Icon slot="start" icon={icShare} />
             <Text as="span" color="medium">
-              share
+              <Trans id="label.share" />
             </Text>
           </Button>
         </div>
         <Button color="medium" fill="clear" size="small" slot="end">
           <Icon slot="start" icon={icDots} />
           <Text as="span" color="medium">
-            more
+            <Trans id="label.more" />
           </Text>
         </Button>
       </Item>

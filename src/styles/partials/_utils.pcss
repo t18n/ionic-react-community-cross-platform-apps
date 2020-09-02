@@ -127,6 +127,10 @@
   @mixin spaceRight margin, var(--space-m);
 }
 
+.mt-0 {
+  @mixin spaceTop margin, 0;
+}
+
 .mt-s {
   @mixin spaceTop margin, var(--space-s);
 }
@@ -137,6 +141,10 @@
 
 .mt-l {
   @mixin spaceTop margin, var(--space-l);
+}
+
+.mb-0 {
+  @mixin spaceBottom margin, 0;
 }
 
 .mb-s {
@@ -151,6 +159,10 @@
   @mixin spaceBottom margin, var(--space-l);
 }
 
+.ml-0 {
+  @mixin spaceLeft margin, 0;
+}
+
 .ml-s {
   @mixin spaceLeft margin, var(--space-s);
 }
@@ -161,6 +173,10 @@
 
 .ml-l {
   @mixin spaceLeft margin, var(--space-l);
+}
+
+.mr-0 {
+  @mixin spaceRight margin, 0;
 }
 
 .mr-s {
