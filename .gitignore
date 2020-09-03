@@ -13,7 +13,7 @@
 
 # environments
 .env/*
-!.env/env.sample.js
+!.env/env.*.js
 
 # misc
 .DS_Store
