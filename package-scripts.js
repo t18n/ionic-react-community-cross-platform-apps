@@ -12,11 +12,6 @@ module.exports = {
         description: 'Load production script environment into current session',
       },
     },
-    bootstrap: {
-      script: 'yarn install && ionic config set -g npmClient yarn',
-      description:
-        "Bootstraping a new project, set npmClient to Yarn, so Ionic doesn't use npm for generating",
-    },
     dev: {
       web: {
         script: npsUtils.concurrent.nps('env.dev nps watch.web', 'watch.css', 'watch.typegen'),
@@ -29,7 +24,7 @@ module.exports = {
           description:
             'Run ios development server, watch PostCSS transform, watch graphql typegen',
         },
-        phone: {
+        device: {
           script: npsUtils.concurrent.nps(
             'env.dev npx ionic capacitor run ios -l --external',
             'watch.css',
@@ -48,7 +43,7 @@ module.exports = {
           description:
             'Run android development server, watch PostCSS transform, watch graphql typegen',
         },
-        phone: {
+        device: {
           script: npsUtils.concurrent.nps(
             'env.dev npx ionic capacitor run android -l --external',
             'watch.css',
@@ -57,19 +52,12 @@ module.exports = {
           description: 'Run app in actual android device',
         },
       },
-    },
-    storybook: {
-      default: {
-        script: npsUtils.concurrent.nps('env.dev nps watch.css', 'storybook.start'),
+      storybook: {
+        script: npsUtils.concurrent.nps(
+          'nps watch.css',
+          'start-storybook -p 9009 -s ./src/styles'
+        ),
         description: 'Run Storybook development server, watch PostCSS transform',
-      },
-      start: {
-        script: 'start-storybook -p 9009 -s ./src/styles',
-        description: 'Start storybook for web',
-      },
-      build: {
-        script: 'build-storybook -s ./src/styles',
-        description: 'Build Storybook to a website',
       },
     },
     open: {
@@ -112,13 +100,21 @@ module.exports = {
     },
     build: {
       default: {
-        script: 'react-scripts build && ionic cap copy',
+        script: 'nps "env.prod nps react-scripts build" && ionic cap copy',
         description: 'Build project and use Capacitor to copy to build folder in apps',
       },
-      ionic: {
-        script: 'ionic cap sync',
+      web: {
+        script: 'nps "env.prod react-scripts build"',
+        description: 'Build web project',
+      },
+      app: {
+        script: 'nps "env.prod nps ionic cap sync"',
         description:
           'Perform an Ionic build, Copy web assets to Capacitor native platform(s), update app dependencies and install Capacitor new plugins',
+      },
+      storybook: {
+        script: 'build-storybook -s ./src/styles',
+        description: 'Build Storybook to a website',
       },
       css: {
         script: "postcss 'src/**/!(_).pcss' --base src --dir src --ext min.css",
@@ -145,10 +141,10 @@ module.exports = {
       extract: {
         script: 'lingui extract',
         description: 'Extract translation keys',
-      },
-      clean: {
-        script: 'lingui extract --clean',
-        description: 'Extract translation keys and clean unused keys',
+        clean: {
+          script: 'lingui extract --clean',
+          description: 'Extract translation keys and clean unused keys',
+        },
       },
       compile: {
         script: 'lingui compile',
