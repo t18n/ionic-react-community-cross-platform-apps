@@ -1,0 +1,6 @@
+[build]
+  command = "yarn nps build.web"
+  publish = "build"
+  environment = { IS_NETLIFY = "true", NODE_VERSION = "v12.4.0", RUBY_VERSION = "2.6.2" }
+
+
