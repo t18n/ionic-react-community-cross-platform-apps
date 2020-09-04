@@ -1,6 +1,6 @@
 [build]
   command = "yarn nps build.web"
   publish = "build"
-  environment = { IS_NETLIFY = "true" }
+  environment = { IS_NETLIFY = "true", CI = "false" }
 
 
