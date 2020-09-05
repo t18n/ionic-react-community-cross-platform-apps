@@ -1,7 +1,6 @@
 export { Icon } from './Icon';
 
 export { default as icAccessible } from 'tabler-icons/icons/accessible.svg';
-export { default as icActivity } from 'tabler-icons/icons/activity.svg';
 export { default as icAd } from 'tabler-icons/icons/ad.svg';
 export { default as icAdjustments } from 'tabler-icons/icons/adjustments.svg';
 export { default as icAlarm } from 'tabler-icons/icons/alarm.svg';
@@ -347,7 +346,6 @@ export { default as icLayoutSidebarRight } from 'tabler-icons/icons/layout-sideb
 export { default as icLayoutSidebar } from 'tabler-icons/icons/layout-sidebar.svg';
 export { default as icLayout } from 'tabler-icons/icons/layout.svg';
 export { default as icLego } from 'tabler-icons/icons/lego.svg';
-export { default as icLetterCase } from 'tabler-icons/icons/letter-case.svg';
 export { default as icLicense } from 'tabler-icons/icons/license.svg';
 export { default as icLifebuoy } from 'tabler-icons/icons/lifebuoy.svg';
 export { default as icLineHeight } from 'tabler-icons/icons/line-height.svg';
