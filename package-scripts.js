@@ -14,43 +14,30 @@ module.exports = {
     },
     dev: {
       web: {
-        script: npsUtils.concurrent.nps('env.dev nps watch.web', 'watch.css', 'watch.typegen'),
+        script: npsUtils.concurrent.nps(
+          'env.dev nps ionic serve -p 8111',
+          'watch.css',
+          'watch.typegen'
+        ),
         description:
           'Running web development server, watch PostCSS transform, watch graphql typegen',
       },
       ios: {
-        default: {
-          script: npsUtils.concurrent.nps('env.dev nps watch.ios', 'watch.css', 'watch.typegen'),
-          description:
-            'Run ios development server, watch PostCSS transform, watch graphql typegen',
-        },
-        device: {
-          script: npsUtils.concurrent.nps(
-            'env.dev npx ionic capacitor run ios -l --external',
-            'watch.css',
-            'watch.typegen'
-          ),
-          description: 'Run app in actual iOS device',
-        },
+        script: npsUtils.concurrent.nps(
+          'env.dev ionic cap run ios -l --external',
+          'watch.css',
+          'watch.typegen'
+        ),
+        description: 'Run iOS development server, watch PostCSS transform, watch graphql typegen',
       },
       android: {
-        default: {
-          script: npsUtils.concurrent.nps(
-            'env.dev nps watch.android',
-            'watch.css',
-            'watch.typegen'
-          ),
-          description:
-            'Run android development server, watch PostCSS transform, watch graphql typegen',
-        },
-        device: {
-          script: npsUtils.concurrent.nps(
-            'env.dev npx ionic capacitor run android -l --external',
-            'watch.css',
-            'watch.typegen'
-          ),
-          description: 'Run app in actual android device',
-        },
+        script: npsUtils.concurrent.nps(
+          'env.dev ionic cap run android -l --external',
+          'watch.css',
+          'watch.typegen'
+        ),
+        description:
+          'Run Android development server, watch PostCSS transform, watch graphql typegen',
       },
       storybook: {
         script: npsUtils.concurrent.nps(
@@ -60,57 +47,25 @@ module.exports = {
         description: 'Run Storybook development server, watch PostCSS transform',
       },
     },
-    open: {
-      ios: {
-        script: 'cap open ios',
-        description: 'Open XCode for iOS app',
-      },
-      android: {
-        script: 'cap open android',
-        description: 'Open Android Studio for Android app',
-      },
-    },
     app: {
-      config: {
-        script: 'npx cap copy',
-        description: 'Copy Capacitor config to mobile apps',
+      sync: {
+        script: 'ionic cap sync',
+        description:
+          'Build and compiles web assets, then copy build folder to native platforms. Update Capacitor native platform(s) and dependencies and finally Install any discovered Capacitor or Cordova plugins',
       },
-    },
-    watch: {
-      web: {
-        script: 'ionic serve',
-        description: 'Run web development server to enable hot reload',
-      },
-      ios: {
-        script: 'ionic cap run ios -l --external',
-        description: 'Run android development server to enable hot reload',
-      },
-      android: {
-        script: 'ionic cap run android -l --external',
-        description: 'Run android development server to enable hot reload',
-      },
-      typegen: {
-        script: 'nps "apollo.schema.generate --watch"',
-        description: 'Generate Apollo schema on client queries change',
-      },
-      css: {
-        script: 'nps "build.css -w"',
-        description: 'Watch and transform PostCSS to CSS on .pcss file change',
+      workspace: {
+        script: 'ionic cap open',
+        description: 'Open  opens the native project workspace (e.g. XCode, Studio)',
       },
     },
     build: {
-      default: {
-        script: 'nps "env.prod nps react-scripts build" && ionic cap copy',
-        description: 'Build project and use Capacitor to copy to build folder in apps',
-      },
       web: {
         script: 'nps "env.prod react-scripts build"',
         description: 'Build web project',
       },
       app: {
-        script: 'nps "env.prod nps ionic cap sync"',
-        description:
-          'Perform an Ionic build, Copy web assets to Capacitor native platform(s), update app dependencies and install Capacitor new plugins',
+        script: 'nps "env.prod nps app.sync"',
+        description: 'Build app project',
       },
       storybook: {
         script: 'build-storybook -s ./src/styles',
@@ -149,6 +104,16 @@ module.exports = {
       compile: {
         script: 'lingui compile',
         description: 'Compile translations',
+      },
+    },
+    watch: {
+      typegen: {
+        script: 'nps "apollo.schema.generate --watch"',
+        description: 'Generate Apollo schema on client queries change',
+      },
+      css: {
+        script: 'nps "build.css -w"',
+        description: 'Watch and transform PostCSS to CSS on .pcss file change',
       },
     },
     test: {

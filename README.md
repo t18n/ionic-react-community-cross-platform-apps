@@ -47,7 +47,3 @@
 6. State
    State classes can be used to reflect changes to a component’s state. This allows them to be clearly differentiated from modifiers, which reflect modification of a component’s base appearance regardless of state. If necessary, a state can also be applied to a descendent.
    States are prefixed with is- and are written in camel case. They are also always written as adjoining classes. For example `.SearchForm.is-invalid`.
-
-## Bugs
-
-- [ ] Run `npx ionic capacitor run ios` to serve app on iOS physical device results in white page
