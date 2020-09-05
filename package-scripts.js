@@ -15,7 +15,7 @@ module.exports = {
     dev: {
       web: {
         script: npsUtils.concurrent.nps(
-          'env.dev nps ionic serve -p 8111',
+          'env.dev ionic serve --external -p=8100',
           'watch.css',
           'watch.typegen'
         ),
@@ -24,7 +24,7 @@ module.exports = {
       },
       ios: {
         script: npsUtils.concurrent.nps(
-          'env.dev ionic cap run ios -l --external',
+          'env.dev ionic cap run ios -l --external -p=8101',
           'watch.css',
           'watch.typegen'
         ),
@@ -32,7 +32,7 @@ module.exports = {
       },
       android: {
         script: npsUtils.concurrent.nps(
-          'env.dev ionic cap run android -l --external',
+          'env.dev ionic cap run android -l --external -p=8101',
           'watch.css',
           'watch.typegen'
         ),

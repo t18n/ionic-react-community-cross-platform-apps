@@ -27,11 +27,6 @@ export const Login = ({ history }: LoginProps) => {
 
   const [rememberChecked, setRememberChecked] = useState(false);
 
-  useEffect(() => {
-    console.log('inputEmail', inputEmail);
-    console.log('inputPassword', inputPassword);
-  }, [inputEmail, inputPassword]);
-
   const onLoginUser = async (e: React.FormEvent) => {
     e.preventDefault();
 

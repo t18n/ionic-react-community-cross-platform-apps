@@ -13,7 +13,8 @@
 
 # environments
 .env/*
-!.env/env.*.js
+!.env/env.production.js
+!.env/env.test.js
 
 # misc
 .DS_Store
