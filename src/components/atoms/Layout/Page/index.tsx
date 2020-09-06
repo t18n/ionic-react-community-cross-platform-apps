@@ -14,6 +14,7 @@ type PageProps = {
 type PageContentProps = {
   children: ReactNode;
   className?: string;
+  omitPadding?: boolean;
 };
 
 export const Page = ({ children, className, ...rest }: PageProps) => {
@@ -24,9 +25,11 @@ export const Page = ({ children, className, ...rest }: PageProps) => {
   );
 };
 
-export const PageContent = ({ children, className, ...rest }: PageContentProps) => {
+export const PageContent = ({ children, className, omitPadding, ...rest }: PageContentProps) => {
+  const padding = omitPadding ? '' : 'p-page-x p-page-y';
+
   return (
-    <Content className={classNames('page__content scroll-y', className)} {...rest}>
+    <Content className={classNames('scroll-y', className, padding)} {...rest}>
       {children}
     </Content>
   );

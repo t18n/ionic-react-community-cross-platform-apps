@@ -1,19 +1,8 @@
 import './index.min.css';
 
-import {
-  IonBackButton,
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonFab,
-  IonFabButton,
-  IonHeader,
-  IonIcon,
-  IonPage,
-  IonSearchbar,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/react';
+import { t } from '@lingui/macro';
+import { Page, PageContent } from 'components/atoms/Layout/Page';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import MessageItem, { messages } from 'components/molecules/MessageItem';
 import { create, personAdd } from 'ionicons/icons';
 import React from 'react';
@@ -28,28 +17,10 @@ const Messaging = ({ history }: Props) => {
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar className="border-0" color="primary">
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/home" />
-          </IonButtons>
+    <Page>
+      <Breadcrumb title={t`page.title.message`} />
 
-          <IonTitle>Messaging</IonTitle>
-
-          <IonButtons slot="end">
-            <IonButton>
-              <IonIcon slot="icon-only" icon={personAdd} />
-            </IonButton>
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
-
-      <IonContent>
-        <IonToolbar className="toolbar-search content-search" color="light">
-          <IonSearchbar placeholder="Search Messages"></IonSearchbar>
-        </IonToolbar>
-
+      <PageContent>
         {messages.map((message, i) => (
           <MessageItem
             key={i}
@@ -61,14 +32,8 @@ const Messaging = ({ history }: Props) => {
             content={message.content}
           />
         ))}
-
-        <IonFab vertical="bottom" horizontal="end" slot="fixed">
-          <IonFabButton>
-            <IonIcon icon={create} />
-          </IonFabButton>
-        </IonFab>
-      </IonContent>
-    </IonPage>
+      </PageContent>
+    </Page>
   );
 };
 

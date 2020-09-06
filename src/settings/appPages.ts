@@ -27,6 +27,7 @@ import Tour from 'pages/Tour';
 import { FC } from 'react';
 
 import { Home } from '../pages/Home/index';
+import Messaging from '../pages/Messaging/index';
 
 interface AppPage {
   url: string;
@@ -94,7 +95,7 @@ export const appPages: Record<string, AppPage> = {
     title: t`page.title.message`,
     url: '/messageDetails',
     icon: icMessage2,
-    component: Messages,
+    component: Messaging,
   },
   ideas: {
     title: t`page.title.ideas`,

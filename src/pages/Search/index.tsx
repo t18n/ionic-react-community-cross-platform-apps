@@ -1,21 +1,13 @@
 import './index.min.css';
 
-import {
-  IonButton,
-  IonCol,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonPage,
-  IonRow,
-  IonText,
-  IonToolbar,
-} from '@ionic/react';
 import { t } from '@lingui/macro';
-import { icX } from 'components/atoms/Icon';
+import { Button } from 'components/atoms/Button';
+import { icArrowDown, icChevronDown, Icon, icX } from 'components/atoms/Icon';
+import { Item, Label } from 'components/atoms/Item';
+import { Col } from 'components/atoms/Layout/Grid';
+import { Page, PageContent } from 'components/atoms/Layout/Page';
 import { SearchBar } from 'components/atoms/SearchBar';
+import { Text } from 'components/atoms/Text';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import ConnectItem from 'components/molecules/ConnectItem';
 import { connections } from 'components/molecules/ConnectItem';
@@ -26,6 +18,8 @@ import { useSearchBar } from 'hooks/useSearchbar';
 import { chevronDown } from 'ionicons/icons';
 import React from 'react';
 
+import { Row } from '../../components/atoms/Layout/Grid/index';
+
 const Search = () => {
   const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
 
@@ -34,9 +28,10 @@ const Search = () => {
   };
 
   return (
-    <IonPage className="search-page">
-      <IonHeader>
-        <Breadcrumb title={t`page.title.search`} />
+    <Page className="search-page">
+      <Breadcrumb title={t`page.title.search`} />
+
+      <PageContent>
         <SearchBar
           className="w-100p mx-auto"
           placeholder={t`label.search`}
@@ -50,43 +45,38 @@ const Search = () => {
           animated
         />
 
-        <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
-
-        <IonToolbar color="light" className="toolbar-shadow border-0">
-          <div className="scroll-x">
-            <IonButton className="scroll-item" fill="outline" color="medium" size="small">
-              People
-            </IonButton>
-            <IonButton className="scroll-item" fill="outline" color="medium" size="small">
-              Media
-            </IonButton>
-            <IonButton className="scroll-item" fill="outline" color="medium" size="small">
-              Content
-            </IonButton>
-            <IonButton className="scroll-item" fill="outline" color="medium" size="small">
-              Companies
-            </IonButton>
-            <IonButton className="scroll-item" fill="outline" color="medium" size="small">
-              School
-            </IonButton>
-            <IonButton className="scroll-item" fill="outline" color="medium" size="small">
-              Date Posted
-              <IonIcon icon={chevronDown} />
-            </IonButton>
-            <IonButton className="scroll-item" fill="outline" color="medium" size="small">
-              Level
-              <IonIcon icon={chevronDown} />
-            </IonButton>
-          </div>
-        </IonToolbar>
-      </IonHeader>
-
-      <IonContent>
-        <IonItem lines="none" color="light">
-          <IonLabel color="medium">
+        <div className="scroll-x mt-m">
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            Love
+          </Button>
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            Romance
+          </Button>
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            Thriller
+          </Button>
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            Business
+          </Button>
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            Education
+          </Button>
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            History
+            <Icon icon={icChevronDown} />
+          </Button>
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            Horor
+            <Icon icon={icChevronDown} />
+          </Button>
+        </div>
+        <Item lines="none" color="light">
+          <Label color="medium">
             <div className="text-xs">111,575 results</div>
-          </IonLabel>
-        </IonItem>
+          </Label>
+        </Item>
+
+        <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
         <div className="search-results">
           {follows.map((follow, i) => (
@@ -107,16 +97,16 @@ const Search = () => {
 
         <div className="panel">
           <div className="panel-header">
-            <IonRow>
-              <IonCol>People results</IonCol>
-              <IonCol size="auto">
-                <IonText color="primary">
+            <Row>
+              <Col>Profiles</Col>
+              <Col size="auto">
+                <Text as="span" color="primary">
                   <span className="text-sm">
                     <strong>See all</strong>
                   </span>
-                </IonText>
-              </IonCol>
-            </IonRow>
+                </Text>
+              </Col>
+            </Row>
           </div>
           <div className="panel-body p-0">
             <div className="scroll-x">
@@ -133,8 +123,8 @@ const Search = () => {
             </div>
           </div>
         </div>
-      </IonContent>
-    </IonPage>
+      </PageContent>
+    </Page>
   );
 };
 

@@ -46,6 +46,21 @@
   @mixin spaceRight padding, 0;
 }
 
+.p-page-x {
+  @mixin spaceLeft padding, var(--space-m);
+  @mixin spaceRight padding, var(--space-m);
+}
+
+.p-page-y {
+  @mixin spaceTop padding, var(--space-m);
+  @mixin spaceBottom padding, var(--space-m);
+
+  @media (--viewport-tablet) {
+    @mixin spaceTop padding, var(--space-s);
+    @mixin spaceBottom padding, var(--space-s);
+  }
+}
+
 .pa-s {
   @mixin spaceTop padding, var(--space-s);
   @mixin spaceBottom padding, var(--space-s);

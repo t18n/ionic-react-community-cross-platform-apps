@@ -1,17 +1,10 @@
 import './index.min.css';
 
-import {
-  IonButton,
-  IonCol,
-  IonContent,
-  IonFab,
-  IonFabButton,
-  IonIcon,
-  IonPage,
-  IonRow,
-} from '@ionic/react';
 import { t } from '@lingui/macro';
+import { Button } from 'components/atoms/Button';
+import { Col, Row } from 'components/atoms/Layout/Grid';
 import { Link } from 'components/atoms/Layout/Link';
+import { Page, PageContent } from 'components/atoms/Layout/Page';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import ConnectItem from 'components/molecules/ConnectItem';
 import { connections } from 'components/molecules/ConnectItem';
@@ -21,27 +14,26 @@ import NewsletterItem from 'components/molecules/NewsletterItem';
 import { newsletters } from 'components/molecules/NewsletterItem';
 import ProfileCard from 'components/organisms/ProfileCard';
 import { profiles } from 'components/organisms/ProfileCard';
-import { personAdd } from 'ionicons/icons';
 import React from 'react';
 
 export const Network = () => {
   return (
-    <IonPage>
+    <Page>
       <Breadcrumb title={t`page.title.network`} />
 
-      <IonContent className="bg-light">
+      <PageContent className="bg-light">
         <div className="panel">
           <div className="panel-header">
-            <IonRow>
-              <IonCol>{invitations.length} new invitations</IonCol>
-              <IonCol size="auto">
+            <Row>
+              <Col>{invitations.length} new invitations</Col>
+              <Col size="auto">
                 <Link href="/network/invitations">
                   <span className="text-sm">
                     <strong>See all</strong>
                   </span>
                 </Link>
-              </IonCol>
-            </IonRow>
+              </Col>
+            </Row>
           </div>
 
           <div className="panel-body p-0">
@@ -61,20 +53,20 @@ export const Network = () => {
           <div className="panel-header">Newsletter recommened</div>
 
           <div className="panel-body has-grid">
-            <IonRow>
+            <Row>
               {newsletters.map((newsletter, i) => (
-                <IonCol size="6" key={i}>
+                <Col size="12" key={i}>
                   <NewsletterItem
                     cover={newsletter.cover}
                     content={newsletter.content}
                     badge={newsletter.badge}
                     avatar={newsletter.avatar}
                   />
-                </IonCol>
+                </Col>
               ))}
-            </IonRow>
+            </Row>
 
-            <IonButton
+            <Button
               expand="block"
               fill="clear"
               color="primary"
@@ -82,7 +74,7 @@ export const Network = () => {
               routerLink="network/recommendations"
             >
               See all
-            </IonButton>
+            </Button>
           </div>
         </div>
 
@@ -90,20 +82,20 @@ export const Network = () => {
           <div className="panel-header">Pages recommended</div>
 
           <div className="panel-body has-grid">
-            <IonRow>
+            <Row>
               {profiles.map((profile, i) => (
-                <IonCol size="6" key={i}>
+                <Col size="6" key={i}>
                   <ProfileCard
                     avatar={profile.avatar}
                     followerCount={profile.followerCount}
                     cover={profile.cover}
                     name={profile.name}
                   />
-                </IonCol>
+                </Col>
               ))}
-            </IonRow>
+            </Row>
 
-            <IonButton
+            <Button
               expand="block"
               fill="clear"
               color="primary"
@@ -111,7 +103,7 @@ export const Network = () => {
               routerLink="network/recommendations"
             >
               See all
-            </IonButton>
+            </Button>
           </div>
         </div>
 
@@ -119,20 +111,20 @@ export const Network = () => {
           <div className="panel-header">People you may know</div>
 
           <div className="panel-body has-grid">
-            <IonRow>
+            <Row>
               {connections.map((connection, i) => (
-                <IonCol size="6" key={i}>
+                <Col size="6" key={i}>
                   <ConnectItem
                     connectionCount={connection.connectionCount}
                     firstName={connection.firstName}
                     badge={connection.badge}
                     avatar={connection.avatar}
                   />
-                </IonCol>
+                </Col>
               ))}
-            </IonRow>
+            </Row>
 
-            <IonButton
+            <Button
               expand="block"
               fill="clear"
               color="primary"
@@ -140,16 +132,10 @@ export const Network = () => {
               routerLink="network/recommendations"
             >
               See all
-            </IonButton>
+            </Button>
           </div>
         </div>
-
-        <IonFab vertical="bottom" horizontal="end" slot="fixed">
-          <IonFabButton>
-            <IonIcon icon={personAdd} />
-          </IonFabButton>
-        </IonFab>
-      </IonContent>
-    </IonPage>
+      </PageContent>
+    </Page>
   );
 };
