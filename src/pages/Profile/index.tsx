@@ -29,18 +29,9 @@ import { add, create } from 'ionicons/icons';
 import React from 'react';
 
 const Profile = () => {
-  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
-
   return (
     <IonPage className="profile-page">
-      <Breadcrumb
-        title={t`page.title.profile`}
-        searchBar={{
-          onSearchChange: onSearchChange,
-          onSearchCancel: onSearchCancel,
-        }}
-      />
-      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
+      <Breadcrumb title={t`page.title.profile`} />
 
       <IonContent className="bg-light">
         <div className="panel">

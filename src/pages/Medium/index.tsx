@@ -17,10 +17,8 @@ import {
 } from '@ionic/react';
 import { t } from '@lingui/macro';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
-import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import faker from 'faker';
 import { useMediumQuery } from 'graphql/operation/medium/query';
-import { useSearchBar } from 'hooks/useSearchbar';
 import { add, checkmarkCircle, checkmarkCircleOutline, open } from 'ionicons/icons';
 import React from 'react';
 
@@ -33,8 +31,6 @@ const Medium = ({
     params: { slug },
   },
 }: MediumProps) => {
-  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
-
   const { data, loading } = useMediumQuery({
     variables: {
       slug: slug,
@@ -47,15 +43,7 @@ const Medium = ({
 
   return (
     <IonPage className="job-detail-page">
-      <Breadcrumb
-        title={t`page.title.medium`}
-        searchBar={{
-          onSearchChange: onSearchChange,
-          onSearchCancel: onSearchCancel,
-        }}
-      />
-
-      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
+      <Breadcrumb title={t`page.title.medium`} />
 
       <IonContent className="bg-light">
         {loading ? (
@@ -106,7 +94,7 @@ const Medium = ({
 
               <div className="panel">
                 <div className="panel-header">Job description</div>
-                <div className="panel-body no-padding-top">
+                <div className="panel-body p-0-top">
                   <div className="text-sm">{faker.lorem.paragraph()}</div>
                 </div>
                 <div className="panel-footer">
@@ -123,7 +111,7 @@ const Medium = ({
                     <div className="text-xs">Criteria provided by job poster</div>
                   </IonText>
                 </div>
-                <div className="panel-body no-padding-top">
+                <div className="panel-body p-0-top">
                   <IonRow className="items-center">
                     <IonCol size="auto">
                       <IonIcon icon={checkmarkCircle} color="primary" size="small" />

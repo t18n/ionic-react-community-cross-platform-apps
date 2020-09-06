@@ -36,8 +36,6 @@ export const Home = ({ history }: HomeProps) => {
     <Page>
       <Breadcrumb title={t`page.title.home`} />
 
-      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
-
       <PageContent>
         {isLoading && <SkeletonPost />}
         {!isLoading && (

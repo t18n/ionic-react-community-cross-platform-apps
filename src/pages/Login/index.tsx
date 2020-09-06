@@ -4,15 +4,16 @@ import { Checkbox } from 'components/atoms/Checkbox';
 import { Input } from 'components/atoms/Input';
 import { Item, Label } from 'components/atoms/Item';
 import { Col, Row } from 'components/atoms/Layout/Grid';
-import { Page } from 'components/atoms/Layout/Page';
+import { Page, PageContent } from 'components/atoms/Layout/Page';
 import { List } from 'components/atoms/List';
 import { Loading } from 'components/atoms/Loading';
+import { Text } from 'components/atoms/Text';
 import { Toast } from 'components/atoms/Toast';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import { useLoginUser } from 'graphql/operation/user/mutation';
 import { ME } from 'graphql/operation/user/shape';
 import { useToast } from 'hooks/useToast';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 type LoginProps = {
   history: any;
@@ -71,7 +72,7 @@ export const Login = ({ history }: LoginProps) => {
   return (
     <Page>
       <Breadcrumb title={t`page.title.login`} />
-      <div className="px py">
+      <PageContent>
         <form
           className="w-100p h-100p flex flex-col content-center justify-center"
           noValidate
@@ -109,13 +110,15 @@ export const Login = ({ history }: LoginProps) => {
 
           <Row className="w-m mx-auto mt-m">
             <Col className="p-0">
-              <div className="flex items-center justify-start">
+              <div className="flex items-center justify-start h-100p">
                 <Checkbox
                   checked={rememberChecked}
                   onIonChange={(e: any) => setRememberChecked(e.detail.checked)}
                 />
-                <Label className="ml-s text-button case-none color-medium">
-                  <Trans id="label.checkbox.rememberMe" />
+                <Label className="ml-s text-button case-none">
+                  <Text as="span" type="subtitle-s" fontWeight="text-bold" color="medium">
+                    <Trans id="label.checkbox.rememberMe" />
+                  </Text>
                 </Label>
               </div>
             </Col>
@@ -124,7 +127,8 @@ export const Login = ({ history }: LoginProps) => {
                 routerLink="/forgot-password"
                 expand="block"
                 fill="clear"
-                className="ml-auto color-medium"
+                className="ml-auto"
+                color="medium"
               >
                 <Trans id="label.forgotPassword" />
               </Button>
@@ -155,7 +159,7 @@ export const Login = ({ history }: LoginProps) => {
 
           {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={t`message.loggingIn`} />}
         </form>
-      </div>
+      </PageContent>
     </Page>
   );
 };

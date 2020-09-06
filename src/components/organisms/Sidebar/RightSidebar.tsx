@@ -3,20 +3,29 @@ import './index.min.css';
 import { t, Trans } from '@lingui/macro';
 import { Button } from 'components/atoms/Button';
 import { Card, CardContent } from 'components/atoms/Card';
-import { icBook, Icon, icPoint, icX } from 'components/atoms/Icon';
-import { Item, Label } from 'components/atoms/Item';
+import { icBook, Icon, icX } from 'components/atoms/Icon';
+import { Item } from 'components/atoms/Item';
 import { Link } from 'components/atoms/Layout/Link';
 import { Menu } from 'components/atoms/Layout/Menu';
-import { List } from 'components/atoms/List';
 import { SearchBar } from 'components/atoms/SearchBar';
 import { Text } from 'components/atoms/Text';
+import { useSearchBar } from 'hooks/useSearchbar';
 import React from 'react';
 
-export const RightSidebar = () => {
+import SearchSuggestions from '../SearchSuggestions';
+
+interface RightSidebarProps {
+  contentId: string;
+}
+
+export const RightSidebar = ({ contentId }: RightSidebarProps) => {
+  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
+
   return (
     <Menu
+      type="overlay"
       side="end"
-      contentId="page__content"
+      contentId={contentId}
       menuId="right-sidebar"
       className="right-sidebar"
       swipeGesture
@@ -26,8 +35,8 @@ export const RightSidebar = () => {
           className="w-100p mx-auto"
           placeholder={t`label.search`}
           showCancelButton="never"
-          onIonClear={() => console.log('hello')}
-          onIonChange={() => console.log('hello')}
+          onIonClear={onSearchCancel}
+          onIonChange={onSearchChange}
           clearIcon={icX}
           debounce={300}
           inputmode="text"
@@ -35,10 +44,12 @@ export const RightSidebar = () => {
           animated
         />
 
+        <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
+
         {Array(5)
           .fill(0)
-          .map((i) => (
-            <Card className="pa-m mt-l flex flex-col items-center" key="i">
+          .map((id, index) => (
+            <Card className="pa-m mt-l flex flex-col items-center" key={index}>
               <Item lines="none" className="flex align-center">
                 <Icon icon={icBook} slot="start" size="medium" />
                 <Text as="span" type="subtitle-l" color="dark" fontWeight="text-bold">

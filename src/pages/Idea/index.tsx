@@ -15,25 +15,14 @@ import {
 } from '@ionic/react';
 import { t } from '@lingui/macro';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
-import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import faker from 'faker';
-import { useSearchBar } from 'hooks/useSearchbar';
 import { add, checkmarkCircle, checkmarkCircleOutline, open } from 'ionicons/icons';
 import React from 'react';
 
 export const Idea = () => {
-  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
-
   return (
     <IonPage className="job-detail-page">
-      <Breadcrumb
-        title={t`page.title.idea`}
-        searchBar={{
-          onSearchChange: onSearchChange,
-          onSearchCancel: onSearchCancel,
-        }}
-      />
-      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
+      <Breadcrumb title={t`page.title.idea`} />
 
       <IonContent className="bg-light">
         <div className="panel">
@@ -77,7 +66,7 @@ export const Idea = () => {
 
         <div className="panel">
           <div className="panel-header">Job description</div>
-          <div className="panel-body no-padding-top">
+          <div className="panel-body p-0-top">
             <div className="text-sm">{faker.lorem.paragraph()}</div>
           </div>
           <div className="panel-footer">
@@ -94,7 +83,7 @@ export const Idea = () => {
               <div className="text-xs">Criteria provided by job poster</div>
             </IonText>
           </div>
-          <div className="panel-body no-padding-top">
+          <div className="panel-body p-0-top">
             <IonRow className="items-center">
               <IonCol size="auto">
                 <IonIcon icon={checkmarkCircle} color="primary" size="small" />

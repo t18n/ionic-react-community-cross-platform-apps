@@ -2,18 +2,15 @@ import { useIonViewDidEnter } from '@ionic/react';
 import { t } from '@lingui/macro';
 import { Col, Grid, Row } from 'components/atoms/Layout/Grid';
 import { Link } from 'components/atoms/Layout/Link';
-import { Page } from 'components/atoms/Layout/Page';
+import { Page, PageContent } from 'components/atoms/Layout/Page';
 import { List, ListHeader } from 'components/atoms/List';
 import { Spinner } from 'components/atoms/Loading';
+import { Text } from 'components/atoms/Text';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
-import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import { useMediumsQuery } from 'graphql/operation/medium/query';
-import { useSearchBar } from 'hooks/useSearchbar';
 import React, { useState } from 'react';
 
 export const Explore = () => {
-  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
-
   const [state, setState] = useState({
     isLoading: true,
     topTags: [],
@@ -39,28 +36,22 @@ export const Explore = () => {
 
   return (
     <Page>
-      <Breadcrumb
-        title={t`page.title.explore`}
-        searchBar={{
-          onSearchChange: onSearchChange,
-          onSearchCancel: onSearchCancel,
-        }}
-      />
+      <Breadcrumb title={t`page.title.explore`} />
 
-      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
-
-      <div className="px py">
+      <PageContent>
         {isError ? 'There are some errors' : null}
         {!state.isLoading ? (
           <List>
+            <ListHeader className="mb-m">
+              <Text as="div" type="title-m">
+                Top Mediums
+              </Text>
+            </ListHeader>
             <Grid fixed={true} className="p-0">
-              <ListHeader>
-                <h1>Top Mediums</h1>
-              </ListHeader>
               <Row className="ion-justify-content-start">
                 {MEDIUM_data &&
                   MEDIUM_data.media.items.slice(0, 4).map(({ id, slug, title, cover }) => (
-                    <Col sizeLg="4" sizeXl="3" key={id} className="p-0">
+                    <Col key={id} className="p-0" size="12" sizeLg="4">
                       <Link href={`mediums/${slug}`}>{title}</Link>
                     </Col>
                   ))}
@@ -72,7 +63,7 @@ export const Explore = () => {
             <Spinner color="primary" />
           </div>
         )}
-      </div>
+      </PageContent>
     </Page>
   );
 };

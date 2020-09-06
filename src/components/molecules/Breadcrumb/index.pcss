@@ -7,4 +7,10 @@
     --padding-top: calc(var(--space-s) + var(--ion-safe-area-top)) !important;
     --padding-bottom: var(--space-s);
   }
+
+  &__button--back {
+    @media (--viewport-desktop) {
+      display: none !important;
+    }
+  }
 }

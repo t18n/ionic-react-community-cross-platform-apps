@@ -1,20 +1,13 @@
 import './index.min.css';
 
-import {
-  IonCol,
-  IonContent,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonPage,
-  IonRow,
-  IonText,
-} from '@ionic/react';
 import { t } from '@lingui/macro';
+import { Icon } from 'components/atoms/Icon';
+import { Item, Label } from 'components/atoms/Item';
+import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Page, PageContent } from 'components/atoms/Layout/Page';
+import { Text } from 'components/atoms/Text';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import FollowCard, { follows } from 'components/molecules/FollowCard';
-import SearchSuggestions from 'components/organisms/SearchSuggestions';
-import { useSearchBar } from 'hooks/useSearchbar';
 import { create, notifications } from 'ionicons/icons';
 import React from 'react';
 
@@ -23,83 +16,71 @@ type Props = {
 };
 
 const Media: React.FC<Props> = ({ history }) => {
-  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
-
   return (
-    <IonPage>
-      <Breadcrumb
-        title={t`page.title.media`}
-        searchBar={{
-          onSearchChange: onSearchChange,
-          onSearchCancel: onSearchCancel,
-        }}
-      />
-      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
+    <Page>
+      <Breadcrumb title={t`page.title.media`} />
 
-      <IonContent className="bg-light">
+      <PageContent>
         <div className="panel">
           <div className="grid-divided">
-            <IonRow className="ion-text-center ion-align-items-end">
-              <IonCol>
+            <Row className="ion-text-center ion-align-items-end">
+              <Col>
                 <div className="text-xl">6</div>
-                <IonText color="medium">
+                <Text as="span" color="medium">
                   <div className="text-xs">saves</div>
-                </IonText>
-              </IonCol>
-              <IonCol>
+                </Text>
+              </Col>
+              <Col>
                 <div className="text-xl">0</div>
-                <IonText color="medium">
+                <Text as="span" color="medium">
                   <div className="text-xs">comments</div>
-                </IonText>
-              </IonCol>
-              <IonCol>
-                <IonIcon icon={create} />
-                <IonText color="medium">
+                </Text>
+              </Col>
+              <Col>
+                <Icon icon={create} />
+                <Text as="span" color="medium">
                   <div className="text-xs">interests</div>
-                </IonText>
-              </IonCol>
-            </IonRow>
+                </Text>
+              </Col>
+            </Row>
           </div>
         </div>
 
         <div className="panel">
           <div className="panel-header">
-            <IonRow>
-              <IonCol>Your job searches</IonCol>
-              <IonCol size="auto">
-                <IonText color="primary">
+            <Row>
+              <Col>Media you search:</Col>
+              <Col size="auto">
+                <Text as="span" color="primary">
                   <span className="text-sm">
                     <strong>Manage</strong>
                   </span>
-                </IonText>
-              </IonCol>
-            </IonRow>
+                </Text>
+              </Col>
+            </Row>
           </div>
-          <div className="panel-body no-padding">
-            <IonItem lines="none">
-              <IonLabel className="ion-text-wrap">
+          <div className="panel-body p-0">
+            <Item lines="none">
+              <Label className="ion-text-wrap">
                 <div>
                   <span className="text-sm">
-                    <strong>Javascript Developer</strong>
+                    <strong>Love</strong>
                   </span>
-                  <IonText color="success">
+                  <Text as="span" color="success">
                     <span className="text-xs">
                       <strong> (15 new)</strong>
                     </span>
-                  </IonText>
+                  </Text>
                 </div>
-                <IonText color="medium">
-                  <div className="text-xs">Mars, Universe</div>
-                </IonText>
-              </IonLabel>
-              <IonIcon icon={notifications} slot="end" color="primary" />
-            </IonItem>
+              </Label>
+              <Icon icon={notifications} slot="end" color="primary" />
+            </Item>
           </div>
         </div>
 
         <div className="panel">
-          <div className="panel-header">Based on your Profile</div>
-          <div className="panel-body no-padding">
+          <div className="panel-header">Based on your interest</div>
+          <div className="panel-body p-0">
             {follows.map((follow, i) => (
               <FollowCard
                 key={i}
@@ -115,8 +96,8 @@ const Media: React.FC<Props> = ({ history }) => {
             ))}
           </div>
         </div>
-      </IonContent>
-    </IonPage>
+      </PageContent>
+    </Page>
   );
 };
 

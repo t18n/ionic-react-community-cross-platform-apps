@@ -27,7 +27,11 @@ import { LocaleId } from 'settings/locale';
 import { Loading } from '../../atoms/Loading/index';
 import { activateLanguage } from '../I18n/utils';
 
-export const LeftSidebar = () => {
+interface LeftSidebarProps {
+  contentId: string;
+}
+
+export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
   const [isDarkMode, setIsDarkMode] = useState(ThemeService.getCurrentSetting());
   const [showPopover, setShowPopover] = useState(false);
   const [toast, setToast] = useToast(null);
@@ -87,7 +91,7 @@ export const LeftSidebar = () => {
     <Menu
       type="overlay"
       side="start"
-      contentId="page__content"
+      contentId={contentId}
       menuId="left-sidebar"
       className="left-sidebar"
       swipeGesture
@@ -125,7 +129,9 @@ export const LeftSidebar = () => {
               <Item key={loginPage.title} lines="none" routerLink={loginPage.url} detail={false}>
                 <Icon icon={loginPage.icon} slot="start" size="large" color="medium" />
                 <Label color="medium">
-                  <Text as="h6">{loginPage.title}</Text>
+                  <Text as="a" fontWeight="text-bold" type="subtitle-l" extraClasses="ml-s">
+                    <Trans id={loginPage.title} />
+                  </Text>
                 </Label>
               </Item>
             </Item>
@@ -166,7 +172,7 @@ export const LeftSidebar = () => {
             <Trans id="label.preferences" />
           </Label>
         </ListHeader>
-        <List className="h-100p w-100p bg-transparent flex flex-col items-center py-m">
+        <List className="h-100p w-100p bg-transparent flex flex-col items-center pt-m pb-m">
           {/* Dark mode */}
           <Item lines="none" className="mt-s">
             <Toggle slot="start" checked={isDarkMode} onIonChange={toggleDarkMode} />

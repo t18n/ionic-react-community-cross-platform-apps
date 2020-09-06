@@ -1,7 +1,7 @@
 import './index.min.css';
 
 import { JSX } from '@ionic/core';
-import { IonBackButton, IonButton, IonButtons, IonToggle } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonMenuButton, IonToggle } from '@ionic/react';
 import React, { HTMLAttributes } from 'react';
 
 /**
@@ -12,6 +12,7 @@ type ButtonProps = JSX.IonButton &
     routerLink?: string;
   };
 
+type MenuButtonProps = JSX.IonMenuButton & HTMLAttributes<HTMLIonMenuButtonElement>;
 type BackButtonProps = JSX.IonBackButton & HTMLAttributes<HTMLIonBackButtonElement>;
 type ButtonGroupProps = JSX.IonButtons & HTMLAttributes<HTMLIonButtonsElement>;
 type ToggleProps = JSX.IonToggle & HTMLAttributes<HTMLIonToggleElement>;
@@ -25,6 +26,10 @@ export const Button = (props: ButtonProps) => {
 
 export const ButtonBack = (props: BackButtonProps) => {
   return <IonBackButton {...props} />;
+};
+
+export const ButtonMenu = (props: MenuButtonProps) => {
+  return <IonMenuButton {...props} />;
 };
 
 export const ButtonGroup = (props: ButtonGroupProps) => {

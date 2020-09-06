@@ -14,6 +14,8 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { t } from '@lingui/macro';
+import { icX } from 'components/atoms/Icon';
+import { SearchBar } from 'components/atoms/SearchBar';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import ConnectItem from 'components/molecules/ConnectItem';
 import { connections } from 'components/molecules/ConnectItem';
@@ -34,13 +36,20 @@ const Search = () => {
   return (
     <IonPage className="search-page">
       <IonHeader>
-        <Breadcrumb
-          title={t`page.title.search`}
-          searchBar={{
-            onSearchChange: onSearchChange,
-            onSearchCancel: onSearchCancel,
-          }}
+        <Breadcrumb title={t`page.title.search`} />
+        <SearchBar
+          className="w-100p mx-auto"
+          placeholder={t`label.search`}
+          showCancelButton="never"
+          onIonClear={onSearchCancel}
+          onIonChange={onSearchChange}
+          clearIcon={icX}
+          debounce={300}
+          inputmode="text"
+          autocomplete="off"
+          animated
         />
+
         <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
 
         <IonToolbar color="light" className="toolbar-shadow border-0">
@@ -109,7 +118,7 @@ const Search = () => {
               </IonCol>
             </IonRow>
           </div>
-          <div className="panel-body no-padding">
+          <div className="panel-body p-0">
             <div className="scroll-x">
               {connections.map((connection, i) => (
                 <div className="scroll-item" key={i}>

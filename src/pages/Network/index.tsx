@@ -21,24 +21,13 @@ import NewsletterItem from 'components/molecules/NewsletterItem';
 import { newsletters } from 'components/molecules/NewsletterItem';
 import ProfileCard from 'components/organisms/ProfileCard';
 import { profiles } from 'components/organisms/ProfileCard';
-import SearchSuggestions from 'components/organisms/SearchSuggestions';
-import { useSearchBar } from 'hooks/useSearchbar';
 import { personAdd } from 'ionicons/icons';
 import React from 'react';
 
 export const Network = () => {
-  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
-
   return (
     <IonPage>
-      <Breadcrumb
-        title={t`page.title.network`}
-        searchBar={{
-          onSearchChange: onSearchChange,
-          onSearchCancel: onSearchCancel,
-        }}
-      />
-      <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
+      <Breadcrumb title={t`page.title.network`} />
 
       <IonContent className="bg-light">
         <div className="panel">
@@ -55,7 +44,7 @@ export const Network = () => {
             </IonRow>
           </div>
 
-          <div className="panel-body no-padding">
+          <div className="panel-body p-0">
             {invitations.map((invitation, i) => (
               <InvitationItem
                 key={i}

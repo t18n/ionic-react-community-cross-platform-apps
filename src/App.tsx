@@ -20,7 +20,7 @@ const App = () => {
           <IonApp>
             <IonReactRouter>
               <IonSplitPane contentId="main">
-                <LeftSidebar />
+                <LeftSidebar contentId="main" />
                 <IonRouterOutlet id="main">
                   {Object.keys(appPages).map((id) => (
                     <Route
@@ -31,7 +31,7 @@ const App = () => {
                     />
                   ))}
                 </IonRouterOutlet>
-                <RightSidebar />
+                <RightSidebar contentId="main" />
               </IonSplitPane>
             </IonReactRouter>
           </IonApp>

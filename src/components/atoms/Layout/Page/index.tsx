@@ -26,11 +26,7 @@ export const Page = ({ children, className, ...rest }: PageProps) => {
 
 export const PageContent = ({ children, className, ...rest }: PageContentProps) => {
   return (
-    <Content
-      id="page__content"
-      className={classNames('page__content scroll-y', className)}
-      {...rest}
-    >
+    <Content className={classNames('page__content scroll-y', className)} {...rest}>
       {children}
     </Content>
   );
