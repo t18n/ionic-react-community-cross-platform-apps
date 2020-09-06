@@ -1,5 +1,6 @@
 import './index.min.css';
 
+import { menuController } from '@ionic/core';
 import { t, Trans } from '@lingui/macro';
 import { Toggle } from 'components/atoms/Button';
 import { Icon } from 'components/atoms/Icon';
@@ -50,6 +51,11 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
+
+  /**
+   * Close menu
+   */
+  const closeMenu = async () => await menuController.close('left-sidebar');
 
   /**
    * Logout an user
@@ -110,7 +116,10 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
             <Item
               lines="none"
               detail={false}
-              onClick={() => setShowPopover(true)}
+              onClick={() => {
+                closeMenu();
+                setShowPopover(true);
+              }}
               type="button"
               className="cursor-pointer mt-s"
             >
@@ -125,15 +134,21 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
               </Label>
             </Item>
           ) : (
-            <Item lines="none" slot="end" detail={false} className="mt-s left-sidebar__item">
-              <Item key={loginPage.title} lines="none" routerLink={loginPage.url} detail={false}>
-                <Icon icon={loginPage.icon} slot="start" size="large" color="medium" />
-                <Label color="medium">
-                  <Text as="a" fontWeight="text-bold" type="subtitle-l" extraClasses="ml-s">
-                    <Trans id={loginPage.title} />
-                  </Text>
-                </Label>
-              </Item>
+            <Item
+              lines="none"
+              detail={false}
+              onClick={closeMenu}
+              routerLink={loginPage.url}
+              className={`mt-s left-sidebar__item ${
+                location.pathname === loginPage.url && 'active'
+              }`}
+            >
+              <Icon icon={loginPage.icon} slot="start" size="large" color="medium" />
+              <Label color="medium">
+                <Text as="a" fontWeight="text-bold" type="subtitle-l" extraClasses="ml-s">
+                  <Trans id={loginPage.title} />
+                </Text>
+              </Label>
             </Item>
           )}
 
@@ -142,13 +157,15 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
             (id) =>
               !excludedPages.includes(id) && (
                 <Item
+                  key={appPages[id].title}
                   className={`mt-s left-sidebar__item ${
                     location.pathname === appPages[id].url && 'active'
                   }`}
-                  key={appPages[id].title}
                   lines="none"
                   routerLink={appPages[id].url}
+                  routerDirection="forward"
                   detail={false}
+                  onClick={closeMenu}
                 >
                   <Icon icon={appPages[id].icon} slot="start" size="large" color="medium" />
                   <Label color="medium">
