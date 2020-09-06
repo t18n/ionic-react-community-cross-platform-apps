@@ -1,5 +1,5 @@
 import { Plugins } from '@capacitor/core';
-import { isPlatform, setupConfig } from '@ionic/react';
+import { setupConfig } from '@ionic/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -16,7 +16,7 @@ setupConfig({
   rippleEffect: false,
   mode: 'ios', // force the theme to iOS mode for all elements which has no mode specified
   backButtonText: '',
-  animated: !isPlatform('mobileweb'), // disable animations if app run in browser of slower device
+  // animated: !isPlatform('mobileweb'), // disable animations if app run in browser of slower device
 });
 
 ReactDOM.render(<App />, rootEl);
