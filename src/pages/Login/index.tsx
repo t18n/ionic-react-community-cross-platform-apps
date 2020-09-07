@@ -4,6 +4,7 @@ import { Checkbox } from 'components/atoms/Checkbox';
 import { Input } from 'components/atoms/Input';
 import { Item, Label } from 'components/atoms/Item';
 import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Link } from 'components/atoms/Layout/Link';
 import { Page, PageContent } from 'components/atoms/Layout/Page';
 import { List } from 'components/atoms/List';
 import { Loading } from 'components/atoms/Loading';
@@ -116,22 +117,18 @@ export const Login = ({ history }: LoginProps) => {
                   onIonChange={(e: any) => setRememberChecked(e.detail.checked)}
                 />
                 <Label className="ml-s text-button case-none">
-                  <Text as="span" type="subtitle-s" fontWeight="text-bold" color="medium">
+                  <Text as="span" type="subtitle-s" color="medium" transform="case-none">
                     <Trans id="label.checkbox.rememberMe" />
                   </Text>
                 </Label>
               </div>
             </Col>
             <Col className="p-0 flex items-center justify-end">
-              <Button
-                routerLink="/forgot-password"
-                expand="block"
-                fill="clear"
-                className="ml-auto"
-                color="medium"
-              >
-                <Trans id="label.forgotPassword" />
-              </Button>
+              <Link href="/forgot-password">
+                <Text as="span" type="subtitle-s" color="medium" transform="case-none">
+                  <Trans id="label.forgotPassword" />
+                </Text>
+              </Link>
             </Col>
           </Row>
 

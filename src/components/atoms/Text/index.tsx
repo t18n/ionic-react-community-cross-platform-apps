@@ -32,6 +32,7 @@ interface TextProps {
     | 'paragraph-l'
     | 'subtitle-s'
     | 'subtitle-l'
+    | 'button-text'
     | 'caption';
 }
 

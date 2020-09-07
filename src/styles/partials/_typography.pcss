@@ -47,7 +47,7 @@
 }
 
 @define-mixin text-button {
-  @mixin text var(--font-body), 15px, 600, 1.25px, uppercase;
+  @mixin text var(--font-body), 15px, 700, 1.25px, uppercase;
 }
 
 @define-mixin text-caption {
@@ -177,6 +177,10 @@
 
   .caption {
     @mixin text-caption;
+  }
+
+  .button-text {
+    @mixin text-button;
   }
 
   /* Text style */
