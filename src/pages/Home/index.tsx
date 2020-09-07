@@ -5,24 +5,22 @@ import { Col, Row } from 'components/atoms/Layout/Grid';
 import { Page, PageContent } from 'components/atoms/Layout/Page';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import PostItem, { postItems } from 'components/molecules/PostItem';
-import SearchSuggestions from 'components/organisms/SearchSuggestions';
 import SkeletonPost from 'components/organisms/SkeletonPost';
-import { useLoggedInUser } from 'graphql/operation/user/query';
 import { useSearchBar } from 'hooks/useSearchbar';
 import Tour from 'pages/Tour';
 import React, { useEffect, useState } from 'react';
 
 import { Chip } from '../../components/atoms/Chip/index';
+import { UserContext } from '../../context/User';
 
 type HomeProps = {
   history: any;
 };
 
 export const Home = ({ history }: HomeProps) => {
-  const { isSearchFocused, searchTerm } = useSearchBar();
+  const { isSearchFocused } = useSearchBar();
   const [isLoading, setIsLoading] = useState(true);
-
-  const { isAuthed } = useLoggedInUser();
+  const { isAuthed } = UserContext.useContainer();
 
   useEffect(() => {
     setTimeout(() => {

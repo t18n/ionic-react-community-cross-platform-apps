@@ -16,7 +16,6 @@ import { Select, SelectOption } from 'components/atoms/Select';
 import { Text } from 'components/atoms/Text';
 import { Toast } from 'components/atoms/Toast';
 import { useLogoutUser } from 'graphql/operation/user/mutation';
-import { useLoggedInUser } from 'graphql/operation/user/query';
 import { ME } from 'graphql/operation/user/shape';
 import { useToast } from 'hooks/useToast';
 import React, { useEffect, useState } from 'react';
@@ -25,6 +24,7 @@ import ThemeService from 'services/theme';
 import { appPages } from 'settings/appPages';
 import { LocaleId } from 'settings/locale';
 
+import { UserContext } from '../../../context/User';
 import { Loading } from '../../atoms/Loading/index';
 import { activateLanguage } from '../I18n/utils';
 
@@ -38,7 +38,7 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
   const [toast, setToast] = useToast(null);
   const location = useLocation();
 
-  const { data: ME_data } = useLoggedInUser();
+  const { me, isAuthed } = UserContext.useContainer();
   const [logout, { loading: LOGOUT_loading }] = useLogoutUser();
 
   const excludedPages = ['login', 'signup', 'welcome'];
@@ -111,8 +111,7 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
           </Header>
 
           {/* My profile */}
-
-          {ME_data?.me ? (
+          {isAuthed ? (
             <Item
               lines="none"
               detail={false}
@@ -124,12 +123,12 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
               className="cursor-pointer mt-s"
             >
               <Thumbnail slot="start" className="radius-all small">
-                <Img src={ME_data.me.cover} />
+                <Img src={me.cover} />
               </Thumbnail>
 
               <Label color="dark">
                 <Text as="a" type="subtitle-l" fontWeight="text-bold" extraClasses="ml-s">
-                  {ME_data.me?.name}
+                  {me?.name}
                 </Text>
               </Label>
             </Item>

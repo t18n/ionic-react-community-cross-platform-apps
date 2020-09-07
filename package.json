@@ -28,7 +28,9 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
-    "tabler-icons": "^1.19.0"
+    "tabler-icons": "^1.19.0",
+    "universal-cookie": "^4.0.3",
+    "unstated-next": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

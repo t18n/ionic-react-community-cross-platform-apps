@@ -7,7 +7,7 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { icNote } from 'components/atoms/Icon';
-import { Settings } from 'context/Settings';
+import { SettingContext } from 'context/Setting';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { appPages } from 'settings/appPages';
@@ -19,7 +19,7 @@ const Tabs = () => {
   const mediaPage = appPages['media'];
 
   return (
-    <Settings.Consumer>
+    <SettingContext.Consumer>
       {({ openModal }) => (
         <IonTabs>
           <IonRouterOutlet>
@@ -49,7 +49,7 @@ const Tabs = () => {
           </IonTabBar>
         </IonTabs>
       )}
-    </Settings.Consumer>
+    </SettingContext.Consumer>
   );
 };
 

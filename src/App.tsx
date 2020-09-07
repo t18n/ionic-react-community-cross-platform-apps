@@ -6,11 +6,12 @@ import { IonReactRouter } from '@ionic/react-router';
 import I18nProvider from 'components/organisms/I18n';
 import { LeftSidebar } from 'components/organisms/Sidebar/LeftSidebar';
 import { RightSidebar } from 'components/organisms/Sidebar/RightSidebar';
-import Provider from 'context/Provider';
 import { ApolloProvider } from 'graphql/ApolloProvider';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { appPages } from 'settings/appPages';
+
+import { UserContext } from './context/User';
 
 const App = () => {
   const enterAnimation = (baseEl: any) => {
@@ -29,7 +30,7 @@ const App = () => {
   return (
     <ApolloProvider>
       <I18nProvider>
-        <Provider>
+        <UserContext.Provider>
           <IonApp>
             <IonReactRouter>
               <IonSplitPane contentId="main">
@@ -48,7 +49,7 @@ const App = () => {
               </IonSplitPane>
             </IonReactRouter>
           </IonApp>
-        </Provider>
+        </UserContext.Provider>
       </I18nProvider>
     </ApolloProvider>
   );

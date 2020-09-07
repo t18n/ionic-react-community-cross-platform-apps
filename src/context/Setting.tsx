@@ -1,6 +1,6 @@
 import React from 'react';
 
-type AppContext = {
+type SettingContextType = {
   modals: {
     newPost: boolean;
   };
@@ -8,7 +8,7 @@ type AppContext = {
   closeModal: (target: string) => void;
 };
 
-export const Settings = React.createContext<AppContext>({
+export const SettingContext = React.createContext<SettingContextType>({
   modals: {
     newPost: false,
   },

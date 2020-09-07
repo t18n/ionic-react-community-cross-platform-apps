@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Settings } from './Settings';
+import { SettingContext } from './Setting';
 
 type State = {
   modals: Record<string, any>;
@@ -17,7 +17,7 @@ export default class Provider extends React.Component<Props, State> {
 
   render() {
     return (
-      <Settings.Provider
+      <SettingContext.Provider
         value={{
           modals: this.state.modals,
           openModal: (target: string) => {
@@ -43,7 +43,7 @@ export default class Provider extends React.Component<Props, State> {
         }}
       >
         {this.props.children}
-      </Settings.Provider>
+      </SettingContext.Provider>
     );
   }
 }
