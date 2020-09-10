@@ -10,7 +10,6 @@ import { Loading } from 'components/atoms/Loading';
 import { Toast } from 'components/atoms/Toast';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import { useLoginUser } from 'graphql/operation/user/mutation';
-import { ME } from 'graphql/operation/user/shape';
 import { useToast } from 'hooks/useToast';
 import React, { useState } from 'react';
 
@@ -19,7 +18,7 @@ type SignupProps = {
 };
 
 export const Signup = ({ history }: SignupProps) => {
-  const [login, { loading: LOGIN_loading }] = useLoginUser();
+  const [login, { loading: isLoggingIn }] = useLoginUser();
   const [toast, setToast] = useToast(null);
 
   const [inputEmail, setInputEmail] = useState('');
@@ -42,18 +41,7 @@ export const Signup = ({ history }: SignupProps) => {
 
     // Signup user
     try {
-      await login({
-        variables: {
-          data: { email: inputEmail, password: inputPassword },
-        },
-        update(cache, { data: { login } }) {
-          // const { me } = cache.readQuery({ query: ME });
-          cache.writeQuery({
-            query: ME,
-            data: { me: login },
-          });
-        },
-      });
+      await login(inputEmail, inputPassword);
 
       history.push('/explore', { direct: 'none' });
     } catch (e) {
@@ -163,7 +151,7 @@ export const Signup = ({ history }: SignupProps) => {
             onDidDismiss={() => setToast({ ...toast, status: false })}
           />
 
-          {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={t`message.loggingIn`} />}
+          {isLoggingIn && <Loading isOpen={isLoggingIn} message={t`message.loggingIn`} />}
         </form>
       </div>
     </Page>

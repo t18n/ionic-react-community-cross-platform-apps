@@ -12,7 +12,6 @@ import { Text } from 'components/atoms/Text';
 import { Toast } from 'components/atoms/Toast';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import { useLoginUser } from 'graphql/operation/user/mutation';
-import { ME } from 'graphql/operation/user/shape';
 import { useToast } from 'hooks/useToast';
 import React, { useState } from 'react';
 
@@ -21,7 +20,7 @@ type LoginProps = {
 };
 
 export const Login = ({ history }: LoginProps) => {
-  const [login, { loading: LOGIN_loading }] = useLoginUser();
+  const [login, { loading: isLoggingIn }] = useLoginUser();
   const [toast, setToast] = useToast(null);
 
   const [inputEmail, setInputEmail] = useState('');
@@ -32,38 +31,17 @@ export const Login = ({ history }: LoginProps) => {
   const onLoginUser = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!inputPassword || !inputEmail) {
-      setToast({
-        status: true,
-        position: 'bottom',
-        message: t`error.pleaseFillAllRequiredData`,
-        duration: 3000,
-        color: 'danger',
-      });
-    }
-
     // Login user
     try {
-      await login({
-        variables: {
-          data: { email: inputEmail, password: inputPassword },
-        },
-        update(cache, { data: { login } }) {
-          // const { me } = cache.readQuery({ query: ME });
-          cache.writeQuery({
-            query: ME,
-            data: { me: login },
-          });
-        },
-      });
+      await login(inputEmail, inputPassword);
 
       history.push('/explore', { direct: 'none' });
     } catch (e) {
       setToast({
         status: true,
         position: 'bottom',
-        message: `${t`message.logInSuccessfully`}${e}`,
-        duration: 3000,
+        message: `${t`message.logInSuccessfully`} ${e}`,
+        duration: 300000,
         color: 'danger',
       });
       return;
@@ -105,6 +83,7 @@ export const Login = ({ history }: LoginProps) => {
                 type="password"
                 value={inputPassword}
                 onIonChange={(e: any) => setInputPassword(e.detail.value)}
+                required
               />
             </Item>
           </List>
@@ -154,7 +133,7 @@ export const Login = ({ history }: LoginProps) => {
             onDidDismiss={() => setToast({ ...toast, status: false })}
           />
 
-          {LOGIN_loading && <Loading isOpen={LOGIN_loading} message={t`message.loggingIn`} />}
+          {isLoggingIn && <Loading isOpen={isLoggingIn} message={t`message.loggingIn`} />}
         </form>
       </PageContent>
     </Page>
