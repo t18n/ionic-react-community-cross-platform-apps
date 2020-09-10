@@ -120,6 +120,7 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
               }}
               type="button"
               className="cursor-pointer mt-s"
+              lines="none"
             >
               <Thumbnail slot="start" className="radius-all small">
                 <Img src={me.cover} />
@@ -136,6 +137,7 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
               detail={false}
               onClick={closeMenu}
               routerLink={loginPage.url}
+              lines="none"
               className={`mt-s left-sidebar__item ${
                 location.pathname === loginPage.url && 'active'
               }`}
@@ -162,6 +164,7 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
                   routerDirection="forward"
                   detail={false}
                   onClick={closeMenu}
+                  lines="none"
                 >
                   <Icon icon={appPages[id].icon} slot="start" size="large" color="medium" />
                   <Label color="medium">

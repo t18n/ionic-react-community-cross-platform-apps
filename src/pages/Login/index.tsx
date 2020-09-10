@@ -11,19 +11,18 @@ import { Loading } from 'components/atoms/Loading';
 import { Text } from 'components/atoms/Text';
 import { Toast } from 'components/atoms/Toast';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
+import { TextError } from 'components/molecules/Form/TextError';
 import { useLoginUser } from 'graphql/operation/user/mutation';
+import { useFormValidation } from 'hooks/useForm';
 import { useToast } from 'hooks/useToast';
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-
-import { TextError } from '../../components/molecules/Form/TextError';
 
 type LoginProps = {
   history: any;
 };
 
 export const Login = ({ history }: LoginProps) => {
-  const { handleSubmit, register, errors } = useForm();
+  const { handleSubmit, errors, registerEmail, registerPassword } = useFormValidation();
 
   const [login, { loading: isLoggingIn }] = useLoginUser();
   const [toast, setToast] = useToast(null);
@@ -88,13 +87,7 @@ export const Login = ({ history }: LoginProps) => {
                 onIonChange={(e: any) => setInputEmail(e.detail.value)}
                 // required
                 placeholder="example@brightizen.com"
-                ref={register({
-                  required: t`error.validation.fieldRequired`,
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: t`error.validation.invalidEmailFormat`,
-                  },
-                })}
+                ref={registerEmail}
               />
               <TextError text={errors.email && errors.email.message} />
             </Item>
@@ -108,9 +101,7 @@ export const Login = ({ history }: LoginProps) => {
                 type="password"
                 value={inputPassword}
                 onIonChange={(e: any) => setInputPassword(e.detail.value)}
-                ref={register({
-                  validate: (value) => value !== 'admin' || 'Nice try!',
-                })}
+                ref={registerPassword}
               />
               <TextError text={errors.password && errors.password.message} />
             </Item>

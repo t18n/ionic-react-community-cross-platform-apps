@@ -1,25 +1,44 @@
+import { t } from '@lingui/macro';
 import { useForm } from 'react-hook-form';
 
-export const useHandleSubmit = () => {
-  const { handleSubmit } = useForm();
+import {
+  validateDateOfBirth,
+  validateEmail,
+  validateName,
+  validatePassword,
+  validateRepeatPassword,
+} from '../utils/formValidations';
 
-  const submitHandler = async (e: React.FormEvent<HTMLFormElement>, callback: () => void) => {
-    // Stopping parent forms to trigger their submit
-    if (e) {
-      console.log('submmitting form');
-      // Sometimes not true, e.g. React Native
-      if (typeof e.preventDefault === 'function') {
-        e.preventDefault();
-      }
+export const useFormValidation = () => {
+  const { register, errors, watch, handleSubmit } = useForm({
+    mode: 'onBlur',
+    reValidateMode: 'onChange',
+    defaultValues: {},
+    resolver: undefined,
+    context: undefined,
+    criteriaMode: 'firstError',
+    shouldFocusError: true,
+    shouldUnregister: true,
+  });
 
-      // Prevent any outer forms from receiving the event
-      if (typeof e.stopPropagation === 'function') {
-        e.stopPropagation();
-      }
-    }
+  /** Validations */
+  const registerEmail = register(validateEmail);
 
-    return handleSubmit(callback)(e);
+  const registerPassword = register(validatePassword);
+
+  const registerRepeatPassword = register(validateRepeatPassword(watch));
+
+  const registerName = register(validateName);
+
+  const registerDateOfBirth = register(validateDateOfBirth);
+
+  return {
+    handleSubmit,
+    errors,
+    registerEmail,
+    registerPassword,
+    registerRepeatPassword,
+    registerName,
+    registerDateOfBirth,
   };
-
-  return { submitHandler };
 };
