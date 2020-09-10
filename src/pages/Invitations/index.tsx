@@ -28,7 +28,7 @@ const Invitations = () => {
       </IonHeader>
 
       <IonContent>
-        <IonItem lines="none">
+        <IonItem>
           <IonLabel>All invitations (99)</IonLabel>
         </IonItem>
 

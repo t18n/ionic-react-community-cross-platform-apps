@@ -2,7 +2,7 @@ import './index.min.css';
 
 import { JSX } from '@ionic/core';
 import { IonInput, IonTextarea } from '@ionic/react';
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 
 /**
  * Types
@@ -13,9 +13,10 @@ type TextareaProps = JSX.IonTextarea & HTMLAttributes<HTMLIonTextareaElement>;
 /**
  * Components
  */
-export const Input = (props: InputProps) => {
-  return <IonInput {...props} />;
-};
+// eslint-disable-next-line react/display-name
+export const Input = forwardRef((props: InputProps, ref: any) => {
+  return <IonInput ref={ref} {...props} />;
+});
 
 export const Textarea = (props: TextareaProps) => {
   return <IonTextarea {...props} />;

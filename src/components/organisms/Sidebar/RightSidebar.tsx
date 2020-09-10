@@ -50,7 +50,7 @@ export const RightSidebar = ({ contentId }: RightSidebarProps) => {
           .fill(0)
           .map((id, index) => (
             <Card className="pa-m mt-l flex flex-col items-center" key={index}>
-              <Item lines="none" className="flex align-center">
+              <Item className="flex align-center">
                 <Icon icon={icBook} slot="start" size="medium" />
                 <Text as="span" type="subtitle-l" color="dark" fontWeight="text-bold">
                   <Trans id="label.recommendations" />

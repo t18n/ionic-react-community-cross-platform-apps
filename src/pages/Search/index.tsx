@@ -70,7 +70,7 @@ const Search = () => {
             <Icon icon={icChevronDown} />
           </Button>
         </div>
-        <Item lines="none" color="light">
+        <Item color="light">
           <Label color="medium">
             <div className="text-xs">111,575 results</div>
           </Label>

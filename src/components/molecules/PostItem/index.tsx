@@ -70,8 +70,8 @@ export const PostItem = ({
 
   return (
     <Card className="pa-s">
-      <Item lines="none" className="flex items-start mb-m">
-        <Item slot="start" lines="none" className="flex">
+      <Item className="flex items-start mb-m">
+        <Item slot="start" className="flex">
           <Avatar onClick={handleGoToProfile} className="mr-s">
             <img src={avatar} alt="" />
             <OnlineStatus status="active" />
@@ -92,7 +92,7 @@ export const PostItem = ({
             </div>
           </div>
         </Item>
-        <Item lines="none" slot="end">
+        <Item slot="end">
           <Badge>{type}</Badge>
         </Item>
       </Item>
@@ -108,24 +108,24 @@ export const PostItem = ({
       <CardContent className="mt-s">{summary}</CardContent>
 
       <Item className="mt-m flex justify-start">
-        <Item lines="none" className="mr-m subtitle-s">
+        <Item className="mr-m subtitle-s">
           <Text as="span" color="medium">
             {reactionCount} reactions
           </Text>
         </Item>
-        <Item lines="none" className="mr-m subtitle-s">
+        <Item className="mr-m subtitle-s">
           <Text as="span" color="medium">
             {commentCount} comments
           </Text>
         </Item>
-        <Item lines="none" className="mr-m subtitle-s">
+        <Item className="mr-m subtitle-s">
           <Text as="span" color="medium">
             {reportCount} reports
           </Text>
         </Item>
       </Item>
 
-      <Item className="flex justify-between" lines="none">
+      <Item className="flex justify-between">
         <div>
           <Button color="medium" fill="clear" size="small" className="mr-s">
             <Icon slot="start" icon={icThumbUp} />
@@ -160,7 +160,7 @@ export const PostItem = ({
         </Button>
       </Item>
 
-      <Item lines="none">
+      <Item>
         <PostComments />
       </Item>
     </Card>

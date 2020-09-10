@@ -115,7 +115,7 @@ export const Idea = () => {
         </div>
 
         <div className="panel">
-          <Item lines="none">
+          <Item>
             <Label>
               <div>
                 <Icon

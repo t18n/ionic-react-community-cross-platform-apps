@@ -113,7 +113,6 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
           {/* My profile */}
           {isAuthed ? (
             <Item
-              lines="none"
               detail={false}
               onClick={() => {
                 closeMenu();
@@ -134,7 +133,6 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
             </Item>
           ) : (
             <Item
-              lines="none"
               detail={false}
               onClick={closeMenu}
               routerLink={loginPage.url}
@@ -160,7 +158,6 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
                   className={`mt-s left-sidebar__item ${
                     location.pathname === appPages[id].url && 'active'
                   }`}
-                  lines="none"
                   routerLink={appPages[id].url}
                   routerDirection="forward"
                   detail={false}
@@ -190,7 +187,7 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
         </ListHeader>
         <List className="h-100p w-100p bg-transparent flex flex-col items-center pt-m pb-m">
           {/* Dark mode */}
-          <Item lines="none" className="mt-s">
+          <Item className="mt-s">
             <Toggle slot="start" checked={isDarkMode} onIonChange={toggleDarkMode} />
             <Label color="medium">
               <Text as="span">
@@ -200,7 +197,7 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
           </Item>
 
           {/* Language */}
-          <Item lines="none" className="mt-s">
+          <Item className="mt-s">
             <Label>
               <Trans id="label.language" />
             </Label>
@@ -220,7 +217,7 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
           </Item>
 
           {/* Logout */}
-          <Item lines="none" onClick={onLogout} className="cursor-pointer mt-s">
+          <Item onClick={onLogout} className="cursor-pointer mt-s">
             <Label color="medium">
               <Text as="span">
                 <Trans id="label.logOut" />

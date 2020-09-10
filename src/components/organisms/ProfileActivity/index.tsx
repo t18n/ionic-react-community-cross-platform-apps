@@ -25,7 +25,7 @@ const ProfileActivity = () => {
 
         <div className="panel-body">
           <div className="shared-article">
-            <IonItem lines="none" color="light" className="ion-justify-content-start">
+            <IonItem color="light" className="ion-justify-content-start">
               <IonLabel className="ion-text-wrap">
                 <div className="text-sm">
                   <strong>{faker.lorem.paragraph()}</strong>

@@ -147,7 +147,7 @@ const Medium = ({
               </div>
 
               <div className="panel">
-                <IonItem lines="none">
+                <IonItem>
                   <IonLabel>
                     <div>
                       <IonIcon

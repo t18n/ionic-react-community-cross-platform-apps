@@ -30,7 +30,7 @@ const Recommendations = () => {
       </IonHeader>
 
       <IonContent>
-        <IonItem lines="none">
+        <IonItem>
           <IonLabel>All recommendations (99)</IonLabel>
         </IonItem>
 

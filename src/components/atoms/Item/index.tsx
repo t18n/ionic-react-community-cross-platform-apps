@@ -28,8 +28,8 @@ export const ItemDivider = (props: ItemDividerProps) => {
   return <IonItemDivider {...props} />;
 };
 
-export const Item = (props: ItemProps) => {
-  return <IonItem {...props} />;
+export const Item = ({ lines = 'none', ...rest }: ItemProps) => {
+  return <IonItem lines={lines} {...rest} />;
 };
 
 export const ItemSliding = (props: ItemSlidingProps) => {

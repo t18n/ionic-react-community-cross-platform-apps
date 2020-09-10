@@ -60,7 +60,7 @@ const Media: React.FC<Props> = ({ history }) => {
             </Row>
           </div>
           <div className="panel-body p-0">
-            <Item lines="none">
+            <Item>
               <Label className="ion-text-wrap">
                 <div>
                   <span className="text-sm">

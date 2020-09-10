@@ -1,6 +1,9 @@
 {
+  "error.loginUnsuccessfully": "Log in unsuccessfully",
   "error.pleaseFillAllRequiredData": "Please fill all required data!",
   "error.signUpUnsuccessfully": "Sign up unsuccessfully!",
+  "error.validation.fieldRequired": "Please fill in the required field!",
+  "error.validation.invalidEmailFormat": "Invalid email format.",
   "label.button.sortByTop": "Sort by top",
   "label.checkbox.newsletterConsent": "I would like to receive occasional newsletter from Brightizen",
   "label.checkbox.rememberMe": "Remember me",
@@ -28,7 +31,6 @@
   "label.show1MoreReply": "Show 1 more reply",
   "label.signup": "Sign up",
   "label.vietnamese": "Vietnamese",
-  "message.logInSuccessfully": "Log in successfully!",
   "message.loggingIn": "Logging in...",
   "message.loggingOut": "Logging out...",
   "page.title.explore": "Explore",

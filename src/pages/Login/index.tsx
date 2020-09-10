@@ -14,12 +14,17 @@ import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import { useLoginUser } from 'graphql/operation/user/mutation';
 import { useToast } from 'hooks/useToast';
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
+import { TextError } from '../../components/molecules/Form/TextError';
 
 type LoginProps = {
   history: any;
 };
 
 export const Login = ({ history }: LoginProps) => {
+  const { handleSubmit, register, errors } = useForm();
+
   const [login, { loading: isLoggingIn }] = useLoginUser();
   const [toast, setToast] = useToast(null);
 
@@ -28,24 +33,36 @@ export const Login = ({ history }: LoginProps) => {
 
   const [rememberChecked, setRememberChecked] = useState(false);
 
-  const onLoginUser = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Login user
-    try {
-      await login(inputEmail, inputPassword);
-
-      history.push('/explore', { direct: 'none' });
-    } catch (e) {
-      setToast({
-        status: true,
-        position: 'bottom',
-        message: `${t`message.logInSuccessfully`} ${e}`,
-        duration: 300000,
-        color: 'danger',
-      });
-      return;
+  const onLoginUser = async (e: any) => {
+    // this part is for stopping parent forms to trigger their submit
+    if (e) {
+      // sometimes not true, e.g. React Native
+      if (typeof e.preventDefault === 'function') {
+        e.preventDefault();
+      }
+      if (typeof e.stopPropagation === 'function') {
+        // prevent any outer forms from receiving the event too
+        e.stopPropagation();
+      }
     }
+
+    return handleSubmit(async () => {
+      // Login user
+      try {
+        await login(inputEmail, inputPassword);
+
+        history.push('/explore', { direct: 'none' });
+      } catch (e) {
+        setToast({
+          status: true,
+          position: 'bottom',
+          message: `${t`error.loginUnsuccessfully`} ${e}`,
+          duration: 300000,
+          color: 'danger',
+        });
+        return;
+      }
+    })(e);
   };
 
   return (
@@ -69,9 +86,17 @@ export const Login = ({ history }: LoginProps) => {
                 spellCheck={false}
                 autocapitalize="off"
                 onIonChange={(e: any) => setInputEmail(e.detail.value)}
-                required
+                // required
                 placeholder="example@brightizen.com"
+                ref={register({
+                  required: t`error.validation.fieldRequired`,
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: t`error.validation.invalidEmailFormat`,
+                  },
+                })}
               />
+              <TextError text={errors.email && errors.email.message} />
             </Item>
 
             <Item className="p-0 mt-m item-input">
@@ -83,8 +108,11 @@ export const Login = ({ history }: LoginProps) => {
                 type="password"
                 value={inputPassword}
                 onIonChange={(e: any) => setInputPassword(e.detail.value)}
-                required
+                ref={register({
+                  validate: (value) => value !== 'admin' || 'Nice try!',
+                })}
               />
+              <TextError text={errors.password && errors.password.message} />
             </Item>
           </List>
 

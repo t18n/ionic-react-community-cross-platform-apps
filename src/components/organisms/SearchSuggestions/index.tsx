@@ -44,7 +44,7 @@ const SearchSuggestions = ({ history, isFocused, searchTerm }: SearchSuggestions
           ))}
         </div>
 
-        <Item lines="none" onClick={goToSearch}>
+        <Item onClick={goToSearch}>
           <Label color="primary">
             <div className="text-sm">
               <strong>See all results for {searchTerm}</strong>
