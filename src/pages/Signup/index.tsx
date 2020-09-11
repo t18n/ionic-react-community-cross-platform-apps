@@ -43,7 +43,7 @@ export const Signup = ({ history }: SignupProps) => {
     try {
       await login(inputEmail, inputPassword);
 
-      history.push('/explore', { direct: 'none' });
+      history.push('/', { direct: 'none' });
     } catch (e) {
       setToast({
         status: true,

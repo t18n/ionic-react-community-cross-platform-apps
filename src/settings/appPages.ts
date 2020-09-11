@@ -12,12 +12,13 @@ import {
   icUserCheck,
   icUserPlus,
 } from 'components/atoms/Icon';
-import { Explore } from 'pages/Explore';
+import { Home } from 'pages/Home';
 import { Idea } from 'pages/Idea';
 import { Login } from 'pages/Login';
 import Media from 'pages/Media';
 import Medium from 'pages/Medium';
 import { Messages } from 'pages/Messages';
+import Messaging from 'pages/Messaging';
 import { Network } from 'pages/Network';
 import { Notifications } from 'pages/Notifications';
 import Profile from 'pages/Profile';
@@ -25,9 +26,6 @@ import Search from 'pages/Search';
 import { Signup } from 'pages/Signup';
 import Tour from 'pages/Tour';
 import { FC } from 'react';
-
-import { Home } from '../pages/Home/index';
-import Messaging from '../pages/Messaging/index';
 
 interface AppPage {
   url: string;
@@ -38,7 +36,7 @@ interface AppPage {
 
 export const appPages: Record<string, AppPage> = {
   home: {
-    title: t`page.title.home`,
+    title: t`page.title.explore`,
     url: '/',
     icon: icHome,
     component: Home,
@@ -72,12 +70,6 @@ export const appPages: Record<string, AppPage> = {
     url: '/medium',
     icon: icCompass,
     component: Medium,
-  },
-  title: {
-    title: t`page.title.explore`,
-    url: '/explore',
-    icon: icCompass,
-    component: Explore,
   },
   search: {
     title: t`page.title.search`,

@@ -15,7 +15,10 @@ import React, { HTMLAttributes } from 'react';
  * Types
  */
 type ItemDividerProps = JSX.IonItemDivider & HTMLAttributes<HTMLIonItemDividerElement>;
-type ItemProps = JSX.IonItem & HTMLAttributes<HTMLIonItemElement>;
+type ItemProps = JSX.IonItem &
+  HTMLAttributes<HTMLIonItemElement> & {
+    routerLink?: string;
+  };
 type ItemSlidingProps = JSX.IonItemSliding & HTMLAttributes<HTMLIonItemSlidingElement>;
 type ItemOptionProps = JSX.IonItemOption & HTMLAttributes<HTMLIonItemOptionElement>;
 type ItemOptionGroupProps = JSX.IonItemOptions & HTMLAttributes<HTMLIonItemOptionsElement>;

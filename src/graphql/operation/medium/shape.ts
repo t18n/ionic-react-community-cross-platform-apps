@@ -15,6 +15,7 @@ const MEDIUM_DATA = gql`
     users {
       name
       slug
+      cover
     }
     tags {
       name
@@ -30,6 +31,10 @@ const MEDIUM_DATA = gql`
       id
       type
     }
+    reports {
+      id
+    }
+    updatedAt
   }
 `;
 

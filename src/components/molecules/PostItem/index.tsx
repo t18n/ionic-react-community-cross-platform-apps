@@ -2,12 +2,11 @@ import { Trans } from '@lingui/macro';
 import { Badge } from 'components/atoms/Badge';
 import { Button } from 'components/atoms/Button';
 import { Card, CardContent, CardHeader, CardTitle } from 'components/atoms/Card';
-import { icDots, icMessage, Icon, icShare, icThumbUp } from 'components/atoms/Icon';
+import { icDots, icMessage, Icon, icShare, icThumbUp, icUser } from 'components/atoms/Icon';
+import { Item } from 'components/atoms/Item';
 import { Link } from 'components/atoms/Layout/Link';
-import { Item } from 'components/atoms/List';
 import { Avatar, Img } from 'components/atoms/Media';
 import { OnlineStatus } from 'components/atoms/OnlineStatus';
-import { PostCommentItemProps, postComments } from 'components/molecules/PostCommentItem';
 import PostComments from 'components/organisms/PostComments';
 import faker from 'faker';
 import React from 'react';
@@ -27,7 +26,6 @@ export type PostItemProps = {
   firstName: string;
   cover: string;
   title: string;
-  comments: PostCommentItemProps[] | null;
 };
 
 export const postItems: PostItemProps[] = [...Array(14)].map(() => ({
@@ -43,7 +41,6 @@ export const postItems: PostItemProps[] = [...Array(14)].map(() => ({
   firstName: faker.name.firstName(),
   cover: faker.image.nature(),
   title: faker.random.words(),
-  comments: postComments,
 }));
 
 export const PostItem = ({
@@ -70,20 +67,17 @@ export const PostItem = ({
 
   return (
     <Card className="pa-s">
-      <Item className="flex items-start mb-m">
-        <Item slot="start" className="flex">
-          <Avatar onClick={handleGoToProfile} className="mr-s">
-            <img src={avatar} alt="" />
+      <Item className="flex items-start mb-m" lines="none">
+        <Item slot="start" className="flex" lines="none">
+          <Avatar onClick={handleGoToProfile} className="mr-s bg-medium">
+            <img src={avatar || icUser} alt="" />
             <OnlineStatus status="active" />
           </Avatar>
           <div className="flex flex-col items-start">
             <div className="flex">
               <Link href="/" className="mr-s">
                 <strong>{firstName}</strong>
-              </Link>{' '}
-              <Text as="span" color="medium" type="subtitle-s">
-                {type}
-              </Text>
+              </Link>
             </div>
             <div className="flex">
               <Text as="span" color="medium" type="subtitle-s">
@@ -92,7 +86,7 @@ export const PostItem = ({
             </div>
           </div>
         </Item>
-        <Item slot="end">
+        <Item slot="end" lines="none">
           <Badge>{type}</Badge>
         </Item>
       </Item>

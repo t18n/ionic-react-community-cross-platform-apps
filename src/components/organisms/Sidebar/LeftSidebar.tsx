@@ -4,17 +4,19 @@ import { menuController } from '@ionic/core';
 import { t, Trans } from '@lingui/macro';
 import { Toggle } from 'components/atoms/Button';
 import { Icon } from 'components/atoms/Icon';
-import { Label } from 'components/atoms/Item';
+import { Item, Label } from 'components/atoms/Item';
 import { Header } from 'components/atoms/Layout/Header';
 import { Menu } from 'components/atoms/Layout/Menu';
 import { Toolbar } from 'components/atoms/Layout/Toolbar';
-import { Item, List, ListHeader } from 'components/atoms/List';
+import { List, ListHeader } from 'components/atoms/List';
+import { Loading } from 'components/atoms/Loading/index';
 import { Logo } from 'components/atoms/Logo';
 import { Img, Thumbnail } from 'components/atoms/Media';
 import { Popover } from 'components/atoms/Popover';
 import { Select, SelectOption } from 'components/atoms/Select';
 import { Text } from 'components/atoms/Text';
 import { Toast } from 'components/atoms/Toast';
+import { UserContext } from 'context/User';
 import { useLogoutUser } from 'graphql/operation/user/mutation';
 import { ME } from 'graphql/operation/user/shape';
 import { useToast } from 'hooks/useToast';
@@ -24,8 +26,6 @@ import ThemeService from 'services/theme';
 import { appPages } from 'settings/appPages';
 import { LocaleId } from 'settings/locale';
 
-import { UserContext } from '../../../context/User';
-import { Loading } from '../../atoms/Loading/index';
 import { activateLanguage } from '../I18n/utils';
 
 interface LeftSidebarProps {

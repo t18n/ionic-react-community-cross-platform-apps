@@ -13,6 +13,7 @@ export interface MediumData_users {
   __typename: "User";
   name: string;
   slug: string;
+  cover: string | null;
 }
 
 export interface MediumData_tags {
@@ -35,6 +36,11 @@ export interface MediumData_reactions {
   type: ReactionType;
 }
 
+export interface MediumData_reports {
+  __typename: "Report";
+  id: string;
+}
+
 export interface MediumData {
   __typename: "Medium";
   id: string;
@@ -50,4 +56,6 @@ export interface MediumData {
   tags: MediumData_tags[] | null;
   comments: MediumData_comments[] | null;
   reactions: MediumData_reactions[] | null;
+  reports: MediumData_reports[] | null;
+  updatedAt: any;
 }

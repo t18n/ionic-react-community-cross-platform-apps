@@ -13,6 +13,7 @@ export interface MediaQuery_media_items_users {
   __typename: "User";
   name: string;
   slug: string;
+  cover: string | null;
 }
 
 export interface MediaQuery_media_items_tags {
@@ -35,6 +36,11 @@ export interface MediaQuery_media_items_reactions {
   type: ReactionType;
 }
 
+export interface MediaQuery_media_items_reports {
+  __typename: "Report";
+  id: string;
+}
+
 export interface MediaQuery_media_items {
   __typename: "Medium";
   id: string;
@@ -50,6 +56,8 @@ export interface MediaQuery_media_items {
   tags: MediaQuery_media_items_tags[] | null;
   comments: MediaQuery_media_items_comments[] | null;
   reactions: MediaQuery_media_items_reactions[] | null;
+  reports: MediaQuery_media_items_reports[] | null;
+  updatedAt: any;
 }
 
 export interface MediaQuery_media {

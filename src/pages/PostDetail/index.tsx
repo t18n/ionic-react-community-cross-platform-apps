@@ -61,7 +61,6 @@ const PostDetail = ({ history }: Props) => {
             firstName={post.firstName}
             cover={post.cover}
             title={post.title}
-            comments={post.comments}
           />
         ))}
         <PostReactions />

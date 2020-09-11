@@ -21,6 +21,7 @@
     "env-cmd": "^10.1.0",
     "faker": "^4.1.0",
     "graphql": "^15.3.0",
+    "lodash": "^4.17.20",
     "make-plural": "^6.2.2",
     "normalize.css": "^8.0.1",
     "nps-utils": "^1.7.0",

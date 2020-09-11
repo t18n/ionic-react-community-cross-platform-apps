@@ -13,6 +13,7 @@ export interface MediumQuery_medium_users {
   __typename: "User";
   name: string;
   slug: string;
+  cover: string | null;
 }
 
 export interface MediumQuery_medium_tags {
@@ -35,6 +36,11 @@ export interface MediumQuery_medium_reactions {
   type: ReactionType;
 }
 
+export interface MediumQuery_medium_reports {
+  __typename: "Report";
+  id: string;
+}
+
 export interface MediumQuery_medium {
   __typename: "Medium";
   id: string;
@@ -50,6 +56,8 @@ export interface MediumQuery_medium {
   tags: MediumQuery_medium_tags[] | null;
   comments: MediumQuery_medium_comments[] | null;
   reactions: MediumQuery_medium_reactions[] | null;
+  reports: MediumQuery_medium_reports[] | null;
+  updatedAt: any;
 }
 
 export interface MediumQuery {

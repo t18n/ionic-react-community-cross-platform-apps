@@ -25,7 +25,6 @@ export const PostItemExample = () => (
           firstName={post.firstName}
           cover={post.cover}
           title={post.title}
-          comments={post.comments}
         />
       </IonCol>
     ))}

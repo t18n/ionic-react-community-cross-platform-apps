@@ -6,12 +6,11 @@ import { IonReactRouter } from '@ionic/react-router';
 import I18nProvider from 'components/organisms/I18n';
 import { LeftSidebar } from 'components/organisms/Sidebar/LeftSidebar';
 import { RightSidebar } from 'components/organisms/Sidebar/RightSidebar';
+import { UserContext } from 'context/User';
 import { ApolloProvider } from 'graphql/ApolloProvider';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { appPages } from 'settings/appPages';
-
-import { UserContext } from './context/User';
 
 const App = () => {
   const enterAnimation = (baseEl: any) => {
