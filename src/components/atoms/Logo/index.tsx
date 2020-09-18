@@ -13,7 +13,7 @@ interface LogoProps {
 
 export const Logo = ({ extraClasses }: LogoProps) => {
   return (
-    <Link href="/">
+    <Link to="/">
       <div className={classNames('logo', extraClasses)}>
         <Img src={logo} alt="Brightizen" />
       </div>

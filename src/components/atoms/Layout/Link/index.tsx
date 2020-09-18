@@ -1,18 +1,23 @@
-import { JSX } from '@ionic/core';
-import { IonRouterLink } from '@ionic/react';
-import React, { HTMLAttributes, ReactNode } from 'react';
+import classNames from 'classnames';
+import React, { ReactNode } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 
 /**
  * Types
  */
-type RouterLinkProps = JSX.IonRouterLink &
-  HTMLAttributes<HTMLIonRouterLinkElement> & {
-    children: ReactNode;
-  };
+type LinkProps = {
+  children: ReactNode;
+  to: string;
+  extraClasses?: string;
+};
 
 /**
  * Components
  */
-export const Link = (props: RouterLinkProps) => {
-  return <IonRouterLink {...props} />;
+export const Link = ({ to, children, extraClasses, ...rest }: LinkProps) => {
+  return (
+    <RouterLink to={to} {...rest} className={classNames('cursor-pointer', extraClasses)}>
+      {children}
+    </RouterLink>
+  );
 };

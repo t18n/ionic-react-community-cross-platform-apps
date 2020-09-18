@@ -27,7 +27,7 @@ export const Network = () => {
             <Row>
               <Col>{invitations.length} new invitations</Col>
               <Col size="auto">
-                <Link href="/network/invitations">
+                <Link to="/network/invitations">
                   <span className="text-sm">
                     <strong>See all</strong>
                   </span>

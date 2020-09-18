@@ -56,7 +56,7 @@ const PostCommentItem = ({
               <Row>
                 <Col className="p-0">
                   <div className="caption flex flex-col items-start">
-                    <Link href="/" className="subtitle-large text-bold">
+                    <Link to="/" extraClasses="subtitle-large text-bold">
                       {username}
                     </Link>
                     <Text as="span" color="medium">

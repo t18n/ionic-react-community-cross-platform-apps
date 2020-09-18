@@ -58,7 +58,7 @@ export const RightSidebar = ({ contentId }: RightSidebarProps) => {
               </Item>
 
               <CardContent className="flex flex-col items-center">
-                <Link href="/">
+                <Link to="/">
                   <Text
                     as="a"
                     align="text-center"
@@ -69,7 +69,7 @@ export const RightSidebar = ({ contentId }: RightSidebarProps) => {
                     The Da Vincy Code
                   </Text>
                 </Link>
-                <Link href="/">
+                <Link to="/">
                   <Text
                     as="a"
                     align="text-center"
@@ -81,7 +81,7 @@ export const RightSidebar = ({ contentId }: RightSidebarProps) => {
                   </Text>
                 </Link>
 
-                <Link href="/">
+                <Link to="/">
                   <Text
                     as="a"
                     align="text-center"
@@ -93,7 +93,7 @@ export const RightSidebar = ({ contentId }: RightSidebarProps) => {
                   </Text>
                 </Link>
 
-                <Link href="/">
+                <Link to="/">
                   <Text
                     as="a"
                     align="text-center"

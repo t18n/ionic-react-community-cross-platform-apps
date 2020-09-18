@@ -67,7 +67,7 @@ export const appPages: Record<string, AppPage> = {
   },
   medium: {
     title: t`page.title.medium`,
-    url: '/medium',
+    url: '/medium/:slug',
     icon: icCompass,
     component: Medium,
   },

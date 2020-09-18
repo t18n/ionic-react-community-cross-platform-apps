@@ -122,7 +122,7 @@ export const Login = ({ history }: LoginProps) => {
               </div>
             </Col>
             <Col className="p-0 flex items-center justify-end">
-              <Link href="/forgot-password">
+              <Link to="/forgot-password">
                 <Text as="span" type="subtitle-s" color="medium" transform="case-none">
                   <Trans id="label.forgotPassword" />
                 </Text>

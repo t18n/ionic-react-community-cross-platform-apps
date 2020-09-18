@@ -33,7 +33,7 @@ const ChatItem = ({ thumbnail, timestamp, content, firstName, profileSlug }: Cha
         </IonCol>
         <IonCol>
           <div>
-            <Link href={profileSlug}>
+            <Link to={profileSlug}>
               <strong>{firstName}</strong>
             </Link>
 

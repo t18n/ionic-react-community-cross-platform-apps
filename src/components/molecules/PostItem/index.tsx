@@ -78,7 +78,7 @@ export const PostItem = ({
           </Avatar>
           <div className="flex flex-col items-start">
             <div className="flex">
-              <Link href="/" className="mr-s">
+              <Link to="/" extraClasses="mr-s">
                 <strong>{firstName}</strong>
               </Link>
             </div>

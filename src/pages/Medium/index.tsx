@@ -31,6 +31,8 @@ const Medium = ({
     params: { slug },
   },
 }: MediumProps) => {
+  console.log(slug);
+
   const { data, loading } = useMediumQuery({
     variables: {
       slug: slug,

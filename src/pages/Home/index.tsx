@@ -3,6 +3,7 @@ import './index.min.css';
 import { t } from '@lingui/macro';
 import { Chip } from 'components/atoms/Chip';
 import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Link } from 'components/atoms/Layout/Link';
 import { Page, PageContent } from 'components/atoms/Layout/Page';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import PostItem from 'components/molecules/PostItem';
@@ -58,22 +59,24 @@ export const Home = ({ history }: HomeProps) => {
 
             <Col size="12">
               {mediaToShow.map((medium) => (
-                <PostItem
-                  key={medium.id}
-                  type={medium.type}
-                  title={medium.title}
-                  onClickDetail={() => console.log('going to', medium.slug)}
-                  onClickProfile={() => console.log('going to Profile', medium.slug)}
-                  onCardClick={() => console.log('going to', medium.slug)}
-                  voteCount={medium.votes.length}
-                  reactionCount={medium.reactions.length}
-                  commentCount={medium.comments.length}
-                  summary={medium.shortDescription}
-                  editTimestamp={medium.updatedAt}
-                  avatar={medium.users[0] && medium.users[0].cover}
-                  firstName={medium.users[0] && medium.users[0].name}
-                  cover={medium.cover}
-                />
+                <Link key={medium.slug} to={`/medium/${medium.slug}`}>
+                  <PostItem
+                    key={medium.id}
+                    type={medium.type}
+                    title={medium.title}
+                    onClickDetail={() => console.log('going to', medium.slug)}
+                    onClickProfile={() => console.log('going to Profile', medium.slug)}
+                    onCardClick={() => console.log('going to', medium.slug)}
+                    voteCount={medium.votes.length}
+                    reactionCount={medium.reactions.length}
+                    commentCount={medium.comments.length}
+                    summary={medium.shortDescription}
+                    editTimestamp={medium.updatedAt}
+                    avatar={medium.users[0] && medium.users[0].cover}
+                    firstName={medium.users[0] && medium.users[0].name}
+                    cover={medium.cover}
+                  />
+                </Link>
               ))}
             </Col>
           </Row>
