@@ -31,7 +31,7 @@ const MEDIUM_DATA = gql`
       id
       type
     }
-    reports {
+    votes {
       id
     }
     updatedAt

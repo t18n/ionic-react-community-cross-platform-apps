@@ -15,7 +15,7 @@ export const PostItemExample = () => (
         <PostItem
           onClickDetail={post.onClickDetail}
           onClickProfile={post.onClickProfile}
-          reportCount={post.reportCount}
+          voteCount={post.voteCount}
           reactionCount={post.reactionCount}
           commentCount={post.commentCount}
           summary={post.summary}

@@ -17,7 +17,7 @@ export type PostItemProps = {
   onClickDetail?: () => void;
   onClickProfile: () => void;
   reactionCount: number;
-  reportCount: number;
+  voteCount: number;
   commentCount: number;
   summary: string;
   editTimestamp: string;
@@ -33,7 +33,7 @@ export const postItems: PostItemProps[] = [...Array(14)].map(() => ({
   onClickProfile: () => console.log('clicked'),
   reactionCount: faker.random.number(),
   commentCount: faker.random.number(),
-  reportCount: faker.random.number(),
+  voteCount: faker.random.number(),
   summary: faker.lorem.sentence(),
   editTimestamp: `${faker.date.past().getUTCDay()}d`,
   avatar: faker.image.avatar(),
@@ -48,7 +48,7 @@ export const PostItem = ({
   onClickProfile,
   reactionCount,
   commentCount,
-  reportCount,
+  voteCount,
   summary,
   editTimestamp,
   avatar,
@@ -114,7 +114,7 @@ export const PostItem = ({
         </Item>
         <Item className="mr-m subtitle-s">
           <Text as="span" color="medium">
-            {reportCount} reports
+            {voteCount} votes
           </Text>
         </Item>
       </Item>

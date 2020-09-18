@@ -52,7 +52,7 @@ const PostDetail = ({ history }: Props) => {
             onClickDetail={post.onClickDetail}
             onClickProfile={post.onClickProfile}
             reactionCount={post.reactionCount}
-            reportCount={post.reportCount}
+            voteCount={post.voteCount}
             commentCount={post.commentCount}
             summary={post.summary}
             editTimestamp={post.editTimestamp}

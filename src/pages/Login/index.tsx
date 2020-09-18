@@ -85,7 +85,7 @@ export const Login = ({ history }: LoginProps) => {
                 spellCheck={false}
                 autocapitalize="off"
                 onIonChange={(e: any) => setInputEmail(e.detail.value)}
-                // required
+                onLoad={(e) => console.log('submit captured', e)}
                 placeholder="example@brightizen.com"
                 ref={registerEmail}
               />

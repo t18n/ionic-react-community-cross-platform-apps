@@ -30,7 +30,7 @@ export const Home = ({ history }: HomeProps) => {
 
   const mediaToShow = !MEDIUM_DATA ? null : MEDIUM_DATA.media.items.slice(0, 20);
 
-  const availableTags = !MEDIUM_DATA
+  const availableTags = !mediaToShow
     ? null
     : uniqBy(mediaToShow.map(({ tags }) => tags).flat(), 'name');
 
@@ -41,10 +41,10 @@ export const Home = ({ history }: HomeProps) => {
       <Breadcrumb title={t`page.title.explore`} />
 
       <PageContent>
-        {error ? 'There are some errors' : null}
+        {error ? error.message : null}
 
         {loading && <SkeletonPost />}
-        {!loading && (
+        {!loading && mediaToShow && (
           <Row className={`scroll-y px py ${isSearchFocused ? 'hide' : ''}`}>
             {/* Chips */}
             <Col size="12">
@@ -65,7 +65,7 @@ export const Home = ({ history }: HomeProps) => {
                   onClickDetail={() => console.log('going to', medium.slug)}
                   onClickProfile={() => console.log('going to Profile', medium.slug)}
                   reactionCount={medium.reactions.length}
-                  reportCount={medium.reports.length}
+                  voteCount={medium.votes.length}
                   commentCount={medium.comments.length}
                   summary={medium.shortDescription}
                   editTimestamp={medium.updatedAt}
