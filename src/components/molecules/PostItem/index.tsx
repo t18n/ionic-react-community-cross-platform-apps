@@ -16,6 +16,7 @@ import { Text } from '../../atoms/Text/index';
 export type PostItemProps = {
   onClickDetail?: () => void;
   onClickProfile: () => void;
+  onCardClick: () => void;
   reactionCount: number;
   voteCount: number;
   commentCount: number;
@@ -31,6 +32,7 @@ export type PostItemProps = {
 export const postItems: PostItemProps[] = [...Array(14)].map(() => ({
   onClickDetail: () => console.log('clicked'),
   onClickProfile: () => console.log('clicked'),
+  onCardClick: () => console.log('clicked'),
   reactionCount: faker.random.number(),
   commentCount: faker.random.number(),
   voteCount: faker.random.number(),
@@ -46,6 +48,7 @@ export const postItems: PostItemProps[] = [...Array(14)].map(() => ({
 export const PostItem = ({
   onClickDetail,
   onClickProfile,
+  onCardClick,
   reactionCount,
   commentCount,
   voteCount,
@@ -66,7 +69,7 @@ export const PostItem = ({
   };
 
   return (
-    <Card className="pa-s">
+    <Card className="pa-s cursor-pointer" onClick={onCardClick}>
       <Item className="flex items-start mb-m" lines="none">
         <Item slot="start" className="flex" lines="none">
           <Avatar onClick={handleGoToProfile} className="mr-s bg-medium">

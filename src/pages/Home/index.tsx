@@ -64,8 +64,9 @@ export const Home = ({ history }: HomeProps) => {
                   title={medium.title}
                   onClickDetail={() => console.log('going to', medium.slug)}
                   onClickProfile={() => console.log('going to Profile', medium.slug)}
-                  reactionCount={medium.reactions.length}
+                  onCardClick={() => console.log('going to', medium.slug)}
                   voteCount={medium.votes.length}
+                  reactionCount={medium.reactions.length}
                   commentCount={medium.comments.length}
                   summary={medium.shortDescription}
                   editTimestamp={medium.updatedAt}

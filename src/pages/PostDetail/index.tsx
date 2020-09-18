@@ -51,6 +51,7 @@ const PostDetail = ({ history }: Props) => {
             key={i}
             onClickDetail={post.onClickDetail}
             onClickProfile={post.onClickProfile}
+            onCardClick={() => console.log('hey')}
             reactionCount={post.reactionCount}
             voteCount={post.voteCount}
             commentCount={post.commentCount}

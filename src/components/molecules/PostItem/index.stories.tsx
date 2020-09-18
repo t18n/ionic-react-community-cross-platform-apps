@@ -13,6 +13,7 @@ export const PostItemExample = () => (
     {postItems.map((post, i) => (
       <IonCol key={i} size="4">
         <PostItem
+          onCardClick={post.onCardClick}
           onClickDetail={post.onClickDetail}
           onClickProfile={post.onClickProfile}
           voteCount={post.voteCount}
