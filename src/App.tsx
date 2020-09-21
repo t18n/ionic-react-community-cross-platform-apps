@@ -8,11 +8,14 @@ import { LeftSidebar } from 'components/organisms/Sidebar/LeftSidebar';
 import { RightSidebar } from 'components/organisms/Sidebar/RightSidebar';
 import { UserContext } from 'context/User';
 import { ApolloProvider } from 'graphql/ApolloProvider';
+import { createBrowserHistory } from 'history';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { appPages } from 'settings/appPages';
 
 const App = () => {
+  const history = createBrowserHistory();
+
   const enterAnimation = (baseEl: any) => {
     const page = createAnimation()
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -31,7 +34,7 @@ const App = () => {
       <I18nProvider>
         <UserContext.Provider>
           <IonApp>
-            <IonReactRouter>
+            <IonReactRouter history={history}>
               <IonSplitPane contentId="main">
                 <LeftSidebar contentId="main" />
                 <IonRouterOutlet id="main" animated animation={enterAnimation}>
