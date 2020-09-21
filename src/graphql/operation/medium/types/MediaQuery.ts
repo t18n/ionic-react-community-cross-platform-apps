@@ -3,27 +3,27 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { MediumType, CommentType, ReactionType } from './../../../../types/graphql-types.gen';
+import { MediumType, CommentType, ReactionType } from "./../../../../types/graphql-types.gen";
 
 // ====================================================
 // GraphQL query operation: MediaQuery
 // ====================================================
 
 export interface MediaQuery_media_items_users {
-  __typename: 'User';
+  __typename: "User";
   name: string;
   slug: string;
   cover: string | null;
 }
 
 export interface MediaQuery_media_items_tags {
-  __typename: 'Tag';
+  __typename: "Tag";
   name: string;
   slug: string;
 }
 
 export interface MediaQuery_media_items_comments {
-  __typename: 'Comment';
+  __typename: "Comment";
   id: string;
   type: CommentType;
   content: string;
@@ -31,18 +31,18 @@ export interface MediaQuery_media_items_comments {
 }
 
 export interface MediaQuery_media_items_reactions {
-  __typename: 'Reaction';
+  __typename: "Reaction";
   id: string;
   type: ReactionType;
 }
 
 export interface MediaQuery_media_items_votes {
-  __typename: 'Vote';
+  __typename: "Vote";
   id: string;
 }
 
 export interface MediaQuery_media_items {
-  __typename: 'Medium';
+  __typename: "Medium";
   id: string;
   title: string;
   shortDescription: string;
@@ -61,7 +61,7 @@ export interface MediaQuery_media_items {
 }
 
 export interface MediaQuery_media {
-  __typename: 'MediaResponse';
+  __typename: "MediaResponse";
   items: MediaQuery_media_items[];
   hasMore: boolean;
   total: number;
