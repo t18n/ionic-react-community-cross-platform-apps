@@ -10,13 +10,14 @@ import PostItem from 'components/molecules/PostItem';
 import SkeletonPost from 'components/organisms/SkeletonPost';
 import { UserContext } from 'context/User';
 import { useMediumsQuery } from 'graphql/operation/medium/query';
+import { History } from 'history';
 import { useSearchBar } from 'hooks/useSearchbar';
 import uniqBy from 'lodash/uniqBy';
 import Tour from 'pages/Tour';
 import React from 'react';
 
 type HomeProps = {
-  history: any;
+  history: History;
 };
 
 export const Home = ({ history }: HomeProps) => {

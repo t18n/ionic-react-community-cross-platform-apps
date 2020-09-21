@@ -10,11 +10,12 @@ import { Loading } from 'components/atoms/Loading';
 import { Toast } from 'components/atoms/Toast';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import { useLoginUser } from 'graphql/operation/user/mutation';
+import { History } from 'history';
 import { useToast } from 'hooks/useToast';
 import React, { useState } from 'react';
 
 type SignupProps = {
-  history: any;
+  history: History;
 };
 
 export const Signup = ({ history }: SignupProps) => {

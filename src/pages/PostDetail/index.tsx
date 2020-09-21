@@ -17,11 +17,12 @@ import PostItem, { postItems } from 'components/molecules/PostItem';
 import PostComments from 'components/organisms/PostComments';
 import PostReactions from 'components/organisms/PostReactions';
 import faker from 'faker';
+import { History } from 'history';
 import { expand } from 'ionicons/icons';
 import React from 'react';
 
 type Props = {
-  history: any;
+  history: History;
 };
 
 const PostDetail = ({ history }: Props) => {

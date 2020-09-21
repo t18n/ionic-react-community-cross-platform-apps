@@ -4,11 +4,11 @@ import { t } from '@lingui/macro';
 import { Page, PageContent } from 'components/atoms/Layout/Page';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import MessageItem, { messages } from 'components/molecules/MessageItem';
-import { create, personAdd } from 'ionicons/icons';
+import { History } from 'history';
 import React from 'react';
 
 type Props = {
-  history: any;
+  history: History;
 };
 
 const Messaging = ({ history }: Props) => {

@@ -41,12 +41,6 @@ export const appPages: Record<string, AppPage> = {
     icon: icHome,
     component: Home,
   },
-  welcome: {
-    title: t`page.title.tour`,
-    url: '/welcome',
-    icon: icHome,
-    component: Tour,
-  },
   login: {
     title: t`page.title.login`,
     url: '/login',

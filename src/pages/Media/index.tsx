@@ -8,14 +8,15 @@ import { Page, PageContent } from 'components/atoms/Layout/Page';
 import { Text } from 'components/atoms/Text';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import FollowCard, { follows } from 'components/molecules/FollowCard';
+import { History } from 'history';
 import { create, notifications } from 'ionicons/icons';
 import React from 'react';
 
-type Props = {
-  history: any;
+type MediaProps = {
+  history: History;
 };
 
-const Media: React.FC<Props> = ({ history }) => {
+const Media = ({ history }: MediaProps) => {
   return (
     <Page>
       <Breadcrumb title={t`page.title.media`} />

@@ -13,12 +13,13 @@ import { Toast } from 'components/atoms/Toast';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import { TextError } from 'components/molecules/Form/TextError';
 import { useLoginUser } from 'graphql/operation/user/mutation';
+import { History } from 'history';
 import { useFormValidation } from 'hooks/useForm';
 import { useToast } from 'hooks/useToast';
 import React, { useState } from 'react';
 
 type LoginProps = {
-  history: any;
+  history: History;
 };
 
 export const Login = ({ history }: LoginProps) => {
@@ -50,7 +51,7 @@ export const Login = ({ history }: LoginProps) => {
       try {
         await login(inputEmail, inputPassword);
 
-        history.push('/', { direct: 'none' });
+        history.push('/');
       } catch (e) {
         setToast({
           status: true,
