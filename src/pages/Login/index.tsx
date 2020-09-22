@@ -50,8 +50,7 @@ export const Login = ({ history }: LoginProps) => {
       // Login user
       try {
         await login(inputEmail, inputPassword);
-
-        history.push('/');
+        await history.push('/');
       } catch (e) {
         setToast({
           status: true,

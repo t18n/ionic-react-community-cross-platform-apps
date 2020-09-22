@@ -24,7 +24,6 @@ import { Notifications } from 'pages/Notifications';
 import Profile from 'pages/Profile';
 import Search from 'pages/Search';
 import { Signup } from 'pages/Signup';
-import Tour from 'pages/Tour';
 import { FC } from 'react';
 
 interface AppPage {
@@ -32,6 +31,7 @@ interface AppPage {
   title: string;
   icon: string;
   component: FC<any>;
+  showInSidebar: boolean;
 }
 
 export const appPages: Record<string, AppPage> = {
@@ -40,71 +40,83 @@ export const appPages: Record<string, AppPage> = {
     url: '/',
     icon: icHome,
     component: Home,
+    showInSidebar: false,
   },
   login: {
     title: t`page.title.login`,
     url: '/login',
     icon: icUser,
     component: Login,
+    showInSidebar: false,
   },
   signup: {
     title: t`page.title.signup`,
     url: '/signup',
     icon: icUserPlus,
     component: Signup,
+    showInSidebar: false,
   },
   media: {
     title: t`page.title.media`,
     url: '/media',
     icon: icCompass,
     component: Media,
+    showInSidebar: true,
   },
   medium: {
     title: t`page.title.medium`,
     url: '/medium/:slug',
     icon: icCompass,
     component: Medium,
+    showInSidebar: false,
   },
   search: {
     title: t`page.title.search`,
     url: '/search',
     icon: icSearch,
     component: Search,
+    showInSidebar: true,
   },
   messages: {
     title: t`page.title.messages`,
     url: '/messages',
     icon: icMessage,
     component: Messages,
+    showInSidebar: true,
   },
   messageDetails: {
     title: t`page.title.message`,
     url: '/messageDetails',
     icon: icMessage2,
     component: Messaging,
+    showInSidebar: false,
   },
   ideas: {
     title: t`page.title.ideas`,
     url: '/ideas',
     icon: icBulb,
     component: Idea,
+    showInSidebar: true,
   },
   notifications: {
     title: t`page.title.notifications`,
     url: '/notifications',
     icon: icBell,
     component: Notifications,
+    showInSidebar: true,
   },
   network: {
     title: t`page.title.network`,
     url: '/network',
     icon: icSocial,
     component: Network,
+    showInSidebar: true,
   },
   profile: {
     title: t`page.title.profile`,
-    url: '/profile',
+    url: '/profile/:slug',
     icon: icUserCheck,
     component: Profile,
+    showInSidebar: false,
   },
 };

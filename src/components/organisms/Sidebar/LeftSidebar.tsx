@@ -41,8 +41,6 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
   const { me, isAuthed } = UserContext.useContainer();
   const [logout, { loading: LOGOUT_loading }] = useLogoutUser();
 
-  const excludedPages = ['login', 'signup', 'welcome'];
-
   const loginPage = appPages.login;
 
   /**
@@ -154,7 +152,7 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
           {/* List of pages */}
           {Object.keys(appPages).map(
             (id) =>
-              !excludedPages.includes(id) && (
+              appPages[id].showInSidebar && (
                 <Item
                   key={appPages[id].title}
                   className={`mt-s left-sidebar__item ${

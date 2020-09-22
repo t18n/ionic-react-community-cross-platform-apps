@@ -3,11 +3,12 @@ import './index.min.css';
 import { t, Trans } from '@lingui/macro';
 import { Button } from 'components/atoms/Button';
 import { Icon, icUser } from 'components/atoms/Icon';
-import { Page } from 'components/atoms/Layout/Page';
+import { PageContent } from 'components/atoms/Layout/Page';
 import { Logo } from 'components/atoms/Logo';
 import { Slide, Slides } from 'components/atoms/Slide';
 import { Text } from 'components/atoms/Text';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
+import { History } from 'history';
 import React, { useRef, useState } from 'react';
 
 const slideOpts = {
@@ -16,10 +17,10 @@ const slideOpts = {
 };
 
 type TourProps = {
-  history?: any;
+  history?: History;
 };
 
-export const Tour = (props: TourProps) => {
+export const Tour = ({ history }: TourProps) => {
   const ionSlidesRef = useRef<HTMLIonSlidesElement>();
   const [activeIndex, setActiveIndex] = useState(slideOpts.initialSlide);
 
@@ -32,9 +33,9 @@ export const Tour = (props: TourProps) => {
   };
 
   return (
-    <Page>
+    <>
       <Breadcrumb title={t`page.title.welcome`} />
-      <div className={`px py ${activeIndex > 0 ? 'bg-primary' : ''}`}>
+      <PageContent>
         <div className="tour-slide vertical-layout">
           <div className="slides-container">
             <Slides
@@ -134,9 +135,7 @@ export const Tour = (props: TourProps) => {
             </Button>
           </div>
         </div>
-      </div>
-    </Page>
+      </PageContent>
+    </>
   );
 };
-
-export default Tour;

@@ -38,6 +38,7 @@ const App = () => {
               <IonSplitPane contentId="main">
                 <LeftSidebar contentId="main" />
                 <IonRouterOutlet id="main" animated animation={enterAnimation}>
+                  {/* <Switch> */}
                   {Object.keys(appPages).map((id) => (
                     <Route
                       key={id}
@@ -46,6 +47,7 @@ const App = () => {
                       exact
                     />
                   ))}
+                  {/* </Switch> */}
                 </IonRouterOutlet>
                 <RightSidebar contentId="main" />
               </IonSplitPane>

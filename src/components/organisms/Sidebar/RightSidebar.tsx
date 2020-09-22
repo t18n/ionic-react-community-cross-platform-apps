@@ -60,7 +60,7 @@ export const RightSidebar = ({ contentId }: RightSidebarProps) => {
               <CardContent className="flex flex-col items-center">
                 <Link to="/">
                   <Text
-                    as="a"
+                    as="span"
                     align="text-center"
                     color="medium"
                     type="subtitle-s"
@@ -71,7 +71,7 @@ export const RightSidebar = ({ contentId }: RightSidebarProps) => {
                 </Link>
                 <Link to="/">
                   <Text
-                    as="a"
+                    as="span"
                     align="text-center"
                     color="medium"
                     type="subtitle-s"
@@ -83,7 +83,7 @@ export const RightSidebar = ({ contentId }: RightSidebarProps) => {
 
                 <Link to="/">
                   <Text
-                    as="a"
+                    as="span"
                     align="text-center"
                     color="medium"
                     type="subtitle-s"
@@ -95,7 +95,7 @@ export const RightSidebar = ({ contentId }: RightSidebarProps) => {
 
                 <Link to="/">
                   <Text
-                    as="a"
+                    as="span"
                     align="text-center"
                     color="medium"
                     type="subtitle-s"

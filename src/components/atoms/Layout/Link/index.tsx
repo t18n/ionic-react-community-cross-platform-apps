@@ -1,3 +1,5 @@
+import './index.min.css';
+
 import classNames from 'classnames';
 import React, { ReactNode } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
@@ -16,7 +18,7 @@ type LinkProps = {
  */
 export const Link = ({ to, children, extraClasses, ...rest }: LinkProps) => {
   return (
-    <RouterLink to={to} {...rest} className={classNames('cursor-pointer', extraClasses)}>
+    <RouterLink to={to} {...rest} className={classNames('br-link cursor-pointer', extraClasses)}>
       {children}
     </RouterLink>
   );

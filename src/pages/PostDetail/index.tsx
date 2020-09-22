@@ -13,7 +13,6 @@ import {
   IonPage,
   IonToolbar,
 } from '@ionic/react';
-import PostItem, { postItems } from 'components/molecules/PostItem';
 import PostComments from 'components/organisms/PostComments';
 import PostReactions from 'components/organisms/PostReactions';
 import faker from 'faker';
@@ -26,10 +25,6 @@ type Props = {
 };
 
 const PostDetail = ({ history }: Props) => {
-  const goToProfile = () => {
-    history.push('/profile');
-  };
-
   return (
     <IonPage>
       <IonHeader>
@@ -47,7 +42,7 @@ const PostDetail = ({ history }: Props) => {
       </IonHeader>
 
       <IonContent>
-        {postItems.map((post, i) => (
+        {/* {postItems.map((post, i) => (
           <PostItem
             key={i}
             onClickDetail={post.onClickDetail}
@@ -64,7 +59,7 @@ const PostDetail = ({ history }: Props) => {
             cover={post.cover}
             title={post.title}
           />
-        ))}
+        ))} */}
         <PostReactions />
         <PostComments />
       </IonContent>

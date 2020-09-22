@@ -2,89 +2,63 @@ import { Trans } from '@lingui/macro';
 import { Badge } from 'components/atoms/Badge';
 import { Button } from 'components/atoms/Button';
 import { Card, CardContent, CardHeader, CardTitle } from 'components/atoms/Card';
-import { icDots, icMessage, Icon, icShare, icThumbUp, icUser } from 'components/atoms/Icon';
+import { icDots, icMessage, Icon, icShare, icThumbUp } from 'components/atoms/Icon';
 import { Item } from 'components/atoms/Item';
 import { Link } from 'components/atoms/Layout/Link';
-import { Avatar, Img } from 'components/atoms/Media';
-import { OnlineStatus } from 'components/atoms/OnlineStatus';
+import { Img } from 'components/atoms/Media';
 import PostComments from 'components/organisms/PostComments';
-import faker from 'faker';
+import { MediaQuery_media_items } from 'graphql/operation/medium/types/MediaQuery';
 import React from 'react';
+import { getRelativeTimeToNow } from 'utils/time';
 
 import { Text } from '../../atoms/Text/index';
 
-export type PostItemProps = {
-  onClickDetail?: () => void;
-  onClickProfile: () => void;
-  onCardClick: () => void;
-  reactionCount: number;
-  voteCount: number;
-  commentCount: number;
-  summary: string;
-  editTimestamp: string;
-  avatar: string;
-  type: string;
-  firstName: string;
-  cover: string;
-  title: string;
-};
-
-export const postItems: PostItemProps[] = [...Array(14)].map(() => ({
-  onClickDetail: () => console.log('clicked'),
-  onClickProfile: () => console.log('clicked'),
-  onCardClick: () => console.log('clicked'),
-  reactionCount: faker.random.number(),
-  commentCount: faker.random.number(),
-  voteCount: faker.random.number(),
-  summary: faker.lorem.sentence(),
-  editTimestamp: `${faker.date.past().getUTCDay()}d`,
-  avatar: faker.image.avatar(),
-  type: faker.random.word(),
-  firstName: faker.name.firstName(),
-  cover: faker.image.nature(),
-  title: faker.random.words(),
-}));
+export type PostItemProps = MediaQuery_media_items;
 
 export const PostItem = ({
-  onClickDetail,
-  onClickProfile,
-  onCardClick,
-  reactionCount,
-  commentCount,
-  voteCount,
-  summary,
-  editTimestamp,
-  avatar,
-  type,
-  firstName,
-  cover,
   title,
+  shortDescription,
+  type,
+  slug,
+  cover,
+  users,
+  tags,
+  comments,
+  reactions,
+  votes,
+  updatedAt,
 }: PostItemProps) => {
-  const onCommentClick = () => {
-    if (onClickDetail) onClickDetail();
-  };
-
-  const handleGoToProfile = () => {
-    onClickProfile();
-  };
+  const handleCardClick = () => console.log('hehe');
 
   return (
-    <Card className="pa-s cursor-pointer" onClick={onCardClick}>
+    <Card className="pa-s" onClick={handleCardClick}>
+      <CardHeader className="mt-m">
+        <Link key={slug} to={`/medium/${slug}`}>
+          <CardTitle>{title}</CardTitle>
+        </Link>
+      </CardHeader>
+
       <Item className="flex items-start mb-m" lines="none">
         <Item slot="start" className="flex" lines="none">
-          <Avatar onClick={handleGoToProfile} className="mr-s bg-medium">
-            <img src={avatar || icUser} alt="" />
-            <OnlineStatus status="active" />
-          </Avatar>
           <div className="flex flex-col items-start">
             <div className="flex">
-              <Link to="/" extraClasses="mr-s">
-                <strong>{firstName}</strong>
-              </Link>
+              {users ? (
+                users.map((user) => (
+                  <Link key={user.slug} to={`/profile/${user.slug}`} extraClasses="mr-s">
+                    <Text as="span" fontWeight="text-bold" color="medium" type="subtitle-s">
+                      {user.name}
+                    </Text>
+                  </Link>
+                ))
+              ) : (
+                <Text as="span" fontWeight="text-bold" color="medium" type="subtitle-s">
+                  <Trans id="label.unknown" />
+                </Text>
+              )}
             </div>
             <div className="flex">
               <Text as="span" color="medium" type="subtitle-s">
-                {editTimestamp} · <Trans id="label.edited" />
+                {getRelativeTimeToNow(updatedAt)} · <Trans id="label.edited" />
               </Text>
             </div>
           </div>
@@ -98,26 +72,22 @@ export const PostItem = ({
         <Img src={cover} />
       </Item>
 
-      <CardHeader className="mt-m">
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
-
-      <CardContent className="mt-s">{summary}</CardContent>
+      <CardContent className="mt-s">{shortDescription}</CardContent>
 
       <Item className="mt-m flex justify-start">
         <Item className="mr-m subtitle-s">
           <Text as="span" color="medium">
-            {reactionCount} reactions
+            {reactions.length} reactions
           </Text>
         </Item>
         <Item className="mr-m subtitle-s">
           <Text as="span" color="medium">
-            {commentCount} comments
+            {comments.length} comments
           </Text>
         </Item>
         <Item className="mr-m subtitle-s">
           <Text as="span" color="medium">
-            {voteCount} votes
+            {votes.length} votes
           </Text>
         </Item>
       </Item>
@@ -135,7 +105,7 @@ export const PostItem = ({
             fill="clear"
             size="small"
             className="mr-s"
-            onClick={onCommentClick}
+            onClick={() => console.log('comment click')}
           >
             <Icon slot="start" icon={icMessage} />
             <Text as="span" color="medium">
