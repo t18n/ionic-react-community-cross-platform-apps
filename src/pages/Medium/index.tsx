@@ -205,7 +205,7 @@ const Medium = ({
                     {idea.content}
                   </Text>
                   <Row>
-                    <Link to={`/ideas/${slug}`}>
+                    <Link to={`/ideas/${idea.slug}`}>
                       <Text as="h2" color="primary" type="subtitle-s">
                         Read more
                       </Text>

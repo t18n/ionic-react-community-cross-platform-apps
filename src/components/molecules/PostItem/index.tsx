@@ -1,17 +1,17 @@
 import { Trans } from '@lingui/macro';
 import { Badge } from 'components/atoms/Badge';
-import { Button } from 'components/atoms/Button';
 import { Card, CardContent, CardHeader, CardTitle } from 'components/atoms/Card';
-import { icDots, icMessage, Icon, icShare, icThumbUp } from 'components/atoms/Icon';
 import { Item } from 'components/atoms/Item';
 import { Link } from 'components/atoms/Layout/Link';
 import { Img } from 'components/atoms/Media';
-import PostComments from 'components/organisms/PostComments';
+import PostComments from 'components/molecules/PostComments';
 import { MediaQuery_media_items } from 'graphql/operation/medium/types/MediaQuery';
 import React from 'react';
 import { getRelativeTimeToNow } from 'utils/time';
 
 import { Text } from '../../atoms/Text/index';
+import { ContentActionGroup } from '../ContentActionGroup';
+import { ContentStatsGroup } from '../ContentStatsGroup/index';
 
 export type PostItemProps = MediaQuery_media_items;
 
@@ -75,63 +75,16 @@ export const PostItem = ({
 
       <CardContent className="mt-s">{shortDescription}</CardContent>
 
-      <Item className="mt-m flex justify-start">
-        <Item className="mr-m subtitle-s">
-          <Text as="span" color="medium">
-            {ideas.length} ideas
-          </Text>
-        </Item>
-        <Item className="mr-m subtitle-s">
-          <Text as="span" color="medium">
-            {reactions.length} reactions
-          </Text>
-        </Item>
-        <Item className="mr-m subtitle-s">
-          <Text as="span" color="medium">
-            {comments.length} comments
-          </Text>
-        </Item>
-        <Item className="mr-m subtitle-s">
-          <Text as="span" color="medium">
-            {votes.length} votes
-          </Text>
-        </Item>
-      </Item>
+      <ContentStatsGroup
+        leftContent={[
+          `${ideas.length} ideas`,
+          `${reactions.length} reactions`,
+          `${comments.length} comments`,
+        ]}
+        rightContent={[`${votes.length} votes`]}
+      />
 
-      <Item className="flex justify-between">
-        <div>
-          <Button color="medium" fill="clear" size="small" className="mr-s">
-            <Icon slot="start" icon={icThumbUp} />
-            <Text as="span" color="medium">
-              <Trans id="label.react" />
-            </Text>
-          </Button>
-          <Button
-            color="medium"
-            fill="clear"
-            size="small"
-            className="mr-s"
-            onClick={() => console.log('comment click')}
-          >
-            <Icon slot="start" icon={icMessage} />
-            <Text as="span" color="medium">
-              <Trans id="label.comment" />
-            </Text>
-          </Button>
-          <Button color="medium" fill="clear" size="small" className="mr-s">
-            <Icon slot="start" icon={icShare} />
-            <Text as="span" color="medium">
-              <Trans id="label.share" />
-            </Text>
-          </Button>
-        </div>
-        <Button color="medium" fill="clear" size="small" slot="end">
-          <Icon slot="start" icon={icDots} />
-          <Text as="span" color="medium">
-            <Trans id="label.more" />
-          </Text>
-        </Button>
-      </Item>
+      <ContentActionGroup />
 
       <Item>
         <PostComments />

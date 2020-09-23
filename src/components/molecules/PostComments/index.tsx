@@ -1,7 +1,6 @@
 import './index.min.css';
 
 import { Trans } from '@lingui/macro';
-import { classNames } from 'classnames';
 import { Button } from 'components/atoms/Button';
 import { icArrowsVertical, Icon } from 'components/atoms/Icon';
 import { Col, Grid, Row } from 'components/atoms/Layout/Grid';

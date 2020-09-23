@@ -13,7 +13,7 @@ import {
   IonPage,
   IonToolbar,
 } from '@ionic/react';
-import PostComments from 'components/organisms/PostComments';
+import PostComments from 'components/molecules/PostComments';
 import PostReactions from 'components/organisms/PostReactions';
 import faker from 'faker';
 import { expand } from 'ionicons/icons';
