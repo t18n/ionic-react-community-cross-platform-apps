@@ -177,22 +177,36 @@ const Medium = ({
             </Row>
 
             {/* Ideas */}
-            <Row className="flex flex-col justify-between items-center mt-m">
-              <Text as="span" type="title-s" color="dark">
+            <Row className="flex flex-col justify-between items-center mt-l">
+              <Text as="span" type="title-m" color="dark">
                 {data.medium.ideas.length} ideas
               </Text>
 
-              <ul>
-                {data.medium.ideas.map((idea) => (
-                  <li key={idea.slug} className="w-100p pa-m">
+              {data.medium.ideas.map((idea) => (
+                <Card key={idea.slug} className="w-100p pa-m mt-s">
+                  <Text as="h2" color="dark" type="subtitle-l">
+                    {idea.user ? (
+                      <Link to={`/profiles/${idea.user.slug}`}>
+                        <Text as="span" type="subtitle-l" color="dark" fontWeight="text-bold">
+                          {idea.user.name}
+                        </Text>
+                      </Link>
+                    ) : (
+                      <Text as="span" type="subtitle-l" color="dark" fontWeight="text-bold">
+                        <Trans id="label.unknown" />
+                      </Text>
+                    )}{' '}
+                    {idea.content}
+                  </Text>
+                  <Row>
                     <Link to={`/ideas/${slug}`}>
-                      <Text as="p" color="dark">
-                        {idea.content}
+                      <Text as="h2" color="primary" type="subtitle-s">
+                        Read more
                       </Text>
                     </Link>
-                  </li>
-                ))}
-              </ul>
+                  </Row>
+                </Card>
+              ))}
             </Row>
           </>
         )}

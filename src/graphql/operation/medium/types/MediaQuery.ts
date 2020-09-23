@@ -47,11 +47,18 @@ export interface MediaQuery_media_items_slipboxes {
   slug: string;
 }
 
+export interface MediaQuery_media_items_ideas_user {
+  __typename: "User";
+  name: string;
+  slug: string;
+}
+
 export interface MediaQuery_media_items_ideas {
   __typename: "Idea";
   type: IdeaType;
   slug: string;
   content: string;
+  user: MediaQuery_media_items_ideas_user | null;
 }
 
 export interface MediaQuery_media_items {

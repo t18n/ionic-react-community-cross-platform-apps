@@ -47,11 +47,18 @@ export interface MediumData_slipboxes {
   slug: string;
 }
 
+export interface MediumData_ideas_user {
+  __typename: "User";
+  name: string;
+  slug: string;
+}
+
 export interface MediumData_ideas {
   __typename: "Idea";
   type: IdeaType;
   slug: string;
   content: string;
+  user: MediumData_ideas_user | null;
 }
 
 export interface MediumData {

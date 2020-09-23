@@ -43,10 +43,10 @@ const MEDIUM_DATA = gql`
       type
       slug
       content
-      # user {
-      #   name
-      #   slug
-      # }
+      user {
+        name
+        slug
+      }
     }
     updatedAt
   }

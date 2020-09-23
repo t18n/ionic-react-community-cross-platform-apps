@@ -23,6 +23,7 @@ export const PostItem = ({
   cover,
   users,
   tags,
+  ideas,
   comments,
   reactions,
   votes,
@@ -75,6 +76,11 @@ export const PostItem = ({
       <CardContent className="mt-s">{shortDescription}</CardContent>
 
       <Item className="mt-m flex justify-start">
+        <Item className="mr-m subtitle-s">
+          <Text as="span" color="medium">
+            {ideas.length} ideas
+          </Text>
+        </Item>
         <Item className="mr-m subtitle-s">
           <Text as="span" color="medium">
             {reactions.length} reactions

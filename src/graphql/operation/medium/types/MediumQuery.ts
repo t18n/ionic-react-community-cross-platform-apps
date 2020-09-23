@@ -47,11 +47,18 @@ export interface MediumQuery_medium_slipboxes {
   slug: string;
 }
 
+export interface MediumQuery_medium_ideas_user {
+  __typename: "User";
+  name: string;
+  slug: string;
+}
+
 export interface MediumQuery_medium_ideas {
   __typename: "Idea";
   type: IdeaType;
   slug: string;
   content: string;
+  user: MediumQuery_medium_ideas_user | null;
 }
 
 export interface MediumQuery_medium {
