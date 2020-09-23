@@ -33,7 +33,7 @@ export const PostItem = ({
   return (
     <Card className="pa-s" onClick={handleCardClick}>
       <CardHeader className="mt-m">
-        <Link key={slug} to={`/medium/${slug}`}>
+        <Link key={slug} to={`/media/${slug}`}>
           <CardTitle>{title}</CardTitle>
         </Link>
       </CardHeader>

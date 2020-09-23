@@ -7,6 +7,7 @@ const MEDIUM_DATA = gql`
     title
     shortDescription
     type
+    language
     slug
     cover
     source
@@ -33,6 +34,19 @@ const MEDIUM_DATA = gql`
     }
     votes {
       id
+    }
+    slipboxes {
+      name
+      slug
+    }
+    ideas {
+      type
+      slug
+      content
+      # user {
+      #   name
+      #   slug
+      # }
     }
     updatedAt
   }

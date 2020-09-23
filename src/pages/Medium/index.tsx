@@ -1,26 +1,28 @@
 import './index.pcss';
 
+import { useIonViewDidEnter } from '@ionic/react';
+import { t, Trans } from '@lingui/macro';
+import { Button } from 'components/atoms/Button';
+import { Card } from 'components/atoms/Card';
 import {
-  IonButton,
-  IonCol,
-  IonContent,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonPage,
-  IonRow,
-  IonSpinner,
-  IonText,
-  IonThumbnail,
-  IonToggle,
-  useIonViewDidEnter,
-} from '@ionic/react';
-import { t } from '@lingui/macro';
+  icArrowUp,
+  icBookmark,
+  icEdit,
+  icLanguage,
+  icMessage,
+  Icon,
+  icShare,
+  icStar,
+} from 'components/atoms/Icon';
+import { Row } from 'components/atoms/Layout/Grid';
+import { Page, PageContent } from 'components/atoms/Layout/Page';
+import { Spinner } from 'components/atoms/Loading';
+import { Img } from 'components/atoms/Media';
+import { Text } from 'components/atoms/Text';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
-import faker from 'faker';
 import { useMediumQuery } from 'graphql/operation/medium/query';
-import { add, checkmarkCircle, checkmarkCircleOutline, open } from 'ionicons/icons';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface MediumProps {
   match: any;
@@ -39,171 +41,158 @@ const Medium = ({
     },
   });
 
+  // TODO: Calculate this on server side
+  const commentsHasRating =
+    !loading && data && data.medium.comments.filter((comment) => !!comment.rating);
+  const mediumRating =
+    commentsHasRating &&
+    commentsHasRating.reduce((acc, comment) => acc + comment.rating, 0) / commentsHasRating.length;
+
   useIonViewDidEnter(() => {
     console.log(slug);
   });
 
   return (
-    <IonPage className="job-detail-page">
+    <Page className="job-detail-page">
       <Breadcrumb title={t`page.title.medium`} />
 
-      <IonContent className="bg-light">
-        {loading ? (
-          <div className="ion-text-center pa-m">
-            <IonSpinner color="primary" />
-          </div>
-        ) : (
-          data && (
-            <>
-              <div className="panel">
-                <div
-                  className="cover-background"
-                  style={{ backgroundImage: `url(${data.medium.cover})` }}
-                ></div>
+      <PageContent className="bg-light">
+        {loading && <Spinner color="primary" />}
+        {!loading && data && (
+          <>
+            {/* Title */}
+            <Row>
+              <Text as="h1" type="title-m" color="dark">
+                {data.medium.title}
+              </Text>
+            </Row>
 
-                <div className="panel-body">
-                  <div className="profile-summary">
-                    <IonThumbnail className="profile-logo">
-                      <img src={faker.image.avatar()} alt="" />
-                    </IonThumbnail>
-                    <div className="profile-name">{data.medium.title}</div>
-                    <div className="m-b-sm">
-                      <strong>{data.medium.type}</strong>
-                    </div>
-                    <div>
-                      <div className="text-sm">{faker.address.city()}</div>
-                      <div className="text-sm">
-                        <IonText color="medium">{faker.random.number()} applicants</IonText>
-                      </div>
-                    </div>
-                  </div>
-
-                  <IonRow>
-                    <IonCol className="p-0">
-                      <IonButton expand="block" fill="outline" color="primary" size="small">
-                        Save
-                      </IonButton>
-                    </IonCol>
-                    <IonCol className="p-0">
-                      <IonButton expand="block" color="primary" size="small">
-                        Apply
-                        <IonIcon icon={open} />
-                      </IonButton>
-                    </IonCol>
-                  </IonRow>
-                </div>
+            {/* Metadata */}
+            <Row className="flex flex-row justify-between items-center mt-m">
+              <Text
+                as="span"
+                type="subtitle-s"
+                extraClasses="flex flex-row justify-between items-center"
+              >
+                <Icon icon={icLanguage} />
+                {data.medium.language}
+              </Text>
+              <div>
+                {data.medium.users ? (
+                  data.medium.users.map((user, i) => (
+                    <Link key={user.slug} to={`/profile/${user.slug}`}>
+                      <Text as="span" type="subtitle-s">
+                        {i > 0 && ', '}
+                        {user.name}
+                      </Text>
+                    </Link>
+                  ))
+                ) : (
+                  <Text as="span" type="subtitle-s">
+                    <Trans id="label.unknown" />
+                  </Text>
+                )}
               </div>
+            </Row>
 
-              <div className="panel">
-                <div className="panel-header">Job description</div>
-                <div className="panel-body p-0-top">
-                  <div className="text-sm">{faker.lorem.paragraph()}</div>
-                </div>
-                <div className="panel-footer">
-                  <IonButton expand="block" fill="clear" color="primary" size="small">
-                    See expand
-                  </IonButton>
-                </div>
-              </div>
+            {/* Medium Cover */}
+            <Row className="mt-m">
+              <Img src={data.medium.cover} />
+            </Row>
 
-              <div className="panel">
-                <div className="panel-header">
-                  <div>How you match</div>
-                  <IonText color="medium">
-                    <div className="text-xs">Criteria provided by job poster</div>
-                  </IonText>
-                </div>
-                <div className="panel-body p-0-top">
-                  <IonRow className="items-center">
-                    <IonCol size="auto">
-                      <IonIcon icon={checkmarkCircle} color="primary" size="small" />
-                    </IonCol>
-                    <IonCol>
-                      <div className="text-sm">
-                        <strong>Skills </strong>
-                        <IonText color="medium">
-                          <span className="text-xs">6 out of 7</span>
-                        </IonText>
-                      </div>
-                    </IonCol>
-                  </IonRow>
-                  <IonRow className="items-center">
-                    <IonCol size="auto">
-                      <IonIcon icon={checkmarkCircle} color="primary" size="small" />
-                    </IonCol>
-                    <IonCol>
-                      <div className="text-sm">
-                        <strong>Level of education </strong>
-                        <IonText color="medium">
-                          <span className="text-xs">Bachelor&apos;s Degree</span>
-                        </IonText>
-                      </div>
-                    </IonCol>
-                  </IonRow>
-                </div>
-                <div className="panel-footer">
-                  <IonButton expand="block" fill="clear" color="primary" size="small">
-                    More details
-                  </IonButton>
-                </div>
-              </div>
+            {/* Medium Rating */}
+            <Row className="flex flex-row justify-between items-center mt-m">
+              <Button fill="clear" className="flex flex-row items-center">
+                <Icon icon={icStar} color="warning" />
+                <Text as="span" color="medium">
+                  {mediumRating}
+                </Text>
+              </Button>
 
-              <div className="panel">
-                <IonItem>
-                  <IonLabel>
-                    <div>
-                      <IonIcon
-                        className="icon-align-middle"
-                        icon={checkmarkCircleOutline}
-                        color="success"
-                        size="small"
-                      />
-                      This job alert is ON
-                    </div>
-                    <IonText color="medium">
-                      <div className="text-xs">Javascript Developer, Austin, Texas Area</div>
-                    </IonText>
-                  </IonLabel>
-                  <IonToggle checked></IonToggle>
-                </IonItem>
-              </div>
+              <Button fill="clear" className="flex flex-row items-center">
+                <Icon icon={icArrowUp} color="medium" />
+                <Text as="span" color="medium">
+                  {data.medium.votes || 0} votes
+                </Text>
+              </Button>
+            </Row>
 
-              <div className="panel">
-                <div className="panel-header">Learn expand about Career Interest</div>
-                <div className="panel-body">
-                  <IonRow className="items-center">
-                    <IonCol size="auto">
-                      <IonThumbnail className="avatar">
-                        <img src={faker.image.avatar()} alt="" />
-                      </IonThumbnail>
-                    </IonCol>
-                    <IonCol>
-                      <div>
-                        <strong>Career Interest</strong>
-                      </div>
-                      <IonText color="medium">
-                        <div className="text-sm">54,710 followers</div>
-                      </IonText>
-                    </IonCol>
-                    <IonCol className="p-0" size="auto">
-                      <IonButton
-                        fill="clear"
-                        className="button-no-padding"
-                        color="primary"
-                        size="small"
-                      >
-                        <IonIcon icon={add} />
-                        Follow
-                      </IonButton>
-                    </IonCol>
-                  </IonRow>
-                </div>
-              </div>
-            </>
-          )
+            {/* Description */}
+            <Row className="flex flex-row justify-between items-center mt-m">
+              <Text as="p">{data.medium.shortDescription}</Text>
+            </Row>
+
+            {/* Engagements statistics */}
+            <Row className="flex flex-row justify-between items-center mt-m">
+              <Text as="span" color="medium">
+                {data.medium.reactions.length} reactions
+              </Text>
+              <Text as="span" color="medium">
+                {data.medium.comments.length} comments
+              </Text>
+              <Text as="span" color="medium">
+                {data.medium.slipboxes.length} saves
+              </Text>
+            </Row>
+
+            {/* Engagements */}
+            <Row className="flex flex-row justify-between items-center mt-m">
+              <Button fill="clear" className="flex flex-col items-center">
+                <Icon icon={icShare} color="medium" />
+                <Text as="span" color="medium">
+                  share
+                </Text>
+              </Button>
+
+              <Button fill="clear" className="flex flex-col items-center">
+                <Icon icon={icBookmark} color="medium" />
+                <Text as="span" color="medium">
+                  save
+                </Text>
+              </Button>
+
+              <Button fill="clear" className="flex flex-col items-center">
+                <Icon icon={icEdit} color="medium" />
+                <Text as="span" color="medium">
+                  edit
+                </Text>
+              </Button>
+
+              <Button fill="clear" className="flex flex-col items-center">
+                <Icon icon={icArrowUp} color="medium" />
+                <Text as="span" color="medium">
+                  upvote
+                </Text>
+              </Button>
+
+              <Button fill="clear" className="flex flex-col items-center">
+                <Icon icon={icMessage} color="medium" />
+                <Text as="span" color="medium">
+                  comment
+                </Text>
+              </Button>
+            </Row>
+
+            {/* Ideas */}
+            <Row className="flex flex-col justify-between items-center mt-m">
+              <Text as="span" type="title-s">
+                {data.medium.ideas.length} ideas
+              </Text>
+
+              <ul>
+                {data.medium.ideas.map((idea) => (
+                  <li key={idea.slug} className="w-100p pa-m">
+                    <Link to={`/ideas/${slug}`}>
+                      <Text as="p">{idea.content}</Text>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Row>
+          </>
         )}
-      </IonContent>
-    </IonPage>
+      </PageContent>
+    </Page>
   );
 };
 

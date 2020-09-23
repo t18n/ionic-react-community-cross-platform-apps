@@ -65,7 +65,7 @@ export const appPages: Record<string, AppPage> = {
   },
   medium: {
     title: t`page.title.medium`,
-    url: '/medium/:slug',
+    url: '/media/:slug',
     icon: icCompass,
     component: Medium,
     showInSidebar: false,
@@ -93,7 +93,7 @@ export const appPages: Record<string, AppPage> = {
   },
   ideas: {
     title: t`page.title.ideas`,
-    url: '/ideas',
+    url: '/ideas/:slug',
     icon: icBulb,
     component: Idea,
     showInSidebar: true,

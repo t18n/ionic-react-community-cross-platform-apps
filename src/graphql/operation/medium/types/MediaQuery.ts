@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { MediumType, CommentType, ReactionType } from "./../../../../types/graphql-types.gen";
+import { MediumType, LanguageType, CommentType, ReactionType, IdeaType } from "./../../../../types/graphql-types.gen";
 
 // ====================================================
 // GraphQL query operation: MediaQuery
@@ -41,12 +41,26 @@ export interface MediaQuery_media_items_votes {
   id: string;
 }
 
+export interface MediaQuery_media_items_slipboxes {
+  __typename: "Slipbox";
+  name: string;
+  slug: string;
+}
+
+export interface MediaQuery_media_items_ideas {
+  __typename: "Idea";
+  type: IdeaType;
+  slug: string;
+  content: string;
+}
+
 export interface MediaQuery_media_items {
   __typename: "Medium";
   id: string;
   title: string;
   shortDescription: string;
   type: MediumType;
+  language: LanguageType;
   slug: string;
   cover: string | null;
   source: string | null;
@@ -57,6 +71,8 @@ export interface MediaQuery_media_items {
   comments: MediaQuery_media_items_comments[] | null;
   reactions: MediaQuery_media_items_reactions[] | null;
   votes: MediaQuery_media_items_votes[] | null;
+  slipboxes: MediaQuery_media_items_slipboxes[];
+  ideas: MediaQuery_media_items_ideas[] | null;
   updatedAt: any;
 }
 
