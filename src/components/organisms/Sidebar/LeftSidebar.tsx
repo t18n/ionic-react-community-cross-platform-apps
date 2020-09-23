@@ -125,7 +125,13 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
               </Thumbnail>
 
               <Label color="dark">
-                <Text as="a" type="subtitle-l" fontWeight="text-bold" extraClasses="ml-s">
+                <Text
+                  as="a"
+                  color="dark"
+                  type="subtitle-l"
+                  fontWeight="text-bold"
+                  extraClasses="ml-s"
+                >
                   {me?.name}
                 </Text>
               </Label>
@@ -142,7 +148,13 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
             >
               <Icon icon={loginPage.icon} slot="start" size="large" color="medium" />
               <Label color="medium">
-                <Text as="a" fontWeight="text-bold" type="subtitle-l" extraClasses="ml-s">
+                <Text
+                  as="a"
+                  color="dark"
+                  fontWeight="text-bold"
+                  type="subtitle-l"
+                  extraClasses="ml-s"
+                >
                   <Trans id={loginPage.title} />
                 </Text>
               </Label>
@@ -166,7 +178,13 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
                 >
                   <Icon icon={appPages[id].icon} slot="start" size="large" color="medium" />
                   <Label color="medium">
-                    <Text as="a" fontWeight="text-bold" type="subtitle-l" extraClasses="ml-s">
+                    <Text
+                      as="a"
+                      color="dark"
+                      fontWeight="text-bold"
+                      type="subtitle-l"
+                      extraClasses="ml-s"
+                    >
                       <Trans id={appPages[id].title} />
                     </Text>
                   </Label>
@@ -191,7 +209,7 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
           <Item className="mt-s">
             <Toggle slot="start" checked={isDarkMode} onIonChange={toggleDarkMode} />
             <Label color="medium">
-              <Text as="span">
+              <Text as="span" color="dark">
                 <Trans id="label.darkMode" />
               </Text>
             </Label>
@@ -200,19 +218,26 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
           {/* Language */}
           <Item className="mt-s">
             <Label>
-              <Trans id="label.language" />
+              <Text as="span" color="medium">
+                <Trans id="label.language" />
+              </Text>
             </Label>
             <Select
               value={LocaleId.EN}
               okText="Select"
               cancelText="Cancel"
               onIonChange={(e: any) => activateLanguage(e.detail.value)}
+              color="medium"
             >
               <SelectOption value={LocaleId.VI}>
-                <Trans id="label.vietnamese" />
+                <Text as="span" color="medium">
+                  <Trans id="label.vietnamese" />
+                </Text>
               </SelectOption>
               <SelectOption value={LocaleId.EN}>
-                <Trans id="label.english" />
+                <Text as="span" color="medium">
+                  <Trans id="label.english" />
+                </Text>
               </SelectOption>
             </Select>
           </Item>
@@ -220,7 +245,7 @@ export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
           {/* Logout */}
           <Item onClick={onLogout} className="cursor-pointer mt-s">
             <Label color="medium">
-              <Text as="span">
+              <Text as="span" color="dark">
                 <Trans id="label.logOut" />
               </Text>
             </Label>

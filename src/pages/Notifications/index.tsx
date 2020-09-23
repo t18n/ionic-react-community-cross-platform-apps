@@ -13,7 +13,7 @@ export const Notifications = () => {
       <Breadcrumb title={t`page.title.notifications`} />
 
       <PageContent omitPadding>
-        <Text as="div" type="title-s" extraClasses="p-page-x p-page-y">
+        <Text as="div" color="dark" type="title-s" extraClasses="p-page-x p-page-y">
           Recent
         </Text>
 

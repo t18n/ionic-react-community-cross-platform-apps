@@ -71,6 +71,7 @@ const Medium = ({
             <Row className="flex flex-row justify-between items-center mt-m">
               <Text
                 as="span"
+                color="dark"
                 type="subtitle-s"
                 extraClasses="flex flex-row justify-between items-center"
               >
@@ -81,14 +82,14 @@ const Medium = ({
                 {data.medium.users ? (
                   data.medium.users.map((user, i) => (
                     <Link key={user.slug} to={`/profile/${user.slug}`}>
-                      <Text as="span" type="subtitle-s">
+                      <Text as="span" type="subtitle-s" color="dark">
                         {i > 0 && ', '}
                         {user.name}
                       </Text>
                     </Link>
                   ))
                 ) : (
-                  <Text as="span" type="subtitle-s">
+                  <Text as="span" color="dark" type="subtitle-s">
                     <Trans id="label.unknown" />
                   </Text>
                 )}
@@ -119,7 +120,9 @@ const Medium = ({
 
             {/* Description */}
             <Row className="flex flex-row justify-between items-center mt-m">
-              <Text as="p">{data.medium.shortDescription}</Text>
+              <Text as="p" color="dark">
+                {data.medium.shortDescription}
+              </Text>
             </Row>
 
             {/* Engagements statistics */}
@@ -175,7 +178,7 @@ const Medium = ({
 
             {/* Ideas */}
             <Row className="flex flex-col justify-between items-center mt-m">
-              <Text as="span" type="title-s">
+              <Text as="span" type="title-s" color="dark">
                 {data.medium.ideas.length} ideas
               </Text>
 
@@ -183,7 +186,9 @@ const Medium = ({
                 {data.medium.ideas.map((idea) => (
                   <li key={idea.slug} className="w-100p pa-m">
                     <Link to={`/ideas/${slug}`}>
-                      <Text as="p">{idea.content}</Text>
+                      <Text as="p" color="dark">
+                        {idea.content}
+                      </Text>
                     </Link>
                   </li>
                 ))}

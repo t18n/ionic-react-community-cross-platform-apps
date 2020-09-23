@@ -14,7 +14,7 @@ export const PostComments = () => {
     <Grid className="comments mt-s p-0">
       <Row className="p-0">
         <Col className="p-0 flex justify-start" size="6">
-          <Text as="span" type="subtitle-l" fontWeight="text-bold">
+          <Text as="span" color="dark" type="subtitle-l" fontWeight="text-bold">
             <Trans id="label.comments" />
           </Text>
         </Col>

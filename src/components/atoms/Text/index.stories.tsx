@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { icHome, Icon } from '../Icon';
 import { Content } from '../Layout/Content/index';
 import { Text } from '.';
 
@@ -31,7 +30,7 @@ export const TextExamples = () => (
       H5: The quick brown fox jumps over the lazy dog
     </Text>
 
-    <Text as="p">
+    <Text as="p" color="dark">
       I saw a werewolf with a Chinese menu in his hand. Walking through the{' '}
       <Text as="sub" color="danger">
         streets

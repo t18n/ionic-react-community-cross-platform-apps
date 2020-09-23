@@ -21,7 +21,13 @@ export const Breadcrumb = ({ title }: BreadcrumbProps) => (
         <ButtonBack icon={icArrowLeftCircle} className="ml-s header__button--back" />
       </ButtonGroup>
 
-      <Text as="div" type="subtitle-l" fontWeight="text-bold" extraClasses="w-100p text-center">
+      <Text
+        as="div"
+        color="light"
+        type="subtitle-l"
+        fontWeight="text-bold"
+        extraClasses="w-100p text-center"
+      >
         {title}
       </Text>
 

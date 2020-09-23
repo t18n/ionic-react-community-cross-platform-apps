@@ -92,7 +92,7 @@ const PostCommentItem = ({
               <div>
                 <Button color="medium" fill="clear" size="small" className="mr-s">
                   <Icon slot="start" icon={icThumbUp} />
-                  <Text as="span">
+                  <Text as="span" color="medium">
                     <Trans id="label.react" />
                   </Text>
                 </Button>
@@ -104,20 +104,20 @@ const PostCommentItem = ({
                   onClick={() => console.log('ss')}
                 >
                   <Icon slot="start" icon={icMessage} />
-                  <Text as="span">
+                  <Text as="span" color="medium">
                     <Trans id="label.reply" />
                   </Text>
                 </Button>
                 <Button color="medium" fill="clear" size="small" className="mr-s">
                   <Icon slot="start" icon={icShare} />
-                  <Text as="span">
+                  <Text as="span" color="medium">
                     <Trans id="label.share" />
                   </Text>
                 </Button>
               </div>
               <Button color="medium" fill="clear" size="small" slot="end">
                 <Icon slot="start" icon={icDots} />
-                <Text as="span">
+                <Text as="span" color="medium">
                   <Trans id="label.more" />
                 </Text>
               </Button>

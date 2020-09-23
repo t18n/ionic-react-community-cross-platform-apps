@@ -10,7 +10,7 @@ interface TextProps {
   fontWeight?: 'text-light' | 'text-normal' | 'text-bold';
   transform?: 'case-none' | 'case-upper';
   align?: 'text-center' | 'text-left';
-  color?:
+  color:
     | 'primary'
     | 'secondary'
     | 'tertiary'
