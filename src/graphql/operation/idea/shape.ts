@@ -17,8 +17,24 @@ const IDEA_DATA = gql`
     }
     comments {
       slug
-      type
       content
+      parentId
+      updatedAt
+      user {
+        name
+        slug
+        cover
+      }
+      reactions {
+        type
+      }
+      slipboxes {
+        slug
+        name
+      }
+      votes {
+        type
+      }
     }
     reactions {
       type

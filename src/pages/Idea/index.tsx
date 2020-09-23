@@ -62,7 +62,7 @@ export const Idea = ({
               <ContentActionGroup />
             </Row>
             <Row>
-              <ContentCommentGroup />
+              <ContentCommentGroup comments={data.idea.comments} />
             </Row>
           </>
         )}

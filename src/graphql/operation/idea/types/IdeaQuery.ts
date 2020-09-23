@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { IdeaType, CommentType, ReactionType, VoteType, MediumType } from "./../../../../types/graphql-types.gen";
+import { IdeaType, ReactionType, VoteType, MediumType } from "./../../../../types/graphql-types.gen";
 
 // ====================================================
 // GraphQL query operation: IdeaQuery
@@ -22,11 +22,39 @@ export interface IdeaQuery_idea_tags {
   slug: string;
 }
 
+export interface IdeaQuery_idea_comments_user {
+  __typename: "User";
+  name: string;
+  slug: string;
+  cover: string | null;
+}
+
+export interface IdeaQuery_idea_comments_reactions {
+  __typename: "Reaction";
+  type: ReactionType;
+}
+
+export interface IdeaQuery_idea_comments_slipboxes {
+  __typename: "Slipbox";
+  slug: string;
+  name: string;
+}
+
+export interface IdeaQuery_idea_comments_votes {
+  __typename: "Vote";
+  type: VoteType;
+}
+
 export interface IdeaQuery_idea_comments {
   __typename: "Comment";
   slug: string;
-  type: CommentType;
   content: string;
+  parentId: number | null;
+  updatedAt: any;
+  user: IdeaQuery_idea_comments_user;
+  reactions: IdeaQuery_idea_comments_reactions[] | null;
+  slipboxes: IdeaQuery_idea_comments_slipboxes[] | null;
+  votes: IdeaQuery_idea_comments_votes[] | null;
 }
 
 export interface IdeaQuery_idea_reactions {

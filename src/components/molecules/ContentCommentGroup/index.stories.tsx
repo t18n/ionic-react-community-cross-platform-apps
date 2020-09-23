@@ -8,7 +8,7 @@ export default {
   component: ContentCommentGroup,
 };
 
-export const Thread = () => <ContentCommentGroup />;
+// export const Thread = () => <ContentCommentGroup />;
 
 export const ContentCommentItemExample = () =>
   contentCommentGroup.map((postComment, index) => (

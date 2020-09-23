@@ -8,12 +8,17 @@ import { Text } from 'components/atoms/Text/index';
 import ContentCommentItem, {
   contentCommentGroup,
 } from 'components/molecules/ContentCommentGroup/ContentCommentItem';
+import { IdeaData_comments } from 'graphql/operation/idea/types/IdeaData';
 import React from 'react';
+
+interface ContentCommentGroup {
+  comments: IdeaData_comments[];
+}
 
 /**
  * Component
  */
-export const ContentCommentGroup = () => {
+export const ContentCommentGroup = ({ comments }: ContentCommentGroup) => {
   return (
     <Grid className="comments mt-s p-0">
       <Row className="p-0">
@@ -33,17 +38,17 @@ export const ContentCommentGroup = () => {
       </Row>
 
       <div className="comments-list">
-        {contentCommentGroup.map((postComment, i) => (
+        {comments.map((comment, i) => (
           <div className="comment-thread" key={i}>
             <ContentCommentItem
-              isReply={postComment.isReply}
-              badge={postComment.badge}
-              content={postComment.content}
-              username={postComment.username}
-              repliesCount={postComment.repliesCount}
-              avatar={postComment.avatar}
-              timestamp={postComment.timestamp}
-              reactionCount={postComment.reactionCount}
+              isReply={!!comment.parentId}
+              badge={'Badge'}
+              content={comment.content}
+              username={comment.user?.name}
+              repliesCount={0}
+              avatar={comment.user?.cover}
+              timestamp={comment.updatedAt}
+              reactionCount={comment.reactions?.length}
             />
             <div className="replies-list">
               <Button fill="clear">
@@ -51,14 +56,14 @@ export const ContentCommentGroup = () => {
               </Button>
 
               <ContentCommentItem
-                isReply={postComment.isReply}
-                badge={postComment.badge}
-                content={postComment.content}
-                username={postComment.username}
-                repliesCount={postComment.repliesCount}
-                avatar={postComment.avatar}
-                timestamp={postComment.timestamp}
-                reactionCount={postComment.reactionCount}
+                isReply={!!comment.parentId}
+                badge={'Badge'}
+                content={comment.content}
+                username={comment.user?.name}
+                repliesCount={0}
+                avatar={comment.user?.cover}
+                timestamp={comment.updatedAt}
+                reactionCount={comment.reactions?.length}
               />
             </div>
           </div>
