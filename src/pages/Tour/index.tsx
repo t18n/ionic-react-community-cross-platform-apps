@@ -8,18 +8,22 @@ import { Logo } from 'components/atoms/Logo';
 import { Slide, Slides } from 'components/atoms/Slide';
 import { Text } from 'components/atoms/Text';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
-import { History } from 'history';
 import React, { useRef, useState } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
 const slideOpts = {
   initialSlide: 0,
   speed: 400,
 };
 
-type TourProps = {
-  history?: History;
-};
+/**
+ * Types
+ */
+interface TourProps extends RouteComponentProps {}
 
+/**
+ * Component
+ */
 export const Tour = ({ history }: TourProps) => {
   const ionSlidesRef = useRef<HTMLIonSlidesElement>();
   const [activeIndex, setActiveIndex] = useState(slideOpts.initialSlide);

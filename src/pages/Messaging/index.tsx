@@ -4,14 +4,18 @@ import { t } from '@lingui/macro';
 import { Page, PageContent } from 'components/atoms/Layout/Page';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import MessageItem, { messages } from 'components/molecules/MessageItem';
-import { History } from 'history';
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-type Props = {
-  history: History;
-};
+/**
+ * Types
+ */
+interface MessagingProps extends RouteComponentProps {}
 
-const Messaging = ({ history }: Props) => {
+/**
+ * Component
+ */
+const Messaging = ({ history }: MessagingProps) => {
   const goToChat = (id: number) => {
     history.push(`/chat/${id}`);
   };

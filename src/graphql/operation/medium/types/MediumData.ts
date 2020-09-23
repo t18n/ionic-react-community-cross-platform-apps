@@ -73,6 +73,7 @@ export interface MediumData {
   source: string | null;
   isbn: string | null;
   publishedYear: number | null;
+  updatedAt: any;
   users: MediumData_users[] | null;
   tags: MediumData_tags[] | null;
   comments: MediumData_comments[] | null;
@@ -80,5 +81,4 @@ export interface MediumData {
   votes: MediumData_votes[] | null;
   slipboxes: MediumData_slipboxes[];
   ideas: MediumData_ideas[] | null;
-  updatedAt: any;
 }

@@ -12,8 +12,33 @@ import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import faker from 'faker';
 import { add, checkmarkCircle, checkmarkCircleOutline, open } from 'ionicons/icons';
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-export const Idea = () => {
+import { useIdeaQuery } from '../../graphql/operation/idea/query';
+
+/**
+ * Types
+ */
+interface MatchParams {
+  slug: string;
+}
+
+interface IdeaProps extends RouteComponentProps<MatchParams> {}
+
+/**
+ * Component
+ */
+export const Idea = ({
+  match: {
+    params: { slug },
+  },
+}: IdeaProps) => {
+  const { data, loading } = useIdeaQuery({
+    variables: {
+      slug: slug,
+    },
+  });
+
   return (
     <Page className="job-detail-page">
       <Breadcrumb title={t`page.title.idea`} />

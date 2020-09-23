@@ -13,6 +13,7 @@ const MEDIUM_DATA = gql`
     source
     isbn
     publishedYear
+    updatedAt
     users {
       name
       slug
@@ -48,7 +49,6 @@ const MEDIUM_DATA = gql`
         slug
       }
     }
-    updatedAt
   }
 `;
 

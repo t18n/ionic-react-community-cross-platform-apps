@@ -22,19 +22,25 @@ import { Text } from 'components/atoms/Text';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import { useMediumQuery } from 'graphql/operation/medium/query';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 
-interface MediumProps {
-  match: any;
+/**
+ * Types
+ */
+interface MatchParams {
+  slug: string;
 }
 
+interface MediumProps extends RouteComponentProps<MatchParams> {}
+
+/**
+ * Component
+ */
 const Medium = ({
   match: {
     params: { slug },
   },
 }: MediumProps) => {
-  console.log(slug);
-
   const { data, loading } = useMediumQuery({
     variables: {
       slug: slug,

@@ -73,6 +73,7 @@ export interface MediaQuery_media_items {
   source: string | null;
   isbn: string | null;
   publishedYear: number | null;
+  updatedAt: any;
   users: MediaQuery_media_items_users[] | null;
   tags: MediaQuery_media_items_tags[] | null;
   comments: MediaQuery_media_items_comments[] | null;
@@ -80,7 +81,6 @@ export interface MediaQuery_media_items {
   votes: MediaQuery_media_items_votes[] | null;
   slipboxes: MediaQuery_media_items_slipboxes[];
   ideas: MediaQuery_media_items_ideas[] | null;
-  updatedAt: any;
 }
 
 export interface MediaQuery_media {

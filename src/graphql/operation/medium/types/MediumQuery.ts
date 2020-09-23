@@ -73,6 +73,7 @@ export interface MediumQuery_medium {
   source: string | null;
   isbn: string | null;
   publishedYear: number | null;
+  updatedAt: any;
   users: MediumQuery_medium_users[] | null;
   tags: MediumQuery_medium_tags[] | null;
   comments: MediumQuery_medium_comments[] | null;
@@ -80,7 +81,6 @@ export interface MediumQuery_medium {
   votes: MediumQuery_medium_votes[] | null;
   slipboxes: MediumQuery_medium_slipboxes[];
   ideas: MediumQuery_medium_ideas[] | null;
-  updatedAt: any;
 }
 
 export interface MediumQuery {

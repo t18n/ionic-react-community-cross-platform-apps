@@ -1,25 +1,21 @@
 import { useQuery } from '@apollo/client';
 
 import { MEDIA_QUERY, MEDIUM_QUERY } from './shape';
-import { MediaQuery_media } from './types/MediaQuery';
-import { MediumQuery_medium } from './types/MediumQuery';
+import { MediaQuery_media, MediaQueryVariables } from './types/MediaQuery';
+import { MediumQuery_medium, MediumQueryVariables } from './types/MediumQuery';
 
-type MediumsQueryOptions = {
-  variables: {
-    first: number;
-  };
+type MediaQueryOptions = {
+  variables: MediaQueryVariables;
 };
 
 type MediumQueryOptions = {
-  variables: {
-    slug: string;
-  };
+  variables: MediumQueryVariables;
 };
 
 /**
  * Fetch list of mediums
  */
-export const useMediumsQuery = (options: MediumsQueryOptions) => {
+export const useMediaQuery = (options: MediaQueryOptions) => {
   return useQuery<{ media: MediaQuery_media }>(MEDIA_QUERY, options);
 };
 

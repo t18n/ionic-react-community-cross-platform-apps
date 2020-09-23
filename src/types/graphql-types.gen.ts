@@ -101,6 +101,17 @@ export enum ReactionType {
   LOVE = "LOVE",
 }
 
+export enum VoteType {
+  DOWNVOTE = "DOWNVOTE",
+  NOVOTE = "NOVOTE",
+  UPVOTE = "UPVOTE",
+}
+
+export interface IdeasInput {
+  first: number;
+  mediumSlug: string;
+}
+
 export interface LoginInput {
   email: string;
   password: string;

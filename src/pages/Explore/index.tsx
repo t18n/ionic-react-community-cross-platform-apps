@@ -5,20 +5,24 @@ import { PageContent } from 'components/atoms/Layout/Page';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import PostItem from 'components/molecules/PostItem';
 import SkeletonPost from 'components/organisms/SkeletonPost';
-import { useMediumsQuery } from 'graphql/operation/medium/query';
-import { History } from 'history';
+import { useMediaQuery } from 'graphql/operation/medium/query';
 import { useSearchBar } from 'hooks/useSearchbar';
 import uniqBy from 'lodash/uniqBy';
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-type HomeProps = {
-  history: History;
-};
+/**
+ * Type
+ */
+interface HomeProps extends RouteComponentProps {}
 
+/**
+ * Component
+ */
 export const Explore = ({ history }: HomeProps) => {
   const { isSearchFocused } = useSearchBar();
 
-  const { data: MEDIUM_DATA, loading, error } = useMediumsQuery({
+  const { data: MEDIUM_DATA, loading, error } = useMediaQuery({
     variables: {
       first: 20,
     },

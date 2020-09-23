@@ -10,14 +10,18 @@ import { Loading } from 'components/atoms/Loading';
 import { Toast } from 'components/atoms/Toast';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import { useLoginUser } from 'graphql/operation/user/mutation';
-import { History } from 'history';
 import { useToast } from 'hooks/useToast';
 import React, { useState } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-type SignupProps = {
-  history: History;
-};
+/**
+ * Types
+ */
+interface SignupProps extends RouteComponentProps {}
 
+/**
+ * Component
+ */
 export const Signup = ({ history }: SignupProps) => {
   const [login, { loading: isLoggingIn }] = useLoginUser();
   const [toast, setToast] = useToast(null);

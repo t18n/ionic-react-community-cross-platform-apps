@@ -16,15 +16,19 @@ import {
 import PostComments from 'components/organisms/PostComments';
 import PostReactions from 'components/organisms/PostReactions';
 import faker from 'faker';
-import { History } from 'history';
 import { expand } from 'ionicons/icons';
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-type Props = {
-  history: History;
-};
+/**
+ * Types
+ */
+interface PostDetailProps extends RouteComponentProps {}
 
-const PostDetail = ({ history }: Props) => {
+/**
+ * Component
+ */
+const PostDetail = ({ history }: PostDetailProps) => {
   return (
     <IonPage>
       <IonHeader>

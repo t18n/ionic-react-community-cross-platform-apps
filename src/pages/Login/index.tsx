@@ -13,14 +13,12 @@ import { Toast } from 'components/atoms/Toast';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import { TextError } from 'components/molecules/Form/TextError';
 import { useLoginUser } from 'graphql/operation/user/mutation';
-import { History } from 'history';
 import { useFormValidation } from 'hooks/useForm';
 import { useToast } from 'hooks/useToast';
 import React, { useState } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-type LoginProps = {
-  history: History;
-};
+interface LoginProps extends RouteComponentProps {}
 
 export const Login = ({ history }: LoginProps) => {
   const { handleSubmit, errors, registerEmail, registerPassword } = useFormValidation();
