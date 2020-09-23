@@ -10,7 +10,7 @@ import { Text } from 'components/atoms/Text';
 import faker from 'faker';
 import React from 'react';
 
-export interface PostCommentItemProps {
+export interface ContentCommentItemProps {
   isReply?: boolean;
   avatar: string;
   timestamp: string;
@@ -21,7 +21,7 @@ export interface PostCommentItemProps {
   reactionCount: number;
 }
 
-export const postComments: PostCommentItemProps[] = [
+export const contentCommentGroup: ContentCommentItemProps[] = [
   {
     avatar: faker.image.avatar(),
     timestamp: `${faker.date.past().getUTCDay()}d`,
@@ -33,7 +33,7 @@ export const postComments: PostCommentItemProps[] = [
   },
 ];
 
-const PostCommentItem = ({
+const ContentCommentItem = ({
   avatar,
   timestamp,
   badge,
@@ -41,7 +41,7 @@ const PostCommentItem = ({
   username,
   repliesCount,
   reactionCount,
-}: PostCommentItemProps) => {
+}: ContentCommentItemProps) => {
   return (
     <Grid className="p-0">
       <Row className="w-100p">
@@ -129,4 +129,4 @@ const PostCommentItem = ({
   );
 };
 
-export default PostCommentItem;
+export default ContentCommentItem;

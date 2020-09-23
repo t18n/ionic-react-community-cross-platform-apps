@@ -4,14 +4,13 @@ import { Card, CardContent, CardHeader, CardTitle } from 'components/atoms/Card'
 import { Item } from 'components/atoms/Item';
 import { Link } from 'components/atoms/Layout/Link';
 import { Img } from 'components/atoms/Media';
-import PostComments from 'components/molecules/PostComments';
+import { Text } from 'components/atoms/Text';
+import { ContentActionGroup } from 'components/molecules/ContentActionGroup';
+import ContentCommentGroup from 'components/molecules/ContentCommentGroup';
+import { ContentStatsGroup } from 'components/molecules/ContentStatsGroup';
 import { MediaQuery_media_items } from 'graphql/operation/medium/types/MediaQuery';
 import React from 'react';
 import { getRelativeTimeToNow } from 'utils/time';
-
-import { Text } from '../../atoms/Text/index';
-import { ContentActionGroup } from '../ContentActionGroup';
-import { ContentStatsGroup } from '../ContentStatsGroup/index';
 
 export type PostItemProps = MediaQuery_media_items;
 
@@ -87,7 +86,7 @@ export const PostItem = ({
       <ContentActionGroup />
 
       <Item>
-        <PostComments />
+        <ContentCommentGroup />
       </Item>
     </Card>
   );

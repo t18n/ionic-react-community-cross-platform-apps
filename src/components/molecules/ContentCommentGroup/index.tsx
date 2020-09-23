@@ -5,10 +5,15 @@ import { Button } from 'components/atoms/Button';
 import { icArrowsVertical, Icon } from 'components/atoms/Icon';
 import { Col, Grid, Row } from 'components/atoms/Layout/Grid';
 import { Text } from 'components/atoms/Text/index';
-import PostCommentItem, { postComments } from 'components/molecules/PostCommentItem';
+import ContentCommentItem, {
+  contentCommentGroup,
+} from 'components/molecules/ContentCommentGroup/ContentCommentItem';
 import React from 'react';
 
-export const PostComments = () => {
+/**
+ * Component
+ */
+export const ContentCommentGroup = () => {
   return (
     <Grid className="comments mt-s p-0">
       <Row className="p-0">
@@ -28,9 +33,9 @@ export const PostComments = () => {
       </Row>
 
       <div className="comments-list">
-        {postComments.map((postComment, i) => (
+        {contentCommentGroup.map((postComment, i) => (
           <div className="comment-thread" key={i}>
-            <PostCommentItem
+            <ContentCommentItem
               isReply={postComment.isReply}
               badge={postComment.badge}
               content={postComment.content}
@@ -45,7 +50,7 @@ export const PostComments = () => {
                 <Trans id="label.show1MoreReply" />
               </Button>
 
-              <PostCommentItem
+              <ContentCommentItem
                 isReply={postComment.isReply}
                 badge={postComment.badge}
                 content={postComment.content}
@@ -63,4 +68,4 @@ export const PostComments = () => {
   );
 };
 
-export default PostComments;
+export default ContentCommentGroup;

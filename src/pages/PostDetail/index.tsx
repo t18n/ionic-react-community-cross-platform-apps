@@ -13,7 +13,7 @@ import {
   IonPage,
   IonToolbar,
 } from '@ionic/react';
-import PostComments from 'components/molecules/PostComments';
+import ContentCommentGroup from 'components/molecules/ContentCommentGroup';
 import PostReactions from 'components/organisms/PostReactions';
 import faker from 'faker';
 import { expand } from 'ionicons/icons';
@@ -65,7 +65,7 @@ const PostDetail = ({ history }: PostDetailProps) => {
           />
         ))} */}
         <PostReactions />
-        <PostComments />
+        <ContentCommentGroup />
       </IonContent>
 
       <IonFooter className="footer-shadow border-0">

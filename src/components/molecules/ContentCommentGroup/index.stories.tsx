@@ -1,15 +1,18 @@
 import React from 'react';
 
-import PostCommentItem, { postComments } from './';
+import { ContentCommentGroup } from '.';
+import ContentCommentItem, { contentCommentGroup } from './ContentCommentItem';
 
 export default {
-  title: 'Molecules',
-  component: PostCommentItem,
+  title: 'Post Comments',
+  component: ContentCommentGroup,
 };
 
-export const PostCommentItemExample = () =>
-  postComments.map((postComment, index) => (
-    <PostCommentItem
+export const Thread = () => <ContentCommentGroup />;
+
+export const ContentCommentItemExample = () =>
+  contentCommentGroup.map((postComment, index) => (
+    <ContentCommentItem
       key={index}
       isReply={postComment.isReply}
       badge={postComment.badge}

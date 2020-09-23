@@ -7,12 +7,11 @@ import { Spinner } from 'components/atoms/Loading';
 import { Text } from 'components/atoms/Text';
 import { Breadcrumb } from 'components/molecules/Breadcrumb';
 import { ContentActionGroup } from 'components/molecules/ContentActionGroup';
+import { ContentCommentGroup } from 'components/molecules/ContentCommentGroup';
 import { ContentStatsGroup } from 'components/molecules/ContentStatsGroup';
-import { PostComments } from 'components/molecules/PostComments';
+import { useIdeaQuery } from 'graphql/operation/idea/query';
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-
-import { useIdeaQuery } from '../../graphql/operation/idea/query';
 
 /**
  * Types
@@ -63,7 +62,7 @@ export const Idea = ({
               <ContentActionGroup />
             </Row>
             <Row>
-              <PostComments />
+              <ContentCommentGroup />
             </Row>
           </>
         )}
