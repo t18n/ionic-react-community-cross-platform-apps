@@ -1,1 +1,1 @@
-ion-card{margin-inline-start:unset;margin-inline-end:unset}ion-card ion-card-content,ion-card ion-card-header{padding:0!important}
+ion-card{margin-inline-start:unset;margin-inline-end:unset;box-shadow:0 .0625rem .125rem var(--shadow-m);border:.0125rem solid var(--ion-color-light-tint)}ion-card ion-card-content,ion-card ion-card-header{padding:0!important}
