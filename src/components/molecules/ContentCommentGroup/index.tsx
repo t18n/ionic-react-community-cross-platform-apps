@@ -5,9 +5,7 @@ import { Button } from 'components/atoms/Button';
 import { icArrowsVertical, Icon } from 'components/atoms/Icon';
 import { Col, Grid, Row } from 'components/atoms/Layout/Grid';
 import { Text } from 'components/atoms/Text/index';
-import ContentCommentItem, {
-  contentCommentGroup,
-} from 'components/molecules/ContentCommentGroup/ContentCommentItem';
+import ContentCommentItem from 'components/molecules/ContentCommentGroup/ContentCommentItem';
 import { IdeaData_comments } from 'graphql/operation/idea/types/IdeaData';
 import React from 'react';
 
@@ -19,7 +17,7 @@ interface ContentCommentGroup {
  * Component
  */
 export const ContentCommentGroup = ({ comments }: ContentCommentGroup) => {
-  return (
+  return comments ? (
     <Grid className="comments mt-s p-0">
       <Row className="p-0">
         <Col className="p-0 flex justify-start" size="6">
@@ -70,7 +68,7 @@ export const ContentCommentGroup = ({ comments }: ContentCommentGroup) => {
         ))}
       </div>
     </Grid>
-  );
+  ) : null;
 };
 
 export default ContentCommentGroup;

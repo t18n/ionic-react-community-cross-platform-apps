@@ -87,7 +87,7 @@ export const Login = ({ history }: LoginProps) => {
                 placeholder="example@brightizen.com"
                 ref={registerEmail}
               />
-              <TextError text={errors.email && errors.email.message} />
+              <TextError text={errors['email'] && errors['email']?.message} />
             </Item>
 
             <Item className="p-0 mt-m item-input">
@@ -101,7 +101,7 @@ export const Login = ({ history }: LoginProps) => {
                 onIonChange={(e: any) => setInputPassword(e.detail.value)}
                 ref={registerPassword}
               />
-              <TextError text={errors.password && errors.password.message} />
+              <TextError text={errors['password'] && errors['password']?.message} />
             </Item>
           </List>
 
