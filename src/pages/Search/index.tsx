@@ -1,156 +1,131 @@
-import {
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonItemDivider,
-  IonItemGroup,
-  IonLabel,
-  IonList,
-  IonMenuButton,
-  IonPage,
-  IonSearchbar,
-  IonSpinner,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/react';
-import { Trans } from '@lingui/macro';
-import React, { useEffect, useState } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import './index.min.css';
 
-import { Layout } from '../../components/Layout';
-import { MediumItem } from '../../components/MediumItem';
-import useDebounce from '../../hooks/useDebounce';
+import { t } from '@lingui/macro';
+import { Button } from 'components/atoms/Button';
+import { icArrowDown, icChevronDown, Icon, icX } from 'components/atoms/Icon';
+import { Item, Label } from 'components/atoms/Item';
+import { Col } from 'components/atoms/Layout/Grid';
+import { Page, PageContent } from 'components/atoms/Layout/Page';
+import { SearchBar } from 'components/atoms/SearchBar';
+import { Text } from 'components/atoms/Text';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
+import ConnectItem from 'components/molecules/ConnectItem';
+import { connections } from 'components/molecules/ConnectItem';
+import FollowCard from 'components/molecules/FollowCard';
+import { follows } from 'components/molecules/FollowCard';
+import SearchSuggestions from 'components/organisms/SearchSuggestions';
+import { useSearchBar } from 'hooks/useSearchbar';
+import { chevronDown } from 'ionicons/icons';
+import React from 'react';
 
-const FoundItem = ({ title, items }) => (
-  <Layout id="search-page" title={<Trans id="page.title.search" />}>
-    <IonItemGroup>
-      <IonItemDivider sticky>
-        <IonLabel>{title}</IonLabel>
-      </IonItemDivider>
-      {items.map(({ id, slug, title, author, cover, comments, reactions }) => (
-        <Link to={'/books/' + slug} key={id}>
-          <MediumItem
-            cover={cover}
-            title={title}
-            author={author}
-            comments={comments}
-            reactions={reactions}
-            onClick={() => console.log('book clicked')}
-          />
-        </Link>
-      ))}
-    </IonItemGroup>
-  </Layout>
-);
+import { Row } from '../../components/atoms/Layout/Grid/index';
 
-export const SearchPage = () => {
-  const location = useLocation();
-  const history = useHistory();
+const Search = () => {
+  const { isSearchFocused, onSearchCancel, onSearchChange, searchTerm } = useSearchBar();
 
-  const [searchTerm, setSearchTerm] = useState(location.search.slice(1).replace('q=', ''));
-
-  //
-  const searchMediums = async (query?: string): Promise<any> => {
-    const searchTypes = ['books', 'videos', 'articles', 'postcasts'];
-    console.log('Searching for ', searchTypes);
-    // Get mediums from API
-    const mediums = {
-      books: [],
-      videos: [],
-      articles: [],
-      postcasts: [],
-      isLoading: false,
-    };
-    return mediums;
+  const goToMedium = () => {
+    console.log('goToMedium');
   };
-
-  const [isError, setIsError] = useState<boolean>(false);
-  const [mediums, setMediums] = useState({
-    books: [],
-    videos: [],
-    articles: [],
-    postcasts: [],
-    isLoading: false,
-  });
-  const debouncedSearchTerm = useDebounce(searchTerm, 1000);
-
-  const handleInput = async (e: any) => {
-    const val = e.target.value;
-    if (!val) {
-      history.replace({ search: '' });
-      setMediums({
-        books: [],
-        videos: [],
-        articles: [],
-        postcasts: [],
-        isLoading: false,
-      });
-      setSearchTerm('');
-      setIsError(false);
-      return;
-    }
-    setSearchTerm(val);
-  };
-
-  useEffect(() => {
-    if (debouncedSearchTerm) {
-      history.replace({ search: `?q=${debouncedSearchTerm}` });
-      setMediums((mediums) => {
-        return { ...mediums, isLoading: true };
-      });
-
-      searchMediums(debouncedSearchTerm)
-        .then((results: any) => {
-          setMediums({
-            books: results['books'] ? results['books'] : [],
-            videos: results['videos'] ? results['videos'] : [],
-            articles: results['articles'] ? results['articles'] : [],
-            postcasts: results['postcasts'] ? results['postcasts'] : [],
-
-            isLoading: false,
-          });
-        })
-        .catch((err) => {
-          setMediums((mediums) => {
-            return { ...mediums, isLoading: false };
-          });
-          setIsError(true);
-          console.warn('Error', err);
-        });
-    }
-  }, [debouncedSearchTerm, history]);
 
   return (
-    <IonPage>
-      <IonHeader translucent={true}>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
-          <IonTitle>Search</IonTitle>
-        </IonToolbar>
-        <IonToolbar>
-          <IonSearchbar value={searchTerm} debounce={0} onIonChange={(e) => handleInput(e)} />
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen={true}>
-        {isError ? 'Has error' : null}
-        <IonList>
-          {mediums.isLoading ? (
-            <div className="ion-text-center ion-padding">
-              <IonSpinner color="primary" />
+    <Page className="search-page">
+      <Breadcrumb title={t`page.title.search`} />
+
+      <PageContent>
+        <SearchBar
+          className="w-100p mx-auto"
+          placeholder={t`label.search`}
+          showCancelButton="never"
+          onIonClear={onSearchCancel}
+          onIonChange={onSearchChange}
+          clearIcon={icX}
+          debounce={300}
+          inputmode="text"
+          autocomplete="off"
+          animated
+        />
+
+        <div className="scroll-x mt-m">
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            Love
+          </Button>
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            Romance
+          </Button>
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            Thriller
+          </Button>
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            Business
+          </Button>
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            Education
+          </Button>
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            History
+            <Icon icon={icChevronDown} />
+          </Button>
+          <Button className="scroll-item" fill="outline" color="medium" size="small">
+            Horor
+            <Icon icon={icChevronDown} />
+          </Button>
+        </div>
+        <Item color="light">
+          <Label color="medium">
+            <div className="text-xs">111,575 results</div>
+          </Label>
+        </Item>
+
+        <SearchSuggestions isFocused={isSearchFocused} searchTerm={searchTerm} />
+
+        <div className="search-results">
+          {follows.map((follow, i) => (
+            <FollowCard
+              key={i}
+              items={follow.items}
+              avatar={follow.avatar}
+              connectionCount={follow.connectionCount}
+              badge={follow.badge}
+              firstName={follow.firstName}
+              aboutMe={follow.aboutMe}
+              timestamp={follow.timestamp}
+              location={follow.location}
+              onClickDetail={goToMedium}
+            />
+          ))}
+        </div>
+
+        <div className="panel">
+          <div className="panel-header">
+            <Row>
+              <Col>Profiles</Col>
+              <Col size="auto">
+                <Text as="span" color="primary">
+                  <span className="text-sm">
+                    <strong>See all</strong>
+                  </span>
+                </Text>
+              </Col>
+            </Row>
+          </div>
+          <div className="panel-body p-0">
+            <div className="scroll-x">
+              {connections.map((connection, i) => (
+                <div className="scroll-item" key={i}>
+                  <ConnectItem
+                    connectionCount={connection.connectionCount}
+                    firstName={connection.firstName}
+                    badge={connection.badge}
+                    avatar={connection.avatar}
+                  />
+                </div>
+              ))}
             </div>
-          ) : null}
-          {mediums.books.length > 0 ? <FoundItem title="Book" items={mediums.books} /> : null}
-          {mediums.articles.length > 0 ? (
-            <FoundItem title="Articles" items={mediums.articles} />
-          ) : null}
-          {mediums.videos.length > 0 ? <FoundItem title="Videos" items={mediums.videos} /> : null}
-          {mediums.postcasts.length > 0 ? (
-            <FoundItem title="Postcasts" items={mediums.postcasts} />
-          ) : null}
-        </IonList>
-      </IonContent>
-    </IonPage>
+          </div>
+        </div>
+      </PageContent>
+    </Page>
   );
 };
+
+export default Search;

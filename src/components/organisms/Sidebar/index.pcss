@@ -1,0 +1,60 @@
+:root {
+  --sidebar-outter-space: calc(var(--grid) * 5);
+  --sidebar-inner-space: calc(var(--grid) * 5);
+
+  @media (--viewport-tablet) {
+    --sidebar-outter-space: calc(var(--grid) * 15);
+    --sidebar-inner-space: calc(var(--grid) * 6);
+  }
+
+  @media (--viewport-desktop) {
+    --sidebar-outter-space: calc(var(--grid) * 26);
+    --sidebar-inner-space: calc(var(--grid) * 8);
+  }
+
+  @media (--viewport-desktopLarge) {
+    --sidebar-outter-space: calc(var(--grid) * 40);
+    --sidebar-inner-space: calc(var(--grid) * 10);
+  }
+}
+
+/* Menu */
+ion-menu {
+  height: 100%;
+
+  .left-sidebar__content,
+  .right-sidebar__content {
+    width: 100%;
+    overflow-y: auto;
+    padding-top: var(--space-s);
+  }
+
+  .left-sidebar__content {
+    padding-left: var(--sidebar-outter-space);
+    padding-right: var(--sidebar-inner-space);
+  }
+
+  .right-sidebar__content {
+    padding-right: var(--sidebar-outter-space);
+    padding-left: var(--sidebar-inner-space);
+  }
+}
+
+/* Main menu */
+.left-sidebar {
+  &__item {
+    --background-hover: transparent;
+
+    &:hover * {
+      --ion-color-base: var(--ion-color-dark) !important;
+    }
+
+    &.active * {
+      --ion-color-base: var(--ion-color-primary) !important;
+    }
+  }
+
+  &__logo {
+    width: calc(var(--grid) * 40);
+  }
+}

@@ -3,6 +3,7 @@
     "stylelint-config-standard"
   ],
   "rules": {
+    "declaration-colon-newline-after": null,
     "selector-pseudo-class-no-unknown": [
       true,
       {
@@ -15,7 +16,13 @@
       true,
       {
         "ignoreAtRules": [
-          "/^custom-/"
+          "/^custom-/",
+          "define-mixin",
+          "function",
+          "if",
+          "each",
+          "include",
+          "mixin"
         ]
       }
     ],
@@ -27,6 +34,7 @@
           "/^lazy-/"
         ]
       }
-    ]
+    ],
+    "no-empty-source": null
   }
 }

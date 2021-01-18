@@ -7,20 +7,19 @@ const MEDIUM_DATA = gql`
     title
     shortDescription
     type
+    language
     slug
     cover
     source
     isbn
-    publishedDate
+    publishedYear
+    updatedAt
     users {
       name
       slug
+      cover
     }
     tags {
-      name
-      slug
-    }
-    category {
       name
       slug
     }
@@ -34,13 +33,29 @@ const MEDIUM_DATA = gql`
       id
       type
     }
+    votes {
+      id
+    }
+    slipboxes {
+      name
+      slug
+    }
+    ideas {
+      type
+      slug
+      content
+      user {
+        name
+        slug
+      }
+    }
   }
 `;
 
 // Get list of medium
-export const MEDIUMS_QUERY = gql`
-  query MediumsQuery($first: Int!) {
-    mediums(first: $first) {
+export const MEDIA_QUERY = gql`
+  query MediaQuery($first: Int!) {
+    media(first: $first) {
       items {
         ...MediumData
       }

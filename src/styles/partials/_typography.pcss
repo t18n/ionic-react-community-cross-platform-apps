@@ -1,135 +1,206 @@
-/*
-* Headings
-*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
+@define-mixin text $font, $size, $fontWeight, $letterSpace, $transform: none {
+  font-family: $font;
+  font-size: $size;
+  font-weight: $fontWeight;
+  letter-spacing: $letterSpace;
+  text-transform: $transform;
 }
 
-h1 {
-  font-size: 96px;
-  letter-spacing: -1.5px;
-  font-weight: 300;
+@define-mixin text-title-xxxl {
+  @mixin text var(--font-heading), 105px, 300, -1.5px;
 }
 
-h2 {
-  font-size: 60px;
-  letter-spacing: -0.5px;
-  font-weight: 300;
+@define-mixin text-title-xxl {
+  @mixin text var(--font-heading), 66px, 300, -0.5px;
 }
 
-h3 {
-  font-size: 48px;
-  letter-spacing: 0;
-  font-weight: 400;
+@define-mixin text-title-xl {
+  @mixin text var(--font-heading), 52px, 400, 0;
 }
 
-h4 {
-  font-size: 33px;
-  letter-spacing: 0.25px;
-  font-weight: 400;
+@define-mixin text-title-l {
+  @mixin text var(--font-heading), 37px, 400, 0.25px;
 }
 
-h5 {
-  font-size: 24px;
-  letter-spacing: 0;
-  font-weight: 400;
+@define-mixin text-title-m {
+  @mixin text var(--font-heading), 26px, 400, 0;
 }
 
-h6 {
-  font-size: 24px;
-  letter-spacing: 0;
-  font-weight: 500;
+@define-mixin text-title-s {
+  @mixin text var(--font-heading), 22px, 500, 0.15px;
 }
 
-/*
-* Body
-*/
-body,
-p,
-span,
-small,
-div,
-blockquote,
-button,
-a {
-  font-family: var(--font-body);
+@define-mixin text-subtitle-l {
+  @mixin text var(--font-body), 17px, 400, 0.15px;
 }
 
-p,
-div {
-  font-size: 15px;
-  letter-spacing: 0.25px;
-  font-weight: 400;
+@define-mixin text-subtitle-s {
+  @mixin text var(--font-body), 15px, 400, 0.1px;
 }
 
-div {
-  font-size: 15px;
-  letter-spacing: 0.25px;
-  font-weight: 400;
+@define-mixin text-paragraph-l {
+  @mixin text var(--font-body), 17px, 400, 0.5px;
 }
 
-button,
-ion-button {
-  font-size: 12px;
-  letter-spacing: 1.25px;
-  font-weight: 600;
-  text-transform: uppercase;
-  border-radius: 0;
+@define-mixin text-paragraph-s {
+  @mixin text var(--font-body), 15px, 400, 0.25px;
 }
 
-/*
-* Others
-*/
-code {
-  font-family: var(--font-mono);
+@define-mixin text-button {
+  @mixin text var(--font-body), 15px, 700, 1.25px, uppercase;
 }
 
-/*
-* Custom classes
-*/
-.medium-title {
-  font-size: 18px;
-  font-weight: 500;
+@define-mixin text-caption {
+  @mixin text var(--font-body), 13px, 400, 0.4px;
 }
 
-.overline {
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  font-weight: 400;
-  text-transform: uppercase;
+@define-mixin text-overline {
+  @mixin text var(--font-body), 11px, 400, 1.5px, uppercase;
 }
 
-.paragraph-small {
-  font-size: 13px;
-  letter-spacing: 0.5px;
-  font-weight: 400;
-}
+.brightizen {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block-start: unset;
+    margin-block-end: unset;
+    margin-inline-start: unset;
+    margin-inline-end: unset;
+    padding-block-start: unset;
+    padding-block-end: unset;
+    padding-inline-start: unset;
+    padding-inline-end: unset;
+  }
 
-.paragraph-large {
-  font-size: 15px;
-  letter-spacing: 0.25px;
-  font-weight: 400;
-}
+  /* Headings */
+  h1 {
+    @mixin text-title-xxxl;
+  }
 
-.subtitle-small {
-  font-size: 12px;
-  letter-spacing: 0.1px;
-  font-weight: 400;
-}
+  h2 {
+    @mixin text-title-xxl;
+  }
 
-.subtitle-large {
-  font-size: 15px;
-  letter-spacing: 0.15px;
-  font-weight: 400;
-}
+  h3 {
+    @mixin text-title-xl;
+  }
 
-.caption {
-  font-size: 12px;
-  letter-spacing: 0.4px;
-  font-weight: 400;
+  h4 {
+    @mixin text-title-l;
+  }
+
+  h5 {
+    @mixin text-title-m;
+  }
+
+  h6 {
+    @mixin text-title-s;
+  }
+
+  /* Body */
+  body,
+  p,
+  span,
+  small,
+  div,
+  blockquote,
+  a {
+    font-family: var(--font-body);
+  }
+
+  p,
+  div {
+    @mixin text-paragraph-l;
+  }
+
+  button,
+  ion-button,
+  .text-button {
+    @mixin text-button;
+
+    border-radius: 0;
+  }
+
+  /* Others */
+  code {
+    font-family: var(--font-mono);
+  }
+
+  /* Custom classes */
+
+  .title-xxxl {
+    @mixin text-title-xxxl;
+  }
+
+  .title-xxl {
+    @mixin text-title-xxl;
+  }
+
+  .title-xl {
+    @mixin text-title-xl;
+  }
+
+  .title-l {
+    @mixin text-title-l;
+  }
+
+  .title-m {
+    @mixin text-title-m;
+  }
+
+  .title-s {
+    @mixin text-title-s;
+  }
+
+  .overline {
+    @mixin text-overline;
+  }
+
+  .paragraph-s {
+    @mixin text-paragraph-s;
+  }
+
+  .paragraph-l {
+    @mixin text-paragraph-l;
+  }
+
+  .subtitle-s {
+    @mixin text-subtitle-s;
+  }
+
+  .subtitle-l {
+    @mixin text-subtitle-l;
+  }
+
+  .caption {
+    @mixin text-caption;
+  }
+
+  .button-text {
+    @mixin text-button;
+  }
+
+  /* Text style */
+  .case-none {
+    text-transform: none;
+  }
+
+  .case-upper {
+    text-transform: uppercase;
+  }
+
+  .text-light {
+    font-weight: 300 !important;
+  }
+
+  .text-normal {
+    font-weight: 400 !important;
+  }
+
+  .text-bold {
+    font-weight: 700 !important;
+  }
 }

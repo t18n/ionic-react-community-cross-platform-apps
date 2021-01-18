@@ -1,0 +1,24 @@
+/* Spacing */
+@define-mixin spaceTop $type, $value {
+  $(type)-top: $value;
+
+  --$(type)-top: $value;
+}
+
+@define-mixin spaceBottom $type, $value {
+  $(type)-bottom: $value;
+
+  --$(type)-bottom: $value;
+}
+
+@define-mixin spaceLeft $type, $value {
+  $(type)-left: $value;
+
+  --$(type)-start: $value;
+}
+
+@define-mixin spaceRight $type, $value {
+  $(type)-right: $value;
+
+  --$(type)-end: $value;
+}

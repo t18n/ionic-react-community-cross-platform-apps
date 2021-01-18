@@ -1,134 +1,158 @@
-import './styles/index.min.css';
-
-import {
-  IonButton,
-  IonCol,
-  IonContent,
-  IonInput,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonLoading,
-  IonRow,
-  IonToast,
-} from '@ionic/react';
-import { Trans } from '@lingui/macro';
+import { t, Trans } from '@lingui/macro';
+import { Button } from 'components/atoms/Button';
+import { Checkbox } from 'components/atoms/Checkbox';
+import { Input } from 'components/atoms/Input';
+import { Item, Label } from 'components/atoms/Item';
+import { Col, Row } from 'components/atoms/Layout/Grid';
+import { Link } from 'components/atoms/Layout/Link';
+import { Page, PageContent } from 'components/atoms/Layout/Page';
+import { List } from 'components/atoms/List';
+import { Loading } from 'components/atoms/Loading';
+import { Text } from 'components/atoms/Text';
+import { Toast } from 'components/atoms/Toast';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
+import { TextError } from 'components/molecules/Form/TextError';
+import { useLoginUser } from 'graphql/operation/user/mutation';
+import { useFormValidation } from 'hooks/useForm';
+import { useToast } from 'hooks/useToast';
 import React, { useState } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-import { Layout } from '../../components/Layout/index';
-import { useLoginUser } from '../../graphql/operation/user/mutation';
-import { ME } from '../../graphql/operation/user/shape';
-import { useToast } from '../../hooks/useToast';
-import mcl from './styles/index.pcss.json';
+interface LoginProps extends RouteComponentProps {}
 
-export const Login = ({ history }) => {
-  const [login, { loading: LOGIN_loading }] = useLoginUser();
+export const Login = ({ history }: LoginProps) => {
+  const { handleSubmit, errors, registerEmail, registerPassword } = useFormValidation();
+
+  const [login, { loading: isLoggingIn }] = useLoginUser();
   const [toast, setToast] = useToast(null);
 
   const [inputEmail, setInputEmail] = useState('');
   const [inputPassword, setInputPassword] = useState('');
 
-  const onLoginUser = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const [rememberChecked, setRememberChecked] = useState(false);
 
-    if (!inputPassword || !inputEmail) {
-      setToast({
-        status: true,
-        position: 'bottom',
-        message: `Please fill all required data`,
-        duration: 3000,
-        color: 'danger',
-      });
+  const onLoginUser = async (e: any) => {
+    // this part is for stopping parent forms to trigger their submit
+    if (e) {
+      // sometimes not true, e.g. React Native
+      if (typeof e.preventDefault === 'function') {
+        e.preventDefault();
+      }
+      if (typeof e.stopPropagation === 'function') {
+        // prevent any outer forms from receiving the event too
+        e.stopPropagation();
+      }
     }
 
-    // Login user
-    try {
-      await login({
-        variables: {
-          data: { email: inputEmail, password: inputPassword },
-        },
-        update(cache, { data: { login } }) {
-          // const { me } = cache.readQuery({ query: ME });
-          cache.writeQuery({
-            query: ME,
-            data: { me: login },
-          });
-        },
-      });
-
-      history.push('/explore', { direction: 'none' });
-    } catch (e) {
-      setToast({
-        status: true,
-        position: 'bottom',
-        message: `Login unsuccessfully! ${e}`,
-        duration: 3000,
-        color: 'danger',
-      });
-      return;
-    }
+    return handleSubmit(async () => {
+      // Login user
+      try {
+        await login(inputEmail, inputPassword);
+        await history.push('/');
+      } catch (e) {
+        setToast({
+          status: true,
+          position: 'bottom',
+          message: `${t`error.loginUnsuccessfully`} ${e}`,
+          duration: 300000,
+          color: 'danger',
+        });
+        return;
+      }
+    })(e);
   };
 
   return (
-    <Layout id="login-page" title={<Trans id="page.title.login" />}>
-      <IonContent>
-        <div className={mcl.container}>
-          <form noValidate onSubmit={onLoginUser} className={mcl.loginForm}>
-            <IonList>
-              <IonItem>
-                <IonLabel position="stacked" color="primary">
-                  Email
-                </IonLabel>
-                <IonInput
-                  name="email"
-                  type="text"
-                  value={inputEmail}
-                  spellCheck={false}
-                  autocapitalize="off"
-                  onIonChange={(e) => setInputEmail(e.detail.value)}
-                  required
-                ></IonInput>
-              </IonItem>
+    <Page>
+      <Breadcrumb title={t`page.title.login`} />
+      <PageContent>
+        <form
+          className="w-100p h-100p flex flex-col content-center justify-center"
+          noValidate
+          onSubmit={onLoginUser}
+        >
+          <List slot="start" className="w-m mx-auto">
+            <Item className="p-0 mt-m item-input">
+              <Label position="stacked" color="primary">
+                <Trans id="label.input.email" />
+              </Label>
+              <Input
+                name="email"
+                type="text"
+                value={inputEmail}
+                spellCheck={false}
+                autocapitalize="off"
+                onIonChange={(e: any) => setInputEmail(e.detail.value)}
+                onLoad={(e) => console.log('submit captured', e)}
+                placeholder="example@brightizen.com"
+                ref={registerEmail}
+              />
+              <TextError text={errors['email'] && errors['email']?.message} />
+            </Item>
 
-              <IonItem>
-                <IonLabel position="stacked" color="primary">
-                  Password
-                </IonLabel>
-                <IonInput
-                  name="password"
-                  type="password"
-                  value={inputPassword}
-                  onIonChange={(e) => setInputPassword(e.detail.value)}
-                ></IonInput>
-              </IonItem>
-            </IonList>
+            <Item className="p-0 mt-m item-input">
+              <Label position="stacked" color="primary">
+                <Trans id="label.input.password" />
+              </Label>
+              <Input
+                name="password"
+                type="password"
+                value={inputPassword}
+                onIonChange={(e: any) => setInputPassword(e.detail.value)}
+                ref={registerPassword}
+              />
+              <TextError text={errors['password'] && errors['password']?.message} />
+            </Item>
+          </List>
 
-            <IonToast
-              isOpen={toast?.status}
-              position={toast?.position}
-              message={toast?.message}
-              duration={toast?.duration}
-              color={toast?.color}
-              onDidDismiss={() => setToast({ ...toast, status: false })}
-            />
+          <Row className="w-m mx-auto mt-m">
+            <Col className="p-0">
+              <div className="flex items-center justify-start h-100p">
+                <Checkbox
+                  checked={rememberChecked}
+                  onIonChange={(e: any) => setRememberChecked(e.detail.checked)}
+                />
+                <Label className="ml-s text-button case-none">
+                  <Text as="span" type="subtitle-s" color="medium" transform="case-none">
+                    <Trans id="label.checkbox.rememberMe" />
+                  </Text>
+                </Label>
+              </div>
+            </Col>
+            <Col className="p-0 flex items-center justify-end">
+              <Link to="/forgot-password">
+                <Text as="span" type="subtitle-s" color="medium" transform="case-none">
+                  <Trans id="label.forgotPassword" />
+                </Text>
+              </Link>
+            </Col>
+          </Row>
 
-            {LOGIN_loading && <IonLoading isOpen={LOGIN_loading} message={'Logging in...'} />}
+          <Row className="w-m mt-l mx-auto">
+            <Col className="p-0 mr-m">
+              <Button type="submit" expand="block">
+                <Trans id="label.login" />
+              </Button>
+            </Col>
+            <Col className="p-0 ml-m">
+              <Button routerLink="/signup" expand="block" fill="outline">
+                <Trans id="label.signup" />
+              </Button>
+            </Col>
+          </Row>
 
-            <IonRow>
-              <IonCol>
-                <IonButton type="submit" expand="block">
-                  Login
-                </IonButton>
-              </IonCol>
-              <IonCol>
-                <IonButton routerLink="/signup" color="light" expand="block">
-                  Signup
-                </IonButton>
-              </IonCol>
-            </IonRow>
-          </form>
-        </div>
-      </IonContent>
-    </Layout>
+          <Toast
+            isOpen={toast?.status}
+            position={toast?.position}
+            message={toast?.message}
+            duration={toast?.duration}
+            color={toast?.color}
+            onDidDismiss={() => setToast({ ...toast, status: false })}
+          />
+
+          {isLoggingIn && <Loading isOpen={isLoggingIn} message={t`message.loggingIn`} />}
+        </form>
+      </PageContent>
+    </Page>
   );
 };

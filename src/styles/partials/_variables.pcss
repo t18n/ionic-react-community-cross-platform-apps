@@ -9,34 +9,48 @@
   /*
   * Spacing
   */
-  --space-s: calc(var(--grid) * 4);
-  --space-m: calc(var(--grid) * 7);
-  --space-l: calc(var(--grid) * 16);
+  --space-s: calc(var(--grid) * 2);
+  --space-m: calc(var(--grid) * 4);
+  --space-l: calc(var(--grid) * 6);
+  --space-xl: calc(var(--grid) * 8);
+  --space-xxl: calc(var(--grid) * 10);
 
   @media (--viewport-tablet) {
-    --space-s: calc(var(--grid) * 6);
-    --space-m: calc(var(--grid) * 10);
-    --space-l: calc(var(--grid) * 18);
+    --space-s: calc(var(--grid) * 3);
+    --space-m: calc(var(--grid) * 6);
+    --space-l: calc(var(--grid) * 8);
+    --space-xl: calc(var(--grid) * 10);
+    --space-xxl: calc(var(--grid) * 12);
   }
 
   @media (--viewport-desktop) {
-    --space-s: calc(var(--grid) * 6);
-    --space-m: calc(var(--grid) * 12);
-    --space-l: calc(var(--grid) * 20);
+    --space-s: calc(var(--grid) * 3);
+    --space-m: calc(var(--grid) * 6);
+    --space-l: calc(var(--grid) * 8);
+    --space-xl: calc(var(--grid) * 10);
+    --space-xxl: calc(var(--grid) * 12);
   }
 
   /*
   * Fonts
   */
-  --font-heading: 'Roboto';
+  --font-heading: 'Nunito Sans', sans-serif;
   --font-mono: '"Roboto Mono" ,monospace';
   /* stylelint-disable */
-  --font-body: 'Roboto', -apple-system, blinkmacsystemfont, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-body: 'Nunito Sans', sans-serif, -apple-system, blinkmacsystemfont, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   /* stylelint-enable */
 
   /*
   * Properties
   */
   --radius: var(--grid);
+  --shadow-s: rgba(0, 0, 0, 0.1);
+  --shadow-m: rgba(0, 0, 0, 0.2);
+  --shadow-l: rgba(0, 0, 0, 0.5);
+
+  /*
+  * Custom
+  */
+  --logo-w-to-h-multiplier: 3;
 }

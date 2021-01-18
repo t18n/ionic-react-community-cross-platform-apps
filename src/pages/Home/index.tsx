@@ -1,23 +1,16 @@
-import { IonButton, IonContent } from '@ionic/react';
-import { Trans } from '@lingui/macro';
+import './index.min.css';
+
+import { Page } from 'components/atoms/Layout/Page';
+import { UserContext } from 'context/User';
+import { Explore } from 'pages/Explore';
+import { Tour } from 'pages/Tour';
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-import { Layout } from '../../components/Layout/index';
+interface HomeProps extends RouteComponentProps {}
 
-export const Home = ({ history }) => {
-  return (
-    <Layout id="home-page" title={<Trans id="page.title.home" />}>
-      <IonContent className="ion-padding ion-text-center" fullscreen={true}>
-        <h1>Welcome to Brightizen community</h1>
-        <IonButton
-          onClick={(e) => {
-            e.preventDefault();
-            history.push('/explore');
-          }}
-        >
-          Explore
-        </IonButton>
-      </IonContent>
-    </Layout>
-  );
+export const Home = ({ ...rest }: HomeProps) => {
+  const { isAuthed } = UserContext.useContainer();
+
+  return <Page>{!isAuthed ? <Tour {...rest} /> : <Explore {...rest} />}</Page>;
 };

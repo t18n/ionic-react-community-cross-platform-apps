@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package brightizen.com;
 
 import android.os.Bundle;
 

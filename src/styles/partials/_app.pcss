@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: constant(safe-area-inset-top); /* for iOS 11.2 */
+  padding-top: env(safe-area-inset-top); /* for iOS 11.2 */
+}
+
+/* Removing input background colour for Chrome autocomplete */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 calc(var(--grid) * 8) white inset !important;
+}

@@ -1,5 +1,5 @@
 import { ApolloLink, HttpLink } from '@apollo/client';
-import { onError } from '@apollo/link-error';
+import { onError } from '@apollo/client/link/error';
 
 /**
  * Link
@@ -17,6 +17,8 @@ const httpLink = (uri: string) => {
 };
 
 // Error handler
+// TODO: Implement error handling
+// https://tomek.fojtuch.com/blog/error-handling-with-apollo-client/
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
     graphQLErrors.forEach(({ message, locations, path }) => {
@@ -25,6 +27,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
         `[GraphQL error]: Message: ${message}, Location: ${codeLocation}, Path: ${path}`
       );
     });
+
   if (networkError) console.error(`[Network error]: ${networkError}`);
 });
 

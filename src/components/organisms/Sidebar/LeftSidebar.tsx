@@ -1,0 +1,268 @@
+import './index.min.css';
+
+import { menuController } from '@ionic/core';
+import { t, Trans } from '@lingui/macro';
+import { Toggle } from 'components/atoms/Button';
+import { Icon } from 'components/atoms/Icon';
+import { Item, Label } from 'components/atoms/Item';
+import { Header } from 'components/atoms/Layout/Header';
+import { Menu } from 'components/atoms/Layout/Menu';
+import { Toolbar } from 'components/atoms/Layout/Toolbar';
+import { List, ListHeader } from 'components/atoms/List';
+import { Loading } from 'components/atoms/Loading/index';
+import { Logo } from 'components/atoms/Logo';
+import { Img, Thumbnail } from 'components/atoms/Media';
+import { Popover } from 'components/atoms/Popover';
+import { Select, SelectOption } from 'components/atoms/Select';
+import { Text } from 'components/atoms/Text';
+import { Toast } from 'components/atoms/Toast';
+import { UserContext } from 'context/User';
+import { useLogoutUser } from 'graphql/operation/user/mutation';
+import { ME } from 'graphql/operation/user/shape';
+import { useToast } from 'hooks/useToast';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import ThemeService from 'services/theme';
+import { appPages } from 'settings/appPages';
+import { LocaleId } from 'settings/locale';
+
+import { activateLanguage } from '../I18n/utils';
+
+interface LeftSidebarProps {
+  contentId: string;
+}
+
+export const LeftSidebar = ({ contentId }: LeftSidebarProps) => {
+  const [isDarkMode, setIsDarkMode] = useState(ThemeService.getCurrentSetting());
+  const [showPopover, setShowPopover] = useState(false);
+  const [toast, setToast] = useToast(null);
+  const location = useLocation();
+
+  const { me, isAuthed } = UserContext.useContainer();
+  const [logout, { loading: LOGOUT_loading }] = useLogoutUser();
+
+  const loginPage = appPages.login;
+
+  /**
+   * Toggle the dark mode
+   */
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  /**
+   * Close menu
+   */
+  const closeMenu = async () => await menuController.close('left-sidebar');
+
+  /**
+   * Logout an user
+   */
+  const onLogout = async (e) => {
+    e.preventDefault();
+
+    try {
+      await logout({
+        update(cache) {
+          cache.writeQuery({
+            query: ME,
+            data: { me: null },
+          });
+        },
+      });
+
+      setShowPopover(false);
+    } catch (e) {
+      setToast({
+        status: true,
+        position: 'bottom',
+        message: e,
+        duration: 200,
+        color: 'danger',
+      });
+      return;
+    }
+  };
+
+  /**
+   * Observe dark mode
+   */
+  useEffect(() => {
+    ThemeService.toggleDarkMode(isDarkMode);
+  }, [isDarkMode]);
+
+  return (
+    <Menu
+      type="overlay"
+      side="start"
+      contentId={contentId}
+      menuId="left-sidebar"
+      className="left-sidebar"
+      swipeGesture
+    >
+      <div className="left-sidebar__content">
+        <List color="light">
+          <Header slot="start">
+            <Toolbar className="border-0" color="light">
+              <Logo extraClasses="left-sidebar__logo" />
+            </Toolbar>
+          </Header>
+
+          {/* My profile */}
+          {isAuthed ? (
+            <Item
+              detail={false}
+              onClick={() => {
+                closeMenu();
+                setShowPopover(true);
+              }}
+              type="button"
+              className="cursor-pointer mt-s"
+              lines="none"
+            >
+              <Thumbnail slot="start" className="radius-all small">
+                <Img src={me.cover} />
+              </Thumbnail>
+
+              <Label color="dark">
+                <Text
+                  as="a"
+                  color="dark"
+                  type="subtitle-l"
+                  fontWeight="text-bold"
+                  extraClasses="ml-s"
+                >
+                  {me?.name}
+                </Text>
+              </Label>
+            </Item>
+          ) : (
+            <Item
+              detail={false}
+              onClick={closeMenu}
+              routerLink={loginPage.url}
+              lines="none"
+              className={`mt-s left-sidebar__item ${
+                location.pathname === loginPage.url && 'active'
+              }`}
+            >
+              <Icon icon={loginPage.icon} slot="start" size="large" color="medium" />
+              <Label color="medium">
+                <Text
+                  as="a"
+                  color="dark"
+                  fontWeight="text-bold"
+                  type="subtitle-l"
+                  extraClasses="ml-s"
+                >
+                  <Trans id={loginPage.title} />
+                </Text>
+              </Label>
+            </Item>
+          )}
+
+          {/* List of pages */}
+          {Object.keys(appPages).map(
+            (id) =>
+              appPages[id].showInSidebar && (
+                <Item
+                  key={appPages[id].title}
+                  className={`mt-s left-sidebar__item ${
+                    location.pathname === appPages[id].url && 'active'
+                  }`}
+                  routerLink={appPages[id].url}
+                  routerDirection="forward"
+                  detail={false}
+                  onClick={closeMenu}
+                  lines="none"
+                >
+                  <Icon icon={appPages[id].icon} slot="start" size="large" color="medium" />
+                  <Label color="medium">
+                    <Text
+                      as="a"
+                      color="dark"
+                      fontWeight="text-bold"
+                      type="subtitle-l"
+                      extraClasses="ml-s"
+                    >
+                      <Trans id={appPages[id].title} />
+                    </Text>
+                  </Label>
+                </Item>
+              )
+          )}
+        </List>
+      </div>
+
+      <Popover
+        isOpen={showPopover}
+        onDidDismiss={() => setShowPopover(false)}
+        className="bg-overlay"
+      >
+        <ListHeader className="text-center">
+          <Label color="dark">
+            <Trans id="label.preferences" />
+          </Label>
+        </ListHeader>
+        <List className="h-100p w-100p bg-transparent flex flex-col items-center pt-m pb-m">
+          {/* Dark mode */}
+          <Item className="mt-s">
+            <Toggle slot="start" checked={isDarkMode} onIonChange={toggleDarkMode} />
+            <Label color="medium">
+              <Text as="span" color="dark">
+                <Trans id="label.darkMode" />
+              </Text>
+            </Label>
+          </Item>
+
+          {/* Language */}
+          <Item className="mt-s">
+            <Label>
+              <Text as="span" color="medium">
+                <Trans id="label.language" />
+              </Text>
+            </Label>
+            <Select
+              value={LocaleId.EN}
+              okText="Select"
+              cancelText="Cancel"
+              onIonChange={(e: any) => activateLanguage(e.detail.value)}
+              color="medium"
+            >
+              <SelectOption value={LocaleId.VI}>
+                <Text as="span" color="medium">
+                  <Trans id="label.vietnamese" />
+                </Text>
+              </SelectOption>
+              <SelectOption value={LocaleId.EN}>
+                <Text as="span" color="medium">
+                  <Trans id="label.english" />
+                </Text>
+              </SelectOption>
+            </Select>
+          </Item>
+
+          {/* Logout */}
+          <Item onClick={onLogout} className="cursor-pointer mt-s">
+            <Label color="medium">
+              <Text as="span" color="dark">
+                <Trans id="label.logOut" />
+              </Text>
+            </Label>
+          </Item>
+        </List>
+      </Popover>
+
+      {LOGOUT_loading && <Loading isOpen={LOGOUT_loading} message={t`message.loggingOut`} />}
+
+      <Toast
+        isOpen={toast?.status}
+        position={toast?.position}
+        message={toast?.message}
+        duration={toast?.duration}
+        color={toast?.color}
+        onDidDismiss={() => setToast({ ...toast, status: false })}
+      />
+    </Menu>
+  );
+};

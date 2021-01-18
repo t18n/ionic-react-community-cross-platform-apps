@@ -1,13 +1,23 @@
 /*
-* Setting
+* Ionic
 */
+
+/* Normalize */
+@import 'normalize.css/normalize.css';
+
+/* Mixins */
+@import './partials/_mixins.pcss';
+
+/* Setting */
 @import './partials/_variables.pcss';
 @import './partials/_theming.pcss';
-@import './partials/_features.pcss';
 
-/*
-* Global
-*/
-@import './partials/_global.pcss';
+/* Core css */
+@import '@ionic/react/css/core.css';
+@import './partials/_app.pcss';
+
+/* Utils css */
 @import './partials/_typography.pcss';
-@import './partials/_shared.pcss';
+@import './partials/_color.pcss';
+@import './partials/_display.pcss';
+@import './partials/_utils.pcss';

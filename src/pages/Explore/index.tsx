@@ -1,86 +1,67 @@
-import {
-  IonCol,
-  IonContent,
-  IonGrid,
-  IonHeader,
-  IonList,
-  IonListHeader,
-  IonRow,
-  IonSpinner,
-  IonTitle,
-  IonToolbar,
-  useIonViewDidEnter,
-} from '@ionic/react';
-import { t, Trans } from '@lingui/macro';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { t } from '@lingui/macro';
+import { Chip } from 'components/atoms/Chip';
+import { Col, Row } from 'components/atoms/Layout/Grid';
+import { PageContent } from 'components/atoms/Layout/Page';
+import { Breadcrumb } from 'components/molecules/Breadcrumb';
+import PostItem from 'components/molecules/PostItem';
+import SkeletonPost from 'components/organisms/SkeletonPost';
+import { useMediaQuery } from 'graphql/operation/medium/query';
+import { useSearchBar } from 'hooks/useSearchbar';
+import uniqBy from 'lodash/uniqBy';
+import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-import { Header } from '../../components/Header';
-import { Layout } from '../../components/Layout';
-import { TagPreview } from '../../components/TagPreview';
-import { useMediumsQuery } from '../../graphql/operation/medium/query';
+/**
+ * Type
+ */
+interface HomeProps extends RouteComponentProps {}
 
-export const Explore = () => {
-  const [state, setState] = useState({
-    isLoading: true,
-    topTags: [],
-    topDiscussion: [],
-    topSearch: [],
-  });
-  const [isError] = useState<boolean>(false);
+/**
+ * Component
+ */
+export const Explore = ({ history }: HomeProps) => {
+  const { isSearchFocused } = useSearchBar();
 
-  const { data: MEDIUM_data } = useMediumsQuery({
+  const { data: MEDIUM_DATA, loading, error } = useMediaQuery({
     variables: {
-      first: 5,
+      first: 20,
     },
   });
 
-  useEffect(() => console.log('MEDIUM_data', MEDIUM_data), [MEDIUM_data]);
+  const mediaToShow = !MEDIUM_DATA ? null : MEDIUM_DATA.media.items.slice(0, 20);
 
-  useIonViewDidEnter(() => {
-    setState({
-      topTags: [],
-      topDiscussion: [],
-      topSearch: [],
-      isLoading: false,
-    });
-  });
+  const availableTags = !mediaToShow
+    ? null
+    : uniqBy(mediaToShow.map(({ tags }) => tags).flat(), 'name');
 
   return (
-    <Layout id="explore-page" title={<Trans id="page.title.explore" />}>
-      <IonContent fullscreen={true}>
-        <IonHeader collapse="condense" className="ion-no-border">
-          <IonToolbar className=" transparent">
-            <IonTitle size="large">Browse</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        {isError ? 'There are some errors' : null}
-        {!state.isLoading ? (
-          <>
-            <IonList>
-              <IonGrid fixed={true} className="ion-no-padding">
-                <IonListHeader>
-                  <h1>Top Mediums</h1>
-                </IonListHeader>
-                <IonRow className="ion-justify-content-start">
-                  {MEDIUM_data &&
-                    MEDIUM_data.mediums.items.slice(0, 4).map(({ id, slug, title, cover }) => (
-                      <IonCol sizeLg="4" sizeXl="3" key={id} className="ion-no-padding">
-                        <Link to={`mediums/${slug}`}>
-                          <TagPreview title={title} imgSrc={cover} imgAlt={title} rating="4.5" />
-                        </Link>
-                      </IonCol>
-                    ))}
-                </IonRow>
-              </IonGrid>
-            </IonList>
-          </>
-        ) : (
-          <div className="ion-text-center ion-padding">
-            <IonSpinner color="primary" />
-          </div>
+    <>
+      <Breadcrumb title={t`page.title.explore`} />
+
+      <PageContent>
+        {error ? error.message : null}
+
+        {loading && <SkeletonPost />}
+        {!loading && mediaToShow && (
+          <Row className={`scroll-y px py ${isSearchFocused ? 'hide' : ''}`}>
+            {/* Chips */}
+            <Col size="12">
+              {availableTags &&
+                availableTags.map((tag) => (
+                  <Chip outline className="mr-s" color="medium" key={tag.name}>
+                    {tag.name}
+                  </Chip>
+                ))}
+            </Col>
+
+            <Col size="12">
+              {mediaToShow.map((medium) => (
+                <PostItem key={medium.id} {...medium} />
+              ))}
+            </Col>
+          </Row>
         )}
-      </IonContent>
-    </Layout>
+      </PageContent>
+    </>
   );
 };
