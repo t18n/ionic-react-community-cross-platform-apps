@@ -1,4 +1,4 @@
-# Ionic React Boilerplate
+# Ionic React Cross Platform App
 
 ## Prerequisite
 
