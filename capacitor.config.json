@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "Brightizen",
+  "appName": "CrossPlatformIonic",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
   "webDir": "public",

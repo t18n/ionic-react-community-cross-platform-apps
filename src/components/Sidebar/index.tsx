@@ -47,7 +47,7 @@ export const Sidebar = () => {
             <IonToolbar>
               <IonRouterLink routerLink="/">
                 <IonTitle className={mcl.logo}>
-                  <LazyImg lazySrc={logo} alt="Brightizen" />
+                  <LazyImg lazySrc={logo} alt="CrossPlatformIonic" />
                 </IonTitle>
               </IonRouterLink>
             </IonToolbar>

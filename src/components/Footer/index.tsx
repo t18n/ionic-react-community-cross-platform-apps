@@ -8,6 +8,6 @@ import mcl from './styles/index.pcss.json';
 
 export const Footer = () => (
   <IonFooter translucent={true} className={mcl.brFooter}>
-    <IonToolbar>Brightizen</IonToolbar>
+    <IonToolbar>CrossPlatformIonic</IonToolbar>
   </IonFooter>
 );

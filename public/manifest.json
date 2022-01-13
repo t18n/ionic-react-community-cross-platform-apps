@@ -1,6 +1,6 @@
 {
-  "short_name": "Brightizen",
-  "name": "Brightizen",
+  "short_name": "CrossPlatformIonic",
+  "name": "CrossPlatformIonic",
   "icons": [
     {
       "src": "../src/assets/brand/favicon.ico",

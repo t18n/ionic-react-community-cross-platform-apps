@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Brightizen</string>
-    <string name="title_activity_main">Brightizen</string>
-    <string name="package_name">io.ionic.brightizen</string>
-    <string name="custom_url_scheme">io.ionic.brightizen</string>
+    <string name="app_name">CrossPlatformIonic</string>
+    <string name="title_activity_main">CrossPlatformIonic</string>
+    <string name="package_name">io.ionic.crossPlatformIonic</string>
+    <string name="custom_url_scheme">io.ionic.crossPlatformIonic</string>
 </resources>
